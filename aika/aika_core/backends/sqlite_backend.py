@@ -12,7 +12,6 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import Any, Iterable
 
-from aika.report import build_report_spec, render_html, render_markdown, render_markdown_sections
 from aika.aika_core.data_paths import (
     CLAIMS_FILE,
     EVIDENCE_SPANS_FILE,
@@ -414,6 +413,11 @@ class SQLiteResearchBackend(ResearchBackend):
         return _dedupe_gaps(gaps)[:12]
 
     def build_research_brief(self, query: str, *, topic: str = "") -> ResearchBrief:
+        # Imported here, not at module level: rendering a report is a presentation
+        # concern and pulls in jinja2. Keeping it lazy lets a SQLite-only install import
+        # this backend without the report layer.
+        from aika.report import build_report_spec, render_html, render_markdown, render_markdown_sections
+
         subject = _text(query) or (f"{topic}投研简报" if topic else "AI算力产业链投研简报")
         focus_topic = _text(topic)
         evidence_cards = self.search_evidence(subject, top_k=8, topic=focus_topic or None)

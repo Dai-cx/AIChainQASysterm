@@ -101,7 +101,10 @@ def verify_answer_support(
         "unsupported_terms": unsupported_terms,
     }
     gaps = evidence_gap_rows(checks, conflict_groups)
-    status = verification_status(checks, gaps, conflict_groups, bool(cards))
+    # Missing risk evidence is fatal only for a question that asked for risk analysis;
+    # otherwise it is one more documented gap in an otherwise usable answer.
+    strict_risk = getattr(plan, "answer_type", "") == "risk_analysis"
+    status = verification_status(checks, gaps, conflict_groups, bool(cards), strict_risk=strict_risk)
     return {
         "status": status,
         "checks": checks,
@@ -467,10 +470,19 @@ def evidence_gap_rows(checks: dict[str, Any], conflict_groups: list[dict[str, An
     return dedupe_gap_rows(gaps)[:12]
 
 
-def verification_status(checks: dict[str, Any], gaps: list[dict[str, str]], conflict_groups: list[dict[str, Any]], has_cards: bool) -> str:
+def verification_status(
+    checks: dict[str, Any],
+    gaps: list[dict[str, str]],
+    conflict_groups: list[dict[str, Any]],
+    has_cards: bool,
+    *,
+    strict_risk: bool = True,
+) -> str:
     if not has_cards:
         return "fail"
-    hard_checks = ("citation_validity", "company_coverage", "numeric_support", "metric_support", "exposure_support", "risk_support")
+    hard_checks = ["citation_validity", "company_coverage", "numeric_support", "metric_support", "exposure_support"]
+    if strict_risk:
+        hard_checks.append("risk_support")
     if any(checks[name].get("status") == "fail" for name in hard_checks):
         return "fail"
     if checks["temporal_consistency"].get("status") == "warn" or conflict_groups or gaps:

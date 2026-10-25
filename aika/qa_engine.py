@@ -31,6 +31,7 @@ from pathlib import Path
 from typing import Any
 
 from aika.cypher_generator import GeneratedCypher, generate_cypher
+from aika.aika_core.data_paths import resolve_graph_dir
 from aika.curated_graph import DEFAULT_CURATED_DIR
 from aika.extraction_schema import normalize_name
 from aika.frontend_data import LocalKnowledgeGraph, RELATION_LABELS, subgraph_edges
@@ -428,9 +429,7 @@ class QAEngine:
         # CSV 图谱
         csv_graph = None
         graph_error = ""
-        graph_data_dir = Path(os.getenv("KG_DATA_DIR", str(DEFAULT_CURATED_DIR)))
-        if not (graph_data_dir / "entities.csv").exists() or not (graph_data_dir / "relations.csv").exists():
-            graph_data_dir = Path(__file__).resolve().parents[1] / "data" / "verified"
+        graph_data_dir = resolve_graph_dir(os.getenv("KG_DATA_DIR"))
         try:
             csv_graph = LocalKnowledgeGraph.from_dir(graph_data_dir)
         except Exception as exc:

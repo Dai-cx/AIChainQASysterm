@@ -22,6 +22,7 @@ from aika.conversation_store import (
     InvalidConversationError,
     now_iso,
 )
+from aika.aika_core.data_paths import has_graph, resolve_graph_dir
 from aika.curated_graph import DEFAULT_CURATED_DIR
 from aika.eval.feedback import FeedbackStore, InvalidFeedbackError
 from aika.eval.store import EvalRunNotFoundError, EvalRunStore, InvalidEvalRunError
@@ -155,8 +156,8 @@ def _cached_qa_engine() -> QAEngine:
 
 @lru_cache(maxsize=1)
 def _cached_knowledge_graph() -> LocalKnowledgeGraph:
-    data_dir = Path(os.getenv("KG_DATA_DIR", str(DEFAULT_CURATED_DIR)))
-    if not (data_dir / "entities.csv").exists() or not (data_dir / "relations.csv").exists():
+    data_dir = resolve_graph_dir(os.getenv("KG_DATA_DIR"))
+    if not has_graph(data_dir):
         return LocalKnowledgeGraph.from_csvs()
     return LocalKnowledgeGraph.from_dir(data_dir)
 

@@ -27,3 +27,25 @@ DEFAULT_RELATIONS_CSV = DEFAULT_CURATED_DIR / RELATIONS_FILE
 
 def resolve_data_dir(data_dir: str | Path | None = None) -> Path:
     return Path(data_dir).expanduser().resolve() if data_dir else DEFAULT_CURATED_DIR
+
+
+def has_graph(directory: Path) -> bool:
+    return (directory / ENTITIES_FILE).exists() and (directory / RELATIONS_FILE).exists()
+
+
+def resolve_graph_dir(value: str | Path | None = None) -> Path:
+    """Resolve the directory the knowledge graph is read from.
+
+    `data/curated` and `data/verified` both contain an entities/relations pair, but they
+    are different artefacts: `curated` is a distilled subset (285 entities / 1 company in
+    the current snapshot) while `verified` is the full graph built from source documents
+    (768 entities / 48 companies). Both the web API and the QA engine used to default to
+    `curated`, so the application ran on the distilled subset and the rich graph was
+    never loaded. The rich graph wins whenever it exists.
+    """
+    if value:
+        return Path(value).expanduser().resolve()
+    for candidate in (DEFAULT_VERIFIED_DIR, DEFAULT_CURATED_DIR):
+        if has_graph(candidate):
+            return candidate
+    return DEFAULT_CURATED_DIR

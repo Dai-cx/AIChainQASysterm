@@ -416,3 +416,21 @@ class ResearchBackend(ABC):
     @abstractmethod
     def get_company_profile(self, company: str, *, topic: str = "") -> CompanyProfile:
         raise NotImplementedError
+
+    # Optional capabilities. They are part of the contract (callers rely on them) but not
+    # abstract: a backend that cannot answer them raises NotImplementedError instead of
+    # silently not having the attribute, which is what the old hasattr() shells checked.
+    def build_research_brief(self, query: str, *, topic: str = "") -> ResearchBrief:
+        raise NotImplementedError("Backend does not expose build_research_brief.")
+
+    def compare_companies(self, companies: Any, *, topic: str = "") -> CompanyComparison:
+        raise NotImplementedError("Backend does not expose compare_companies.")
+
+    def audit_evidence_gaps(
+        self,
+        query: str,
+        *,
+        companies: Any = None,
+        topic: str = "",
+    ) -> list[EvidenceGap]:
+        raise NotImplementedError("Backend does not expose audit_evidence_gaps.")

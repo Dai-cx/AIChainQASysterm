@@ -220,6 +220,29 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 - **验收**：`pytest` 仍 249 passed；`ruff` 无 unused 告警；行数从 31.1k → ~29k
 - **注**：这一步**不删测试**，删掉的死码本就没有测试（已 grep 确认零引用）
 
+#### P2 执行记录（2026-10-25，已完成前半段）
+
+| 动作 | 效果 | 提交 |
+|---|---|---|
+| 删 `qa_engine.py` 7 个零调用函数 | −178 行 | `f1656ea` |
+| 删 `sqlite_backend.py` 6 个死函数 | −53 行 | 随 `29e087f` |
+| 删死模板 `coverage_audit.html.j2`、`research_brief.html.j2` | −2 文件 | 随 `29e087f` |
+| 删 `langchain_tools.py` 及其 4 处接线 | −114 行 | `29e087f` |
+| 删 `render_svg_graph` + API `svg` 字段 + TS 类型 | −147 行 | `29e087f` |
+| JSON / SSE 两条重复流水线合并为 `_run_answer_pipeline` | −127 行 | `b749142` |
+| 把 `qa_engine` 助手层拆成 `aika/qa/{text,history,subgraph,constants,types}.py` | −962 行（`qa_engine` 2624 → 1336） | `a24d3af` |
+
+**净值**：`aika/` 31,151 → 30,572 行（−579）；`qa_engine.py` 2624 → 1336（−49%）；测试 247 passed / 1 skipped（少的那条随 SVG 渲染器一起删除）。
+
+**顺带修掉 3 个"答案被丢掉"的 bug**（都在 `aika/agents/verification.py`，是填了 API Key 后仍看到模板答案的根因）：
+
+1. `risk_support_check` 用 `f"{question} {answer}"` 判断"是否需要风险证据"——答案里出现"风险"二字就把自己判失败；
+2. `exposure_support_check` 把"答案里出现核心敞口/直接敞口等词但没有任何敞口证据卡"判为硬失败，而解释这些词本身就会触发；
+3. 缺风险证据时一律硬失败 → 整段 LLM 答案被 `build_evidence_limited_answer` 覆盖；现在只有 `answer_type == "risk_analysis"`（用户明确问风险）才硬失败，其余降级为 `warn` + 记入 `evidence_gaps`。
+
+**推迟到 P3/P4**：`research_agent.py:308-560` 旧整形层、`LocalRagIndex`/`SemanticIndex`、`default_tool_registry`+`ToolRegistry`、`postgres_backend.py`、`aika_core/{brief,compare,gaps,profiles}.py` 转发壳、三个一次性脚本。
+
+
 ### P3　单一入口与单一身份（1.5 天）— 让"交付面"存在
 1. 合并 `aika/cli.py` 与 `aika/aika_cli.py` 为一个 `aika/cli/main.py`：保留 `aika` 名，`aika_cli` 的真命令 + `cli.py` 的 `api/web/eval` 子命令
 2. 删除 `aiqasys` 身份（`prog="aiqasys"`、`_package_version` 死分支）

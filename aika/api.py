@@ -26,7 +26,7 @@ from aika.aika_core.data_paths import has_graph, resolve_graph_dir
 from aika.curated_graph import DEFAULT_CURATED_DIR
 from aika.eval.feedback import FeedbackStore, InvalidFeedbackError
 from aika.eval.store import EvalRunNotFoundError, EvalRunStore, InvalidEvalRunError
-from aika.frontend_data import LocalKnowledgeGraph, RELATION_LABELS, render_svg_graph, subgraph_edges
+from aika.frontend_data import LocalKnowledgeGraph, RELATION_LABELS, subgraph_edges
 from aika.llm_client import load_dotenv
 from aika.qa_engine import QAEngine, normalize_agent_max_steps, normalize_agent_runner
 from aika.research_claims import normalize_claim_review
@@ -749,7 +749,6 @@ async def graph_subgraph(
     return {
         "rows": rows,
         "edges": edges,
-        "svg": render_svg_graph(edges),
     }
 
 

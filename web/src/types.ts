@@ -391,7 +391,6 @@ export interface GraphSummary extends GraphStats {
 export interface GraphSubgraph {
   rows: Record<string, unknown>[];
   edges: GraphEdge[];
-  svg: string;
 }
 
 export type MessageStreamEvent =

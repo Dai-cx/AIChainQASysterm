@@ -26,7 +26,6 @@ from aika.agents.centralized import (
     ReviewReport,
 )
 from aika.agents.coverage import CoverageReport
-from aika.langchain_tools import build_langchain_tools
 from aika.professional_qa import EvidenceCard
 
 
@@ -48,7 +47,6 @@ class LangGraphAgentState(TypedDict, total=False):
     llm_options: dict[str, Any]
     tools: AgentTools
     coordinator: CentralizedCoordinator
-    langchain_tool_names: list[str]
     history: list[dict[str, str]]
     history_memory: dict[str, Any]
     contextual_question: str
@@ -182,7 +180,6 @@ class LangGraphAgentRunner(AgentRunner):
             "llm_options": llm_options,
             "tools": tools,
             "coordinator": coordinator,
-            "langchain_tool_names": [tool.name for tool in build_langchain_tools(tools)],
             "trace": [],
             "retrieval_state": AgentRetrievalState(),
             "round_index": 0,
@@ -517,7 +514,6 @@ class LangGraphAgentRunner(AgentRunner):
         diagnostics = result.setdefault("diagnostics", {})
         diagnostics["agent_runner"] = "langgraph"
         diagnostics["langgraph_enabled"] = True
-        diagnostics["langchain_tools"] = list(state.get("langchain_tool_names") or [])
         diagnostics["llm_calls"] = state["llm_budget"].calls
         diagnostics["multi_agent"] = {
             **state["coordinator"].diagnostics(),

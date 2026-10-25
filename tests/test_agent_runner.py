@@ -158,7 +158,6 @@ def test_agent_runner_is_enabled_by_default_and_records_four_phase_trace() -> No
     assert diagnostics["agent_enabled"] is True
     assert diagnostics["agent_runner"] == "langgraph"
     assert diagnostics["langgraph_enabled"] is True
-    assert "search_rag" in diagnostics["langchain_tools"]
     assert diagnostics["agent_steps"] <= 4
     assert phases == ["plan", "retrieve", "supplement", "verify_answer"]
     assert result["evidence_cards"]

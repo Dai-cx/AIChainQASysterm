@@ -1,4 +1,4 @@
-from aika.frontend_data import LocalKnowledgeGraph, infer_question, render_svg_graph, subgraph_edges
+from aika.frontend_data import LocalKnowledgeGraph, infer_question, subgraph_edges
 
 
 def sample_graph() -> LocalKnowledgeGraph:
@@ -75,13 +75,3 @@ def test_graph_filter_by_company() -> None:
 
     assert len(rows) == 1
     assert rows[0]["head_name"] == "天孚通信"
-
-
-def test_render_svg_graph_outputs_svg() -> None:
-    edges = subgraph_edges(sample_graph().relations)
-
-    svg = render_svg_graph(edges)
-
-    assert "<svg" in svg
-    assert 'data-layout="layered"' in svg
-    assert "浪潮信息" in svg

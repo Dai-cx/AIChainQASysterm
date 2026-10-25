@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 import aika.llm_client as llm_client
+from aika.aika_mcp import pdf as mcp_pdf
 from aika.aika_mcp import tools
 from aika.aika_mcp.schemas import request_schema_catalog
 from aika.aika_mcp.server import create_server, registered_tool_names
@@ -146,7 +147,7 @@ def test_render_report_pdf_from_topic_returns_report_paths(tmp_path: Path, monke
         pdf_path.write_bytes(b"%PDF-1.4\n")
         return {"html_path": str(html_path), "pdf_path": str(pdf_path)}
 
-    monkeypatch.setattr(tools, "export_report_pdf", fake_export)
+    monkeypatch.setattr(mcp_pdf, "export_report_pdf", fake_export)
 
     result = tools.render_report_pdf({"topic": "液冷产业链", "home": str(tmp_path / "missing"), "output_dir": str(tmp_path)})
 
@@ -172,7 +173,7 @@ def test_render_report_pdf_from_report_spec_does_not_require_retrieval(tmp_path:
         pdf_path.write_bytes(b"%PDF-1.4\n")
         return {"html_path": str(html_path), "pdf_path": str(pdf_path)}
 
-    monkeypatch.setattr(tools, "export_report_pdf", fake_export)
+    monkeypatch.setattr(mcp_pdf, "export_report_pdf", fake_export)
 
     result = tools.render_report_pdf({"report_spec": sample_report_spec(), "home": str(tmp_path / "missing"), "output_dir": str(tmp_path)})
 
@@ -193,7 +194,7 @@ def test_render_report_pdf_reports_playwright_unavailable(tmp_path: Path, monkey
     def fail_export(spec, *, output_dir, html=None):
         raise PdfRenderError("Playwright is not installed.")
 
-    monkeypatch.setattr(tools, "export_report_pdf", fail_export)
+    monkeypatch.setattr(mcp_pdf, "export_report_pdf", fail_export)
 
     result = tools.render_report_pdf({"report_spec": sample_report_spec(), "home": str(tmp_path / "missing"), "output_dir": str(tmp_path)})
 

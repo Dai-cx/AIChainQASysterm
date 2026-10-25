@@ -394,8 +394,15 @@ def dossier_exposure_levels(cards: list[Any]) -> dict[str, set[str]]:
 
 
 def risk_support_check(answer: str, question: str, plan: Any, cards: list[Any]) -> dict[str, Any]:
-    text = f"{question} {answer}"
-    requested = bool(getattr(plan, "needs_risk", False)) or getattr(plan, "answer_type", "") == "risk_analysis" or "风险" in text
+    # Only the *question* can ask for risk evidence. Scanning the generated answer for
+    # the word "风险" made the check self-fulfilling: any answer that happened to mention
+    # risk demanded risk cards, failed, and the caller then replaced a perfectly good
+    # LLM answer with the evidence-only fallback.
+    requested = (
+        bool(getattr(plan, "needs_risk", False))
+        or getattr(plan, "answer_type", "") == "risk_analysis"
+        or "风险" in str(question or "")
+    )
     risk_cards = [card for card in cards if is_risk_card(card)]
     return {
         "requested": requested,

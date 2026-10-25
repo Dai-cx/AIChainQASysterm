@@ -404,6 +404,21 @@ python scripts/build_curated_graph.py --no-write --sync-postgres
 
 实测：`import aika.aika_core.backends.sqlite_backend` 之后 `sys.modules` 里**没有** `aika.professional_qa` / `aika.report` / `jinja2` / `psycopg`（此前四个全在）。
 
+#### P6b 死代码清理（2026-10-25，commit `9947edb`）
+
+审计里点名的四处"定义了但没人用"的东西，逐个用引用计数确认后删除，共 −325 行：
+
+| 删除对象 | 证据 | 影响 |
+|---|---|---|
+| `aika/aika_core/backends/postgres_backend.py`（33 行） | 整个模块只有一个类，每个方法都 `raise NotImplementedError`；唯一引用是 `backends/__init__.py` 的惰性导出表 | 删模块 + 从 `_BACKENDS` 与 `__all__` 移除 `PostgresResearchBackend` |
+| `aika/agents/models.py::AgentState`（67 行） | 20 个字段的 dataclass，全仓只有 `aika/agents/__init__.py` 再导出与一个测试用它 | 删类 + 移除导出 + 删 `test_agent_state_serializes_and_updates_task_workspace` |
+| `aika/frontend_data.py` 的 `infer_question` / `build_answer` / `relation_type_tail_label` / `extract_company_topic` / `evidence_rows` / `QUESTION_RELATIONS` / `LocalKnowledgeGraph.companies_for_topic`（156 行） | 起点 `infer_question` 只被 `tests/test_frontend_data.py` 调用（真正的问答走 `question_planner` + `qa_engine`），其余六个都只被它调用 | 删整簇 + 删两个 `infer_question` 测试 + 清掉因此闲置的 `html` / `math` / `re` / `Any` 导入 |
+| 同上带出的 `re` / `html` / `math` / `typing.Any` | 只在被删函数里出现 | 一并删除 |
+
+结果：`pytest` 245 passed / 1 skipped（比之前少 3 个，正是被删的 3 个测试）；`aika demo`、`aika doctor` 全绿。
+
+**这一轮新增的教训（写给下一次的我）**：用 PowerShell 的 `(Get-Content x) -replace ... | Set-Content x` 改含中文的源码，会把文件写成非 UTF-8（`pytest` 报 `invalid UTF-8 text`）。**源码改动一律走 Python（`pathlib.read_text(encoding="utf-8")` + `write_text(..., newline="\n")`），不要用 shell 的字符串替换落盘。**
+
 
 ### P7　Web 层拆分（2 天）
 1. `api.py` 772 → `api/app.py`(60) + `routers/`(5) + `services/chat_turn.py` + `services/export.py` + `deps.py` + `errors.py`

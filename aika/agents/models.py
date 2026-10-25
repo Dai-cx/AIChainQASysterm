@@ -20,7 +20,6 @@ def short_text(value: str, limit: int = 48) -> str:
     return shorten(value, limit, reserve=1)
 
 
-
 @dataclass(frozen=True)
 class AgentToolSpec:
     name: str
@@ -74,75 +73,6 @@ class AgentStep:
             tool_calls=list(payload.get("tool_calls") or []),
             observation=str(payload.get("observation") or ""),
             status=str(payload.get("status") or "completed"),
-        )
-
-
-@dataclass(frozen=True)
-class AgentState:
-    task_id: str
-    task_type: str
-    goal: str
-    status: AgentTaskStatus
-    created_at: str
-    updated_at: str
-    plan: dict[str, Any] = field(default_factory=dict)
-    current_step: int = 0
-    steps: list[dict[str, Any]] = field(default_factory=list)
-    tool_calls: list[dict[str, Any]] = field(default_factory=list)
-    evidence_pool: list[dict[str, Any]] = field(default_factory=list)
-    selected_evidence: list[dict[str, Any]] = field(default_factory=list)
-    evidence_gaps: list[dict[str, Any]] = field(default_factory=list)
-    stop_reason: str = ""
-    budget: dict[str, Any] = field(default_factory=dict)
-    verification: dict[str, Any] = field(default_factory=dict)
-    final_outputs: dict[str, Any] = field(default_factory=dict)
-    errors: list[str] = field(default_factory=list)
-
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    def with_updates(self, **updates: Any) -> "AgentState":
-        payload = self.to_dict()
-        payload.update(updates)
-        payload["updated_at"] = updates.get("updated_at") or now_iso()
-        return AgentState.from_dict(payload)
-
-    @classmethod
-    def new(cls, *, task_id: str, task_type: str, goal: str) -> "AgentState":
-        created_at = now_iso()
-        return cls(
-            task_id=task_id,
-            task_type=task_type,
-            goal=goal,
-            status="pending",
-            created_at=created_at,
-            updated_at=created_at,
-        )
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "AgentState":
-        status = str(payload.get("status") or "pending")
-        if status not in VALID_AGENT_TASK_STATUSES:
-            status = "pending"
-        return cls(
-            task_id=str(payload.get("task_id") or ""),
-            task_type=str(payload.get("task_type") or ""),
-            goal=str(payload.get("goal") or ""),
-            status=status,  # type: ignore[arg-type]
-            created_at=str(payload.get("created_at") or now_iso()),
-            updated_at=str(payload.get("updated_at") or payload.get("created_at") or now_iso()),
-            plan=dict(payload.get("plan") or {}),
-            current_step=int(payload.get("current_step") or 0),
-            steps=list(payload.get("steps") or []),
-            tool_calls=list(payload.get("tool_calls") or []),
-            evidence_pool=list(payload.get("evidence_pool") or []),
-            selected_evidence=list(payload.get("selected_evidence") or []),
-            evidence_gaps=list(payload.get("evidence_gaps") or []),
-            stop_reason=str(payload.get("stop_reason") or ""),
-            budget=dict(payload.get("budget") or {}),
-            verification=dict(payload.get("verification") or {}),
-            final_outputs=dict(payload.get("final_outputs") or {}),
-            errors=[str(error) for error in list(payload.get("errors") or [])],
         )
 
 

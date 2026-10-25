@@ -2,13 +2,9 @@
 
 from __future__ import annotations
 
-import html
-import math
-import re
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any
 
 from aika.aika_core.io import read_csv_rows as io_read_csv_rows
 
@@ -38,20 +34,6 @@ RELATION_LABELS = {
     "HAS_EXPOSURE": "具有敞口",
     "HAS_INDICATOR": "跟踪指标",
     "BENEFITS_FROM": "受益于",
-}
-
-QUESTION_RELATIONS = {
-    "技术": "USES_TECHNOLOGY",
-    "产品": "HAS_PRODUCT",
-    "产业链": "BELONGS_TO_CHAIN",
-    "环节": "BELONGS_TO_CHAIN",
-    "指标": "HAS_METRIC",
-    "财务": "HAS_METRIC",
-    "风险": "DISCLOSES_RISK",
-    "政策": "SUPPORTED_BY_POLICY",
-    "定义": "DEFINES",
-    "上游": "UPSTREAM_OF",
-    "下游": "DOWNSTREAM_OF",
 }
 
 ENTITY_ORDER = [
@@ -220,22 +202,6 @@ class LocalKnowledgeGraph:
             and contains_name(row["tail_name"], technology)
         ]
 
-    def companies_for_topic(self, topic: str) -> list[dict[str, str]]:
-        topic = topic.strip()
-        if not topic:
-            return []
-        return [
-            row
-            for row in self.relations
-            if row["head_type"] == "Company"
-            and row["relation"] != "MENTIONED_IN"
-            and (
-                topic in row.get("tail_name", "")
-                or topic in row.get("evidence", "")
-                or topic in row.get("section", "")
-            )
-        ]
-
     def company_relations(self, company: str, relation_type: str) -> list[dict[str, str]]:
         return [
             row
@@ -244,128 +210,6 @@ class LocalKnowledgeGraph:
             and row["head_type"] == "Company"
             and contains_name(row["head_name"], company)
         ]
-
-
-def infer_question(graph: LocalKnowledgeGraph, question: str) -> dict[str, Any]:
-    question = question.strip()
-    companies = graph.names_by_type("Company")
-    technologies = graph.names_by_type("Technology")
-
-    matched_company = next((name for name in companies if name and name in question), "")
-    matched_technology = next((name for name in technologies if name and name in question), "")
-
-    topic = extract_company_topic(question)
-    if ("哪些公司" in question or "公司" in question) and topic:
-        cypher = (
-            "MATCH (c:Company)-[r]->(x) "
-            f'WHERE type(r) <> "MENTIONED_IN" AND (x.name CONTAINS "{topic}" OR r.evidence CONTAINS "{topic}") '
-            "RETURN c.name AS company, type(r) AS relation, x.name AS target, "
-            "r.evidence AS evidence, r.source_title AS source, r.page AS page"
-        )
-        records = graph.companies_for_topic(topic)
-        return build_answer(question, "topic_to_company", cypher, records)
-
-    if ("哪些公司" in question or "公司" in question) and matched_technology:
-        cypher = (
-            f'MATCH (c:Company)-[r:USES_TECHNOLOGY]->(t:Technology {{name: "{matched_technology}"}}) '
-            "RETURN c.name AS company, t.name AS technology, r.evidence AS evidence, "
-            "r.source_title AS source, r.page AS page"
-        )
-        records = graph.companies_for_technology(matched_technology)
-        return build_answer(question, "topic_to_company", cypher, records)
-
-    if matched_company:
-        relation_type = "USES_TECHNOLOGY"
-        for keyword, candidate in QUESTION_RELATIONS.items():
-            if keyword in question:
-                relation_type = candidate
-                break
-        tail_label = relation_type_tail_label(relation_type)
-        cypher = (
-            f'MATCH (c:Company {{name: "{matched_company}"}})-[r:{relation_type}]->(x:{tail_label}) '
-            "RETURN c.name AS company, x.name AS target, r.evidence AS evidence, "
-            "r.source_title AS source, r.page AS page"
-        )
-        records = graph.company_relations(matched_company, relation_type)
-        return build_answer(question, "company_to_relation", cypher, records)
-
-    cypher = (
-        "MATCH (c:Company)-[r]->(x) "
-        "RETURN c.name AS company, type(r) AS relation, x.name AS target, "
-        "r.evidence AS evidence, r.source_title AS source, r.page AS page LIMIT 20"
-    )
-    records = [
-        row
-        for row in graph.relations
-        if row["head_type"] == "Company" and question and any(token in row["evidence"] for token in question[:12])
-    ][:20]
-    return build_answer(question, "fallback_keyword", cypher, records)
-
-
-def relation_type_tail_label(relation_type: str) -> str:
-    return {
-        "USES_TECHNOLOGY": "Technology",
-        "HAS_PRODUCT": "Product",
-        "BELONGS_TO_CHAIN": "IndustryChain",
-        "HAS_METRIC": "Metric",
-        "DISCLOSES_RISK": "Risk",
-    }.get(relation_type, "Technology")
-
-
-def extract_company_topic(question: str) -> str:
-    if "哪些公司" not in question:
-        return ""
-    patterns = [
-        r"哪些公司(?:.*?)(?:涉及|使用|布局|拥有|披露|属于)([^？?，,。；;]+)",
-        r"([^？?，,。；;]+)有哪些公司",
-    ]
-    for pattern in patterns:
-        match = re.search(pattern, question)
-        if match:
-            topic = match.group(1).strip()
-            topic = re.sub(r"^(了|的|相关|以下|这些)", "", topic).strip()
-            return topic
-    return ""
-
-
-def build_answer(question: str, intent: str, cypher: str, records: list[dict[str, str]]) -> dict[str, Any]:
-    if not records:
-        answer = "当前知识图谱中未找到相关证据。"
-    elif intent in {"tech_to_company", "topic_to_company"}:
-        companies = unique_sorted([row["head_name"] for row in records])
-        answer = f"当前知识图谱中，涉及该技术的公司包括：{'、'.join(companies)}。"
-    elif intent == "company_to_relation":
-        relation = records[0]["relation"]
-        targets = unique_sorted([row["tail_name"] for row in records])
-        answer = f"当前知识图谱中，该公司{RELATION_LABELS.get(relation, relation)}包括：{'、'.join(targets)}。"
-    else:
-        targets = unique_sorted([f"{row['head_name']} - {RELATION_LABELS.get(row['relation'], row['relation'])} - {row['tail_name']}" for row in records])
-        answer = f"当前知识图谱中找到 {len(records)} 条相关证据：" + "；".join(targets[:5]) + "。"
-    return {
-        "question": question,
-        "intent": intent,
-        "cypher": cypher,
-        "records": records,
-        "answer": answer,
-        "evidence": evidence_rows(records),
-        "subgraph": subgraph_edges(records),
-    }
-
-
-def evidence_rows(records: list[dict[str, str]]) -> list[dict[str, str]]:
-    rows = []
-    for record in records:
-        rows.append(
-            {
-                "head": record.get("head_name", ""),
-                "relation": RELATION_LABELS.get(record.get("relation", ""), record.get("relation", "")),
-                "tail": record.get("tail_name", ""),
-                "evidence": record.get("evidence", ""),
-                "source": record.get("source_title", ""),
-                "page": record.get("page", ""),
-            }
-        )
-    return rows
 
 
 def subgraph_edges(records: list[dict[str, str]]) -> list[dict[str, str]]:

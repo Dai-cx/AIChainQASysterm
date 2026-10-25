@@ -2,7 +2,6 @@ from pathlib import Path
 
 import pytest
 
-from aika.agents.models import AgentState
 from aika.agents.research_agent import ResearchAgent
 from aika.agents.store import AgentTaskNotFoundError, AgentTaskStore, InvalidAgentTaskError
 from aika.agents.tools import default_tool_registry
@@ -171,29 +170,6 @@ def test_tool_registry_executes_registered_tools_and_reports_missing_executor() 
     assert missing["tool"] == "query_graph"
     assert missing["result_count"] == 0
     assert "No executor registered" in missing["error"]
-
-
-def test_agent_state_serializes_and_updates_task_workspace() -> None:
-    state = AgentState.new(task_id="task-1", task_type="research_brief", goal="液冷产业链")
-    updated = state.with_updates(
-        status="running",
-        current_step=1,
-        evidence_pool=[{"citation_id": "E1"}],
-        evidence_gaps=[{"coverage": "metric_evidence"}],
-        stop_reason="max_retrieval_rounds_reached",
-        budget={"max_retrieval_rounds": 3},
-        verification={"status": "pass"},
-    )
-    restored = AgentState.from_dict(updated.to_dict())
-
-    assert state.status == "pending"
-    assert updated.status == "running"
-    assert restored.task_id == "task-1"
-    assert restored.evidence_pool[0]["citation_id"] == "E1"
-    assert restored.evidence_gaps[0]["coverage"] == "metric_evidence"
-    assert restored.stop_reason == "max_retrieval_rounds_reached"
-    assert restored.budget["max_retrieval_rounds"] == 3
-    assert restored.verification["status"] == "pass"
 
 
 def test_research_agent_generates_completed_task_with_outputs(tmp_path: Path) -> None:

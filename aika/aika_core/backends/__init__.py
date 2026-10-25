@@ -1,8 +1,8 @@
 """Storage backends for AIKA Core.
 
-The three backends have very different dependency footprints: the SQLite backend needs
-only the standard library, the CSV backend pulls the whole research/QA stack, and the
-Postgres backend needs psycopg. Importing them eagerly here meant that
+The two backends have very different dependency footprints: the SQLite backend needs
+only the standard library, while the CSV backend pulls the whole research/QA stack.
+Importing them eagerly here meant that
 ``import aika.aika_core.backends.sqlite_backend`` also executed the CSV backend, and a
 clean install without the optional dependencies failed with
 ``ModuleNotFoundError: No module named 'jinja2'`` before any code ran.
@@ -14,11 +14,10 @@ from __future__ import annotations
 
 from typing import Any
 
-__all__ = ["CSVResearchBackend", "PostgresResearchBackend", "SQLiteResearchBackend"]
+__all__ = ["CSVResearchBackend", "SQLiteResearchBackend"]
 
 _BACKENDS = {
     "CSVResearchBackend": "aika.aika_core.backends.csv_backend",
-    "PostgresResearchBackend": "aika.aika_core.backends.postgres_backend",
     "SQLiteResearchBackend": "aika.aika_core.backends.sqlite_backend",
 }
 

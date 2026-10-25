@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from aika.data_config import core_company_alias_index
 from aika.extraction_schema import (
     ENTITY_CSV_FIELDS,
     RELATION_CSV_FIELDS,
@@ -19,7 +20,6 @@ from aika.extraction_schema import (
     stable_id,
     write_csv,
 )
-from aika.data_config import core_company_alias_index
 
 
 def report_entity_from_manifest(row: dict[str, str]) -> dict[str, Any]:

@@ -2,14 +2,14 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import normalize_text as _normalize
-from aika.aika_core.text import shorten as _short_text
 import json
 import sqlite3
 from typing import Any, Iterable
-from aika.aika_core.models import ClaimRecord, EvidenceCard, EvidenceGap, GraphEdge
 
 from aika.aika_core.backends.sqlite.util import _floatish, _text
+from aika.aika_core.models import ClaimRecord, EvidenceCard, EvidenceGap, GraphEdge
+from aika.aika_core.text import normalize_text as _normalize
+from aika.aika_core.text import shorten as _short_text
 
 
 def _evidence_card_from_row(row: sqlite3.Row, *, citation_id: str) -> EvidenceCard:

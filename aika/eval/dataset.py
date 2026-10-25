@@ -7,7 +7,6 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
-
 ROOT_DIR = Path(__file__).resolve().parents[2]
 DEFAULT_QA_BENCHMARK = ROOT_DIR / "data" / "eval" / "qa_benchmark_v1.jsonl"
 REQUIRED_FIELDS = {

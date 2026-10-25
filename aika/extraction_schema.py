@@ -11,7 +11,6 @@ from typing import Any
 
 from aika.aika_core.io import read_csv_rows, read_jsonl_rows
 
-
 ENTITY_TYPES = (
     "Company",
     "Technology",

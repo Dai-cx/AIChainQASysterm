@@ -2,10 +2,15 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import TYPE_CHECKING, Any
+
 import psycopg
+
 from aika.research_claims import claim_title, first_company
 from aika.semantic_index import SemanticHit
+
+if TYPE_CHECKING:  # pragma: no cover
+    from .store import PostgresRetrievalStore
 
 from .common import EMBEDDING_DIMENSIONS
 

@@ -17,7 +17,6 @@ from aika.llm_client import MockLLMClient, OpenAICompatibleClient
 from aika.llm_extractor import extract_from_chunk
 from aika.text_cleaner import CHUNKS_DIR
 
-
 DEFAULT_OUTPUT = ROOT_DIR / "data" / "extracted" / "extractions.jsonl"
 DEFAULT_ERRORS = ROOT_DIR / "data" / "extracted" / "extraction_errors.csv"
 

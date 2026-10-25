@@ -6,7 +6,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
 
-from aika.agents.models import AgentStep, AgentTask
+from aika.agents.models import AgentStep
 from aika.agents.qa_agent import QAAgent
 from aika.agents.store import AgentTaskStore, InvalidAgentTaskError
 

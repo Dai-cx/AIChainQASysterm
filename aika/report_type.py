@@ -6,7 +6,6 @@ from dataclasses import asdict, dataclass
 from datetime import date, datetime
 from typing import Any
 
-
 REPORT_TYPE_LABELS = {
     "evidence_coverage_audit": "证据覆盖审计报告",
     "preliminary_research_brief": "初步研究简报",

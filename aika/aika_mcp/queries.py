@@ -6,12 +6,33 @@ from typing import Any
 
 from aika.aika_core.evidence import build_evidence_ux_bundle
 from aika.aika_core.models import ResearchBackend
-from aika.aika_mcp.schemas import AuditEvidenceGapsRequest, BuildResearchBriefRequest, CompareCompaniesRequest, CompanyProfileRequest, QueryIndustryGraphRequest, SearchClaimsRequest, SearchEvidenceRequest
-from aika.report_type import report_title
-
-from aika.aika_mcp.common import BackendContext, _filters, _normalize_gaps, _require_backend_method, _subject, _success_envelope, _to_dict
-from aika.aika_mcp.cards import _cards_from_claims, _claims_from_payload, _evidence_ux_bundle, _normalize_cards, _prepend_evidence_ux
+from aika.aika_mcp.cards import (
+    _cards_from_claims,
+    _claims_from_payload,
+    _evidence_ux_bundle,
+    _normalize_cards,
+    _prepend_evidence_ux,
+)
+from aika.aika_mcp.common import (
+    BackendContext,
+    _filters,
+    _normalize_gaps,
+    _require_backend_method,
+    _subject,
+    _success_envelope,
+    _to_dict,
+)
 from aika.aika_mcp.markdown import _mcp_report_context
+from aika.aika_mcp.schemas import (
+    AuditEvidenceGapsRequest,
+    BuildResearchBriefRequest,
+    CompanyProfileRequest,
+    CompareCompaniesRequest,
+    QueryIndustryGraphRequest,
+    SearchClaimsRequest,
+    SearchEvidenceRequest,
+)
+from aika.report_type import report_title
 
 
 def _search_evidence(request: SearchEvidenceRequest, context: BackendContext) -> dict[str, Any]:

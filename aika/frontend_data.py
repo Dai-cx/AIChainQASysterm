@@ -7,9 +7,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from aika.aika_core.io import read_csv_rows as io_read_csv_rows
-
 from aika.extraction_schema import normalize_name
-
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_ENTITIES_CSV = ROOT_DIR / "data" / "verified" / "entities.csv"

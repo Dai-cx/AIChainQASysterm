@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten
-
 import json
 import re
 import uuid
@@ -12,6 +10,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from aika.aika_core.text import shorten
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_CONVERSATION_DIR = ROOT_DIR / "data" / "conversations"

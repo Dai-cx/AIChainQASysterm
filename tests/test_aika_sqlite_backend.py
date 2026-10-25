@@ -109,6 +109,20 @@ def test_build_index_and_search_evidence_returns_citation_ids(tmp_path: Path) ->
     assert cards[0].citation_id == "E1"
 
 
+def test_audit_evidence_gaps_handles_a_company_list(tmp_path: Path) -> None:
+    """Regression: the per-company branch calls a helper that P2b deleted by mistake."""
+    knowledge_dir = tmp_path / "knowledge" / "sample"
+    index_path = tmp_path / "indexes" / "sample.sqlite"
+    write_sample_knowledge(knowledge_dir)
+    build_sqlite_index(knowledge_dir, index_path)
+    backend = SQLiteResearchBackend(index_path)
+
+    gaps = backend.audit_evidence_gaps("液冷产业链", companies=["中际旭创", "不存在的公司"])
+
+    assert gaps
+    assert any("不存在的公司" in gap.gap for gap in gaps)
+
+
 def test_search_claims_returns_structured_records(tmp_path: Path) -> None:
     knowledge_dir = tmp_path / "knowledge" / "sample"
     index_path = tmp_path / "indexes" / "sample.sqlite"

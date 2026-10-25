@@ -10,7 +10,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-
 ROOT_DIR = Path(__file__).resolve().parents[2]
 DEFAULT_FEEDBACK_DIR = ROOT_DIR / "data" / "feedback"
 FEEDBACK_FILE = "feedback.jsonl"

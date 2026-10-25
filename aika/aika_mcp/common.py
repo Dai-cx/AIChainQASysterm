@@ -2,18 +2,23 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten
 import json
 import os
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, TypeVar
-from aika.aika_core.backends.csv_backend import CSVResearchBackend
-from aika.aika_core.backends.sqlite_backend import DEFAULT_PROFILE, SQLiteResearchBackend, profile_index_path, resolve_aika_home
-from aika.aika_core.models import ClaimRecord, ResearchBackend
-from aika.aika_mcp.schemas import AikaMcpRequest, FilteredSearchRequest
 
+from aika.aika_core.backends.csv_backend import CSVResearchBackend
+from aika.aika_core.backends.sqlite_backend import (
+    DEFAULT_PROFILE,
+    SQLiteResearchBackend,
+    profile_index_path,
+    resolve_aika_home,
+)
+from aika.aika_core.models import ClaimRecord, ResearchBackend
+from aika.aika_core.text import shorten
+from aika.aika_mcp.schemas import AikaMcpRequest, FilteredSearchRequest
 
 RequestT = TypeVar("RequestT", bound=AikaMcpRequest)
 

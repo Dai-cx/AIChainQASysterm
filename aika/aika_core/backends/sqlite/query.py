@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import normalize_text as _normalize
 import re
 import sqlite3
 from typing import Any, Iterable
 
 from aika.aika_core.backends.sqlite.util import _dedupe, _text, _values
+from aika.aika_core.text import normalize_text as _normalize
 
 
 def _claim_filter_sql(filters: dict[str, Any], *, alias: str) -> tuple[str, list[Any]]:

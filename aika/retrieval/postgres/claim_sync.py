@@ -4,8 +4,10 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from typing import Any, Iterable
+
 import psycopg
 from psycopg.types.json import Jsonb
+
 from aika.research_claims import (
     apply_claim_reviews,
     build_segment_dossiers,

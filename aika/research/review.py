@@ -7,8 +7,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from aika.research.constants import CLAIM_REVIEWS_FILE, CLAIM_REVIEW_STATUSES, DEFAULT_RESEARCH_DIR, REVIEWABLE_CLAIM_FIELDS
 from aika.research.claims import parse_companies
+from aika.research.constants import (
+    CLAIM_REVIEW_STATUSES,
+    CLAIM_REVIEWS_FILE,
+    DEFAULT_RESEARCH_DIR,
+    REVIEWABLE_CLAIM_FIELDS,
+)
 
 
 def load_claim_reviews(data_dir: Path = DEFAULT_RESEARCH_DIR) -> dict[str, dict[str, Any]]:

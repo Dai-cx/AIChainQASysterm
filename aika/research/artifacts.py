@@ -8,11 +8,17 @@ from pathlib import Path
 from typing import Any
 
 from aika.extraction_schema import read_csv
-
-from aika.research.constants import CLAIMS_FILE, CLAIM_CSV_FIELDS, DEFAULT_RESEARCH_DIR, EVIDENCE_SPANS_FILE, EVIDENCE_SPAN_FIELDS, SEGMENT_DOSSIERS_FILE
 from aika.research.claims import claims_from_relation, evidence_span_from_claim
-from aika.research.technical import claims_from_technical_chunks
+from aika.research.constants import (
+    CLAIM_CSV_FIELDS,
+    CLAIMS_FILE,
+    DEFAULT_RESEARCH_DIR,
+    EVIDENCE_SPAN_FIELDS,
+    EVIDENCE_SPANS_FILE,
+    SEGMENT_DOSSIERS_FILE,
+)
 from aika.research.dossiers import build_segment_dossiers
+from aika.research.technical import claims_from_technical_chunks
 
 
 def build_research_artifacts(

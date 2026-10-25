@@ -5,15 +5,14 @@ from __future__ import annotations
 import json
 import os
 import time
-from dataclasses import dataclass
 from collections.abc import Iterator
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 import requests
 
 from aika.extraction_schema import SchemaError, parse_json_object
-
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 

@@ -10,13 +10,28 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from aika.aika_core.backends.sqlite.query import (
+    _claim_filter_sql,
+    _evidence_filter_sql,
+    _like_search_sql,
+    _score_rows,
+    _topic_filter_sql,
+)
+from aika.aika_core.backends.sqlite.rows import _dossier_content
+from aika.aika_core.backends.sqlite.schema import (
+    CLAIM_COLUMNS,
+    DOSSIER_COLUMNS,
+    EVIDENCE_COLUMNS,
+    RELATION_COLUMNS,
+    SCHEMA_VERSION,
+    _connect,
+    _create_schema,
+    _select_tokenizer,
+    _write_metadata,
+)
+from aika.aika_core.backends.sqlite.util import _serialize_cell, _text
 from aika.aika_core.data_paths import CLAIMS_FILE, EVIDENCE_SPANS_FILE, RELATIONS_FILE, SEGMENT_DOSSIERS_FILE
 from aika.aika_core.models import ClaimRecord
-
-from aika.aika_core.backends.sqlite.util import _serialize_cell, _text
-from aika.aika_core.backends.sqlite.schema import CLAIM_COLUMNS, DOSSIER_COLUMNS, EVIDENCE_COLUMNS, RELATION_COLUMNS, SCHEMA_VERSION, _connect, _create_schema, _select_tokenizer, _write_metadata
-from aika.aika_core.backends.sqlite.query import _claim_filter_sql, _evidence_filter_sql, _like_search_sql, _score_rows, _topic_filter_sql
-from aika.aika_core.backends.sqlite.rows import _dossier_content
 
 
 def sqlite_fts_status() -> dict[str, Any]:

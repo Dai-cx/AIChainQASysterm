@@ -6,21 +6,17 @@ dataset has not yet labelled, using batch LLM calls grouped by case.
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten as _short_text
-
 import json
 import time
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from aika.aika_core.text import shorten as _short_text
 from aika.eval.rag_dataset import (
-    DEFAULT_RAG_RETRIEVAL_BENCHMARK,
-    EvidenceAlternative,
     EvidenceUnit,
     RagRetrievalCase,
-    load_rag_retrieval_cases,
 )
 from aika.llm_client import OpenAICompatibleClient
 

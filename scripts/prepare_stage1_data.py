@@ -36,16 +36,21 @@ from aika.data_config import (
     RESEARCH_KEYWORDS_CSV,
     Company,
     IndustrySource,
-    load_companies as load_company_config,
     load_industry_sources,
     load_research_keywords,
-    validate_companies as validate_company_config,
     validate_industry_sources,
-    write_default_companies as write_default_company_config,
     write_default_industry_sources,
     write_default_research_keywords,
 )
-
+from aika.data_config import (
+    load_companies as load_company_config,
+)
+from aika.data_config import (
+    validate_companies as validate_company_config,
+)
+from aika.data_config import (
+    write_default_companies as write_default_company_config,
+)
 
 DATA_DIR = ROOT_DIR / "data"
 ANNUAL_DIR = DATA_DIR / "raw_pdfs" / "annual"

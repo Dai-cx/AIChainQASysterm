@@ -2,14 +2,13 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten
-
 import json
 import os
 import re
 from dataclasses import dataclass, field
 from typing import Any
 
+from aika.aika_core.text import shorten
 
 RERANK_MODES = {"auto", "heuristic", "llm"}
 

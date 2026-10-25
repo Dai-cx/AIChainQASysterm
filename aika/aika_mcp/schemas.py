@@ -9,7 +9,6 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator, model_valida
 
 from aika.aika_core.backends.sqlite_backend import DEFAULT_PROFILE
 
-
 BackendMode = Literal["auto", "sqlite", "csv"]
 TaskType = Literal["research_brief"]
 Depth = Literal["light", "standard", "deep"]

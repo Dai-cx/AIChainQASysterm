@@ -9,7 +9,6 @@ from typing import Any
 from aika.cypher_guard import CypherSafetyError, ensure_limit
 from aika.extraction_schema import normalize_name
 
-
 GRAPH_SCHEMA = """节点:
 - Company(name, normalized_name)
 - Technology(name, normalized_name)

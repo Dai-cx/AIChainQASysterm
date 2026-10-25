@@ -12,7 +12,6 @@ from aika.research_claims import (
     claims_from_technical_chunks,
 )
 
-
 RELATION_FIELDS = [
     "relation_id",
     "head_type",

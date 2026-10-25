@@ -14,10 +14,13 @@ import os
 import subprocess
 import sys
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
-from aika.agents.research_agent import ResearchAgent, SUPPORTED_TASK_TYPES
+from aika.agents.research_agent import SUPPORTED_TASK_TYPES, ResearchAgent
 from aika.agents.store import AgentTaskStore
+
+if TYPE_CHECKING:  # pragma: no cover
+    from aika.qa_engine import QAEngine
 
 
 ROOT_DIR = Path(__file__).resolve().parents[1]

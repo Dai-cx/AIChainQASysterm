@@ -2,15 +2,13 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import dedupe_strings as _dedupe
-
 import re
 from collections.abc import Callable, Iterable, Mapping
 from datetime import date, datetime
 from typing import Any
 
-from aika.aika_core.models import ClaimRecord, ConclusionCard, EvidenceCard, EvidenceLink, EvidenceGap
-
+from aika.aika_core.models import ClaimRecord, ConclusionCard, EvidenceCard, EvidenceLink
+from aika.aika_core.text import dedupe_strings as _dedupe
 
 COUNTER_CLAIM_TYPES = {"risk", "bottleneck", "constraint", "uncertainty", "decline"}
 COUNTER_TEXT_PATTERNS = (

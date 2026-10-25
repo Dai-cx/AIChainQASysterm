@@ -11,7 +11,6 @@ from typing import Any
 
 from aika.agents.models import AgentTask
 
-
 ROOT_DIR = Path(__file__).resolve().parents[2]
 DEFAULT_AGENT_TASK_DIR = ROOT_DIR / "data" / "agent_tasks"
 AGENT_TASKS_FILE = "agent_tasks.jsonl"

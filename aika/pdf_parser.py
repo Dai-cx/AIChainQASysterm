@@ -8,12 +8,10 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any, Iterable
 
-from aika.aika_core.io import read_csv_rows
-
 import fitz
 
+from aika.aika_core.io import read_csv_rows
 from aika.extraction_schema import stable_id, write_jsonl
-
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 PARSED_TEXT_DIR = ROOT_DIR / "data" / "parsed_text"

@@ -10,7 +10,6 @@ from aika.domain_lexicon import company_segment
 from aika.report.charts.common import dedupe, evidence_id, freshness_status, source_key, text_attr
 from aika.report.spec import CompanyCoverageHeatmapSpec, HeatmapCellSpec
 
-
 EXPOSURE_RANK = {"mentioned": 1, "indirect": 2, "direct": 3, "core": 3}
 
 

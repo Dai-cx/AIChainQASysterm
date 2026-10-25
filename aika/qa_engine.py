@@ -20,36 +20,18 @@ QA 引擎核心模块，协调多源数据检索和 LLM 生成的全流程。
 
 from __future__ import annotations
 
-import json
 import os
-import re
 import time
 from collections.abc import Iterator
 from dataclasses import dataclass
-from datetime import datetime
-from pathlib import Path
 from typing import Any
 
-from aika.cypher_generator import GeneratedCypher, generate_cypher
+from aika.agents.verification import build_evidence_limited_answer, verify_answer_support
 from aika.aika_core.data_paths import resolve_graph_dir
-from aika.curated_graph import DEFAULT_CURATED_DIR
-from aika.extraction_schema import normalize_name
-from aika.frontend_data import LocalKnowledgeGraph, RELATION_LABELS, subgraph_edges
+from aika.cypher_generator import GeneratedCypher, generate_cypher
+from aika.frontend_data import LocalKnowledgeGraph
 from aika.llm_client import OpenAICompatibleClient, load_dotenv
 from aika.neo4j_client import Neo4jReadClient
-from aika.agents.verification import build_evidence_limited_answer, verify_answer_support
-from aika.professional_qa import (
-    build_professional_answer_prompt,
-    cards_from_graph_records,
-    cards_from_rag_hits,
-    cards_from_research_hits,
-    assign_citation_ids,
-    fallback_professional_answer,
-    legacy_evidence_rows,
-    pseudo_cypher_for_plan,
-    rank_evidence_cards,
-    search_csv_graph,
-)
 from aika.postgres_retrieval import (
     EMBEDDING_DIMENSIONS,
     PostgresRagIndex,
@@ -57,63 +39,65 @@ from aika.postgres_retrieval import (
     PostgresRetrievalStore,
     PostgresSemanticIndex,
 )
-from aika.question_planner import QuestionPlan, extract_companies, heuristic_plan_question, plan_question
-from aika.rag_index import RagHit
-from aika.reranker import normalize_rerank_mode
-from aika.research_agent import build_research_outputs
-from aika.research_claims import ResearchHit
-
+from aika.professional_qa import (
+    assign_citation_ids,
+    build_professional_answer_prompt,
+    cards_from_graph_records,
+    cards_from_rag_hits,
+    cards_from_research_hits,
+    fallback_professional_answer,
+    legacy_evidence_rows,
+    pseudo_cypher_for_plan,
+    rank_evidence_cards,
+    search_csv_graph,
+)
 
 # ============================================================
 # 常量与模板
 # ============================================================
 from aika.qa.constants import (
-    ANSWER_SYSTEM_PROMPT_TEMPLATE,
-    HISTORY_COMPRESSION_SYSTEM_PROMPT,
     NO_EVIDENCE_ANSWER,
-    TEMPLATE_RELATIONS,
 )
 from aika.qa.history import (
+    build_contextualizer_prompt,
+    compress_history_with_llm,
+    fit_summary_and_recent_to_budget,
+    format_history_for_prompt,
+    heuristic_contextual_question,
     normalize_conversation_history,
     normalize_conversation_messages,
-    trim_history_to_chars,
-    fit_summary_and_recent_to_budget,
-    compress_history_with_llm,
-    history_chunks,
-    request_history_summary,
-    sanitize_history_summary,
-    build_contextualizer_prompt,
-    heuristic_contextual_question,
     question_needs_context,
     sanitize_contextual_question,
-    format_history_for_prompt,
+    trim_history_to_chars,
 )
 from aika.qa.subgraph import (
     answer_subgraph,
-    add_dossier_edges,
-    label_for_claim,
-    target_for_claim,
-    target_type_for_claim,
     ensure_relation_cards,
 )
 from aika.qa.text import (
+    answer_system_prompt,
+    build_hyde_prompt,
+    build_hyde_retrieval_query,
+    build_llm_options,
+    chunk_text,
+    describe_plan_progress,
+    hyde_diagnostics,
+    normalize_agent_max_steps,
     normalize_contextualizer_mode,
     normalize_hyde_query_mode,
     normalize_query_text,
-    build_hyde_prompt,
-    sanitize_hyde_answer,
-    build_hyde_retrieval_query,
-    hyde_diagnostics,
-    normalize_agent_max_steps,
     record_timing,
-    template_cypher_for_plan,
-    build_llm_options,
+    sanitize_hyde_answer,
     stream_progress,
-    describe_plan_progress,
-    chunk_text,
-    answer_system_prompt,
+    template_cypher_for_plan,
 )
 from aika.qa.types import HydeQuery
+from aika.question_planner import QuestionPlan, heuristic_plan_question, plan_question
+from aika.rag_index import RagHit
+from aika.reranker import normalize_rerank_mode
+from aika.research_agent import build_research_outputs
+from aika.research_claims import ResearchHit
+
 CONTEXTUALIZER_SYSTEM_PROMPT = """你是中国 AI 算力产业链问答系统的追问改写器。
 根据历史对话，把用户当前问题改写成可独立检索的中文问题。
 只输出改写后的问题，不解释，不回答问题，不引入历史对话中没有出现的新公司或主题。"""

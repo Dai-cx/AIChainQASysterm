@@ -4,13 +4,14 @@ from __future__ import annotations
 
 from typing import Any
 
-from aika.aika_core.text import shorten
 from aika.agents.coverage import CoverageReport, EvidenceGap
 from aika.agents.planner import query_suffix_for_coverage
+from aika.aika_core.text import shorten
 from aika.graphrag import GraphRagResult, dedupe_hits
 from aika.question_planner import QuestionPlan
 
 from .models import AGENT_TYPES, AgentAssignment, EvidenceCardDraft, clean_ids, clean_strings
+
 
 def validate_assignments(
     payload: Any,

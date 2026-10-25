@@ -7,7 +7,6 @@ from pathlib import Path
 from aika.aika_core.knowledge_pack import validate_knowledge_pack
 from scripts.build_sample_pack import build_sample_pack
 
-
 CLAIM_HEADER = (
     "claim_id,claim_type,topic,claim_text,companies,mechanism,direction,horizon,metric,value,unit,"
     "source_report_id,source_title,page,section,source_tier,evidence_span,confidence,as_of_date,"

@@ -7,9 +7,8 @@ from dataclasses import dataclass
 from typing import Any
 
 from aika.domain_lexicon import normalize_topic
-
-from aika.research.constants import EXPOSURE_ORDER
 from aika.research.claims import safe_float
+from aika.research.constants import EXPOSURE_ORDER
 
 
 @dataclass(frozen=True)

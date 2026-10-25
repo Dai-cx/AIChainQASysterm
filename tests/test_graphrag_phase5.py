@@ -1,5 +1,5 @@
-from aika.graphrag import DriftPlanner, QueryRouter, run_graphrag
 from aika.frontend_data import LocalKnowledgeGraph
+from aika.graphrag import DriftPlanner, QueryRouter, run_graphrag
 from aika.professional_qa import EvidenceCard
 from aika.qa_engine import QAEngine
 from aika.question_planner import heuristic_plan_question

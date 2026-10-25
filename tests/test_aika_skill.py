@@ -5,7 +5,6 @@ from pathlib import Path
 
 from aika.aika_mcp.tools import tool_names
 
-
 SKILL_PATH = Path("skills/aika-research/SKILL.md")
 
 

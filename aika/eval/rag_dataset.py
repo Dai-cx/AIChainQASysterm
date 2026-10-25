@@ -7,7 +7,6 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
-
 ROOT_DIR = Path(__file__).resolve().parents[2]
 DEFAULT_RAG_RETRIEVAL_BENCHMARK = ROOT_DIR / "data" / "eval" / "rag_retrieval_v1.jsonl"
 REQUIRED_FIELDS = {

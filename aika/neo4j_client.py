@@ -7,11 +7,11 @@ from pathlib import Path
 from typing import Any
 
 from neo4j import GraphDatabase
-from neo4j.graph import Node, Path as Neo4jPath, Relationship
+from neo4j.graph import Node, Relationship
+from neo4j.graph import Path as Neo4jPath
 
 from aika.cypher_guard import ensure_limit
 from aika.llm_client import ROOT_DIR, load_dotenv
-
 
 DEFAULT_QUERY_LIMIT = 50
 

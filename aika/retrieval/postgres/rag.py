@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import TYPE_CHECKING, Any
+
 from aika.aika_core.text import normalize_text
 from aika.rag_index import (
     RagHit,
@@ -14,6 +15,9 @@ from aika.rag_index import (
     source_priority,
     tokenize,
 )
+
+if TYPE_CHECKING:  # pragma: no cover
+    from .store import PostgresRetrievalStore
 
 from .common import corpus_hash
 

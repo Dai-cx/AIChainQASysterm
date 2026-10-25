@@ -4,8 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from aika import aika_cli
-from aika import aika_skills
+from aika import aika_cli, aika_skills
 
 
 def test_resolve_bundled_skill_finds_source_checkout() -> None:

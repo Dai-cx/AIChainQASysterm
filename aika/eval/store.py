@@ -8,7 +8,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-
 ROOT_DIR = Path(__file__).resolve().parents[2]
 DEFAULT_EVAL_RUN_DIR = ROOT_DIR / "data" / "eval_runs"
 EVAL_RUNS_FILE = "eval_runs.jsonl"

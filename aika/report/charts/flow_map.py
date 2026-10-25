@@ -8,7 +8,6 @@ from typing import Any, Iterable
 from aika.report.charts.common import dedupe, evidence_id, text_attr
 from aika.report.spec import FlowMapLinkSpec, FlowMapNodeSpec, FlowMapSpec
 
-
 RELATION_WEIGHTS = {
     "HAS_PRODUCT": 1.2,
     "BELONGS_TO_CHAIN": 1.2,

@@ -9,9 +9,28 @@ from typing import Any
 
 from aika.domain_lexicon import TECHNICAL_SOURCE_TYPES, THEME_SYNONYMS, infer_themes, normalize_topic
 from aika.extraction_schema import load_jsonl, stable_id
-
-from aika.research.constants import MAX_DIRECT_CLAIMS_PER_REPORT, TECHNICAL_BOTTLENECK_TERMS, TECHNICAL_HIGH_SIGNAL_TERMS, TECHNICAL_INDICATOR_TERMS, TECHNICAL_LOW_VALUE_TERMS, TECHNICAL_MECHANISM_TERMS, TECHNICAL_REPORT_PREFIX
-from aika.research.claims import build_direct_claim_text, clean_evidence, companies_explicitly_in_text, count_matching_terms, dedupe_strings, has_direct_metric, infer_direct_as_of_date, infer_direct_horizon, infer_direct_mechanism, infer_direct_metric_fields, looks_like_low_quality_text
+from aika.research.claims import (
+    build_direct_claim_text,
+    clean_evidence,
+    companies_explicitly_in_text,
+    count_matching_terms,
+    dedupe_strings,
+    has_direct_metric,
+    infer_direct_as_of_date,
+    infer_direct_horizon,
+    infer_direct_mechanism,
+    infer_direct_metric_fields,
+    looks_like_low_quality_text,
+)
+from aika.research.constants import (
+    MAX_DIRECT_CLAIMS_PER_REPORT,
+    TECHNICAL_BOTTLENECK_TERMS,
+    TECHNICAL_HIGH_SIGNAL_TERMS,
+    TECHNICAL_INDICATOR_TERMS,
+    TECHNICAL_LOW_VALUE_TERMS,
+    TECHNICAL_MECHANISM_TERMS,
+    TECHNICAL_REPORT_PREFIX,
+)
 
 
 def claims_from_technical_chunks(chunks_dir: Path) -> list[dict[str, Any]]:

@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import normalize_text as _normalize
-
-import csv
 import re
 from pathlib import Path
 from typing import Any, Iterable
@@ -12,6 +9,7 @@ from typing import Any, Iterable
 from aika.aika_core.data_paths import DEFAULT_CLAIMS_CSV
 from aika.aika_core.io import read_csv_rows
 from aika.aika_core.models import ClaimRecord
+from aika.aika_core.text import normalize_text as _normalize
 
 
 def load_claims(path: str | Path = DEFAULT_CLAIMS_CSV) -> list[ClaimRecord]:

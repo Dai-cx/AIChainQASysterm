@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten as short_text
-
 import hashlib
 import subprocess
 import uuid
@@ -12,6 +10,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from aika.aika_core.text import shorten as short_text
 from aika.eval.rag_dataset import (
     DEFAULT_RAG_RETRIEVAL_BENCHMARK,
     RagRetrievalCase,
@@ -23,7 +22,6 @@ from aika.extraction_schema import write_jsonl
 from aika.question_planner import QuestionPlan, heuristic_plan_question
 from aika.rag_index import RagHit
 from aika.semantic_index import SemanticHit
-
 
 DEFAULT_RETRIEVERS = ("bm25",)
 SUPPORTED_RETRIEVERS = {"bm25", "semantic", "rrf"}

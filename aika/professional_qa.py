@@ -8,6 +8,8 @@ from collections import defaultdict
 from dataclasses import replace
 from typing import Any, Iterable
 
+from aika.aika_core.models import EvidenceCard
+from aika.aika_core.text import shorten
 from aika.domain_lexicon import (
     BOTTLENECK_TERMS,
     TECHNICAL_SOURCE_TYPES,
@@ -18,10 +20,7 @@ from aika.domain_lexicon import (
     normalize_topic,
     text_matches_terms,
 )
-from aika.aika_core.domain import profile_for
-from aika.aika_core.models import EvidenceCard
-from aika.aika_core.text import shorten
-from aika.frontend_data import LocalKnowledgeGraph, RELATION_LABELS
+from aika.frontend_data import RELATION_LABELS, LocalKnowledgeGraph
 from aika.question_planner import QuestionPlan
 from aika.rag_index import RagHit
 from aika.research_claims import ResearchHit, query_focus_terms

@@ -5,7 +5,9 @@ from __future__ import annotations
 from dataclasses import asdict
 from datetime import datetime, timezone
 from typing import Any, Iterable
+
 from psycopg.types.json import Jsonb
+
 from aika.rag_index import RagDocument
 from aika.research_claims import normalize_claim_review
 

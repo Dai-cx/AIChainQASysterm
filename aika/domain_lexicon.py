@@ -11,7 +11,6 @@ from typing import Iterable
 from aika.data_config import Company, load_companies
 from aika.extraction_schema import normalize_name
 
-
 THEME_SYNONYMS: dict[str, tuple[str, ...]] = {
     "AI服务器": (
         "AI服务器",

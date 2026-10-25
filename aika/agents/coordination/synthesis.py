@@ -6,7 +6,6 @@ import json
 from dataclasses import replace
 from typing import Any
 
-from aika.aika_core.text import shorten
 from aika.agent_runner import (
     AgentRetrievalState,
     merge_graph_records,
@@ -17,6 +16,7 @@ from aika.agent_runner import (
 from aika.agent_tools import AgentToolCall, cards_from_graphrag_result, cards_from_semantic_hits
 from aika.agents.coverage import EvidenceCoverageChecker
 from aika.agents.planner import AgentTaskPlan
+from aika.aika_core.text import shorten
 from aika.graphrag import GraphRagResult, finalize_graphrag
 from aika.professional_qa import (
     EvidenceCard,
@@ -29,7 +29,15 @@ from aika.professional_qa import (
 )
 from aika.question_planner import QuestionPlan
 
-from .models import AgentResult, EvidenceCandidate, EvidenceCardDraft, ReviewReport, candidate_id, clean_ids, clean_strings
+from .models import (
+    AgentResult,
+    EvidenceCandidate,
+    EvidenceCardDraft,
+    ReviewReport,
+    candidate_id,
+    clean_ids,
+    clean_strings,
+)
 from .support import merge_graphrag_results, merge_review_coverage, validate_conflicts, validate_drafts
 
 

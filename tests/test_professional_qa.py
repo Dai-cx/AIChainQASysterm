@@ -8,7 +8,6 @@ from aika.qa_engine import QAEngine
 from aika.question_planner import heuristic_plan_question
 from aika.research_claims import ResearchMemory
 
-
 ENTITY_FIELDS = [
     "entity_id",
     "type",

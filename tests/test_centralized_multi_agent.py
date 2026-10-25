@@ -2,7 +2,6 @@ import json
 import threading
 import time
 
-from aika.frontend_data import LocalKnowledgeGraph
 from aika.llm_client import ChatTextResult
 from aika.qa_engine import QAEngine
 from aika.rag_index import RagHit

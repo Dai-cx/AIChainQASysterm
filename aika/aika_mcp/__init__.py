@@ -15,7 +15,6 @@ from aika.aika_mcp.tools import (
     tool_names,
 )
 
-
 __all__ = [
     "audit_evidence_gaps",
     "build_research_brief",

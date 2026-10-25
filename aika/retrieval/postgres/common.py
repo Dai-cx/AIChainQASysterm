@@ -7,8 +7,10 @@ import json
 import os
 from pathlib import Path
 from typing import Any, Iterable
+
 import psycopg
 from pgvector.psycopg import register_vector
+
 from aika.research_claims import claim_title, first_company, parse_companies
 
 

@@ -12,7 +12,6 @@ from neo4j import GraphDatabase
 from aika.extraction_schema import ENTITY_TYPES, RELATION_TYPES, normalize_name, read_csv
 from aika.llm_client import load_dotenv
 
-
 ROOT_DIR = Path(__file__).resolve().parents[1]
 
 CONSTRAINT_QUERIES = [

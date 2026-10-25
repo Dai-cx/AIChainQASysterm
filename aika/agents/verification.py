@@ -2,15 +2,13 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten as short_text
-
 import hashlib
 import re
 from collections import defaultdict
 from typing import Any, Iterable
 
+from aika.aika_core.text import shorten as short_text
 from aika.question_planner import extract_companies
-
 
 EXPOSURE_LABELS = {
     "core": "核心敞口",

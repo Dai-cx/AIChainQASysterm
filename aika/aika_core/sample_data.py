@@ -18,7 +18,6 @@ from aika.aika_core.data_paths import (
     SEGMENT_DOSSIERS_FILE,
 )
 
-
 ROOT_DIR = Path(__file__).resolve().parents[2]
 REPO_SAMPLE_DIR = ROOT_DIR / "data" / "knowledge_packs" / "sample"
 RESOURCE_PACKAGE = "aika.aika_core"

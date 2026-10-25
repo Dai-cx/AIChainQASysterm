@@ -3,6 +3,8 @@ from pathlib import Path
 import pytest
 from pypdf import PdfWriter
 
+from aika.data_config import load_industry_sources, load_research_keywords, validate_industry_sources
+from aika.domain_lexicon import TECHNICAL_SOURCE_TYPES
 from scripts.prepare_stage1_data import (
     INDUSTRY_SOURCES_CSV,
     MANIFEST_FIELDS,
@@ -13,8 +15,6 @@ from scripts.prepare_stage1_data import (
     validate_companies,
     validate_pdf,
 )
-from aika.data_config import load_industry_sources, load_research_keywords, validate_industry_sources
-from aika.domain_lexicon import TECHNICAL_SOURCE_TYPES
 
 
 def test_company_list_has_expected_thirty_targets() -> None:

@@ -19,7 +19,6 @@ from aika.research_claims import (
     first_company,
 )
 
-
 ROOT_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_SEMANTIC_DIR = ROOT_DIR / "data" / "semantic_index"
 SEMANTIC_DOCUMENTS_FILE = "documents.jsonl"

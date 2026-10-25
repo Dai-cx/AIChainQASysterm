@@ -2,12 +2,11 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten
-
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
 from typing import Any, Literal
 
+from aika.aika_core.text import shorten
 
 AgentTaskStatus = Literal["pending", "running", "completed", "failed"]
 VALID_AGENT_TASK_STATUSES = {"pending", "running", "completed", "failed"}
@@ -18,36 +17,6 @@ def now_iso() -> str:
 def short_text(value: str, limit: int = 48) -> str:
     """Collapse whitespace and cut to ``limit`` characters (legacy reserve of 1)."""
     return shorten(value, limit, reserve=1)
-
-
-@dataclass(frozen=True)
-class AgentToolSpec:
-    name: str
-    description: str
-    input_schema: dict[str, Any] = field(default_factory=dict)
-    output_schema: dict[str, Any] = field(default_factory=dict)
-    timeout: float = 30.0
-    cost_level: str = "low"
-    safety_level: str = "read_only"
-    requires_llm: bool = False
-    cacheable: bool = True
-
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "AgentToolSpec":
-        return cls(
-            name=str(payload.get("name") or ""),
-            description=str(payload.get("description") or ""),
-            input_schema=dict(payload.get("input_schema") or {}),
-            output_schema=dict(payload.get("output_schema") or {}),
-            timeout=float(payload.get("timeout") or 30.0),
-            cost_level=str(payload.get("cost_level") or "low"),
-            safety_level=str(payload.get("safety_level") or "read_only"),
-            requires_llm=bool(payload.get("requires_llm", False)),
-            cacheable=bool(payload.get("cacheable", True)),
-        )
 
 
 @dataclass(frozen=True)

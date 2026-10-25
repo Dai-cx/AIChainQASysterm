@@ -10,7 +10,6 @@ from pathlib import Path
 from aika.aika_core.io import read_csv_rows
 from aika.extraction_schema import normalize_name
 
-
 ROOT_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT_DIR / "data"
 METADATA_DIR = DATA_DIR / "metadata"

@@ -7,7 +7,7 @@ from typing import Any
 
 from aika.aika_core.data_paths import DEFAULT_CURATED_DIR
 from aika.aika_core.models import GraphEdge
-from aika.frontend_data import LocalKnowledgeGraph, RELATION_LABELS, subgraph_edges
+from aika.frontend_data import RELATION_LABELS, LocalKnowledgeGraph, subgraph_edges
 
 
 def load_graph(data_dir: str | Path = DEFAULT_CURATED_DIR) -> LocalKnowledgeGraph:

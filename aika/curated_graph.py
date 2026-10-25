@@ -18,7 +18,6 @@ from aika.domain_lexicon import (
 from aika.extraction_schema import ENTITY_CSV_FIELDS, RELATION_CSV_FIELDS, normalize_name, read_csv, write_csv
 from aika.frontend_data import DEFAULT_ENTITIES_CSV, DEFAULT_RELATIONS_CSV
 
-
 ROOT_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_CURATED_DIR = ROOT_DIR / "data" / "curated"
 CURATED_ENTITIES_CSV = DEFAULT_CURATED_DIR / "entities.csv"

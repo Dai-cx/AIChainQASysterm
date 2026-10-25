@@ -126,3 +126,29 @@ testpaths = ["tests"]
 markers = [
     "integration: requires an external service such as PostgreSQL",
 ]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = [".tmp", "docs/legacy", "web", "data"]
+
+[tool.ruff.lint]
+# Pyflakes first: it catches the class of bug this codebase actually had
+# (names left behind after a refactor). Isort keeps the split packages readable.
+select = ["E4", "E7", "E9", "F", "I"]
+ignore = ["E402"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["aika", "scripts", "tests"]
+
+[tool.mypy]
+python_version = "3.11"
+files = ["aika"]
+ignore_missing_imports = true
+warn_redundant_casts = true
+warn_unused_ignores = false
+exclude = ["aika/bundled_", "aika/aika_core/bundled_"]
+
+[[tool.mypy.overrides]]
+module = ["jieba.*", "rank_bm25.*", "fitz.*", "pypdf.*", "neo4j.*", "pgvector.*", "langgraph.*", "langchain_core.*"]
+ignore_missing_imports = true

@@ -28,7 +28,6 @@ from aika.aika_core.data_paths import (  # noqa: E402
 from aika.aika_core.knowledge_pack import REQUIRED_MANIFEST_FIELDS, validate_knowledge_pack  # noqa: E402
 from aika.research_claims import build_segment_dossiers  # noqa: E402
 
-
 DEFAULT_CURATED_DIR = ROOT_DIR / "data" / "curated"
 DEFAULT_SOURCE_MANIFEST = ROOT_DIR / "data" / "metadata" / "reports_manifest.csv"
 DEFAULT_OUTPUT_DIR = ROOT_DIR / "data" / "knowledge_packs" / "sample"

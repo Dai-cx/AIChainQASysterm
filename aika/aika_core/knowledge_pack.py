@@ -19,7 +19,6 @@ from aika.aika_core.data_paths import (
     SEGMENT_DOSSIERS_FILE,
 )
 
-
 REQUIRED_KNOWLEDGE_PACK_FILES = [
     ENTITIES_FILE,
     RELATIONS_FILE,

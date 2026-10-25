@@ -9,7 +9,6 @@ from typing import Any
 from aika.report.render_html import render_html
 from aika.report.spec import ReportSpec
 
-
 PLAYWRIGHT_INSTALL_FIX = (
     "Install PDF rendering support with `pip install 'aika-research-mcp[pdf]'` "
     "and `python -m playwright install chromium`."

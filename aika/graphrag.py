@@ -2,18 +2,14 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten
-
-import re
 from collections import defaultdict
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
+from aika.aika_core.text import shorten
 from aika.domain_lexicon import company_segment, infer_themes, normalize_topic
-from aika.frontend_data import RELATION_LABELS
 from aika.question_planner import QuestionPlan
 from aika.research_claims import ResearchHit
-
 
 EXPOSURE_SCORE = {"core": 40.0, "direct": 30.0, "indirect": 16.0, "mentioned": 6.0, "": 0.0}
 CLAIM_TYPE_SCORE = {

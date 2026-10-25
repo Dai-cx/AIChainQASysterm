@@ -2,13 +2,11 @@
 
 from __future__ import annotations
 
-from aika.aika_core.domain import required_coverage
-
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
+from aika.aika_core.domain import required_coverage
 from aika.question_planner import QuestionPlan
-
 
 DEFAULT_MAX_RETRIEVAL_ROUNDS = 3
 

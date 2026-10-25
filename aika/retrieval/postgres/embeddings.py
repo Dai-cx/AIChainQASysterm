@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Any
+
 from aika.semantic_index import SemanticIndexMetadata
 
 from .common import EMBEDDING_DIMENSIONS, SCHEMA_VERSION, corpus_hash

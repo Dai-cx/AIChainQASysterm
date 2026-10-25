@@ -6,15 +6,21 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-from aika.domain_lexicon import text_matches_terms
 from aika.aika_core.io import read_jsonl_rows
+from aika.domain_lexicon import text_matches_terms
 from aika.extraction_schema import read_csv
-
+from aika.research.claims import claim_title, first_company, normalize_claim_row, parse_companies
 from aika.research.constants import CLAIMS_FILE, DEFAULT_RESEARCH_DIR, SEGMENT_DOSSIERS_FILE
 from aika.research.hits import ResearchHit, dedupe_research_hits, diversify_research_hits
-from aika.research.claims import claim_title, first_company, normalize_claim_row, parse_companies
 from aika.research.review import apply_claim_reviews, load_claim_reviews, normalize_claim_review
-from aika.research.scoring import dossier_to_text, query_focus_terms, query_topics, score_claim, should_use_dossier, topic_match_score
+from aika.research.scoring import (
+    dossier_to_text,
+    query_focus_terms,
+    query_topics,
+    score_claim,
+    should_use_dossier,
+    topic_match_score,
+)
 
 
 class ResearchMemory:

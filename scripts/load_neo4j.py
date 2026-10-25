@@ -13,7 +13,6 @@ sys.path.insert(0, str(ROOT_DIR))
 from aika.curated_graph import CURATED_ENTITIES_CSV, CURATED_RELATIONS_CSV
 from aika.kg_loader import Neo4jGraphLoader, validate_graph_csvs
 
-
 DEFAULT_ENTITIES = CURATED_ENTITIES_CSV if CURATED_ENTITIES_CSV.exists() else ROOT_DIR / "data" / "verified" / "entities.csv"
 DEFAULT_RELATIONS = CURATED_RELATIONS_CSV if CURATED_RELATIONS_CSV.exists() else ROOT_DIR / "data" / "verified" / "relations.csv"
 

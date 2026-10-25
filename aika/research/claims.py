@@ -2,15 +2,27 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten
 import json
 import re
 from typing import Any, Iterable
-from aika.domain_lexicon import THEME_SYNONYMS, canonical_company_name, company_lookup, company_segment, infer_themes, normalize_topic
+
+from aika.aika_core.text import shorten
+from aika.domain_lexicon import (
+    THEME_SYNONYMS,
+    canonical_company_name,
+    company_lookup,
+    company_segment,
+    infer_themes,
+    normalize_topic,
+)
 from aika.extraction_schema import stable_id
 from aika.frontend_data import RELATION_LABELS
-
-from aika.research.constants import DIRECT_METRIC_PATTERN, DIRECT_TOPIC_TERMS, EXPLICIT_BOTTLENECK_TERMS, TECHNICAL_INDICATOR_TERMS
+from aika.research.constants import (
+    DIRECT_METRIC_PATTERN,
+    DIRECT_TOPIC_TERMS,
+    EXPLICIT_BOTTLENECK_TERMS,
+    TECHNICAL_INDICATOR_TERMS,
+)
 
 
 def claims_from_relation(row: dict[str, str]) -> list[dict[str, Any]]:

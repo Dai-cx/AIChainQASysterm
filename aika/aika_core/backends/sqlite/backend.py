@@ -8,14 +8,40 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import Any, Iterable
 
-from aika.aika_core.models import ClaimRecord, CompanyComparison, CompanyProfile, EvidenceCard, EvidenceGap, GraphEdge, ResearchBackend, ResearchBrief
-
-from aika.aika_core.backends.sqlite.util import _dedupe, _limit, _text
-from aika.aika_core.backends.sqlite.schema import _connect
-from aika.aika_core.backends.sqlite.query import _claim_filter_sql, _dedupe_rows, _evidence_filter_sql, _fts_query, _score_rows, _topic_filter_sql
-from aika.aika_core.backends.sqlite.rows import _card_citations, _claim_cards_from_records, _dedupe_evidence_cards, _dedupe_gaps, _dossier_card_from_row, _ensure_citations, _evidence_card_from_row, _graph_edge_from_row, _infer_chain_segment, _strongest_exposure, _summarize_cards
 from aika.aika_core.backends.sqlite.index import _fallback_claim_rows, _fallback_dossier_rows, _fallback_evidence_rows
-
+from aika.aika_core.backends.sqlite.query import (
+    _claim_filter_sql,
+    _dedupe_rows,
+    _evidence_filter_sql,
+    _fts_query,
+    _score_rows,
+    _topic_filter_sql,
+)
+from aika.aika_core.backends.sqlite.rows import (
+    _card_citations,
+    _claim_cards_from_records,
+    _dedupe_evidence_cards,
+    _dedupe_gaps,
+    _dossier_card_from_row,
+    _ensure_citations,
+    _evidence_card_from_row,
+    _graph_edge_from_row,
+    _infer_chain_segment,
+    _strongest_exposure,
+    _summarize_cards,
+)
+from aika.aika_core.backends.sqlite.schema import _connect
+from aika.aika_core.backends.sqlite.util import _dedupe, _limit, _text
+from aika.aika_core.models import (
+    ClaimRecord,
+    CompanyComparison,
+    CompanyProfile,
+    EvidenceCard,
+    EvidenceGap,
+    GraphEdge,
+    ResearchBackend,
+    ResearchBrief,
+)
 
 DEFAULT_PROFILE = "sample"
 
@@ -392,3 +418,7 @@ class SQLiteResearchBackend(ResearchBackend):
                 except sqlite3.OperationalError:
                     pass
             return _fallback_dossier_rows(connection, query, limit=limit, filters=filters)
+
+
+def _card_support_text(card: EvidenceCard) -> str:
+    return " ".join([card.company, card.topic, card.title, card.evidence, card.evidence_span, card.source])

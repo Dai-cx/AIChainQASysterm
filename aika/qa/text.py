@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterator
-from datetime import datetime
-from typing import Any
 import json
 import re
 import time
+from collections.abc import Iterator
+from datetime import datetime
+from typing import Any
 
 from aika.cypher_generator import GeneratedCypher
 from aika.extraction_schema import normalize_name

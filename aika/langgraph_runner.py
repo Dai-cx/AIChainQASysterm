@@ -28,7 +28,6 @@ from aika.agents.centralized import (
 from aika.agents.coverage import CoverageReport
 from aika.professional_qa import EvidenceCard
 
-
 ProgressCallback = Callable[[dict[str, Any]], None]
 
 

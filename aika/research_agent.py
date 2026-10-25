@@ -2,23 +2,19 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten as short_text
-
 import re
-from collections import defaultdict
 from typing import Any, Iterable
 
+from aika.aika_core.text import shorten as short_text
 from aika.domain_lexicon import company_segment
+from aika.report import build_report_spec, render_html, render_markdown, render_markdown_sections
 from aika.report_type import (
     CoverageMetrics,
     aggregate_freshness_status,
     classify_report_type,
-    report_title,
     report_type_label,
     report_usability,
 )
-from aika.report import build_report_spec, render_html, render_markdown, render_markdown_sections
-
 
 EXPOSURE_LABELS = {
     "core": "核心敞口",

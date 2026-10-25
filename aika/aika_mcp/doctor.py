@@ -26,7 +26,6 @@ from aika.aika_mcp.host_configs import (
 )
 from aika.aika_mcp.tools import tool_names
 
-
 STATUS_PASS = "pass"
 STATUS_WARN = "warn"
 STATUS_FAIL = "fail"

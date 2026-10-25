@@ -4,14 +4,28 @@ from __future__ import annotations
 
 from typing import Any
 
-from aika.aika_mcp.schemas import RunResearchTaskRequest
-from aika.report_type import report_title
-
-from aika.aika_mcp.common import BackendContext, DEPTH_LIMITS, _normalize_gaps, _require_backend_method, _subject, _success_envelope, _to_dict
-from aika.aika_mcp.cards import _cards_from_claims, _dedupe_cards, _evidence_ux_bundle, _normalize_cards, _prepend_evidence_ux, _renumber_cards
-from aika.aika_mcp.verify import _trace_step, _verify_result
+from aika.aika_mcp.cards import (
+    _cards_from_claims,
+    _dedupe_cards,
+    _evidence_ux_bundle,
+    _normalize_cards,
+    _prepend_evidence_ux,
+    _renumber_cards,
+)
+from aika.aika_mcp.common import (
+    DEPTH_LIMITS,
+    BackendContext,
+    _normalize_gaps,
+    _require_backend_method,
+    _subject,
+    _success_envelope,
+    _to_dict,
+)
 from aika.aika_mcp.markdown import _mcp_report_context
 from aika.aika_mcp.queries import _collect_graph_edges
+from aika.aika_mcp.schemas import RunResearchTaskRequest
+from aika.aika_mcp.verify import _trace_step, _verify_result
+from aika.report_type import report_title
 
 
 def _run_research_task(request: RunResearchTaskRequest, context: BackendContext) -> dict[str, Any]:

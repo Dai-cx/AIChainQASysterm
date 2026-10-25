@@ -11,7 +11,6 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-
 DEFAULT_HOST = "claude-code"
 DEFAULT_SERVER_NAME = "aika"
 DEFAULT_TIMEOUT_MS = 600_000

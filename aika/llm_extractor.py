@@ -5,10 +5,9 @@ from __future__ import annotations
 from functools import lru_cache
 from typing import Any
 
-from aika.extraction_schema import ENTITY_TYPES, RELATION_TYPES, sanitize_extraction_payload
 from aika.data_config import load_companies
 from aika.domain_lexicon import TECHNICAL_SOURCE_TYPES
-
+from aika.extraction_schema import ENTITY_TYPES, RELATION_TYPES, sanitize_extraction_payload
 
 SYSTEM_PROMPT = """你是知识图谱构建助手。你只从给定文本中抽取明确出现的信息，不编造。
 输出必须是严格 JSON 对象，包含 entities 和 relations 两个数组。"""

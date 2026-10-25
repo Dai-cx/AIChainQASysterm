@@ -9,10 +9,10 @@ from typing import Any
 
 import pytest
 
+from aika import aika_cli
 from aika.aika_mcp import doctor, host_configs, installer
 from aika.aika_mcp.host_configs import AikaMcpConfigError, build_mcp_config, format_mcp_config
 from aika.aika_mcp.tools import tool_names
-from aika import aika_cli
 from aika.aika_skills import SkillInstallResult
 
 

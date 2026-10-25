@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import normalize_text as _normalize
 import json
 import re
 from typing import Any, Iterable
+
+from aika.aika_core.text import normalize_text as _normalize
 
 
 def _values(value: Any) -> list[str]:

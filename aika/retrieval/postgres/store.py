@@ -3,19 +3,19 @@
 from __future__ import annotations
 
 import os
+
 from psycopg.rows import dict_row
 from psycopg_pool import ConnectionPool
 
+from .claim_sync import ClaimSyncMixin
 from .common import (
     EMBEDDING_DIMENSIONS,
     PostgresRetrievalError,
     _configure_connection,
     require_database_url,
 )
-
-from .rag_sync import RagSyncMixin
-from .claim_sync import ClaimSyncMixin
 from .embeddings import EmbeddingMixin
+from .rag_sync import RagSyncMixin
 
 
 class PostgresRetrievalStore(RagSyncMixin, ClaimSyncMixin, EmbeddingMixin):

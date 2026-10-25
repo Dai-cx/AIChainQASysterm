@@ -17,7 +17,6 @@ from aika.aika_mcp.host_configs import (
     format_codex_server_toml,
 )
 
-
 RunCommand = Callable[[list[str]], subprocess.CompletedProcess[str]]
 VALID_SCOPES = {"user", "project"}
 COMMAND_TIMEOUT_SECONDS = 15

@@ -19,7 +19,6 @@ from aika.eval.rag_runner import (
     validate_semantic_corpus,
 )
 from aika.eval.store import EvalRunStore
-from aika.extraction_schema import write_jsonl
 from aika.question_planner import heuristic_plan_question
 from aika.rag_index import LocalRagIndex, document_from_chunk
 from aika.semantic_index import SemanticDocument, SemanticIndex, SemanticIndexMetadata

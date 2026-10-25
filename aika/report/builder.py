@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten as _short_text
-
 import re
 from typing import Any, Iterable
 
+from aika.aika_core.text import shorten as _short_text
 from aika.report.charts.common import as_dict, dedupe, evidence_id, freshness_status, text_attr
 from aika.report.charts.evidence_bar import build_evidence_strength_bar
 from aika.report.charts.flow_map import build_flow_map

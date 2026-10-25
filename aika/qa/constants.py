@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-
-
 NO_EVIDENCE_ANSWER = "当前知识库中未找到相关证据。"
 
 

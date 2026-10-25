@@ -11,7 +11,6 @@ from importlib import resources
 from pathlib import Path
 from typing import Any
 
-
 DEFAULT_SKILL_NAME = "aika-research"
 DEFAULT_MCP_SERVER_NAME = "aika"
 SUPPORTED_SKILL_HOSTS = {"codex", "claude-code"}

@@ -6,7 +6,6 @@ from typing import Any
 
 from aika.aika_core.evidence import build_evidence_ux_bundle, freshness_status
 from aika.aika_core.models import ClaimRecord, EvidenceCard
-
 from aika.aika_mcp.common import BackendContext, _llm_counter_audit, _to_dict
 from aika.aika_mcp.markdown import _compose_research_markdown
 

@@ -16,7 +16,6 @@ from aika.rag_index import RagHit
 from aika.research_claims import ResearchHit
 from aika.semantic_index import SemanticHit
 
-
 MAX_AGENT_STEPS = 4
 
 

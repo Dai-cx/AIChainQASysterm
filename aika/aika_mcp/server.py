@@ -14,7 +14,6 @@ from mcp.server.fastmcp import FastMCP
 import aika.aika_mcp.tools as tools
 from aika.aika_core.backends.sqlite_backend import DEFAULT_PROFILE
 
-
 Transport = Literal["stdio", "sse", "streamable-http"]
 
 

@@ -7,7 +7,6 @@ from typing import Any
 
 from aika.eval.dataset import EvalCase
 
-
 CITATION_PATTERN = re.compile(r"(?<![A-Za-z0-9])E\d+(?![A-Za-z0-9])")
 REFUSAL_TERMS = ("当前知识库", "证据不足", "未找到", "无法给出", "不能", "不应", "缺少证据")
 SENTENCE_SPLIT_PATTERN = re.compile(r"[\n。！？；;]+")

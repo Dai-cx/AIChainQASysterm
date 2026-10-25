@@ -4,14 +4,32 @@ from __future__ import annotations
 
 from collections.abc import Callable, Mapping
 from typing import Any
+
 from pydantic import ValidationError
 
-from aika.aika_mcp.schemas import AuditEvidenceGapsRequest, BuildResearchBriefRequest, CompareCompaniesRequest, CompanyProfileRequest, QueryIndustryGraphRequest, RenderReportPdfRequest, RunResearchTaskRequest, SearchClaimsRequest, SearchEvidenceRequest
-
 from aika.aika_mcp.common import BackendContext, RequestT, _error_envelope, _jsonable, _meta, resolve_backend
-from aika.aika_mcp.queries import _audit_evidence_gaps, _build_research_brief, _compare_companies, _get_company_profile, _query_industry_graph, _search_claims, _search_evidence
-from aika.aika_mcp.research_task import _run_research_task
 from aika.aika_mcp.pdf import _render_report_pdf
+from aika.aika_mcp.queries import (
+    _audit_evidence_gaps,
+    _build_research_brief,
+    _compare_companies,
+    _get_company_profile,
+    _query_industry_graph,
+    _search_claims,
+    _search_evidence,
+)
+from aika.aika_mcp.research_task import _run_research_task
+from aika.aika_mcp.schemas import (
+    AuditEvidenceGapsRequest,
+    BuildResearchBriefRequest,
+    CompanyProfileRequest,
+    CompareCompaniesRequest,
+    QueryIndustryGraphRequest,
+    RenderReportPdfRequest,
+    RunResearchTaskRequest,
+    SearchClaimsRequest,
+    SearchEvidenceRequest,
+)
 
 
 def search_evidence(payload: Mapping[str, Any] | SearchEvidenceRequest | None = None, **kwargs: Any) -> dict[str, Any]:
@@ -164,18 +182,9 @@ from aika.aika_mcp.markdown import (  # noqa: F401,E402
 )
 from aika.aika_mcp.pdf import (  # noqa: F401,E402
     _charts_present,
-    _render_report_pdf,
     _report_spec_for_pdf,
 )
 from aika.aika_mcp.queries import (  # noqa: F401,E402
-    _audit_evidence_gaps,
-    _build_research_brief,
     _collect_graph_edges,
-    _compare_companies,
-    _get_company_profile,
-    _query_industry_graph,
-    _search_claims,
-    _search_evidence,
 )
-from aika.aika_mcp.research_task import _run_research_task  # noqa: F401,E402
 from aika.aika_mcp.verify import _trace_step, _verify_result  # noqa: F401,E402

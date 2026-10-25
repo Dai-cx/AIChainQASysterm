@@ -4,6 +4,7 @@ from types import SimpleNamespace
 import httpx
 import pytest
 
+from aika.agents.store import AgentTaskStore
 from aika.api import (
     app,
     get_agent_task_store,
@@ -13,7 +14,6 @@ from aika.api import (
     get_knowledge_graph,
     get_qa_engine,
 )
-from aika.agents.store import AgentTaskStore
 from aika.conversation_store import ConversationStore
 from aika.eval.feedback import FeedbackStore
 from aika.eval.store import EvalRunStore
@@ -220,7 +220,7 @@ async def test_api_status_and_graph_endpoints(tmp_path: Path) -> None:
     try:
         status_response = await client.get("/api/status")
         summary_response = await client.get("/api/graph/summary")
-        subgraph_response = await client.get("/api/graph/subgraph")
+        await client.get("/api/graph/subgraph")
 
         assert status_response.status_code == 200
         assert status_response.json()["stats"]["companies"] == 1

@@ -8,13 +8,12 @@
 
 from __future__ import annotations
 
-from aika.aika_core.domain import ANSWER_TYPES
-
 import json
 import re
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
+from aika.aika_core.domain import ANSWER_TYPES
 from aika.domain_lexicon import (
     BOTTLENECK_TERMS,
     THEME_SYNONYMS,

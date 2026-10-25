@@ -2,15 +2,15 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten
 from collections import defaultdict
 from datetime import datetime, timezone
 from typing import Any
-from aika.domain_lexicon import company_segment
 
+from aika.aika_core.text import shorten
+from aika.domain_lexicon import company_segment
+from aika.research.claims import parse_companies
 from aika.research.constants import EXPOSURE_ORDER
 from aika.research.hits import sorted_claims, top_claim_texts
-from aika.research.claims import parse_companies
 
 
 def build_segment_dossiers(claims: list[dict[str, Any]]) -> list[dict[str, Any]]:

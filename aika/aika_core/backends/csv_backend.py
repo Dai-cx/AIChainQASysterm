@@ -2,10 +2,6 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import dedupe_strings as _dedupe
-
-from aika.aika_core.text import shorten as _short_text
-
 import json
 from dataclasses import replace
 from pathlib import Path
@@ -25,9 +21,13 @@ from aika.aika_core.models import (
     ResearchBackend,
     ResearchBrief,
 )
+from aika.aika_core.text import dedupe_strings as _dedupe
+from aika.aika_core.text import shorten as _short_text
 from aika.domain_lexicon import expanded_terms
 from aika.professional_qa import (
     EvidenceCard as LegacyEvidenceCard,
+)
+from aika.professional_qa import (
     cards_from_graph_records,
     cards_from_research_hits,
     rank_evidence_cards,

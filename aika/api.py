@@ -16,21 +16,19 @@ from pydantic import BaseModel
 
 from aika.agents.research_agent import ResearchAgent
 from aika.agents.store import AgentTaskNotFoundError, AgentTaskStore, InvalidAgentTaskError
+from aika.aika_core.data_paths import has_graph, resolve_graph_dir
 from aika.conversation_store import (
     ConversationNotFoundError,
     ConversationStore,
     InvalidConversationError,
     now_iso,
 )
-from aika.aika_core.data_paths import has_graph, resolve_graph_dir
-from aika.curated_graph import DEFAULT_CURATED_DIR
 from aika.eval.feedback import FeedbackStore, InvalidFeedbackError
 from aika.eval.store import EvalRunNotFoundError, EvalRunStore, InvalidEvalRunError
-from aika.frontend_data import LocalKnowledgeGraph, RELATION_LABELS, subgraph_edges
+from aika.frontend_data import RELATION_LABELS, LocalKnowledgeGraph, subgraph_edges
 from aika.llm_client import load_dotenv
 from aika.qa_engine import QAEngine, normalize_agent_max_steps
 from aika.research_claims import normalize_claim_review
-
 
 REASONING_EFFORTS = ["low", "medium", "high"]
 EXAMPLE_QUESTIONS = [

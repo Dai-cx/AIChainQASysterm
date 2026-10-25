@@ -12,7 +12,6 @@ sys.path.insert(0, str(ROOT_DIR))
 
 from aika.graph_builder import build_verified_graph
 
-
 DEFAULT_MANIFEST = ROOT_DIR / "data" / "metadata" / "reports_manifest.csv"
 DEFAULT_EXTRACTIONS = ROOT_DIR / "data" / "extracted" / "extractions.jsonl"
 DEFAULT_OUTPUT_DIR = ROOT_DIR / "data" / "verified"

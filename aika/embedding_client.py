@@ -10,7 +10,6 @@ import requests
 
 from aika.llm_client import load_dotenv
 
-
 DEFAULT_EMBEDDING_BATCH_SIZE = 32
 DEFAULT_EMBEDDING_TIMEOUT = 60
 DEFAULT_EMBEDDING_RETRIES = 2

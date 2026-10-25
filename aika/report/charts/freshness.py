@@ -9,7 +9,6 @@ from typing import Any, Iterable
 from aika.report.charts.common import freshness_status, parse_year, text_attr
 from aika.report.spec import FreshnessItemSpec, FreshnessTimelineSpec
 
-
 FRESHNESS_ORDER = {"stale": 0, "aging": 1, "fresh": 2, "unknown": 3}
 
 

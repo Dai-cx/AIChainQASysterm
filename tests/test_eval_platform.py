@@ -4,7 +4,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from aika.eval.dataset import EvalDatasetError, EvalCase, load_eval_cases
+from aika.eval.dataset import EvalCase, EvalDatasetError, load_eval_cases
 from aika.eval.feedback import FeedbackStore, InvalidFeedbackError
 from aika.eval.metrics import score_case
 from aika.eval.runner import run_qa_benchmark

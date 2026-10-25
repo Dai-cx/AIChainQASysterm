@@ -30,7 +30,6 @@ from aika.aika_core.sample_data import (
     sample_source_status,
 )
 
-
 ROOT_DIR = Path(__file__).resolve().parents[1]
 SAMPLE_SOURCE_DIR = ROOT_DIR / "data" / "knowledge_packs" / "sample"
 DEFAULT_DEMO_QUERY = "液冷产业链"
@@ -339,7 +338,8 @@ def run_skill_install(args: argparse.Namespace) -> int:
 
 
 def run_skill_doctor(args: argparse.Namespace) -> int:
-    from aika.aika_skills import AikaSkillError, format_skill_doctor_report, run_skill_doctor as diagnose_skill
+    from aika.aika_skills import AikaSkillError, format_skill_doctor_report
+    from aika.aika_skills import run_skill_doctor as diagnose_skill
 
     try:
         report = diagnose_skill(host=args.host, scope=args.scope)
@@ -404,7 +404,8 @@ def run_mcp_install(args: argparse.Namespace) -> int:
 
 
 def run_mcp_doctor(args: argparse.Namespace) -> int:
-    from aika.aika_mcp.doctor import format_doctor_report, run_mcp_doctor as diagnose_mcp
+    from aika.aika_mcp.doctor import format_doctor_report
+    from aika.aika_mcp.doctor import run_mcp_doctor as diagnose_mcp
 
     report = diagnose_mcp(host=args.host, scope=args.scope, home=args.home or None, profile=args.profile)
     print(format_doctor_report(report))

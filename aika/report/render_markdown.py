@@ -2,10 +2,9 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten as _short_text
-
 from typing import Any
 
+from aika.aika_core.text import shorten as _short_text
 from aika.report.spec import ReportSpec
 
 

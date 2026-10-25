@@ -8,10 +8,10 @@ from pathlib import Path
 
 from aika.aika_core.data_paths import (
     CLAIMS_FILE,
+    DEFAULT_CURATED_DIR,
     ENTITIES_FILE,
     RELATIONS_FILE,
     SEGMENT_DOSSIERS_FILE,
-    DEFAULT_CURATED_DIR,
     resolve_data_dir,
 )
 

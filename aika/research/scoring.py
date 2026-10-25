@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten
 import re
 from typing import Any, Iterable
-from aika.domain_lexicon import THEME_SYNONYMS, expanded_terms, infer_themes, normalize_topic, text_matches_terms
 
-from aika.research.constants import CLAIM_TYPE_BONUS, TECHNICAL_HIGH_SIGNAL_TERMS, TECHNICAL_REPORT_PREFIX
+from aika.aika_core.text import shorten
+from aika.domain_lexicon import THEME_SYNONYMS, expanded_terms, infer_themes, normalize_topic, text_matches_terms
 from aika.research.claims import dedupe_strings, looks_like_low_quality_text, parse_companies, safe_float
+from aika.research.constants import CLAIM_TYPE_BONUS, TECHNICAL_HIGH_SIGNAL_TERMS, TECHNICAL_REPORT_PREFIX
 
 
 def score_claim(claim: dict[str, Any], question: str, topics: list[str], plan: Any) -> float:

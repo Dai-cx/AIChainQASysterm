@@ -2,10 +2,8 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import normalize_text
-
-import json
 import hashlib
+import json
 import math
 import os
 import re
@@ -15,8 +13,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from aika.aika_core.text import normalize_text
+from aika.domain_lexicon import (
+    DISCLAIMER_TERMS,
+    TECHNICAL_SOURCE_TYPES,
+    expanded_terms,
+    is_disclaimer_text,
+    normalize_topic,
+)
 from aika.extraction_schema import load_jsonl, write_jsonl
-from aika.domain_lexicon import DISCLAIMER_TERMS, TECHNICAL_SOURCE_TYPES, expanded_terms, is_disclaimer_text, normalize_topic
 from aika.text_cleaner import CHUNKS_DIR
 
 try:  # Optional speed/quality dependencies; deterministic fallback below.

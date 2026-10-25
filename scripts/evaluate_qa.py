@@ -13,7 +13,6 @@ sys.path.insert(0, str(ROOT_DIR))
 
 from aika.qa_engine import QAEngine
 
-
 EVAL_CASES = [
     {
         "question": "哪些公司涉及AI服务器？",

@@ -5,7 +5,8 @@ from __future__ import annotations
 import threading
 from typing import Any
 
-from .models import LLMBudgetExhausted, LLM_METHODS
+from .models import LLM_METHODS, LLMBudgetExhausted
+
 
 class CentralLLMBudget:
     """Thread-safe call budget shared by all centralized agents."""

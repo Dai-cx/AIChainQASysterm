@@ -8,7 +8,6 @@ from typing import Any
 
 from aika.extraction_schema import load_jsonl, stable_id, write_jsonl
 
-
 ROOT_DIR = Path(__file__).resolve().parents[1]
 CHUNKS_DIR = ROOT_DIR / "data" / "chunks"
 

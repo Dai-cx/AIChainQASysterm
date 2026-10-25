@@ -2,7 +2,7 @@ import csv
 import json
 from pathlib import Path
 
-from aika.aika_core import CSVResearchBackend, ClaimRecord, ConclusionCard, EvidenceCard, EvidenceLink, GraphEdge
+from aika.aika_core import ClaimRecord, ConclusionCard, CSVResearchBackend, EvidenceCard, EvidenceLink, GraphEdge
 from aika.aika_core.claims import load_claims
 from aika.aika_core.data_paths import DEFAULT_CLAIMS_CSV, DEFAULT_ENTITIES_CSV
 

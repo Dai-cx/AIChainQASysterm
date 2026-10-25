@@ -6,11 +6,12 @@ import hashlib
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
-from aika.aika_core.text import shorten
 from aika.agent_tools import AgentToolCall
 from aika.agents.coverage import CoverageReport
+from aika.aika_core.text import shorten
 from aika.graphrag import GraphRagResult
 from aika.professional_qa import EvidenceCard, card_identity
+
 
 class LLMBudgetExhausted(RuntimeError):
     pass

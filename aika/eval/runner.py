@@ -2,10 +2,7 @@
 
 from __future__ import annotations
 
-from aika.aika_core.text import shorten as short_text
-
 import hashlib
-import json
 import subprocess
 import uuid
 from collections import defaultdict
@@ -13,6 +10,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from aika.aika_core.text import shorten as short_text
 from aika.eval.dataset import DEFAULT_QA_BENCHMARK, EvalCase, load_eval_cases
 from aika.eval.metrics import score_case
 from aika.eval.store import EvalRunStore

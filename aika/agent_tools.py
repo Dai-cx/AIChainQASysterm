@@ -29,7 +29,6 @@ from aika.reranker import EvidenceReranker
 from aika.research_claims import ResearchHit
 from aika.semantic_index import SemanticHit
 
-
 AGENT_TOOL_NAMES: tuple[str, ...] = (
     "contextualize_question",
     "plan_question",

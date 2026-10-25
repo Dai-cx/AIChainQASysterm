@@ -1,4 +1,4 @@
-from aika.frontend_data import LocalKnowledgeGraph, subgraph_edges
+from aika.frontend_data import LocalKnowledgeGraph
 
 
 def sample_graph() -> LocalKnowledgeGraph:

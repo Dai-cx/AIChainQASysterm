@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Iterable
+from typing import TYPE_CHECKING, Any, Iterable
+
 import psycopg
 from psycopg.types.json import Jsonb
+
 from aika.research_claims import (
     ResearchHit,
     ResearchMemory,
@@ -16,6 +18,9 @@ from aika.research_claims import (
     query_topics,
 )
 from aika.semantic_index import dossier_to_semantic_text
+
+if TYPE_CHECKING:  # pragma: no cover
+    from .store import PostgresRetrievalStore
 
 from .common import claim_semantic_text, stable_content_hash
 

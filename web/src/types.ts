@@ -1,5 +1,3 @@
-export type Role = "user" | "assistant";
-
 export interface ConversationSummary {
   id: string;
   title: string;
@@ -157,12 +155,20 @@ export interface ClaimReviewRequest {
   claim_type?: string;
   topic?: string;
   companies?: string[] | string;
+  mechanism?: string;
+  direction?: string;
+  horizon?: string;
+  metric?: string;
+  value?: string;
+  unit?: string;
   evidence_span?: string;
-  exposure_level?: string;
   confidence?: string;
   as_of_date?: string;
+  exposure_level?: string;
   review_status?: string;
   reviewer_note?: string;
+  quality_flags?: string;
+  conflict_group_id?: string;
 }
 
 export interface ClaimReviewResponse {
@@ -324,6 +330,12 @@ export interface AgentTaskCreateRequest {
   reasoning_effort?: string;
 }
 
+/**
+ * Edge shape shared by the two graph producers:
+ * - `GET /api/graph/subgraph` emits the five required CSV relation fields.
+ * - `QAResult.subgraph` (aika/qa/subgraph.py, aika/graphrag.py) also emits the
+ *   four QA-only attribution fields below.
+ */
 export interface GraphEdge {
   source: string;
   target: string;
@@ -359,6 +371,10 @@ export interface ApiStatus {
     reasoning_efforts: string[];
     agent_enabled: boolean;
     agent_max_steps: number;
+    agent_runner: string;
+    multi_agent_max_workers: number;
+    multi_agent_max_llm_calls: number;
+    multi_agent_task_timeout_seconds: number;
     hyde_enabled?: boolean;
     hyde_query_mode?: string;
     hyde_max_chars?: number;

@@ -16,6 +16,17 @@ import type {
   MessageStreamEvent
 } from "./types";
 
+async function responseErrorMessage(response: Response): Promise<string> {
+  let message = `${response.status} ${response.statusText}`;
+  try {
+    const payload = await response.json();
+    message = payload.detail || message;
+  } catch {
+    // Keep the HTTP status message when the response is not JSON.
+  }
+  return message;
+}
+
 async function request<T>(url: string, options: RequestInit = {}): Promise<T> {
   const response = await fetch(url, {
     headers: {
@@ -25,14 +36,7 @@ async function request<T>(url: string, options: RequestInit = {}): Promise<T> {
     ...options
   });
   if (!response.ok) {
-    let message = `${response.status} ${response.statusText}`;
-    try {
-      const payload = await response.json();
-      message = payload.detail || message;
-    } catch {
-      // Keep the HTTP status message when the response is not JSON.
-    }
-    throw new Error(message);
+    throw new Error(await responseErrorMessage(response));
   }
   if (response.status === 204) {
     return undefined as T;
@@ -94,26 +98,6 @@ export function deleteConversation(id: string): Promise<void> {
   });
 }
 
-export async function sendMessage(
-  id: string,
-  question: string,
-  thinkingEnabled: boolean,
-  reasoningEffort: string
-): Promise<Conversation> {
-  const payload = await request<{ conversation: Conversation }>(
-    `/api/conversations/${encodeURIComponent(id)}/messages`,
-    {
-      method: "POST",
-      body: JSON.stringify({
-        question,
-        thinking_enabled: thinkingEnabled,
-        reasoning_effort: reasoningEffort
-      })
-    }
-  );
-  return payload.conversation;
-}
-
 export async function streamMessage(
   id: string,
   question: string,
@@ -133,14 +117,7 @@ export async function streamMessage(
     })
   });
   if (!response.ok) {
-    let message = `${response.status} ${response.statusText}`;
-    try {
-      const payload = await response.json();
-      message = payload.detail || message;
-    } catch {
-      // Keep the HTTP status message when the response is not JSON.
-    }
-    throw new Error(message);
+    throw new Error(await responseErrorMessage(response));
   }
   if (!response.body) {
     throw new Error("当前浏览器不支持流式响应");

@@ -1179,59 +1179,6 @@ def _card_citations(cards: Iterable[EvidenceCard]) -> list[str]:
             seen.add(card.citation_id)
             output.append(card.citation_id)
     return output
-
-
-def _card_support_text(card: EvidenceCard) -> str:
-    return " ".join([card.company, card.topic, card.title, card.evidence, card.evidence_span, card.source])
-
-
-def _core_judgment(cards: list[EvidenceCard], subject: str) -> str:
-    if not cards:
-        return f"{subject} 当前证据不足，无法形成可验证结论。"
-    card = cards[0]
-    citation = f" [{card.citation_id}]" if card.citation_id else ""
-    return f"{_short_text(card.evidence, 220)}{citation}"
-
-
-def _card_bullets(cards: Iterable[EvidenceCard], claim_types: set[str], *, limit: int) -> str:
-    lines: list[str] = []
-    for card in cards:
-        if card.claim_type not in claim_types:
-            continue
-        citation = f" [{card.citation_id}]" if card.citation_id else ""
-        lines.append(f"- {_short_text(card.evidence, 160)}{citation}")
-        if len(lines) >= limit:
-            break
-    return "\n".join(lines) if lines else "当前证据不足。"
-
-
-def _graph_bullets(edges: Iterable[GraphEdge], *, limit: int) -> str:
-    lines: list[str] = []
-    for edge in edges:
-        if not edge.source and not edge.target:
-            continue
-        evidence = f"：{_short_text(edge.evidence, 100)}" if edge.evidence else ""
-        lines.append(f"- {edge.source} - {edge.relation} - {edge.target}{evidence}")
-        if len(lines) >= limit:
-            break
-    return "\n".join(lines)
-
-
-def _gap_bullets(gaps: Iterable[EvidenceGap]) -> str:
-    lines = [f"- {gap.gap} 建议：{gap.suggested_source}" for gap in gaps]
-    return "\n".join(lines) if lines else "当前证据包未识别出关键缺口。"
-
-
-def _evidence_index(cards: Iterable[EvidenceCard], *, limit: int) -> str:
-    lines: list[str] = []
-    for card in list(cards)[:limit]:
-        citation = card.citation_id or "uncited"
-        source = card.source or card.title or "unknown source"
-        page = f", p.{card.page}" if card.page else ""
-        lines.append(f"- {citation}: {source}{page} - {_short_text(card.evidence, 120)}")
-    return "\n".join(lines) if lines else "当前证据不足。"
-
-
 def _dossier_content(dossier: dict[str, Any]) -> str:
     parts: list[str] = []
     for key in (

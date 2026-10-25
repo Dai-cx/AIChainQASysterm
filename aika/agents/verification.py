@@ -356,8 +356,11 @@ def exposure_support_check(answer: str, cards: list[Any]) -> dict[str, Any]:
                     "evidence_levels": "",
                 }
             )
-    if mentioned_levels and not exposure_cards and not dossier_levels:
-        mismatches.append({"company": "", "answer_level": "、".join(unique_texts(mentioned_levels)), "evidence_levels": ""})
+    # A bare mention of an exposure level that is not attached to any company (for
+    # example an answer explaining what 核心敞口/直接敞口 mean) is not a factual claim
+    # about a company, so it must not fail the whole answer. Only the per-company check
+    # above can produce a real mismatch. The mentions are still reported in
+    # `mentioned_levels` for diagnostics.
     return {
         "mentioned_levels": unique_texts(mentioned_levels),
         "supported_citation_ids": [

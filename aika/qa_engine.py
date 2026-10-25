@@ -697,194 +697,20 @@ class QAEngine:
         thinking_enabled: bool | None = None,
         reasoning_effort: str | None = None,
     ) -> dict[str, Any]:
-        """Workflow 模式下的非流式问答流水线。
+        """Workflow 模式的非流式问答。
 
-        按顺序执行以下阶段，收集各阶段耗时并输出 diagnostics：
-        history → contextualize → plan → cypher → graph → rag → research → evidence → answer → verify
-
-        Args:
-            question: 用户问题
-            conversation_history: 对话历史
-            thinking_enabled: 是否显示思考过程（workflow 模式下暂不输出进度事件）
-            reasoning_effort: 推理努力程度
-
-        Returns:
-            完整的问答结果字典
+        实现见 `_run_answer_pipeline`：这里只负责消费流水线的 final 事件。
         """
-        total_start = time.perf_counter()
-        timings_ms: dict[str, float] = {}
-        question = question.strip()
-        errors: list[str] = []
-        llm_client = CountingLLMClient(self.llm_client) if self.llm_client is not None else None
-        llm_options = build_llm_options(thinking_enabled=thinking_enabled, reasoning_effort=reasoning_effort)
-
-        # 阶段 1: 对话历史归一化
-        stage_start = time.perf_counter()
-        history, history_memory = self._prepare_conversation_history(
-            conversation_history,
-            errors=errors,
-            llm_options=llm_options,
-            llm_client=llm_client,
-        )
-        record_timing(timings_ms, "history", stage_start)
-
-        # 阶段 2: 追问上下文补全
-        stage_start = time.perf_counter()
-        contextual_question = self._contextualize_question(question, history, errors, llm_options, llm_client)
-        record_timing(timings_ms, "contextualize", stage_start)
-
-        # 阶段 3: 问题规划
-        stage_start = time.perf_counter()
-        plan = heuristic_plan_question(contextual_question, core_companies_only=self.core_companies_only)
-        planner_source = "heuristic"
-        if self._should_use_llm_planner(plan, llm_client):
-            plan = plan_question(
-                contextual_question,
-                client=llm_client,
-                core_companies_only=self.core_companies_only,
-                llm_options=llm_options,
-            )
-            planner_source = "llm"
-        record_timing(timings_ms, "plan", stage_start)
-
-        # 阶段 4: HYDE 检索前假想答案
-        stage_start = time.perf_counter()
-        hyde_query = self._build_hyde_query(contextual_question, plan, errors, llm_options, llm_client)
-        retrieval_question = hyde_query.retrieval_query or contextual_question
-        record_timing(timings_ms, "hyde", stage_start)
-
-        # 阶段 5: 生成 Cypher 查询
-        stage_start = time.perf_counter()
-        generated = self._generate_display_cypher(contextual_question, plan, errors, llm_options, llm_client)
-        if generated.error:
-            errors.append(generated.error)
-        record_timing(timings_ms, "cypher", stage_start)
-
-        # 阶段 6: 执行图查询
-        stage_start = time.perf_counter()
-        graph_records = self._query_graph(generated, plan, errors)
-        record_timing(timings_ms, "graph", stage_start)
-
-        # 阶段 7: RAG 检索
-        stage_start = time.perf_counter()
-        rag_hits = self._search_rag(retrieval_question, plan, errors)
-        record_timing(timings_ms, "rag", stage_start)
-
-        # 阶段 8: 研究报告检索
-        stage_start = time.perf_counter()
-        research_hits = self._search_research(retrieval_question, plan, errors)
-        record_timing(timings_ms, "research", stage_start)
-
-        # 阶段 9: 证据合并与排序
-        stage_start = time.perf_counter()
-        raw_cards = [
-            *cards_from_research_hits(research_hits, plan),
-            *cards_from_graph_records(graph_records, plan),
-            *cards_from_rag_hits(rag_hits, plan),
-        ]
-        evidence_cards = rank_evidence_cards(raw_cards, limit=self.evidence_top_n, plan=plan)
-        if plan.answer_type == "risk_analysis":
-            evidence_cards = ensure_relation_cards(evidence_cards, raw_cards, "DISCLOSES_RISK", limit=self.evidence_top_n)
-        evidence_cards = assign_citation_ids(evidence_cards)
-        record_timing(timings_ms, "evidence", stage_start)
-
-        # 阶段 10: LLM 生成答案
-        stage_start = time.perf_counter()
-        answer, reasoning_content = self._generate_answer(
+        for event in self._run_answer_pipeline(
             question,
-            contextual_question,
-            history,
-            plan,
-            graph_records,
-            evidence_cards,
-            errors,
-            llm_options,
-            llm_client,
-        )
-        record_timing(timings_ms, "answer", stage_start)
-
-        # 阶段 11: 答案事实一致性验证
-        verification = verify_answer_support(answer, plan, evidence_cards, raw_cards, question=contextual_question)
-        if verification.get("status") == "fail":
-            answer = build_evidence_limited_answer(plan, evidence_cards, verification)
-            reasoning_content = ""
-            verification = verify_answer_support(answer, plan, evidence_cards, raw_cards, question=contextual_question)
-
-        # 渲染最终输出
-        stage_start = time.perf_counter()
-        evidence = legacy_evidence_rows(evidence_cards)
-        rag_hit_rows = [hit.to_dict() for hit in rag_hits]
-        research_hit_rows = [hit.to_dict() for hit in research_hits]
-        evidence_card_rows = [card.to_dict() for card in evidence_cards]
-        subgraph = answer_subgraph(graph_records, evidence_cards)
-        unsupported_terms = list(verification.get("checks", {}).get("unsupported_terms") or [])
-        research_outputs = build_research_outputs(
-            question=contextual_question,
-            plan=plan,
-            evidence_cards=evidence_cards,
-            graph_records=graph_records,
-            verification=verification,
-        )
-        record_timing(timings_ms, "render_payload", stage_start)
-
-        diagnostics = {
-            "graph_backend": self.status.graph_backend,
-            "graph_records": len(graph_records),
-            "rag_hits": len(rag_hits),
-            "research_hits": len(research_hits),
-            "embedding_hits": 0,
-            "embedding_enabled": bool(getattr(self.status, "embedding_enabled", False)),
-            "evidence_cards": len(evidence_cards),
-            "rerank_top_n": self.rerank_top_n,
-            "history_messages": len(history),
-            **history_memory,
-            "contextualized": contextual_question != question,
-            "contextualizer_mode": self.contextualizer_mode,
-            "planner_source": planner_source,
-            "hyde": hyde_diagnostics(hyde_query),
-            "enable_llm_cypher": self.enable_llm_cypher,
-            "enable_llm_planner": self.enable_llm_planner,
-            "thinking_enabled": thinking_enabled,
-            "reasoning_effort": reasoning_effort or "",
-            "graph_error": self.status.graph_error,
-            "rag_error": self.status.rag_error,
-            "research_error": self.status.research_error,
-            "embedding_error": getattr(self.status, "embedding_error", ""),
-            "llm_error": self.status.llm_error,
-            "unsupported_terms": unsupported_terms,
-            "agent_enabled": False,
-            "agent_runner": "workflow",
-            "langgraph_enabled": False,
-            "agent_max_steps": self.agent_max_steps,
-            "agent_steps": 0,
-            "agent_trace": [],
-            "agent_verification": verification,
-        }
-        timings_ms["total"] = round((time.perf_counter() - total_start) * 1000, 2)
-        diagnostics["timings_ms"] = timings_ms
-        diagnostics["llm_calls"] = llm_client.calls if llm_client is not None else {"total": 0}
-
-        return {
-            "question": question,
-            "contextual_question": contextual_question,
-            "answer": answer,
-            "reasoning_content": reasoning_content,
-            "answer_type": plan.answer_type,
-            "plan": plan.to_dict(),
-            "cypher": generated.cypher,
-            "cypher_params": generated.params,
-            "cypher_source": generated.source,
-            "graph_records": graph_records,
-            "rag_hits": rag_hit_rows,
-            "research_hits": research_hit_rows,
-            "evidence_cards": evidence_card_rows,
-            "evidence": evidence,
-            "research_outputs": research_outputs,
-            "verification": verification,
-            "subgraph": subgraph,
-            "diagnostics": diagnostics,
-            "errors": errors,
-        }
+            conversation_history,
+            thinking_enabled=thinking_enabled,
+            reasoning_effort=reasoning_effort,
+            stream=False,
+        ):
+            if event.get("type") == "final":
+                return dict(event["result"])
+        raise RuntimeError("answer pipeline produced no final result")
 
     def _answer_question_stream_workflow(
         self,
@@ -894,22 +720,50 @@ class QAEngine:
         thinking_enabled: bool | None = None,
         reasoning_effort: str | None = None,
     ) -> Iterator[dict[str, Any]]:
-        """Workflow 模式下的流式问答流水线。
+        """Workflow 模式的流式问答。
 
-        与 _answer_question_workflow 逻辑相同，但：
-        - 在关键阶段 yield progress 事件（thinking_enabled 时）
-        - answer 阶段逐 token 流式输出
-        - 最终 yield final 事件携带完整结果
+        与 `_answer_question_workflow` 共用同一条流水线，区别只是 `stream=True`：
+        会额外产出 progress 与 answer_delta 事件。
+        """
+        yield from self._run_answer_pipeline(
+            question,
+            conversation_history,
+            thinking_enabled=thinking_enabled,
+            reasoning_effort=reasoning_effort,
+            stream=True,
+        )
+
+    def _run_answer_pipeline(
+        self,
+        question: str,
+        conversation_history: list[dict[str, str]] | None = None,
+        *,
+        thinking_enabled: bool | None = None,
+        reasoning_effort: str | None = None,
+        stream: bool,
+    ) -> Iterator[dict[str, Any]]:
+        """Workflow 模式的唯一问答流水线。
+
+        按顺序执行 11 个阶段，并记录各阶段耗时：
+
+            history → contextualize → plan → hyde → cypher → graph
+                    → rag → research → evidence → answer → verify
+
+        `stream=False` 时不产出任何进度事件，只在最后产出一个 final 事件。
+        `stream=True` 且 `thinking_enabled` 时，每个阶段产出 progress，
+        answer 阶段逐 token 产出 answer_delta。
 
         Args:
             question: 用户问题
             conversation_history: 对话历史
-            thinking_enabled: 是否显示思考过程
+            thinking_enabled: 是否输出思考过程
             reasoning_effort: 推理努力程度
+            stream: 是否产出流式事件
 
         Yields:
-            事件字典（progress / answer_delta / answer_complete / final）
+            progress / answer_delta 事件，以及恰好一个 final 事件
         """
+        show_progress = bool(stream and thinking_enabled)
         total_start = time.perf_counter()
         timings_ms: dict[str, float] = {}
         question = question.strip()
@@ -917,7 +771,8 @@ class QAEngine:
         llm_client = CountingLLMClient(self.llm_client) if self.llm_client is not None else None
         llm_options = build_llm_options(thinking_enabled=thinking_enabled, reasoning_effort=reasoning_effort)
 
-        if thinking_enabled:
+        # 阶段 1: 对话历史归一化
+        if show_progress:
             yield stream_progress("history", "正在结合历史对话理解当前问题")
         stage_start = time.perf_counter()
         history, history_memory = self._prepare_conversation_history(
@@ -928,15 +783,17 @@ class QAEngine:
         )
         record_timing(timings_ms, "history", stage_start)
 
-        if thinking_enabled:
+        # 阶段 2: 追问上下文补全
+        if show_progress:
             yield stream_progress("contextualize", "正在判断是否需要补全追问上下文")
         stage_start = time.perf_counter()
         contextual_question = self._contextualize_question(question, history, errors, llm_options, llm_client)
         record_timing(timings_ms, "contextualize", stage_start)
-        if thinking_enabled and contextual_question != question:
+        if show_progress and contextual_question != question:
             yield stream_progress("contextualize", "已将追问改写为可独立检索的问题")
 
-        if thinking_enabled:
+        # 阶段 3: 问题规划
+        if show_progress:
             yield stream_progress("plan", "正在识别公司、主题和答案类型")
         stage_start = time.perf_counter()
         plan = heuristic_plan_question(contextual_question, core_companies_only=self.core_companies_only)
@@ -950,20 +807,22 @@ class QAEngine:
             )
             planner_source = "llm"
         record_timing(timings_ms, "plan", stage_start)
-        if thinking_enabled:
+        if show_progress:
             yield stream_progress("plan", describe_plan_progress(plan))
 
-        if thinking_enabled:
+        # 阶段 4: HYDE 检索前假想答案
+        if show_progress:
             yield stream_progress("hyde", "正在生成用于检索扩展的假想答案")
         stage_start = time.perf_counter()
         hyde_query = self._build_hyde_query(contextual_question, plan, errors, llm_options, llm_client)
         retrieval_question = hyde_query.retrieval_query or contextual_question
         record_timing(timings_ms, "hyde", stage_start)
-        if thinking_enabled:
+        if show_progress:
             message = "HYDE 已生成检索扩展" if hyde_query.hypothetical_answer else "HYDE 未生成，使用原问题检索"
             yield stream_progress("hyde", message)
 
-        if thinking_enabled:
+        # 阶段 5: 生成 Cypher 查询
+        if show_progress:
             yield stream_progress("cypher", "正在准备图谱查询条件")
         stage_start = time.perf_counter()
         generated = self._generate_display_cypher(contextual_question, plan, errors, llm_options, llm_client)
@@ -971,25 +830,29 @@ class QAEngine:
             errors.append(generated.error)
         record_timing(timings_ms, "cypher", stage_start)
 
-        if thinking_enabled:
+        # 阶段 6: 执行图查询
+        if show_progress:
             yield stream_progress("graph", "正在检索产业链图谱关系")
         stage_start = time.perf_counter()
         graph_records = self._query_graph(generated, plan, errors)
         record_timing(timings_ms, "graph", stage_start)
 
-        if thinking_enabled:
+        # 阶段 7: RAG 检索
+        if show_progress:
             yield stream_progress("rag", "正在召回本地研报与原文片段")
         stage_start = time.perf_counter()
         rag_hits = self._search_rag(retrieval_question, plan, errors)
         record_timing(timings_ms, "rag", stage_start)
 
-        if thinking_enabled:
+        # 阶段 8: 研究报告检索
+        if show_progress:
             yield stream_progress("research", "正在召回投研 Claim 与产业链摘要")
         stage_start = time.perf_counter()
         research_hits = self._search_research(retrieval_question, plan, errors)
         record_timing(timings_ms, "research", stage_start)
 
-        if thinking_enabled:
+        # 阶段 9: 证据合并与排序
+        if show_progress:
             yield stream_progress("evidence", "正在筛选可支撑答案的证据")
         stage_start = time.perf_counter()
         raw_cards = [
@@ -1002,46 +865,56 @@ class QAEngine:
             evidence_cards = ensure_relation_cards(evidence_cards, raw_cards, "DISCLOSES_RISK", limit=self.evidence_top_n)
         evidence_cards = assign_citation_ids(evidence_cards)
         record_timing(timings_ms, "evidence", stage_start)
-        if thinking_enabled:
+        if show_progress:
             yield stream_progress("evidence", f"已保留 {len(evidence_cards)} 条高相关证据，开始组织答案")
 
+        # 阶段 10: LLM 生成答案
         stage_start = time.perf_counter()
         answer = ""
         reasoning_content = ""
-        for event in self._generate_answer_stream(
-            question,
-            contextual_question,
-            history,
-            plan,
-            graph_records,
-            evidence_cards,
-            errors,
-            llm_options,
-            llm_client,
-            thinking_enabled=bool(thinking_enabled),
-        ):
-            if event.get("type") in {"answer_delta", "progress"}:
-                yield event
-                continue
-            if event.get("type") == "answer_complete":
-                answer = str(event.get("answer") or "")
-                reasoning_content = str(event.get("reasoning_content") or "")
+        if stream:
+            for event in self._generate_answer_stream(
+                question,
+                contextual_question,
+                history,
+                plan,
+                graph_records,
+                evidence_cards,
+                errors,
+                llm_options,
+                llm_client,
+                thinking_enabled=bool(thinking_enabled),
+            ):
+                if event.get("type") in {"answer_delta", "progress"}:
+                    yield event
+                    continue
+                if event.get("type") == "answer_complete":
+                    answer = str(event.get("answer") or "")
+                    reasoning_content = str(event.get("reasoning_content") or "")
+        else:
+            answer, reasoning_content = self._generate_answer(
+                question,
+                contextual_question,
+                history,
+                plan,
+                graph_records,
+                evidence_cards,
+                errors,
+                llm_options,
+                llm_client,
+            )
         record_timing(timings_ms, "answer", stage_start)
 
-        # 验证 + 重试（如果验证失败则使用 evidence-limited 答案）
+        # 阶段 11: 答案事实一致性验证
         verification = verify_answer_support(answer, plan, evidence_cards, raw_cards, question=contextual_question)
         if verification.get("status") == "fail":
             answer = build_evidence_limited_answer(plan, evidence_cards, verification)
             reasoning_content = ""
             verification = verify_answer_support(answer, plan, evidence_cards, raw_cards, question=contextual_question)
 
+        # 渲染最终输出
         stage_start = time.perf_counter()
         evidence = legacy_evidence_rows(evidence_cards)
-        rag_hit_rows = [hit.to_dict() for hit in rag_hits]
-        research_hit_rows = [hit.to_dict() for hit in research_hits]
-        evidence_card_rows = [card.to_dict() for card in evidence_cards]
-        subgraph = answer_subgraph(graph_records, evidence_cards)
-        unsupported_terms = list(verification.get("checks", {}).get("unsupported_terms") or [])
         research_outputs = build_research_outputs(
             question=contextual_question,
             plan=plan,
@@ -1075,7 +948,7 @@ class QAEngine:
             "research_error": self.status.research_error,
             "embedding_error": getattr(self.status, "embedding_error", ""),
             "llm_error": self.status.llm_error,
-            "unsupported_terms": unsupported_terms,
+            "unsupported_terms": list(verification.get("checks", {}).get("unsupported_terms") or []),
             "agent_enabled": False,
             "agent_runner": "workflow",
             "langgraph_enabled": False,
@@ -1101,13 +974,13 @@ class QAEngine:
                 "cypher_params": generated.params,
                 "cypher_source": generated.source,
                 "graph_records": graph_records,
-                "rag_hits": rag_hit_rows,
-                "research_hits": research_hit_rows,
-                "evidence_cards": evidence_card_rows,
+                "rag_hits": [hit.to_dict() for hit in rag_hits],
+                "research_hits": [hit.to_dict() for hit in research_hits],
+                "evidence_cards": [card.to_dict() for card in evidence_cards],
                 "evidence": evidence,
                 "research_outputs": research_outputs,
                 "verification": verification,
-                "subgraph": subgraph,
+                "subgraph": answer_subgraph(graph_records, evidence_cards),
                 "diagnostics": diagnostics,
                 "errors": errors,
             },

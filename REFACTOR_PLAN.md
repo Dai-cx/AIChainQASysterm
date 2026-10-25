@@ -1,0 +1,371 @@
+# AIKA 复现报告 + 重构总计划
+
+> 生成时间：2026-10-25　基线：`D:\demo\AIChainQASysterm-main`（非 git 仓库，无版本回退能力）
+> 本文档的所有数字均为实测：`.venv` 已按项目 `pyproject.toml` 装好全部依赖，测试、CLI、MCP、API、前端构建均实机跑过。
+
+---
+
+## 一、先回答你最关心的问题：能跑起来吗？
+
+**能，而且比你预期的要好；但有 3 个 Windows 专属故障必须先修。**
+
+| 通路 | 状态 | 实测证据 |
+|---|---|---|
+| Python 依赖安装 | ✅ 已完成 | `.venv` 装好 `fastapi 0.115.14 / langgraph 1.2.17 / langchain-core 1.4.9 / mcp 1.30.0 / pymupdf 2.0 / jieba / psycopg / pytest 9.1.1`（`pip install -e ".[dev]"`） |
+| 单元测试 | ⚠️ **239 passed / 9 failed / 1 skipped**（249 条，10 秒） | `pytest` 全量跑通；9 个失败集中在 4 个根因，全是 Windows/数据默认值问题，不是逻辑错误 |
+| `aika` CLI（公开线） | ✅ 可用 | `aika doctor` 输出 17 项检查；`aika --help` 9 个子命令正常 |
+| MCP Server | ✅ 可用 | `aika doctor` 实测启动 JSON-RPC，`[PASS] mcp_server` / `[PASS] mcp_tools: Registered 9 tools` |
+| SQLite 索引构建 | ❌ **Windows 必崩** | `aika build-index` → `PermissionError: [WinError 32]`（根因见 §五 W1） |
+| FastAPI 后端 | ✅ 可用 | `uvicorn aika.api:app` 启动成功，`GET /api/status` 返回 `entities=285 / relations=278 / reports=61` |
+| React 前端 | ✅ 可构建、可开发 | `npm run build` → `✓ 1566 modules transformed`，产物 216 kB JS + 32 kB CSS |
+| 无 LLM / 无 PG 的问答 | ✅ 降级可用 | `QA_DISABLE_POSTGRES=true` 下走 CSV 图通路，返回 2 张证据卡 + "证据受限"兜底答案 |
+
+**关键判断：这套代码不是"跑不起来的玩具"，而是"跑得起来但每条路都只通一半"的半成品。** 真正的问题在架构，不在环境。
+
+---
+
+## 二、代码真实规模（实测）
+
+```
+aika/            94 个 .py     31,151 行   ← 核心包
+tests/           34 个 .py      6,817 行   ← 249 条测试
+scripts/         19 个 .py      3,243 行   ← 语料/运维脚本
+web/src/          5 个文件      6,222 行   ← App.tsx 2,987 + styles.css 2,585
+db/               1 个 .sql       196 行
+skills/           1 个文件         72 行
+────────────────────────────────────────
+代码总计 ~48,000 行（不含 data/ 与文档）
+```
+
+### 最大的 15 个文件（占包内 44%）
+
+| 行数 | 文件 | 真实职责 | 问题 |
+|---|---|---|---|
+| 2,624 | `aika/qa_engine.py` | 配置装配 + 检索编排 + 历史压缩 + HyDE + 提示词 + 图渲染 + 校验 | **7 个职责域混住**；183 行死码；430 行是同一流水线的两份拷贝 |
+| 1,563 | `aika/research_claims.py` | claims 构建 + ResearchMemory + 打分 | 与 `aika_core/claims.py` 打分重复 |
+| 1,385 | `aika/postgres_retrieval.py` | PG 连接池 + 迁移 + 同步 + BM25 + 语义 + 评审 | 4 个类、无 repository/service 分层 |
+| 1,306 | `aika/aika_core/backends/sqlite_backend.py` | 建索引 + FTS5 检索 + **报告渲染** | 最底层包却 import `aika.report`（分层倒置） |
+| 1,078 | `aika/aika_mcp/tools.py` | 9 个 MCP 工具 | 重抄上层 Markdown 组装与覆盖率计算 |
+| 1,029 | `aika/agents/centralized.py` | 多智能体协调器（唯一真正的并行编排） | 4 个预算类之一 |
+| 805 | `aika/agent_runner.py` | legacy 4 阶段流水线 | **默认路径不可达**，但被当基类复用 |
+| 782 | `aika/research_agent.py` | 报告整形 | 含 250 行死代码簇 |
+| 772 | `aika/api.py` | 21 个端点 + 业务 + Markdown 导出 + DI | 三层混住 |
+| 768 | `aika/professional_qa.py` | 证据排序/选取（真正的引擎） | 自带第二份 `EvidenceCard` 定义 |
+| 711 | `aika/aika_cli.py` | 公开 CLI（唯一被安装的入口） | 与 `cli.py` 重复 |
+| 681 | `aika/agent_tools.py` | 13 个真实工具方法 | 与另两份工具注册表并存 |
+| 630 | `aika/agents/verification.py` | 确定性答案校验 | 与 qa_engine 里那份重复 |
+| 618 | `aika/rag_index.py` | 本地 BM25 | **运行时死代码**（`data/chunks` 恒空） |
+| 578 | `aika/graphrag.py` | GraphRAG 路由/漂移/路径 | 依赖的两条子路恒空 |
+
+---
+
+## 三、五个根因（所有"冗余"都是它们的症状）
+
+### 根因 1：三条互不相干的运行主线，共用一份代码
+- **公开线**：`aika` CLI + MCP Server + SQLite FTS5 + `data/knowledge_packs/sample`（7 文件），**不碰 PG/Neo4j**，是唯一能分发的形态。
+- **专业线**：FastAPI + React + PostgreSQL(pgvector/ParadeDB) + Neo4j + `data/curated` CSV，**默认强依赖 PG**（`QA_DISABLE_POSTGRES=false` 时 `QAEngine.from_env()` 直接抛错）。
+- **遗留线**：`QA_ENABLE_AGENT=false` 的 11 阶段串行 workflow，只有测试与离线评测走它。
+
+后果：`README.md` 628 行里两条主线互相矛盾；`data/curated` 与 `data/verified` 两个默认图目录并存；同一份图谱有 3 种数据形状。
+
+### 根因 2：存储后端 8 条并行实现，抽象层只覆盖一半
+`CSVResearchBackend` / `SQLiteResearchBackend` / `PostgresResearchBackend`(33 行空桩) / 真实 PG 4 类 / `LocalRagIndex`(死) / `SemanticIndex`(死) / `LocalKnowledgeGraph` / `Neo4jReadClient`。
+
+`ResearchBackend` ABC 只声明 4 个方法（`aika/aika_core/models.py:384-408`），但后端实际共享 8 个，多出的 4 个只能靠 `hasattr` 兜（`aika_core/brief.py:16-18` 就有 `# type: ignore`）。且 csv 后端返回的是 `professional_qa.EvidenceCard`（22 字段），不是 `models.EvidenceCard`（31 字段）——**两个同名不同类型**。
+
+### 根因 3：同一条业务规则被写 3–14 遍
+| 规则 | 重复处数 |
+|---|---|
+| `answer_type` 分支 | **14 处 / 8 个文件** |
+| 短文本截断 `shorten/short_text` | 10–16 处 |
+| CSV 读取器 | 5 份 |
+| JSONL 读取器 | 4 份 |
+| 打分器（权重还不同） | 4 份（`12.0/5.0/1.0` vs `3.0/0.8/0.6`） |
+| `freshness` 判定 | 4 份（同为 18/36 月阈值） |
+| `coverage` 打分 | 3 份（口径不同，同一数据给出不同覆盖率） |
+| `EvidenceCard` 定义 | 3 处 |
+| 工具清单 | 4 份（MCP 9 个 / 死注册表 13 个 / langchain 8 个 / doctor 真值） |
+| doctor 框架 | 3 套 |
+| JSON-RPC 探针 | 2 份 |
+
+### 根因 4：大量"看起来活着"的死代码与装饰
+- `default_tool_registry()` 13 个工具 spec，**0 个 executor 注册**，`execute()` 永远返回 `No executor registered for tool: X`
+- `aika/langchain_tools.py` 8 个 StructuredTool，只用来往 diagnostics 里塞个名单
+- `postgres_backend.py` 33 行全 `NotImplementedError`
+- `qa_engine.py` 5 个顶层函数零调用（183 行）
+- `research_agent.py:395-556` 整套旧 Markdown 组装器零调用（~250 行）
+- `render_svg_graph`（`frontend_data.py:386-532`）147 行，前端**从不渲染** svg 字段
+- `LocalRagIndex` + `SemanticIndex` ~385 行，数据目录恒空
+
+### 根因 5：Windows 适配为零（这是"你复现不了"的直接原因）
+见 §五。
+
+---
+
+## 四、目标架构
+
+```
+aika/
+├── core/                         # L0 纯数据与规则：零 IO、零副作用
+│   ├── models.py                 EvidenceCard / ClaimRecord / GraphEdge / Gap   （唯一形状）
+│   ├── domain.py                 answer_type 枚举 + coverage/freshness/引用 三张规则表
+│   ├── io.py                     read_csv / read_jsonl / write_csv             （吃掉 9 份实现）
+│   ├── paths.py                  AIKA_HOME 统一解析（源码态=安装态）
+│   ├── settings.py               Settings.from_env()  唯一配置入口
+│   ├── text.py                   shorten / dedupe / unique_strings              （吃掉 16 份）
+│   └── scoring.py                唯一打分器
+│
+├── corpus/                       # L1 构建期（不进运行时）
+│   ├── pdf.py  chunk.py  extract.py  graph_build.py  pack.py
+│
+├── retrieval/                    # L2 检索
+│   ├── port.py                   ResearchBackend 协议（8 方法，ASSURE 完整）
+│   ├── sqlite.py                 FTS5（默认，零依赖）
+│   ├── postgres.py               可选增强，惰性导入
+│   ├── graph_csv.py              知识图谱（CSV，默认）
+│   ├── neo4j.py                  可选，惰性导入
+│   └── rank.py                   BM25 + reranker
+│
+├── qa/                           # L3 问答合成
+│   ├── engine.py                 门面：answer / answer_stream          ≤150 行
+│   ├── factory.py                依赖装配 + close
+│   ├── pipeline.py               一条流水线，生成器实现，同步适配器包装（消灭双份 430 行）
+│   ├── history.py  hyde.py  contextualizer.py  planning.py  progress.py
+│   ├── evidence.py               选卡/排序/编号（含 ensure_relation_cards）
+│   ├── composer.py               提示词 + LLM 调用 + 降级答案
+│   └── verify.py                 确定性校验（唯一一份）
+│
+├── agents/                       # L3 编排
+│   ├── runner.py                 LangGraph 8 节点（删 legacy 分支）
+│   ├── tools.py                  AgentTools 一套命名（删另两份注册表）
+│   ├── coordinator.py            多智能体并发（保留，这是真正的亮点）
+│   └── tasks.py                  ResearchAgent 任务前台
+│
+├── report/                       # L2 产出
+│   ├── spec.py  builder.py  markdown.py  html.py  pdf.py
+│   └── charts/{heatmap,evidence_bar,flow_map,freshness,common}.py
+│
+├── api/                          # L4 入口
+│   ├── app.py                    create_app          ≤60 行
+│   ├── routers/{chat,agents,graph,status,eval,claims}.py
+│   ├── services/{chat_turn,export}.py
+│   └── deps.py  errors.py
+│
+├── mcp/                          # L4 入口（对外产品面）
+│   ├── server.py  tools.py  schemas.py
+│   ├── host_configs.py  installer.py  doctor.py
+│
+└── cli/                          # L4 入口（唯一 CLI）
+    └── main.py
+
+web/src/
+├── App.tsx                       ≤200 行（现在 2,987）
+├── views/{Sidebar,Chat,Agents,Eval,Overview,Graph}.tsx
+├── components/{Composer,MessagePair,Feedback,DetailDrawer,ui/*}.tsx
+├── graph/{layout.ts,GraphCanvas.tsx}
+├── lib/{markdown,labels,format}.ts
+└── styles/                       按域拆 8 个 CSS 文件 + section 注释
+```
+
+**分层铁律**（可用 import-linter 或自写脚本在 CI 里卡死）：
+
+```
+L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 api/mcp/cli
+```
+低层**禁止** import 高层。当前有 **11 处违规**，最刺眼的是 `aika_core/backends/sqlite_backend.py:15 → aika.report`（最底层依赖报告层）。
+
+---
+
+## 五、Windows 故障清单（复现阻塞项，P0 必修）
+
+| # | 故障 | 位置 | 根因 | 修法 | 影响 |
+|---|---|---|---|---|---|
+| **W1** | `aika build-index` 必崩 | `aika/aika_core/backends/sqlite_backend.py:152-179` | `with sqlite3.connect(tmp) as conn:` **只提交事务不关连接**，句柄活到函数结束 → `tmp_path.replace()` 抛 `WinError 32`；POSIX 允许 rename 打开中的文件，所以只在 Windows 出现 | 显式 `connection.close()`（`try/finally`） | **6 个测试失败 + 公开线完全不可用**。已验证：改后输出 `claims=160 / evidence_spans=160 / dossiers=5 / relations=85`，`aika demo` 正常 |
+| **W2** | 硬编码 POSIX 路径 | `aika/aika_mcp/host_configs.py:18` `DEFAULT_UV_CACHE_DIR="/tmp/uv-cache"`；同类 `/usr/bin/uv` | 用字符串拼路径，Windows 变成 `D:\usr\bin\uv` | 改 `Path` + `sys.platform` 分支 | 2 个测试失败；生成的宿主 MCP 配置在 Windows 上无效 |
+| **W3** | 安装态往 site-packages 写 CSV | `aika/data_config.py:13-18` + `:229-231 / :297-298 / :313-314` | 三个 `load_*()` 在读之前**无条件**调 `write_default_*()`；`ROOT_DIR=parents[1]` 装进 wheel 后指向 site-packages | 写盘移到 `aika init`；读路径走 `AIKA_HOME` | wheel 安装后**第一次问答就 PermissionError**（`domain_lexicon.lru_cache` 会触发） |
+| **W4** | `npm` 调用必失败 | `aika/cli.py:104-118` | `subprocess.run(["npm", ...])` 无 `.cmd`、无 `shell=True` | 用 `shutil.which` + `.cmd` 回退 | `aika web` 子命令在 Windows 上不可用 |
+| **W5** | 图数据默认目录分裂 | `frontend_data.py:18-19` 用 `data/verified`，`qa_engine.py:431` / `api.py:158` 用 `data/curated` | 两处各写一份默认值 | 单一 `paths.py` | 1 个测试失败（`csv_backend.query_graph` 返回 `[]`）+ 生产行为不一致 |
+
+---
+
+## 六、分阶段重构计划
+
+> 排序原则：**先解除阻塞 → 再删死码 → 再统一形状 → 最后拆大文件**。
+> 每个阶段都有"验收"，不通过不进下一阶段。总工期约 **12 人日**（含回归）。
+
+### P0　基线固化（0.5 天）— 必做，否则后面无法回退
+1. `git init` + `.gitattributes`（`*.py text eol=lf`，避免 CRLF 污染 diff）
+2. 首次提交：**当前原始状态**（tag `v0.1.4-baseline`）
+3. 修好依赖安装流程并写进 `docs/dev-setup.md`（本机已踩通的 4 个坑）
+4. 记录测试基线：`239 passed / 9 failed / 1 skipped`
+- **验收**：`git log` 有基线 commit；`pytest` 数字可复现
+
+### P1　解除 Windows 阻塞（1 天）— 让项目"在你电脑上真能跑"
+1. W1 修 sqlite 连接泄漏（3 行）→ `build-index` / `demo` 恢复
+2. W2 消除 POSIX 硬编码
+3. W3 `data_config` 去写副作用
+4. W5 统一图目录默认值
+5. 修测试基建：加 `tests/conftest.py`（`--basetemp` 兜底）＋ 把日期炸弹 `published_at="2025"` 改成注入 `today`
+- **验收**：`pytest` **249 passed / 0 failed**；`aika init --sample && aika build-index && aika demo` 全链路输出正常
+- **风险**：极低（改动 <20 行，且每步都有失败测试做靶子）
+
+### P2　砍死代码（1.5 天）— 净减约 2,000 行，零行为变化
+1. 删 `qa_engine.py` 5 个零调用函数（183 行）
+2. 删 `research_agent.py:308-560` 旧整形层（~250 行，含 `markdown_*` / `core_judgment` / `qualify_conclusion`）
+3. 删 `LocalRagIndex` + `SemanticIndex` 检索类（~385 行）、`postgres_backend.py`（33 行）、`aika_core/{brief,compare,gaps,profiles}.py` 4 个转发壳（75 行）
+4. 删 `default_tool_registry` + `ToolRegistry` + `AgentToolSpec`（161 行死元数据）、`langchain_tools.py`（114 行）
+5. 删 `render_svg_graph` + `svg` 字段（147 行 + 前端类型）
+6. 删死模板 `coverage_audit.html.j2`、`research_brief.html.j2`、死 `write_claim_review`
+7. 删 `dashboard` 式的重复：`coverage_audit` / `benchmark_qa_speed` / `validate_postgres_cutover` 三个一次性脚本退到 `docs/legacy/`
+- **验收**：`pytest` 仍 249 passed；`ruff` 无 unused 告警；行数从 31.1k → ~29k
+- **注**：这一步**不删测试**，删掉的死码本就没有测试（已 grep 确认零引用）
+
+### P3　单一入口与单一身份（1.5 天）— 让"交付面"存在
+1. 合并 `aika/cli.py` 与 `aika/aika_cli.py` 为一个 `aika/cli/main.py`：保留 `aika` 名，`aika_cli` 的真命令 + `cli.py` 的 `api/web/eval` 子命令
+2. 删除 `aiqasys` 身份（`prog="aiqasys"`、`_package_version` 死分支）
+3. `main.py` 改成薄壳转发；`Dockerfile` / `docker-compose.yml` / CI 全部改用 `aika ...` 或 `python -m aika`
+4. MCP 工具清单单一来源：`mcp/tools.py:tool_names()` 为唯一真值，`EXPECTED_MCP_TOOLS` 改为从它派生（修 8 vs 9 的漂移 bug）
+5. 合并三套 doctor → `mcp/doctor.py` 一套；合并两份 JSON-RPC 探针
+6. `eval` 子命令真正可达（当前 `aika eval` 从安装入口不可达：`aika_cli.py` 没有 eval，`cli.py` 没有 `__main__`）；把 `scripts/evaluate_agent_tasks.py` 的用例迁进 `aika/eval/agent.py`
+7. sdist 补齐：`web/`、`data/eval/`、`data/curated/`、`scripts/`
+- **验收**：`aika eval --suite qa` 能跑；`aika mcp serve` 能跑；CI 加 `windows-latest` job 且全绿
+- **风险**：中（入口被 Docker/CI/README 引用，需同步改 12 处）
+
+### P4　统一数据形状与 I/O（2.5 天）— 消除"同名不同类型"
+1. `core/models.py` 定为唯一定义：合并 3 份 `EvidenceCard` → 1 份；2 份 `EvidenceGap` → 1 份；2 份 `verify_answer_support` → 1 份
+2. `core/io.py` 吃掉 5 份 CSV 读取 + 4 份 JSONL 读取
+3. `core/text.py` 吃掉 16 份 `shorten/short_text/dedupe/unique`
+4. `core/scoring.py` 统一 4 份打分器（先取并集权重，再用 `data/eval/rag_retrieval_v2.jsonl` 做 A/B 确认排序不变）
+5. `core/domain.py` 建三张声明式表：`answer_type → (选卡, 降级文案, 检索过滤)`、`coverage_level`、`freshness`；把 14 处 `answer_type` 分支收敛
+6. `retrieval/port.py` 把 8 个方法全写进协议，删 3 处 `hasattr`
+- **验收**：`pytest` 全绿；`grep -c "if answer_type"` 从 14 降到 ≤3；静态检查确认无同名重复类
+- **风险**：中高（打分器换权重会改变答案排序 → 必须用评测集对比）
+
+### P5　拆 god module（3 天）— 阅读体验的最大跃升
+1. `qa_engine.py` 2,624 → `qa/` 下 12 个文件：
+   `engine.py`(≤150) `factory.py`(260) `settings.py`(60) `pipeline.py`(250) `history.py`(250) `contextualizer.py`(160) `hyde.py`(155) `planning.py`(40) `progress.py`(115) `composer.py`(130) `evidence.py`(32) `graph/subgraph.py`(235)
+2. **合并双份流水线**：`_answer_question_workflow` / `_answer_question_stream_workflow` → 一个生成器 + 同步适配器（−210 行，消掉流式/非流式行为漂移）；`_generate_answer` / `_generate_answer_stream` 同理
+3. 修依赖倒置：`agent_tools.py:350` 不再 import qa_engine 的 `ensure_relation_cards`；`_search_rag` 里的公司过滤规则移到 `retrieval/filters.py`
+4. 修潜在无限递归：`agents/qa_agent.py:56` 回落 `engine.answer_question` 会回到 `QAAgent.run`（缺 6 个私有方法之一即栈溢出）
+- **验收**：`qa_engine.py` 不再存在；`pytest` 全绿；`llm_calls` 计数与旧实现一致（用同一问题对比 diagnostics）
+- **风险**：高（11 个 import 方）。护栏 = P1 修好的测试 + P4 的统一形状
+
+### P6　后端收敛（1.5 天）
+1. 定 **SQLite FTS5 为默认、PostgreSQL 为可选增强**；CSV 后端降级为"无索引时的兜底"
+2. 6 条死/半死后端删除或在 `__init__` 里改惰性导入（当前 `backends/__init__.py` 聚合 import 三个后端 → `import aika.aika_core.backends.sqlite_backend` 会连带拉进 jinja2/psycopg，干净环境直接 `ModuleNotFoundError`）
+3. `postgres_retrieval.py` 1,385 → `retrieval/postgres/{store,sync,rag,semantic,memory}.py`（SQL 提为模块常量）
+4. 让 `data/curated/{claims,evidence_spans,segment_dossiers}` **可重建**：`build_research_artifacts` 的 `write_outputs=False` 硬编码（两个脚本都这么传）改成 `--write-csv`，PG 同步变可选 —— 否则这 592 KB 是"不可再生的历史产物"，你永远无法重新生成自己的数据
+- **验收**：无 PG 环境下 `aika build-index && aika demo` 全通；断网 + 无 PG 下 9 个 MCP 工具全可用
+
+### P7　Web 层拆分（2 天）
+1. `api.py` 772 → `api/app.py`(60) + `routers/`(5) + `services/chat_turn.py` + `services/export.py` + `deps.py` + `errors.py`
+2. 合并 JSON/SSE 两条路径的 4 段重复（校验 / 取历史 / normalize / turn 组装）
+3. 给 21 个端点加 `response_model`（Pydantic），消除与 `types.ts` 的 3 处漂移（`settings` 缺 4 字段、`ClaimReviewRequest` 17 vs 10 字段、`GraphEdge` 多 4 个死字段）
+4. `App.tsx` 2,987 → 约 25 个文件；`css` 按域拆 8 个文件
+5. `ENTITY_ORDER` 单一来源（当前 Python 18 类 vs 前端 11 类，7 类掉进 fallback 样式）
+- **验收**：`npm run build` 通过；`/api/status`、`/api/graph/subgraph`、会话 CRUD、流式问答 手工回归通过
+
+### P8　品牌化（1 天）— 变成"你的项目"
+1. 改名（包名 / 发行名 / CLI 名 / 前端 title / MCP server info）
+2. 重写 `README.md`（628 → ≤200 行，只留一条主线）
+3. `log/direction.md`（561 行）、`log/v0.0.0-v0.0.1plan.md`、根 `plan.md`（516 行）、三份 `*_AUDIT.md` 收进 `docs/`，明确标注"历史设计文档"
+4. 删除 `Dockerfile` / `docker-compose.yml`（若 P6 决定不走 PG）或保留并修好
+5. 加 `LICENSE`（若沿用需保留原许可声明）、`.editorconfig`、`ruff` + `mypy` 配置
+- **验收**：从零 clone → 按 README 5 条命令跑通；`aika --help` 不再出现 `aiqasys`
+
+---
+
+## 七、量化目标
+
+| 指标 | 现在 | 目标 | 变化 |
+|---|---|---|---|
+| Python 代码行 | 31,151 | ~19,000 | **−39%** |
+| 最大单文件 | 2,624 | ≤400 | −85% |
+| 存储后端 | 8 条 | 2 条（SQLite 默认 / PG 可选） | −75% |
+| CLI 入口 | 3 个（1 个不可达） | 1 个 | −67% |
+| 测试通过率 | 239/249（96%，9 个 Windows 失败） | 249/249 | 全绿 |
+| 同名重复类 | 6 组 | 0 | — |
+| MCP 工具清单 | 3 份、互相矛盾 | 1 份 | — |
+| 测试收集率 | 100%（.venv 装齐依赖后） | 100% | 保持 |
+
+---
+
+## 八、需要你决策的 4 件事
+
+### 决策 1（最关键）：保留哪条主线？
+| 方案 | 内容 | 结果 | 工期 |
+|---|---|---|---|
+| **A（推荐）** | 以**轻量 MCP + SQLite** 为主线，Web UI 降级为"可选的只读查看器"，PostgreSQL/Neo4j 变可选增强 | 代码 ~13k，最符合你们自己的 `direction.md`；容易维护、真能发布 | 8 天 |
+| B | 两条线都保留，抽公共内核（`core/` + `retrieval/`）给两边用 | 代码 ~19k，UI 与 MCP 都完整；但 PG 环境你本地要装 Docker | 12 天 |
+| C | 只留 Web 全栈（FastAPI + React + PG），删 MCP/CLI 分发线 | 代码 ~20k，最像"毕设演示"；但抛弃了唯一可发布形态 | 10 天 |
+
+### 决策 2：数据基线用现成的还是重建？
+`data/curated/{claims,evidence_spans,segment_dossiers}`（592 KB）当前**无法重新生成**（两个脚本都硬传 `write_outputs=False` 并强制连 PG）。三个选项：
+- 直接用已提交产物（0 天，但你不是"拥有"这份数据）
+- 修成可重建 + 用 `--mock` 离线跑一遍（1.5 天，能生成自己的样本）
+- 接真实年报 PDF 重跑 LLM 抽取（3 天 + API 费用，产物最"真"）
+
+### 决策 3：要不要现在改名？
+改包名会动所有 `import`（94 个文件）与 `pyproject.toml`。建议放在 P8 一次性做；若你想早点看到"自己的名字"，可以只改**发行名 + CLI 名 + README**（不动 Python 包名），半天。
+
+### 决策 4：PostgreSQL / Neo4j 留不留？
+若你本地不想跑 Docker，P6 会把它们改成"惰性导入 + 缺配置时自动降级"，功能保留但不阻塞。若要彻底删，可再省 ~2,400 行。
+
+---
+
+## 九、风险与回滚
+
+| 风险 | 概率 | 缓解 |
+|---|---|---|
+| 拆 `qa_engine` 时行为漂移（尤其流式事件序列） | 高 | P1 先把 249 条测试修绿；P5 前用旧实现录制 20 个问题的 `diagnostics` 快照做黄金对比 |
+| 统一打分器改变排序 | 中 | 用 `data/eval/rag_retrieval_v2.jsonl`（50 例）做排序一致性 A/B |
+| 删死码时误删"看似死但其实被 CLI 触达" | 中 | 已用全仓 import + 字面量 grep 双向确认；P2 每一步单独 commit |
+| 入口合并破坏 Docker/CI | 中 | P3 同步改 `Dockerfile:18`、`docker-compose.yml:39`、`ci.yml:35,38,41`、`publish.yml:36-41` |
+| 无 git 历史导致不可回退 | **高** | **P0 必须先 `git init` 并提交基线** |
+
+回滚策略：每个阶段独立 commit + tag（`v0.1.4-p0` … `p8`），任一阶段验收失败即 `git reset --hard` 回上一 tag。
+
+---
+
+## 十、本机环境备忘（已踩通的坑）
+
+```powershell
+# 1) 建 venv（本机 DSH 沙箱下 mkdtemp 生成的目录不可写，需要 .tmp/pyshim/sitecustomize.py 把 os.mkdir 强制成 0777）
+python -m venv .venv
+# 若 ensurepip 报错，手动补：
+.venv\Scripts\python.exe -m ensurepip --upgrade --default-pip
+
+# 2) 装依赖（必须先装 hatchling + editables；jieba 只能从 sdist 构建）
+.venv\Scripts\python.exe -m pip install hatchling editables setuptools wheel
+.venv\Scripts\python.exe -m pip install -e ".[dev]" --no-build-isolation
+
+# 3) 装前端
+cd web; npm install
+
+# 4) 跑测试（必须在工作区内指定 basetemp，否则 %TEMP% 会踩 ACL）
+.venv\Scripts\python.exe -m pytest -q --basetemp=.tmp\pytestbase
+
+# 5) 跑公开线
+$env:AIKA_HOME="$PWD\.tmp\aikahome"
+.venv\Scripts\aika.exe init --sample
+.venv\Scripts\aika.exe build-index      # ← 当前会崩，等 P1 修 W1
+.venv\Scripts\aika.exe demo
+.venv\Scripts\aika.exe doctor
+
+# 6) 跑后端（无 PG 模式）
+$env:QA_DISABLE_POSTGRES="true"
+.venv\Scripts\python.exe -m uvicorn aika.api:app --host 127.0.0.1 --port 8000
+
+# 7) 跑前端（另开一个终端）
+cd web; npm run dev     # 代理到 127.0.0.1:8000
+```
+
+---
+
+## 附录：三份完整审计报告的落点
+
+| 文件 | 内容 |
+|---|---|
+| `AGENT_LAYER_AUDIT.md` | 编排层：三套 runner、`centralized.py` 逐类拆解、三份工具清单、5 处 `task_type` 注册表、9 项简化机会 |
+| `DATA_LAYER_AUDIT.md` | 数据/存储层：8 条后端矩阵、检索链调用图、`data/` 资产地图、11 处分层污染、`data/curated` 不可再生、Windows bug 复现步骤 |
+| `QA_REPORT_LAYER_AUDIT.md` | 合成/报告层：`qa_engine` 方法级拆分映射、答案合成链路与 LLM 调用次数、`plan.md` P0–P6 落地对照、claims 三条写入路径不一致、评测断路、测试行为契约 12 条 |

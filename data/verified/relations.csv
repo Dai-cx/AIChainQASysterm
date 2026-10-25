@@ -1,0 +1,1220 @@
+relation_id,head_type,head_name,relation,tail_type,tail_name,evidence,source_report_id,source_title,page,section,source_tier,confidence,review_status
+relation_00b521935b9cfef8,Company,紫光南方云技术有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_015f60c2d689e6c5,IndustryConcept,数据中心交换机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_01854d31e8c77ef5,Metric,存储性能提升,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_01eedb6c5fd30f58,Risk,研发失败风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_02ace0cce5a1f6ae,Workload,智算业务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_02b14925d1d100d8,Metric,迁移效率提升,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_02c3b71c87132718,Company,紫光股份,HAS_PRODUCT,Product,软件,软件、特许权及其他1-10年使用期限与预计可使用期限两者孰短等,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.90,auto
+relation_030e9779577c6e4f,Company,紫光股份,HAS_METRIC,Metric,土地使用权摊销年限,土地使用权的摊销年限为32-50年,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.90,auto
+relation_0324ca07d0808702,Metric,ICT基础设施与服务成本占比2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_039fb08c974c32da,Metric,其他业务成本同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_03b42a2d8c9a0b11,Company,紫光股份,HAS_METRIC,Metric,扣非归母净利润同比增长率,实现归属于上市公司股东的扣除非经常性损益的净利润16.35亿元，同比增长12.26%,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_03e96cda8ddc99d6,Company,新华三技术有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_04459cfb1961a92e,Metric,ICT基础设施与服务营业收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_0480f3da3170cb21,ValueChainSegment,开发阶段,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_049f50ceb5733c38,Company,紫光股份,BELONGS_TO_CHAIN,IndustryChain,AI算力产业链,公司深化推进“算力×联接”战略，聚焦智算和国产化领域,annual_000938_2025,2025年年度报告,16,主营业务分析,1,0.80,auto
+relation_04f1b6f9d31fc612,Company,紫光股份,HAS_PRODUCT,Product,H3C UniStor Polaris X20000 系列,公司发布H3C UniStor Polaris X20000 系列多个新款型,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_052ec4ec67ec5e48,Company,紫光股份,HAS_PRODUCT,Product,X86服务器,中国X86服务器市场份额12.5%，位列第三,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.90,auto
+relation_05322a7ff3306127,Metric,筹资活动现金流出小计_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_059e9873bb549c69,Company,紫光股份,HAS_METRIC,Metric,研发费用_2024,"表格：2024年研发费用5,101,818,089.81元",annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_05bd8199c79db0fd,Product,智算安全解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_05c4b631274920ac,Product,H3C绿洲平台,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_061f8b0238251af6,Company,新华三信息安全技术有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_0648972fe1787115,Metric,中国数字基础设施市场规模,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_06949cd71937c40b,Product,云安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_06962e02a6bbec82,Company,紫光股份,HAS_METRIC,Metric,产品质量保证年初余额,"年初余额692,575,891.75",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_06993201b6c1f4d9,Company,紫光股份,HAS_PRODUCT,Product,800G国芯智算交换机,发布基于国产关键芯片与核心元器件的800G 国芯智算交换机,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_06a5a9cfd54187bd,Company,紫光股份,DISCLOSES_RISK,Risk,法律风险,4、法律风险：因相关法律法规发生变化或交易对手违反相关法律法规，可能造成合约无法正常执行而给公司带来损失。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_06dcfd206f8aada5,IndustryChain,云—网—安—算—存—端,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,费用,1,1.00,auto
+relation_0721e4d36e6393ec,Company,新华三集团有限公司,HAS_PRODUCT,Product,服务器,被投资企业的主营业务：网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,69,√适用 □不适用,1,1.00,auto
+relation_0724424e25df030d,Company,紫光股份,USES_TECHNOLOGY,Technology,CloudOS,同上,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_073379a1aedba64b,Product,人工智能,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,费用,1,1.00,auto
+relation_0748996fe5ce31a3,Company,紫光股份,HAS_METRIC,Metric,营业成本比上年同期增减,营业成本比上年同期增减 26.58%,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_074cb34e305ff3aa,Metric,财务费用同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_074f19cb71e3f793,Company,紫光股份,USES_TECHNOLOGY,Technology,AI in ALL,致力于成为以“AI in ALL”为核心的全球化云网边端解决方案服务商,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.90,auto
+relation_07a6141b0acf3ea2,Company,苏州美璟数码科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_07bab5a24e1ff789,Company,紫光股份,HAS_EXPOSURE,IndustryConcept,数字化及AI解决方案,作为数字化及AI解决方案领导者，公司提供全栈智能化的信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级解决方案。,annual_000938_2025,2025年年度报告,8,注册变更情况,1,1.00,auto
+relation_07e2374dad872aaa,Workload,金融智算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_07e37a153529547a,Metric,IT产品分销与供应链服务成本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_082f01dea651dc5a,Company,紫光股份,HAS_METRIC,Metric,归属于上市公司股东的净利润,公司实现归属于上市公司股东的净利润16.86亿元,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_086580887085677a,Company,共青城新紫华三投资合伙企业（有限合伙）,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_086de0df604300d0,Metric,在建工程账面余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,168,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_08be1437a8acd41e,Company,紫光股份,HAS_METRIC,Metric,研发人员数量,"2025年研发人员数量6,159人",annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_08eea440df807c66,Metric,ICT基础设施与服务营业收入比上年同期增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_08f0fdcb87530f47,Company,紫光股份,USES_TECHNOLOGY,Technology,智算技术,公司将持续深化智算技术创新，进行产品迭代升级,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,0.80,auto
+relation_097216c0993c32ab,Metric,毛利率比上年同期增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_097c0b2b0c28fab5,Metric,主营业务成本_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_099a4a8ec0d71763,Company,紫光股份,HAS_METRIC,Metric,销售商品收入,"销售商品 62,402,688,849.91",annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_0a5320e0401a85fe,Bottleneck,大模型行业落地中私域数据使用难题,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_0a962ae1439459d3,Metric,国际业务营业收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_0ac76814f6660304,Metric,预计负债合计,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_0af8f2b57ed44d2c,Company,紫光股份,HAS_PRODUCT,Product,数据中心控制器7.4版本,完成数据中心控制器 7.4 版本发布,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_0b103375a34ae782,Company,新华三集团有限公司,HAS_PRODUCT,Product,安全产品,被投资企业的主营业务：网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,69,√适用 □不适用,1,1.00,auto
+relation_0b572b0b40bc9456,Company,紫光股份,HAS_EXPOSURE,IndustryConcept,AI,作为数字化及AI解决方案提供者,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_0c06028eb6f780b5,Technology,BRAS大二层,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_0c3281adac13b892,Company,紫光股份,HAS_PRODUCT,Product,自主可控大容量交换机项目,完成高密400GE框式和盒式交换机发布,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_0c3bd5873dd8a4cb,IndustryConcept,边缘云,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_0c75bac0d15dc128,Metric,管理费用_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_0dc7c872817f303a,Company,紫光股份,USES_TECHNOLOGY,Technology,边缘计算,提供云计算、大数据、人工智能、工业互联网、信息安全、智能联接、边缘计算、统一运维等在内的一站式数字化解决方案,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_0ddb4317ed1e4df9,Company,新华三云计算技术有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_0de79be52ca12e86,Company,北京紫光卓越数码科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_0de9fb1c43712564,Company,紫光股份,HAS_METRIC,Metric,营业收入,"合计65,889,803,802.79 23,721,239,458.45 87,985,663.22 (7,067,182,306.07) 82,631,846,618.39",annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_0e022fb90f48de67,Metric,预测期毛利率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_0e1ae6dabfcc1b87,Company,紫光国芯微电子股份有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,87,最终控制层面持股情况,1,1.00,auto
+relation_0e6531165b83c569,Company,紫光股份,HAS_PRODUCT,Product,Wi-Fi 7 新产品,公司发布多款全场景Wi-Fi 7 新产品,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_0ebee176007a0a6e,Product,大模型一体机产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_0ecdc533ed474436,Technology,Wi-Fi 7,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,5,释义,1,1.00,auto
+relation_0ede2f0d02d7e4d5,Metric,杠杆率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,183,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_0f13fc7f3acd6d5c,Company,紫光股份,HAS_METRIC,Metric,归属于上市公司股东的净资产,"归属于上市公司股东的净资产（元）2025年末14,746,558,737.20",annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_0f20d4306976d3ea,Product,分布式存储,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_0f6a6a0baa481b62,Product,算力调度管理平台,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_0f899b240faabd14,Company,紫光股份,DISCLOSES_RISK,Risk,经营成本上升风险,随着公司经营规模的不断扩大，人员成本、房租、物流等各项经营成本及费用可能随之上涨，进而压缩公司的利润空间，对公司整体利润的提升产生不利影响。,annual_000938_2025,2025年年度报告,37,报告期内接待调研、沟通、采访等活动,1,0.90,auto
+relation_0fa34691428af60c,Company,紫光股份,HAS_METRIC,Metric,研发费用_2024,"研发费用53 5,101,818,089.81",annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_0fa5f595902e5b8d,Company,紫光股份,HAS_PRODUCT,Product,矿用本安Wi-Fi 7 产品,率先发布第一款矿用本安Wi-Fi 7 产品,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_0fad092c12ce03ce,Company,紫光股份,HAS_METRIC,Metric,管理费用_2025,"表格：2025年管理费用1,165,580,958.30元",annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_0fff4bb1ab162a44,ValueChainSegment,智算云底座,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_102e725163b854ee,Metric,其他非流动负债合计,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_10a780f3920a2a21,Company,紫光股份,HAS_METRIC,Metric,IT产品分销与供应链服务成本2024,"2024年IT产品分销与供应链服务成本金额27,728,004,142.39元",annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_10b216b96be0d863,Metric,其他非流动负债-长期押金,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_10d0059d5f9de074,Company,紫光股份,HAS_METRIC,Metric,税前折现率,所使用的税前折现率为12.80%,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_10def4bb7743754e,Company,紫光股份,HAS_METRIC,Metric,本科学历员工数量,"表格中本科行对应数值10,245",annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_10f725fc6bcdd129,Company,紫光股份,HAS_METRIC,Metric,硕士人数,"2025年硕士2,779人",annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_11256678fc0a7235,Product,工控安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_115309c0ab7d45d3,Company,紫光股份,HAS_METRIC,Metric,发行在外普通股的加权平均数,"本公司发行在外普通股的加权平均数 2025年 2,860,079,874.00 股",annual_000938_2025,2025年年度报告,196,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_11e11964dd2ea5bb,Product,园区网控制器7.3版本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_11ec193d8545a709,Company,紫光股份,HAS_METRIC,Metric,经营活动产生的现金流量净额,"2025年经营活动产生的现金流量净额3,486,751,492.84元",annual_000938_2025,2025年年度报告,199,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_12106eb66db85989,Metric,销售费用同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_1214939d3c672a3b,Company,紫光股份,HAS_PRODUCT,Product,H3C UniPoD S80000超节点,H3C UniPoD S80000 超节点产品，大幅提升通信效率和模型算力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_1239667bb50a7bae,Metric,IT产品分销与供应链服务营业成本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_129c3807c8f085a7,Metric,应付普通股现金股利_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,187,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_132ffc00b0a9d1ca,Metric,IT产品分销与供应链服务成本2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_1397e64bf79d1633,Company,紫光股份,HAS_METRIC,Metric,收到重要的投资活动有关的现金_2025,"2025年收到重要的投资活动有关的现金1,947,679,371.09元",annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_13ae184888831161,Company,紫光股份,HAS_METRIC,Metric,销售费用_2024,"表格：2024年销售费用4,144,253,287.93元",annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_13c53aa3a36688f3,Metric,支付其他与经营活动有关的现金_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_1427ac902132e3ee,Company,紫光股份,HAS_METRIC,Metric,投资活动现金流入小计,"表格中投资活动现金流入小计2025年2,441,674,396.86元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_1437ecc86ae23790,Company,紫光股份,USES_TECHNOLOGY,Technology,液冷散热,关键部件实现液冷散热,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_14652d1b5520027b,Metric,ICT基础设施与服务成本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_149956f12dcf909b,Company,紫光股份,HAS_METRIC,Metric,营业收入,"营业收入（元）2025年96,748,339,344.03",annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_14bf81d778bf2767,Workload,数据中心大流量低时延转发,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_14ce7eecb0841c1b,Company,紫光股份,HAS_METRIC,Metric,投资活动产生的现金流量净额_2024,"表格中投资活动产生的现金流量净额2024年-358,306,841.57元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_14f20d95d074831a,Workload,大规模算力集群,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_150de2cf2fb17c6c,DemandDriver,人工智能+,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_153fbd839e1a2fdc,Metric,存货账面价值,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_154ca23f7ee7f7cd,Company,紫光股份,HAS_METRIC,Metric,净利润_2024,"净利润 1,982,277,033.02",annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_1585bd2335f1fdb2,Company,紫光股份,HAS_METRIC,Metric,支付重要的投资活动有关的现金_2024,"2024年支付重要的投资活动有关的现金2,618,739,688.24元",annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_1596e8971d2c23ad,Company,紫光股份,HAS_PRODUCT,Product,CAS虚拟化产品,完成 CAS 虚拟化产品升级版本发布,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_15a1c6a96ae4cfd6,Company,紫光股份,HAS_PRODUCT,Product,服务器,公司服务器、交换机、路由器、安全等产品中标包括中国移动、中国电信、中国联通、中国铁塔在内的多个集采项目。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.90,auto
+relation_15af342417780dcc,Company,紫光股份,HAS_METRIC,Metric,IT产品分销与供应链服务收入占比,IT产品分销与供应链服务占营业收入比重：26.42%。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_15d87392c4d90e96,Company,郑州紫光低空科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_15fe3196aa950e00,Product,密码安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_1602a3f316ce4f5e,Technology,AI Infra,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,6,载有公司法定代表人、主管会计工作负责人、会计机构负责人签名并盖章的会计报表。,1,1.00,auto
+relation_161b3d80db9d0470,Product,海外子品牌Aolynk,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_1637ce434569db16,Company,紫光股份,HAS_METRIC,Metric,稀释每股收益,稀释每股收益（元/股）2025年0.5893,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_164ec9ad515d2b93,Metric,专利权使用寿命,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_1695865d0cb9dc42,Policy,国务院《关于深入实施“人工智能+”行动的意见》,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_16a92de914eae0b6,Company,紫光股份,BELONGS_TO_CHAIN,IndustryChain,AI算力产业链,公司作为数字化及AI解决方案领导者，为人工智能...提供...产品,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,0.90,auto
+relation_1734bba3dce8663a,Product,智算云,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_177959c94737c463,Metric,采购量_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_177a0320be0e95ae,Company,紫光股份,HAS_PRODUCT,Product,灵犀使能平台,公司陆续推出百业灵犀私域大模型、灵犀使能平台、灵犀推理引擎、灵犀AI助手、灵犀Cube一体机及多个行业智能体,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,0.90,auto
+relation_178c307c6a74a5e8,Company,紫光股份,DISCLOSES_RISK,Risk,商誉减值风险,本集团对商誉进行减值测试...经测试认定本集团收购新华三产生的商誉资产未发生减值,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,0.80,auto
+relation_17f1ffaf0f76ccf7,Company,紫光股份,DISCLOSES_RISK,Risk,委托理财风险,"报告期内委托理财的余额为54,809.27万元，存在逾期未收回风险。",annual_000938_2025,2025年年度报告,80,单位：万元,1,0.90,auto
+relation_1877a8e498ceee28,Company,紫光股份,HAS_METRIC,Metric,前五名供应商合计采购金额,"前五名供应商合计采购金额（元） 37,105,012,262.60",annual_000938_2025,2025年年度报告,23,公司主要供应商情况,1,1.00,auto
+relation_189b5716c6958ffd,Company,紫光股份,HAS_METRIC,Metric,研发费用_2024,"研发费用2,415,370.08 8,990,983.65",annual_000938_2025,2025年年度报告,108,89 -减：营业外支出,1,1.00,auto
+relation_18a80e58c43d5b95,Company,紫光股份,HAS_METRIC,Metric,经营活动产生的现金流量净额,"表格中经营活动产生的现金流量净额2025年3,486,751,492.84元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_18fd684063e29636,Product,商用台式机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_190c199dcd99d0c6,ValueChainSegment,网络,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_1912c52e1979f4e0,Company,北京紫光集成电路科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_19188407afc7d2b3,Product,数据安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_1967d037da5b4172,Company,紫光股份,HAS_METRIC,Metric,产品质量保证本年增加,"本年增加324,898,225.34",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_199fac9b5eb38859,Product,计算产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_19fe074df151b605,Metric,存货跌价准备,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_1a279d508c6d23a2,Company,紫光股份,HAS_PRODUCT,Product,数据中心交换机,中国数据中心交换机市场份额33.1%，排名第二,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.90,auto
+relation_1a97702ba27aaf36,Metric,合并抵消成本同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_1aae655f3ef5e3c7,Product,800G国芯智算交换机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_1af684c8114c4a41,Company,紫光股份,HAS_PRODUCT,Product,MegaBook 双系统平板,完成业内首发MegaBook 双系统平板产品发布,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_1b05461db57c4794,Metric,产品质量保证流动负债部分,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_1b05c0013d6ca7ab,Company,紫光股份,HAS_PRODUCT,Product,数字化转型及智能化升级解决方案,为客户提供网络、计算、存储、云计算、安全和智能终端等全栈智能化信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级的解决方案。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_1b937c1f110d4d2e,Product,H3C UniPoD S80000超节点,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_1bc37264da66a07c,Company,紫光股份,HAS_METRIC,Metric,合同履约成本账面余额,"存货分类：合同履约成本2025年账面余额2,553,293,041.68",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_1bf3c725ca68e5af,Metric,营业外支出_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_1c0e4281f5d5c477,Company,紫光股份,HAS_METRIC,Metric,销售费用同比增减,表格：销售费用同比增减-2.22%,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_1c1c2346673c286e,Product,WLAN,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_1c1de2a2b001ed45,Company,紫光股份,SUPPORTED_BY_POLICY,Policy,质量回报双提升行动方案,公司制定了“质量回报双提升”行动方案，具体举措包括夯实主业优势、坚持技术创新等,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_1c4eef69833fcc0b,Company,紫光股份,SUPPORTED_BY_POLICY,Policy,内部研究开发支出会计政策,本集团将内部研究开发项目的支出，区分为研究阶段支出和开发阶段支出,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.90,auto
+relation_1c80675fc4282298,Metric,发明专利占比,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_1c948de9adfb6558,Company,紫光股份,HAS_PRODUCT,Product,安装服务,本集团与客户之间的提供服务合同通常包含维保服务、运维服务、培训服务和安装服务等履约义务,annual_000938_2025,2025年年度报告,135,重要会计政策及会计估计（续）,1,0.90,auto
+relation_1cfcd1bee80b2af1,Technology,RRPP环网,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_1d3aa220d72924a2,Product,网络交换机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_1d47a816106efd57,Company,紫光股份,HAS_METRIC,Metric,应付普通股现金股利_2025,"应付普通股现金股利214,505,990.55",annual_000938_2025,2025年年度报告,187,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_1d771348163b1229,DemandDriver,市场需求,DRIVES,Workload,研发项目,研发项目的立项基础是根据市场的需求与技术研发的需求,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.80,auto
+relation_1d8316f02c6ff27a,Technology,算力调度,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_1d9e43a43ec5b22f,IndustryConcept,大数据,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_1de13328041530b7,Metric,合并抵消成本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_1de59d081f15d672,Company,重庆紫光信息产业发展有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_1de82dff9c0cf231,Company,紫光股份,HAS_PRODUCT,Product,云计算,持续在网络、安全、计算、存储、云计算、人工智能等重点领域的研发投入，夯实“云—网—安—算—存—端”全栈业务布局,annual_000938_2025,2025年年度报告,24,费用,1,0.90,auto
+relation_1e22e9d6e21d758c,Technology,AD-NET,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_1e5303cc3f90b40d,Metric,收到其他与经营活动有关的现金_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_1e56df4f4d1d5806,Company,紫光股份,HAS_METRIC,Metric,存货跌价准备,"存货跌价准备及合同履约成本减值准备：年末余额2,107,222,626.50",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_1e6ed7622d6937d7,Technology,算力×联接,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_1e78888defe14ad5,Company,紫光股份,HAS_PRODUCT,Product,防火墙AI 运维助手,公司防火墙AI 运维助手可提升防火墙在业务部署、故障诊断和知识问答等方面的智能化水平,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_1e8ecd2073c30b87,Product,培训服务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,135,重要会计政策及会计估计（续）,1,1.00,auto
+relation_1eea14e55dab944f,Technology,RISC-V 架构,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_1f52dde78ef8face,ValueChainSegment,ICT基础设施,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_1fb170a35f017483,Company,紫光股份,HAS_PRODUCT,Product,数据中心建造服务,本集团与客户之间的建造合同通常包含数据中心建造设计、设备采购、建造安装等多项商品和服务承诺,annual_000938_2025,2025年年度报告,135,重要会计政策及会计估计（续）,1,0.90,auto
+relation_1fef76f85a355a3e,Company,紫光股份,HAS_PRODUCT,Product,芯模社区,以芯模社区为平台,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.90,auto
+relation_1ff6cc53266d3194,Standard,中国通信标准化协会（CCSA）,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_203037c47c43fa9b,Metric,ICT基础设施与服务收入同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_20ac22ea294713a3,Company,紫光股份,HAS_METRIC,Metric,现金及现金等价物净增加额,"2025年现金及现金等价物净增加额1,257,789,188.27元",annual_000938_2025,2025年年度报告,199,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_20bcff1e2b513d1a,Company,紫光股份,HAS_PRODUCT,Product,国芯超低时延交换机,公司发布了面向极速交易场景的新一代国芯超低时延交换机,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_20c5e3ec586a3b0e,Product,新一代通算服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_2103ef8218346053,Metric,IT产品分销与供应链服务成本占比2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_210c07b59ca74149,Product,以太网交换机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_21564cfdc737bcb5,Metric,国外收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_216c26dace7e986c,Metric,ICT基础设施与服务成本同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_218ca2263260be6d,Product,CloudOS 7.0 云操作系统,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_21f55f1446dcfc5e,Company,紫光股份,HAS_PRODUCT,Product,DDC架构新一代无损网络解决方案,发布基于DDC（Diversity Dynamic-Connectivity，多元动态联接）架构的新一代无损网络解决方案,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_22196da75748806c,Company,紫光股份,BELONGS_TO_CHAIN,IndustryChain,算力产业链,公司坚持“算力×联接”战略，重视技术创新，构建了包括全栈智能的底层数字基础设施、中层云与智能平台、上层AI“训—推—用”使能平台在内的一体化AI赋能平台,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,0.90,auto
+relation_2219a952983e1d9f,Metric,筹资活动现金流入小计,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_2259fdd33b264307,Company,紫光股份,BENEFITS_FROM,Workload,大规模算力集群,与多家头部互联网客户持续推进大规模算力集群与超节点系统建设。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.80,auto
+relation_225d533e89a0afb7,Company,紫光股份,HAS_METRIC,Metric,利润总额_2024,"2024年利润总额2,226,953,396.66元",annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_22a22dae1c77e42a,Metric,销售费用_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_22a83214409ef08a,Metric,国内收入占比,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_22ae565af400fb87,Technology,IPv6,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,5,释义,1,1.00,auto
+relation_22d5fbf110a274eb,Risk,宏观经济环境变化风险,CONSTRAINS,Company,紫光股份,若未来全球经济增长持续放缓或我国宏观经济出现短期波动、数字化建设投资放缓，可能对公司经营产生一定的影响,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.90,auto
+relation_231caf5e8b76fecf,Company,紫光股份,HAS_METRIC,Metric,提供服务收入,"提供服务 3,487,114,952.88",annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_23436e520162633c,Company,紫光股份,HAS_PRODUCT,Product,金融智算整体解决方案,以金融智算整体解决方案、广域网解决方案等多方位解决方案为银行及券商客户打造数智化升级引擎。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.90,auto
+relation_236c2b029477e7c2,Company,紫光股份,HAS_METRIC,Metric,研发费用_2025,"研发费用53 4,952,674,806.36",annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_24690f8b8ca3539b,Company,紫光股份,HAS_PRODUCT,Product,运维服务,本集团与客户之间的提供服务合同通常包含维保服务、运维服务、培训服务和安装服务等履约义务,annual_000938_2025,2025年年度报告,135,重要会计政策及会计估计（续）,1,0.90,auto
+relation_24773e21401f6dde,Metric,30岁以下人数,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_249515a4cb309dab,Company,紫光股份,HAS_METRIC,Metric,营业成本_2025,"减：营业成本4 83,589,531.49 212,779,572.36",annual_000938_2025,2025年年度报告,108,89 -减：营业外支出,1,1.00,auto
+relation_24a373611f5917ca,IndustryConcept,数字化及AI解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,8,注册变更情况,1,1.00,auto
+relation_24ea3bb61ed504cf,Product,业务感知与分析方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_253cb69a9a293f0e,Company,紫光股份,HAS_METRIC,Metric,大专学历员工数量,表格中大专行对应数值922,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_25545135cb727624,Company,紫光健康科技（苏州）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_25e33a177b59ef6d,Company,紫光股份,HAS_METRIC,Metric,研发投入金额,"表格中2025年研发投入金额为4,952,674,806.36元，2024年为5,101,818,089.81元。",annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_26204a8865fee802,Company,紫光软件（天津）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_2634ccdb1b083817,DemandDriver,技术研发需求,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_2673c8f84c31624d,Product,安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,费用,1,1.00,auto
+relation_2697131a0dd68020,Company,紫光股份,HAS_METRIC,Metric,支付其他与经营活动有关的现金_2024,"2024年支付其他与经营活动有关的现金2,730,695,156.02元",annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_26c2fcf7a6d2d97e,Company,紫光股份,HAS_PRODUCT,Product,ICT基础设施与服务,"分产品：ICT 基础设施与服务，2025年收入76,846,762,924.64元，占营业收入比重79.43%。",annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_2704df694546ce5f,Technology,PON,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,5,释义,1,1.00,auto
+relation_2705c6fa69d7f3b4,Company,紫光股份,HAS_PRODUCT,Product,以太网交换机,中国以太网交换机市场份额34.5%，排名第二,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.90,auto
+relation_27150992581cd5f0,Company,新华三进出口（杭州）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_27a7ca80e08268bc,Company,新华三工业互联网有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_27b7bd7a0b282bdb,Company,紫光股份,HAS_PRODUCT,Product,ICT产品,本集团在销售ICT等相关产品时，相关履约义务于交付或经客户验收后履行完毕,annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_27f2d4b2d9953f49,Technology,AIGC,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,6,载有公司法定代表人、主管会计工作负责人、会计机构负责人签名并盖章的会计报表。,1,1.00,auto
+relation_27fbe868c28c7f56,Workload,AI训练,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_282337ff7db42c0e,IndustryConcept,云计算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_28481fbed05fa085,Metric,经营活动产生的现金流量净额_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_28879f326a806660,Product,紫光数字经济科技园（一期）总部基地项目,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,169,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_28b064dc2ebdf92a,Company,紫光股份,HAS_METRIC,Metric,营业收入同比增长率,2025年度实现营业收入967.48亿元，同比增长22.43%,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_28b0b15c3632032a,DemandDriver,实体经济与数字经济融合,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_28ec4a2296fe61af,Metric,EBITDA利息保障倍数,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,183,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_28fffbee2721962f,Metric,非财务报告重要缺陷数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_294153274b216f4e,Product,应用安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_296decb85f78048c,Product,智能终端,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_29705dba71a77927,Company,紫光股份,HAS_PRODUCT,Product,云计算产品,新华三集团主要业务包括网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,0.90,auto
+relation_2b8e847205fd0b3c,Metric,提供服务收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_2b935e7f72f6bd97,Product,灵犀智算方案V5.0,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_2bc1af49dcc939b5,Metric,收到重要的投资活动有关的现金_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_2bc7ce3b65050e5b,Company,紫光股份,HAS_METRIC,Metric,研发人员数量变动比例,研发人员数量变动比例-10.76%,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_2be6447b77362279,Company,紫光股份,HAS_PRODUCT,Product,智能终端,为客户提供网络、计算、存储、云计算、安全和智能终端等全栈智能化信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级的解决方案。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_2c4c807f9c6f269b,Company,华芯新材料科技（无锡）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_2c8a368e837e1331,Company,紫光股份,HAS_METRIC,Metric,IT产品分销与供应链服务收入同比增减,IT产品分销与供应链服务同比增减：-12.72%。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_2c8a8e3d2ecda0b5,Company,紫光股份,HAS_METRIC,Metric,研发人员数量占比变动比例,研发人员数量占比变动比例-2.14%,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_2c8be42f56a7470a,Company,新华三大数据技术有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,新华三大数据技术有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_2cee8b4aa7c847f8,Metric,主营业务收入_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_2d3dc683e4c95138,Technology,芯模联动,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,1.00,auto
+relation_2d51b72fe3b43c74,Company,紫光股份,HAS_METRIC,Metric,财务报告重要缺陷数量,财务报告重要缺陷数量（个） 0,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_2d6ddca5a8e589d5,Technology,软件著作权,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_2d877f91172cb5b1,Product,特许权,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_2de5a4fcab292ae4,Company,紫光股份,HAS_METRIC,Metric,31-40岁人数,"2025年31-40岁3,487人",annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_2e1d35781380f000,Workload,自动驾驶,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_2e2dc8afba035918,Company,紫光股份,HAS_METRIC,Metric,研发费用_2024,"2024年度研发费用合计5,101,818,089.81元",annual_000938_2025,2025年年度报告,191,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_2e7a8cc385d7f712,Product,图灵小镇,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,1.00,auto
+relation_2ea35036a87be1b1,Metric,IT产品分销与供应链服务收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_2ef4988c610c0b50,Company,紫光股份,HAS_METRIC,Metric,采购量,"2025年采购量92,578,852,756.27元，同比增减10.49%",annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_2f047e190a222b93,Technology,AI in ALL,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,1.00,auto
+relation_2f78edb5d22b62af,Product,全冷板液冷服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_2fc6432300dc35e6,Metric,维修备件跌价准备计提比例,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_2ff7c03ba596b69a,Company,新华三半导体技术有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_30018949f01943cb,Company,紫鸾智数科技（沈阳）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_300194366a30a0ad,Metric,研发费用_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_30f24ba24ce5703a,Metric,IT产品分销与供应链服务收入同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_3107c5eae754ad1c,Product,超融合虚拟化融合版本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_31112c5adaea1efa,Metric,库存量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_31150e25bd245eeb,Metric,新华三净利润,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_31c8a09d03a0acc7,Metric,可收回金额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_31d3124671a3f2ca,Company,紫光股份,HAS_PRODUCT,Product,SD-WAN 智能路由器,推出新一代SD-WAN 智能路由器,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_31f69f2d8eecaa88,Company,紫光股份,HAS_PRODUCT,Product,智算解决方案,不断巩固和增强公司在全栈智算解决方案领域的领先优势,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,0.90,auto
+relation_3234a7195a952ee4,Company,紫光股份,HAS_METRIC,Metric,30岁以下人数,"2025年30岁以下1,615人",annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_328406a2d7c16040,Company,紫光股份,HAS_METRIC,Metric,加权平均净资产收益率,加权平均净资产收益率2025年12.03%,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_32a890eaef15dda6,Metric,扣非归母净利润,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_32addd57e6a67a8f,Company,紫光股份,HAS_METRIC,Metric,递延收益年初余额,"年初余额441,386,563.28",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_32e9347815f4d4c5,Product,大数据平台,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_335f8ca7e57f72c0,Product,存储,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,费用,1,1.00,auto
+relation_33697fcc970b41fd,DemandDriver,大模型在行业落地的市场机会,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_3406cb1a01e1cfbf,Company,紫光股份,HAS_PRODUCT,Product,数字化转型及智能化升级解决方案,作为数字化及AI解决方案领导者，公司提供全栈智能化的信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级解决方案。,annual_000938_2025,2025年年度报告,8,注册变更情况,1,1.00,auto
+relation_343ce36635dc0bdf,Metric,经营活动现金流出小计_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_3446cbb07c0917e8,Company,紫光股份,HAS_METRIC,Metric,营业收入,"合计 65,889,803,802.79",annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_345229fe1becbfe0,Company,紫光股份,HAS_METRIC,Metric,存货账面余额,"存货分类：2025年账面余额45,675,692,136.15",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_34ceb60b9e8dd3bf,Company,紫光股份,USES_TECHNOLOGY,Technology,全景运维地图,全景运维地图升级，实现多域统一可视、仿真验证,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,0.90,auto
+relation_34f465b4974f645b,Metric,合并抵消成本占比2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_34f6f379502170c6,Product,AI 安全系列智能体,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_3514cb944a8e483a,Company,紫光股份,HAS_METRIC,Metric,经营活动产生的现金流量净额_2024,"表格中经营活动产生的现金流量净额2024年2,440,755,824.85元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_35170888359e2daf,Metric,合同负债年初账面价值,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_3555c9ac60030e3c,Company,紫光股份,DISCLOSES_RISK,Risk,竞争加剧,也面临着竞争加剧与供应链波动等多重挑战,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,0.90,auto
+relation_35763611d597efc2,Metric,稳定期毛利率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_359cf9d7c412a9ce,Technology,BGP EVPN 协议,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,6,载有公司法定代表人、主管会计工作负责人、会计机构负责人签名并盖章的会计报表。,1,1.00,auto
+relation_359ee565467a7f30,Company,紫光股份,HAS_METRIC,Metric,营业成本_2024,"减：营业成本4 83,589,531.49 212,779,572.36",annual_000938_2025,2025年年度报告,108,89 -减：营业外支出,1,1.00,auto
+relation_35a653f37203241f,Product,数据中心建造服务,UPSTREAM_OF,ValueChainSegment,数据中心建造,数据中心建造服务是数据中心建造环节的具体服务形式,annual_000938_2025,2025年年度报告,136,重要会计政策及会计估计（续）,1,0.80,auto
+relation_35ccb0866d7fbcd6,Company,紫光股份,HAS_METRIC,Metric,投资活动产生的现金流量净额,"表格中投资活动产生的现金流量净额2025年-529,638,577.47元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_35fa7bb99ebf6b8f,Company,紫光云数据（深圳）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_360d6d343ba8d307,Metric,毛利率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_3634f66841721a54,Company,紫光股份,BELONGS_TO_CHAIN,IndustryChain,AI算力产业链,公司将持续探索开辟智算业务新赛道,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.80,auto
+relation_36d76191ab4aa81b,Metric,支付重要的投资活动有关的现金_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_370e915e20d8d639,Metric,归属于上市公司股东的净利润同比增长率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_370fc0f04c98f107,Metric,营业收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_37372942f9b9f0cc,Metric,研发人员数量占比,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_378bb7ec00dcee6e,Company,紫光股份,HAS_METRIC,Metric,研发费用_2025,"研发费用2,415,370.08 8,990,983.65",annual_000938_2025,2025年年度报告,108,89 -减：营业外支出,1,1.00,auto
+relation_37a72b17186bdbab,Workload,AI推理,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_37b1acac59188152,ValueChainSegment,政企DICT市场,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_37d60c1dddd58231,Technology,Scale-up整机柜技术,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_37ed373c7767f609,ValueChainSegment,云计算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_38111a2554912da0,Product,H3C UniStor Polaris X20000 系列,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_383087fb3dec307b,Company,紫光股份,HAS_EXPOSURE,ValueChainSegment,IP网络,提升IP网络市场份额；以业务感知与分析方案积极助力运营商IP网络流量经营分析能力建设。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.90,auto
+relation_3835c5cb6d1ba564,Company,紫光股份,USES_TECHNOLOGY,Technology,PON,释义中定义了PON，表明公司涉及该技术。,annual_000938_2025,2025年年度报告,5,释义,1,0.70,auto
+relation_38ab5f5d12fb308c,Risk,宏观经济环境变化风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,1.00,auto
+relation_38b9a83646e261b6,Product,数据中心交换机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_38e88e6a74d48c09,Company,紫光股份,HAS_PRODUCT,Product,灵犀Cube一体机,公司陆续推出百业灵犀私域大模型、灵犀使能平台、灵犀推理引擎、灵犀AI助手、灵犀Cube一体机及多个行业智能体,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,0.90,auto
+relation_38e95c7b089e615a,Company,紫光股份,HAS_METRIC,Metric,产品质量保证本年减少,"本年减少(384,968,800.12)",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_3914406b374e76af,Product,"2,000公里无中继光路由方案",MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_391b225962cdcf97,Product,交通智算解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_396961ee1b064fd5,Product,安装服务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,135,重要会计政策及会计估计（续）,1,1.00,auto
+relation_3976b4a337a66b4f,Product,安全大数据中台产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_3990bc5c182b16e6,Metric,研发人员数量变动比例,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_39977f0d7a028d19,Company,紫光股份,USES_TECHNOLOGY,Technology,算力调优技术,公司将重点构建并完善算力调优能力,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,0.80,auto
+relation_39c5d2150a5139af,Company,紫光股份,USES_TECHNOLOGY,Technology,算力×联接,公司深化推进“算力×联接”战略,annual_000938_2025,2025年年度报告,16,主营业务分析,1,0.90,auto
+relation_39cea75313a21495,Metric,IT产品分销与供应链服务收入占比,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_39fd02ccee667d53,ValueChainSegment,IP网络,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_3a1fef490f1cefd5,Company,紫光股份,HAS_METRIC,Metric,技术人员数量,"表格中技术人员行对应数值9,213",annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_3a4f86a19a77574e,Company,紫光股份,HAS_PRODUCT,Product,灵犀智算解决方案,公司灵犀智算解决方案持续迭代，具备为客户提供算力调度及大模型落地的全栈能力,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,0.90,auto
+relation_3aeeed6122fce468,Company,紫光股份,HAS_PRODUCT,Product,AI 安全系列智能体,AI 安全系列智能体覆盖安全运营、设备运维、高级威胁检测三大领域,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_3af7d495f4a5f658,Company,紫光股份,USES_TECHNOLOGY,Technology,800G以太网,与中国移动积极推动算力网络发展，共同完成业界首次800G以太网智算协同训练的现网技术试验。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.90,auto
+relation_3b2d12ea1d20f68f,Company,紫光股份,HAS_METRIC,Metric,净利润_2025,"净利润222,320,170.88 255,704,464.43",annual_000938_2025,2025年年度报告,108,89 -减：营业外支出,1,1.00,auto
+relation_3b342aec6165e01f,Metric,研发人员数量占公司总人数的比例,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_3b6df6c3f4c7173b,ValueChainSegment,数据中心交换机产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_3bdf5109a480d8e3,Risk,产品质量保证风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_3beee7be15cd7c15,IndustryConcept,数字化,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_3c39ce4c29182bca,Company,紫光股份,HAS_METRIC,Metric,行政人员数量,表格中行政人员行对应数值291,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_3c4298dd69230c84,Company,紫光股份,HAS_METRIC,Metric,杠杆率,杠杆率（刚性负债/EBITDA）自首次提款日起至2026年12月31日止不得超过6.5倍,annual_000938_2025,2025年年度报告,183,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_3c471e5008800372,Metric,在某一时点转让收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_3c72d90b280c94b2,DemandDriver,用户多元需求,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_3c8f239d2a3ac098,Company,紫光股份,HAS_PRODUCT,Product,灵犀AI助手,公司陆续推出百业灵犀私域大模型、灵犀使能平台、灵犀推理引擎、灵犀AI助手、灵犀Cube一体机及多个行业智能体,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,0.90,auto
+relation_3c8f27758a4dce7e,Company,紫光未来科技（杭州）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_3cdc43532b0ceebb,Metric,维修备件账面余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_3ce7a13d913b2827,Company,紫光股份,USES_TECHNOLOGY,Technology,灵犀使能平台,同上,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_3cf0caad5de3892f,Company,紫光股份,HAS_PRODUCT,Product,数据中心建造服务,本集团通过向客户提供数据中心建造服务履行履约义务,annual_000938_2025,2025年年度报告,136,重要会计政策及会计估计（续）,1,1.00,auto
+relation_3d0e181a08a33297,Policy,国家级商用密码最高认证,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_3d353ad28e496c2a,Workload,大数据处理,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_3db959af66574eb6,Product,全光以太网5.0方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_3dc1ae7d1a4f2485,Company,紫光股份,USES_TECHNOLOGY,Technology,Scale-up整机柜技术,公司重点推进CPO 技术与Scale-up 整机柜两大前沿技术方向研究,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_3dc555333c25a42f,Company,紫光股份,BELONGS_TO_CHAIN,IndustryChain,AI算力产业链,作为数字化及AI解决方案领导者，公司立足新一代信息通信领域，为客户提供全栈智能化的信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级解决方案。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,0.90,auto
+relation_3df57f0655d8c0b2,Risk,内部控制风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_3e2874e4ad372710,Product,数智健康云平台,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_3e2ffae43dbc9b0e,Product,安全检测与审计,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_3e8b402edef91c8e,Product,ICT基础设施与服务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_3ea3884d3c59ac15,Company,紫光股份,USES_TECHNOLOGY,Technology,大数据,提供云计算、大数据、人工智能、工业互联网、信息安全、智能联接、边缘计算、统一运维等在内的一站式数字化解决方案,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_3ea5980b5630ac0d,Company,紫光股份,HAS_METRIC,Metric,预测期增长率,增长率15.1%-16.3%,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_3eecff86e85f7370,Company,紫光股份,HAS_PRODUCT,Product,路由器,中国企业网路由器市场份额31.5%，排名第二,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.90,auto
+relation_3ef56e504603eedb,Metric,衍生品投资实际损益金额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_3f160f5256ac28ce,Company,紫光股份,HAS_METRIC,Metric,投资活动现金流出小计,"表格中投资活动现金流出小计2025年2,971,312,974.33元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_3f1bbecae1fdf8dd,Architecture,AI Infra体系,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_3f4a90aeef02f2d2,Company,紫光股份,DISCLOSES_RISK,Risk,非财务报告内部控制重大缺陷,定量标准：重大缺陷：潜在风险事件可能造成的直接财产损失金额8000 万元以上,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_3fcfbe7ca31012fc,Metric,净利润_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_3fd5db854fc047e8,Metric,利润总额_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_4057b9a147e82e88,Product,下一代存储,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_40fa679c22ffd6fd,Company,紫光股份,HAS_PRODUCT,Product,存储,为客户提供网络、计算、存储、云计算、安全和智能终端等全栈智能化信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级的解决方案。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_411a42519a15aa90,Company,新华三算力科技（上海）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_4168ae4d070da498,Company,紫光股份,HAS_METRIC,Metric,库存量同比增减,库存量同比增减17.81%,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_417fc4bd7957aa94,Product,人工智能服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_41854d6740e420d1,Metric,技术人员数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_418622ab24cd3ba7,Company,苏州美琨数码科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_424a926d071e2b73,Metric,员工总数,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_429e15adaf3b64ba,Risk,技术和产品研发风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,1.00,auto
+relation_433633734dc17a4b,Product,H3C UniServer G7系列模块化服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_4339138f6d1729e0,Company,新华三集团有限公司,HAS_METRIC,Metric,净利润,"被投资企业的净利润（万元）：315,148.90",annual_000938_2025,2025年年度报告,69,√适用 □不适用,1,1.00,auto
+relation_4344157b647b89a0,Company,新华三人工智能科技有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,新华三人工智能科技有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_43b02fd0da884de1,ValueChainSegment,ICT基础设施与服务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_43c9db35d9e92b18,Company,紫光股份,HAS_PRODUCT,Product,智算安全解决方案,升级智算安全解决方案,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_4489ab5899e363aa,Technology,风液冷兼容灵活切换的模块化技术,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_44b826da31be8ac9,Technology,CPO技术,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_44cff9f94e793277,Risk,汇率波动风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_44fec7514d1c4da0,Product,G-Flow 油类浸没液冷,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_452f74f1b5d7f58f,Metric,非财务报告重大缺陷数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_4577f9d3fa4e8a0f,Metric,大专以下学历员工数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_45933ca04b898f33,IndustryConcept,智算中心,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_461a17f1ebaef17e,Company,紫光股份,HAS_METRIC,Metric,非财务报告重要缺陷数量,非财务报告重要缺陷数量（个） 0,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_464a9f05f8c3289c,Company,紫光股份,HAS_EXPOSURE,ValueChainSegment,智算市场,深挖智算市场商机；持续落地大中型智算中心建设项目，巩固智算市场优势地位。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.90,auto
+relation_465da1bffeeb4273,IndustryConcept,通算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_46660296fa519f54,Metric,ICT基础设施与服务业务收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_46e1294ed6b417f9,Technology,推理优化,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_47103563fe7b9fcd,Technology,云计算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_475c212fd0b933c0,Company,紫光股份,HAS_METRIC,Metric,年末未分配利润_2025,"年末未分配利润11,851,463,090.98",annual_000938_2025,2025年年度报告,187,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_47659fd187ead5c5,ValueChainSegment,全光网络,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_47e76d2b0e820235,IndustryConcept,物联网,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_483b5ab4f0a455c0,Company,紫光股份,HAS_METRIC,Metric,未决诉讼预计负债,"未决诉讼1,980,413.58",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_48d153c07a8a357b,Company,紫光股份,HAS_PRODUCT,Product,百业灵犀ICT大模型,公司百业灵犀ICT大模型,annual_000938_2025,2025年年度报告,16,主营业务分析,1,0.90,auto
+relation_48f328d952afbfae,Technology,分布式存储,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_48f3dea470b01b9d,Metric,土地使用权摊销年限,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_492d8848dd037769,IndustryConcept,桌面级 AI 算力,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_49865f57e3a34536,Metric,营业收入_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_4993bf9f72cf996e,ValueChainSegment,交换机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_49adceba5c03d640,Company,紫光股份,DISCLOSES_RISK,Risk,经营风险,（3）经营风险,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.90,auto
+relation_49e17902e168f873,Metric,41岁及以上人数,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_49f3c0e3e3a4790d,Product,智能制造无线网络解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_4a38bace00bf97b2,Company,紫光股份,HAS_PRODUCT,Product,H3C UniPoD S80000 超节点产品,推出H3C UniPoD S80000 超节点产品,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_4a5aae0d6aef2bec,Company,紫光股份,HAS_METRIC,Metric,税前折现率,税前折现率12.8%,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_4a8b124d5145b34c,Company,紫光股份,HAS_METRIC,Metric,毛利率,毛利率 14.59%,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_4af2850e70dc91f4,Company,紫光股份,HAS_METRIC,Metric,产品质量保证流动负债部分,"减：被列为流动负债的部分331,251,054.52",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_4b2831e1e6486444,Technology,DeepSeek大模型,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_4b6db716c4f5fafd,Company,紫光股份,HAS_PRODUCT,Product,H3C绿洲平台,公司“H3C绿洲平台”入选教育部优秀解决方案,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.80,auto
+relation_4b89de862af13629,Company,紫光股份,DISCLOSES_RISK,Risk,汇率波动风险,公司进行外汇套期保值业务会存在一定的风险：1、汇率波动风险：由于外汇市场存在各种影响汇率走势的复杂因素，不确定性较大，如未来汇率走势与公司判断的汇率波动方向发生大幅偏离，实际汇率将与公司外汇套期保值合约锁定汇率出现较大偏差，将给公司带来损失。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_4bc78b5961524370,Company,紫光股份,DISCLOSES_RISK,Risk,财务报告内部控制一般缺陷,定量标准：营业收入潜在错报：一般缺陷：错报≤营业收入总额的0.5%；利润总额潜在错报：一般缺陷：错报≤利润总额的5%；资产总额潜在错报：一般缺陷：错报≤资产总额的0.5%；所有者权益潜在错报：一般缺陷：错报≤所有者权益总额的1.5%,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_4c3f241a0da5a3d5,Product,图灵小镇,ENABLES,IndustryConcept,智算业务,在“图灵小镇”不断扩大建设数量及运营规模的同时,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.80,auto
+relation_4c66d076a5ed3f64,Company,紫光股份,HAS_PRODUCT,Product,云集群智算数据中心交换机增强项目,推出新一代DDC2产品,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_4cf8bc37adb70531,Metric,财务人员数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_4cffeb57f6e9c6e2,Metric,ICT基础设施与服务营业成本比上年同期增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_4d2c5cd9dcf0997f,Company,紫光股份,HAS_METRIC,Metric,研发费用_2025,"2025年度研发费用合计4,952,674,806.36元",annual_000938_2025,2025年年度报告,191,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_4d3c5118b3ef65a7,Company,紫光股份,HAS_METRIC,Metric,预计负债合计,"合计312,027,064.45",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_4d40e8584f850638,Technology,IPv6+,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_4d4575dd17cef130,Company,紫光股份,HAS_METRIC,Metric,财务费用_2025,"表格：2025年财务费用1,053,051,403.83元",annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_4d7089db0593b084,Policy,国家数据局《数字中国建设2025年行动方案》,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_4d898e0d33cb4a4d,Metric,销售量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_4dc11edb7fd47ef7,Company,紫光股份,HAS_PRODUCT,Product,互联网信息技术产品,新华三集团主要业务包括网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,0.90,auto
+relation_4dd0a0e2dcc09f0f,Company,紫光股份,HAS_METRIC,Metric,合同负债年初账面价值,"合同负债年初账面价值11,165,925,801.98 8,993,397,254.48",annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_4ded7c7912a27ff9,IndustryChain,算力产业链,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_4e0ed90639de11f5,ValueChainSegment,服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_4e195a35629d59ab,Metric,财务报告重大缺陷数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_4e2f731c934a5562,Metric,ICT基础设施与服务毛利率比上年同期增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_4e722985e2765c41,Product,智能制造解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_4ea0331acb056bbe,Company,紫光股份,HAS_PRODUCT,Product,云操作系统,主要产品及服务包括：4、云与智能：云操作系统、虚拟化平台、超融合产品、大数据平台、数据库等；,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_4ea3fb7ca67f9f1d,Company,紫光股份,HAS_PRODUCT,Product,安全,为客户提供网络、计算、存储、云计算、安全和智能终端等全栈智能化信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级的解决方案。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_4eac1f2e0b925441,Company,紫光股份,HAS_METRIC,Metric,ICT基础设施与服务收入,"ICT基础设施与服务收入：2025年76,846,762,924.64元。",annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_4ec8d4d14c4b0c78,Company,紫光股份,HAS_METRIC,Metric,财务报告重大缺陷数量,财务报告重大缺陷数量（个） 0,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_4ef93a3843c2a255,Company,紫光股份,USES_TECHNOLOGY,Technology,非专利技术,非专利技术及软件著作权2-10年结合产品生命周期预计使用年限,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.90,auto
+relation_4f4a6099901f3cca,Metric,扣非归母净利润同比增长率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_4fdc7068c2a23f7f,Risk,无形资产减值风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_500dba5678cd2d59,Metric,收到其他与经营活动有关的现金_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_502abdc482fd9586,IndustryConcept,电子信息产业,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,8,注册变更情况,1,1.00,auto
+relation_5093070edf08f954,Metric,IT产品分销与供应链服务营业收入比上年同期增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_50b1217cf1aa6861,Company,紫光股份,HAS_METRIC,Metric,归属于母公司股东的净利润,"归属于母公司股东的净利润 1,685,521,754.82",annual_000938_2025,2025年年度报告,101,归属于母公司股东的净利润,1,1.00,auto
+relation_50e2c3b81a610701,Company,紫光股份,HAS_METRIC,Metric,营业成本_信息技术业_2024,"2024年信息技术业营业成本金额65,282,115,477.87元，占营业成本比重100%",annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_5171ae82b2824cc8,Product,新一代ICT产品智能工厂建设项目,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,169,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_5195f78a9a8d4a79,Company,紫光股份,SUPPORTED_BY_POLICY,Policy,乡村全面振兴规划（2024—2027年）,中共中央、国务院印发了《乡村全面振兴规划（2024—2027 年）》...公司积极响应国家乡村振兴战略号召,annual_000938_2025,2025年年度报告,55,巩固拓展脱贫攻坚成果、乡村振兴的情况,1,0.90,auto
+relation_51c1a0fa9cbb0f34,Product,智算解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_525e4b168b63065a,Policy,十五五规划,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_528512bd8cc656c3,Company,紫光股份,HAS_METRIC,Metric,前五名客户合计销售金额,"前五名客户合计销售金额（元）43,454,446,109.18",annual_000938_2025,2025年年度报告,23,公司主要销售客户情况,1,1.00,auto
+relation_52be7896df50f3e7,Company,紫光股份,HAS_PRODUCT,Product,海外子品牌Aolynk,报告期内，公司推出海外子品牌Aolynk，专注为全球中小企业提供一站式数字化赋能。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.90,auto
+relation_52cabb5b416c6860,ValueChainSegment,网络基础设施,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_52d2a98517682260,Company,紫光股份,HAS_METRIC,Metric,在途物资账面余额,"存货分类：在途物资2025年账面余额383,362,003.61",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_52fe97fe2a42489a,Company,紫光股份,USES_TECHNOLOGY,Technology,人工智能,公司将AI技术广泛融入产品和解决方案中，持续推动产品智能化升级,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,0.90,auto
+relation_534974360eccc5f3,Workload,科学计算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_53915e94b9e04d09,Metric,直销营业收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,公司实物销售收入是否大于劳务收入,1,1.00,auto
+relation_53c5490cb0cce13b,Company,紫光股份,HAS_METRIC,Metric,基本每股收益,基本每股收益 0.5893,annual_000938_2025,2025年年度报告,101,归属于母公司股东的净利润,1,1.00,auto
+relation_53d49cdb313940e4,Product,存储网络设备,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_540e4a2f0b3dd883,DemandDriver,场景需求,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_541c0fa8a73c90f6,Company,紫光股份,HAS_METRIC,Metric,在建工程账面余额,"2025年在建工程账面余额573,184,168.51元",annual_000938_2025,2025年年度报告,168,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_544b5dda83d803af,Technology,云原生,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_54523f20302bb38b,Company,紫光股份,USES_TECHNOLOGY,Technology,芯模联动,重点聚焦“芯模联动”(芯片研发与算法模型深度协同)战略,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.90,auto
+relation_549adbd189da6cb2,Workload,AI训推用,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_54d823821d9d81ef,Product,数字化转型及智能化升级解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,8,注册变更情况,1,1.00,auto
+relation_54f52abe20956cb1,Company,紫光股份,USES_TECHNOLOGY,Technology,静态故障检测+秒级自愈,静态故障检测+秒级自愈，保障网络稳定可靠,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,0.90,auto
+relation_54f91a740c15d562,Company,紫光股份,SUPPORTED_BY_POLICY,Policy,上市公司监管指引第10号——市值管理,根据《上市公司监管指引第10号——市值管理》等规定，公司制定了《市值管理制度》,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_555415d48517ce3b,Metric,大专学历员工数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_5585f86a52fd3a7b,Company,紫光股份,HAS_METRIC,Metric,主营业务成本_2024,"2024年主营业务成本65,198,107,168.33元",annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_55bf1b6fd90be97f,Company,紫光股份,HAS_PRODUCT,Product,服务器,新华三集团主要业务包括网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,0.90,auto
+relation_55f129a092834898,Company,紫光股份,USES_TECHNOLOGY,Technology,软件著作权,非专利技术及软件著作权2-10年结合产品生命周期预计使用年限,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.90,auto
+relation_55f1818d202f9389,Company,紫光股份,HAS_METRIC,Metric,研发投入资本化的金额,表格中2025年和2024年研发投入资本化的金额均为--。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_560fe02dc7d1bfbd,Metric,财务报告重要缺陷数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_562e50b3cfacef26,Company,紫光股份,HAS_PRODUCT,Product,灵犀智算方案V5.0,公司灵犀智算方案迭代至V5.0 版本，全面支持私域训推、大规模训练、垂直行业类AI 应用开发三类智算中心的建设需求,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_563574d82338d301,Product,宽带接入服务器(BRAS),MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_5644518dcbefb922,Company,紫光股份,DISCLOSES_RISK,Risk,供应链波动,也面临着竞争加剧与供应链波动等多重挑战,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,0.90,auto
+relation_564f5856bf8c7ac9,ValueChainSegment,高效多元算力,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_568ee7a4e15cfc37,Company,紫光股份,HAS_METRIC,Metric,国内收入,"国内收入：2025年92,037,811,596.19元，占营业收入比重95.13%。",annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_56c2131a23c9136b,Product,MegaBook 双系统平板,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_57584e80e776415d,Company,紫光股份,HAS_METRIC,Metric,销售量,"2025年销售量96,748,339,344.03元，同比增减22.43%",annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_57755c9ff35287cd,Metric,库存量_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_57ce15d52422ea86,Metric,IT产品分销与供应链服务成本同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_57d08cbbe668237d,Company,紫光股份,USES_TECHNOLOGY,Technology,人工智能,提供云计算、大数据、人工智能、工业互联网、信息安全、智能联接、边缘计算、统一运维等在内的一站式数字化解决方案,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_57d57c07f61b8b26,Company,紫光股份,HAS_METRIC,Metric,营业成本_2025,"减：营业成本49 82,631,846,618.39",annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_57d88c8816b1560c,Company,紫光股份,HAS_PRODUCT,Product,人工智能,持续在网络、安全、计算、存储、云计算、人工智能等重点领域的研发投入，夯实“云—网—安—算—存—端”全栈业务布局,annual_000938_2025,2025年年度报告,24,费用,1,0.90,auto
+relation_57fd9f5b8a33f076,Product,计算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,费用,1,1.00,auto
+relation_57fef1063cf4a444,IndustryConcept,政务网,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_583a1b3c839a6d4c,Company,紫光股份,HAS_PRODUCT,Product,新一代旗舰级AI服务器,完成新一代R5500系列服务器发布,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_5842ee7c0f6096b3,Technology,智能运维,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,收入与成本,1,1.00,auto
+relation_58775bc70b61be78,Product,数据库,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_589eb5eceb7260f4,Company,紫光股份,HAS_PRODUCT,Product,紫光数字经济科技园（一期）智能工厂项目,"紫光数字经济科技园（一期）智能工厂项目 64.15 4,408,326.75 3,837,998.42 3.05",annual_000938_2025,2025年年度报告,169,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_58cdc74f20695fb5,Metric,人工智能核心产业规模,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_59e19b3e72866727,Product,网络,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,费用,1,1.00,auto
+relation_5a5bd13add9b9149,Product,H3C UniPoD S80000 超节点产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_5a79642baf0747f8,Metric,加权平均净资产收益率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_5a7c3fc3a059800b,Product,软件,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_5a8a98b211eeed23,Company,紫光股份,HAS_PRODUCT,Product,LinSeer Cube 大模型一体机,推出LinSeer Cube 大模型一体机,annual_000938_2025,2025年年度报告,16,主营业务分析,1,0.90,auto
+relation_5a9644a8325c6709,ValueChainSegment,路由器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_5ab85b2ff434633b,ValueChainSegment,大模型相关产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_5add5e27f75e562e,Company,紫光股份,HAS_METRIC,Metric,可收回金额,"可收回金额45,761,000,000.00",annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_5b3041cc4d3d559a,Company,紫光股份,HAS_PRODUCT,Product,LinSeer ICT 智能体,发布了新一代数字基础设施智能化方案“LinSeer ICT 智能体”,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_5b423203740f6409,Company,紫光股份,USES_TECHNOLOGY,Technology,冷板式液冷,释义中定义了冷板式液冷，表明公司涉及该技术。,annual_000938_2025,2025年年度报告,5,释义,1,0.70,auto
+relation_5b452c28ddeb4aa3,Metric,中国企业网园区交换机市场份额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_5b573e6149683193,Metric,商品销售收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,91,财务报告,1,1.00,auto
+relation_5b8a71bcbdc9976a,Workload,图像视频处理,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_5b956bdd97efbca0,Product,通用计算服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_5ba2392cdf61959d,Metric,营业成本_信息技术业_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_5bf3bdf4f600782c,Company,紫光股份,USES_TECHNOLOGY,Technology,工业互联网,提供云计算、大数据、人工智能、工业互联网、信息安全、智能联接、边缘计算、统一运维等在内的一站式数字化解决方案,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_5c2424b148ef5882,Metric,研发投入资本化的金额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_5c3405366bb89747,Metric,2025 年度分布式存储产品金奖,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_5c34346b99bf7206,Metric,资产负债率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,183,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_5c67125b262c8abc,Company,紫光股份,HAS_PRODUCT,Product,AI 数据平台解决方案,推出AI 数据平台解决方案,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_5c7a391bd81f296a,Company,紫光股份,HAS_METRIC,Metric,国内收入,"国内 62,380,431,027.40",annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_5ce12e26ca02daec,Company,紫光股份,HAS_METRIC,Metric,商誉账面价值,"账面价值32,363,534,770.03",annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_5d9b18c33e02a35e,Metric,委托理财余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,80,单位：万元,1,1.00,auto
+relation_5de9b3b80233b062,Technology,人工智能,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_5e02c813b4fb45b3,Company,紫光软件（天津）有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,紫光软件（天津）有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_5e08e034d38784da,Metric,营业成本比上年同期增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_5e1bf9eb426f5fa1,Company,紫光股份,HAS_PRODUCT,Product,图灵小镇,在“图灵小镇”不断扩大建设数量及运营规模的同时,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.90,auto
+relation_5e4ad9fed0851886,Metric,合并抵消成本占比,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_5e6724f2d085c457,Company,紫光股份,HAS_PRODUCT,Product,云网安一体化解决方案,公司积极探索与本地伙伴的协同模式，推动云网安一体化能力在海外落地,annual_000938_2025,2025年年度报告,20,收入与成本,1,0.90,auto
+relation_5ee21fe3e2be3554,Metric,在某一时段内转让收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_5eeb25eee5208847,Policy,内部研究开发支出会计政策,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_5f15aa09869acd69,Company,紫光股份,HAS_PRODUCT,Product,紫光数字经济科技园（一期）总部基地项目,"紫光数字经济科技园（一期）总部基地项目 30.35 1,832,353.80 1,832,353.80 2.95",annual_000938_2025,2025年年度报告,169,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_5f9e549c9aa8c8a6,Technology,VLAN全光即插即用,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_5fad756400944105,Metric,营业收入同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_5fd0709bca2b03f1,Metric,国内收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_6027693c066d5189,Technology,芯模联动,ENABLES,IndustryConcept,智算业务,重点聚焦“芯模联动”(芯片研发与算法模型深度协同)战略,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.80,auto
+relation_604e21d9fde401a7,Metric,筹资活动产生的现金流量净额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_606e2bf9ee89bcb5,Metric,经销营业收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,公司实物销售收入是否大于劳务收入,1,1.00,auto
+relation_6071a03059712305,Company,紫光股份,HAS_METRIC,Metric,大专及以下人数,2025年大专及以下55人,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_60c63b27dc423fd1,Metric,中国企业网交换机市场份额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_60d7fddeaf2c6f77,Product,知识平台,RELIEVES,Bottleneck,大模型行业落地中私域数据使用难题,解决大模型行业落地过程中私域数据，包括结构化非结构化数据精准处理的平台,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,0.90,auto
+relation_60f25de56d6c1ee9,Metric,年末未分配利润_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,187,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_60fe3fe12c980f43,Product,全光网络5.0解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_61ce1afe8de2fc94,ValueChainSegment,云计算服务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_61f26045c2e5249a,IndustryConcept,算法优化,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_61ffe90ff48ec856,Product,关键业务计算服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_623bb25d4dbe0969,Company,紫光股份,HAS_PRODUCT,Product,CloudOS 7.0,完成 CloudOS 7.0 软件特性增强版本发布,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_625d3b50f19dd1bb,Product,云网安一体化解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,收入与成本,1,1.00,auto
+relation_62653beb31a6b173,Company,紫光股份,USES_TECHNOLOGY,Technology,云计算,提供云计算、大数据、人工智能、工业互联网、信息安全、智能联接、边缘计算、统一运维等在内的一站式数字化解决方案,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_6265721654b5eae7,Metric,本科人数,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_62a31cc5c6254b77,Company,紫光股份,HAS_METRIC,Metric,研发费用同比增减,表格：研发费用同比增减-2.92%,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_62c132af0c8b9650,Risk,人力资源风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,37,报告期内接待调研、沟通、采访等活动,1,1.00,auto
+relation_62e6d22f7fe4fdb0,Technology,大模型,ENABLES,IndustryConcept,人工智能,技术层攻坚大模型、推理优化等关键技术,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,0.90,auto
+relation_6363335764afb5e3,Company,紫光股份,BENEFITS_FROM,IndustryConcept,数字化转型,解决数字化转型'最后一公里'难题,annual_000938_2025,2025年年度报告,20,收入与成本,1,0.70,auto
+relation_63748cc363ba753c,Product,知识平台,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_6384460f05a8a9a0,Company,紫光股份,USES_TECHNOLOGY,Technology,U-Center,同上,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_63b9af16cfaefdf0,Company,紫光股份,HAS_PRODUCT,Product,网络,为客户提供网络、计算、存储、云计算、安全和智能终端等全栈智能化信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级的解决方案。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_63bd10869057ff39,Metric,研发投入占营业收入比例,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_63c5743441e7e62a,Product,AI 数据平台解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_640a98720088ea57,Company,紫光股份,HAS_METRIC,Metric,衍生品投资实际损益金额,"报告期实际损益情况的说明：报告期内公司开展的衍生品交易实际损益金额为人民币1,504.07 万元。",annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_64304d30cffe4bde,Standard,可信AI运维智能体评估,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_647a4da6d2ceb89b,Risk,委托理财风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,80,单位：万元,1,1.00,auto
+relation_64a366b8e937e1f4,Company,紫光股份,USES_TECHNOLOGY,Technology,BMC,同上,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_64b576902629356a,Company,紫光股份,BENEFITS_FROM,Policy,国务院《关于深入实施“人工智能+”行动的意见》,国务院《关于深入实施“人工智能+”行动的意见》...为行业高质量发展赋能,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,0.80,auto
+relation_64f18e9702f36267,Company,紫光股份,HAS_METRIC,Metric,ICT基础设施与服务成本占比2024,2024年ICT基础设施与服务成本占营业成本比重64.88%,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_6533fb735d104b0f,Metric,库存商品跌价准备计提比例,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_6535dcaab9dcdaab,Product,交通大模型,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_6579d81e365f8465,Company,紫光股份,BELONGS_TO_CHAIN,IndustryChain,AI 算力产业链,丰富 AI 算力产品布局，持续提升 AI 解决方案能力与市场地位,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,0.70,auto
+relation_65fcde4bd5357762,Technology,AI智能体,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_6628ec2f81259226,Company,紫光股份,HAS_METRIC,Metric,归属于母公司股东的净利润_2025,"归属于母公司股东的净利润1,685,521,754.82",annual_000938_2025,2025年年度报告,187,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_663ddec4d156cf6f,Company,紫光数字影像科技（广东）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_664ff8b5c4e2aef9,Metric,研发人员数量占比变动比例,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_668c387f18177397,Company,紫光股份,DISCLOSES_RISK,Risk,人力资源风险,公司业务所涉足的领域专业性较强，加之现代企业竞争日益激烈，公司将面临着人力资源成本上升、技术人员和核心业务骨干缺乏的风险。,annual_000938_2025,2025年年度报告,37,报告期内接待调研、沟通、采访等活动,1,0.90,auto
+relation_66963b20c79cf855,Product,灵犀推理引擎,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_66e639be565e3dda,Metric,研发投入金额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_6788368e721b61b4,Technology,液冷散热,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_67e3e31d4ac81209,Product,液冷技术创新产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_68172efb53c4d91f,Metric,主营业务成本_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_6895e3db008dc4e7,Product,51.2T CPO硅光数据中心交换机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_68d86935c2ecd310,Metric,营业成本_信息技术业_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_69027593443d0db6,Company,北京智广芯控股有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,87,最终控制层面持股情况,1,1.00,auto
+relation_6908d338490516d4,Product,防火墙AI 运维助手,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_693bdf9605cb8db3,Company,紫光股份,HAS_METRIC,Metric,总资产,"新华三集团总资产58,503,838,714.07元",annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,0.95,auto
+relation_695e4264074a84c5,Technology,大模型,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_696107a3cf190afc,Metric,归母净利润,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_698f3625ef97d8a9,Product,算力快线解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_69cb34c989811c30,CompanyExposure,AI算力基础设施,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_6a27835449492bc1,Company,紫光股份,HAS_PRODUCT,Product,云与智能平台,为客户提供网络、计算、存储、云计算、安全和智能终端等全栈智能化信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级的解决方案。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_6a695f8154e58148,Company,紫光股份,HAS_PRODUCT,Product,下一代存储,公司打造了以高速无损网络、人工智能服务器、下一代存储、算力调度管理平台为核心的全栈智算解决方案,annual_000938_2025,2025年年度报告,16,主营业务分析,1,0.90,auto
+relation_6b3fb1880d9d053c,ValueChainSegment,安全设备,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_6b4c121863c60a68,Company,紫光摩度科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_6b69ffb7156d20ef,Company,新华三集团有限公司,HAS_PRODUCT,Product,云计算产品,被投资企业的主营业务：网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,69,√适用 □不适用,1,1.00,auto
+relation_6c055aa1be58e29a,Metric,ICT基础设施与服务毛利率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_6c5247ada55f4e52,Metric,归属于母公司股东的净利润_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,187,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_6c526f18a3e035f5,Company,紫光股份,HAS_EXPOSURE,IndustryConcept,数字化,作为数字化及AI解决方案提供者,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_6c5461d4c2f92570,Company,紫光股份,HAS_METRIC,Metric,营业成本_2025,"2025年营业成本82,631,846,618.39元",annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_6c721aad6654a4f2,Technology,浸没式液冷,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,6,载有公司法定代表人、主管会计工作负责人、会计机构负责人签名并盖章的会计报表。,1,1.00,auto
+relation_6d4ad5e51805d303,Technology,PTP时钟同步,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_6ddae9a6647ac899,Metric,MLPerf Storage v2.0 基准测试结果,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_6df64f532b3423b6,Company,紫光股份,HAS_PRODUCT,Product,ICT基础设施与服务,产品分类：ICT基础设施与服务,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_6dfb15252e3e4b93,Company,紫光股份,HAS_METRIC,Metric,维修备件账面余额,"存货分类：维修备件2025年账面余额1,762,449,181.32",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_6e484e4ac024f016,Architecture,RISC-V 架构,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,6,载有公司法定代表人、主管会计工作负责人、会计机构负责人签名并盖章的会计报表。,1,1.00,auto
+relation_6e69ad9d80706a41,Company,紫光股份,HAS_METRIC,Metric,ICT基础设施与服务收入占比,ICT基础设施与服务占营业收入比重：79.43%。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_6ed3739843369a94,Company,紫光股份,HAS_METRIC,Metric,营业收入_2024,"营业收入49 79,024,078,451.16",annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_6f3492bcc56f5672,Policy,企业会计准则第24号——套期会计,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_6f71694496db2784,Company,新华三存储科技（广东）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_6f976181d216921a,Company,紫光股份,HAS_PRODUCT,Product,安全产品,为人工智能、云计算、大数据、物联网等新兴技术在行业应用提供技术领先的计算、网络、存储和安全等软硬件产品,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,0.90,auto
+relation_6fac991293c83b47,Company,紫光股份,USES_TECHNOLOGY,Technology,统一运维,提供云计算、大数据、人工智能、工业互联网、信息安全、智能联接、边缘计算、统一运维等在内的一站式数字化解决方案,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_6fec882f638cc461,Company,紫光股份,HAS_PRODUCT,Product,Cloudnet云管,2025 年Cloudnet 云管业务快速增长,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_6fff648945bb2cce,Company,紫光股份,HAS_PRODUCT,Product,AI工作站,主要产品及服务包括：6、智能终端：商用笔记本电脑、商用台式机、智慧云屏、AI工作站等。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_70184f6c52bcf315,Technology,800G以太网,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_70257c1843e497a1,Metric,ICT基础设施与服务营业成本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_7033c134ebe61bda,DemandDriver,桌面级 AI 算力灵活和快速部署需求,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_7042a5c455ab03d1,Company,紫光股份,HAS_PRODUCT,Product,网络,持续在网络、安全、计算、存储、云计算、人工智能等重点领域的研发投入，夯实“云—网—安—算—存—端”全栈业务布局,annual_000938_2025,2025年年度报告,24,费用,1,0.90,auto
+relation_708f8766bced39b9,Product,云计算产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,1.00,auto
+relation_70b01eb33a56496e,Metric,其他业务成本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_70bb2b0272e9faa0,IndustryChain,AI算力产业链,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_70ccc0e110f09d41,Company,紫光股份,HAS_METRIC,Metric,经营活动现金流入小计,"表格中经营活动现金流入小计2025年150,195,726,649.72元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_70e7f77290b1c9f0,Product,数据中心建造服务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,135,重要会计政策及会计估计（续）,1,1.00,auto
+relation_71173f64c2a2e191,Metric,IT产品分销与供应链服务成本占比,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_721254b53bae4bd3,Technology,智算技术,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_724be5701ee95369,Company,紫光股份,HAS_METRIC,Metric,营业收入_2025,"营业收入4 115,158,438.75 258,272,495.85",annual_000938_2025,2025年年度报告,108,89 -减：营业外支出,1,1.00,auto
+relation_725fa12f6d833645,Policy,上市公司监管指引第10号——市值管理,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_727d9550cf01ae40,ValueChainSegment,数据中心建造,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,135,重要会计政策及会计估计（续）,1,1.00,auto
+relation_72d444929fc66bbf,Company,紫光股份,HAS_PRODUCT,Product,交通大模型,推出交通大模型、交通智算解决方案、城轨行业智能体。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.90,auto
+relation_731fd4168cfefb46,Product,新一代旗舰级AI服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_7345692fbe23b9f1,Metric,国内政企业务营业收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_73468d47a24e6128,Company,紫光股份,BENEFITS_FROM,IndustryConcept,智算中心,基础层聚焦智算中心等核心算力设施,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,0.70,auto
+relation_7349d16fd4b12d67,Company,紫光股份,HAS_PRODUCT,Product,数字乡村解决方案,聚焦信息基础设施、公共支撑平台、数字应用场景、保障体系建设、建设运营管理等数字乡村建设场景,annual_000938_2025,2025年年度报告,55,巩固拓展脱贫攻坚成果、乡村振兴的情况,1,0.80,auto
+relation_7367a910eccfe5a7,Metric,合同履约成本本年摊销金额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_73921ac3081fafcc,Workload,边缘推理,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_73cf8a0d8b3048bb,Technology,超融合虚拟化,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_740e34b5ecfb3b04,Company,紫光股份,HAS_METRIC,Metric,销售量_2024,"2024年销售量79,024,078,451.16元",annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_744b664c30760ad6,Product,新一代高密汇聚路由器开发项目,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_746b8c46c2d83114,Technology,超融合,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,5,释义,1,1.00,auto
+relation_74958334da7f365f,Product,SD-WAN 智能路由器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_753e510c5db117dc,IndustryConcept,AI,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_754b02548234bedb,IndustryConcept,混合云,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_758878aef467b933,Company,紫光股份,HAS_METRIC,Metric,营业成本_信息技术业_2025,"2025年信息技术业营业成本金额82,631,846,618.39元，占营业成本比重100%",annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_75d32db25057eeaa,Company,北京紫光资源科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_75dba1342ac4ab88,Company,紫光股份,HAS_METRIC,Metric,中国数字基础设施市场规模,据弗若斯特沙利文预测，2029年中国数字基础设施市场规模将达到1.4万亿元,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,0.80,auto
+relation_75f7c20102f8b11a,Workload,研发项目,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_76050935950655a7,Product,相变浸没式液冷,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_7623866a6050017e,Metric,硕士及以上学历员工数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_7647a7a9daf21d1d,Technology,算力调优技术,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_7702d15333216697,Company,紫光股份,HAS_PRODUCT,Product,算力调度管理平台,公司打造了以高速无损网络、人工智能服务器、下一代存储、算力调度管理平台为核心的全栈智算解决方案,annual_000938_2025,2025年年度报告,16,主营业务分析,1,0.90,auto
+relation_7726dae37676c758,Product,ICT产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,168,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_778798d324b86c60,Product,LinSeer MegaCube AI 一体机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_77d16842ca880e39,Risk,供应链波动,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_77ed23bf08d11bd0,Company,紫光股份,USES_TECHNOLOGY,Technology,Comware,公司在网络、服务器、存储、云计算、安全等重点领域掌握核心技术，包括Comware、AD-NET、U-Center、CloudOS、UltraStor、BMC、傲飞算力平台、灵犀使能平台等平台与核心底层软件以及相应的硬件产品IP,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_7845cbda72a60efb,Company,紫光股份,USES_TECHNOLOGY,Technology,AD-NET,同上,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_786e78151449ce76,Product,高速无损网络,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_7871ab0c98d6edbd,Company,紫光股份,HAS_METRIC,Metric,国外营业收入,"国外 | 4,710,527,747.84 | 3,601,208,503.46 | 23.55% | 53.59% | 73.58% | -8.81%",annual_000938_2025,2025年年度报告,21,公司实物销售收入是否大于劳务收入,1,1.00,auto
+relation_787229e02c52aa24,Metric,销售量同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_78889c6b69ef8930,Company,紫光股份,HAS_METRIC,Metric,在产品账面余额,"存货分类：在产品2025年账面余额1,321,732,452.44",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_788b32788fc6088c,Company,紫光股份,HAS_PRODUCT,Product,全场景Wi-Fi 7组网方案,完成全场景丰富Wi-Fi 7 AP 款型及管理平台增强项目发布,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_78a4233b971bd6b7,ValueChainSegment,网络设备,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_78d5334f092bb3e5,Product,人工智能计算服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_78e63f16f898212f,Workload,超节点系统,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_78e89f7aa7b1ccdb,Metric,投资活动现金流出小计_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_790f439e42c063fd,Product,SDN,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_7996e06988568abb,Company,紫光股份,HAS_PRODUCT,Product,IT产品分销与供应链服务,"分产品：IT 产品分销与供应链服务，2025年收入25,561,918,394.39元，占营业收入比重26.42%。",annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_79a9d45ca5757056,Company,紫光股份,HAS_METRIC,Metric,营业收入_2025,"营业收入49 96,748,339,344.03",annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_79dcf79f7a23c7d5,Company,紫光股份,HAS_METRIC,Metric,毛利率比上年同期增减,毛利率比上年同期增减 -2.80%,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_7a8b103488f3ca03,Metric,现金及现金等价物净增加额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_7ac44ba08a39a539,Metric,经营活动产生的现金流量净额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_7ac6023f2d5b2181,Company,紫光股份,HAS_METRIC,Metric,收到重要的投资活动有关的现金_2024,"2024年收到重要的投资活动有关的现金2,198,600,000.00元",annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_7ad2973ab791145b,Company,紫光股份,USES_TECHNOLOGY,Technology,云计算,公司深度布局“云—网—安—算—存—端”全产业链，提供网络、计算、存储、安全、终端等全栈智能ICT基础设施产品、先进的云与智能平台和数字化解决方案,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,0.90,auto
+relation_7ad5ffc061c4c9de,Company,紫光股份,HAS_PRODUCT,Product,数据中心交换机,公司数据中心交换机和高端路由器成功通过欧洲高级网络测试中心（EANTC）2025 互通性测试,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_7afd90d46f4e36dd,Metric,期末投资金额占公司报告期末净资产比例,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_7b11a8b46f5db451,Company,紫光股份,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,1,ZAI CAD BRA,1,1.00,auto
+relation_7b5f9019d2f39bb3,Company,紫光股份,HAS_METRIC,Metric,稀释每股收益,稀释每股收益 0.5893,annual_000938_2025,2025年年度报告,101,归属于母公司股东的净利润,1,1.00,auto
+relation_7b774328a3bae568,Company,紫光股份,HAS_METRIC,Metric,人工智能核心产业规模,2025年我国人工智能核心产业规模突破1.2万亿元,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_7b9d602f2e411ea4,Product,下一代存储升级开发项目,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_7bc77844362e215d,Policy,质量回报双提升行动方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_7bdc1f28fb7b9101,IndustryConcept,AI业务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_7c1f181db013ef57,Metric,2025 数据中心优秀技术成果奖,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_7cbe20b09fd6c336,Company,紫光股份,HAS_METRIC,Metric,库存量_2024,"2024年库存量38,770,238,144.36元",annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_7d08b290726d2dfd,Company,紫光股份,HAS_METRIC,Metric,EBITDA利息保障倍数,EBITDA利息保障倍数（EBITDA/利息费用）自首次提款日起至2026年12月31日止不得低于3倍,annual_000938_2025,2025年年度报告,183,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_7d5c0a6074b509c4,Company,紫光股份,HAS_PRODUCT,Product,计算,为客户提供网络、计算、存储、云计算、安全和智能终端等全栈智能化信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级的解决方案。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_7d9f16059785e103,Company,紫光云（成都）科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_7da788360ed7458a,Policy,企业会计准则第37号——金融工具列报,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_7dec22f411dc630c,Company,新华三智能终端有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_7e0e08bdd76f0437,Company,紫光股份,HAS_METRIC,Metric,采购量同比增减,采购量同比增减10.49%,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_7e2675cb7f843081,Company,紫光股份,HAS_PRODUCT,Product,园区网控制器7.3版本,完成园区网控制器 7.3 版本发布,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_7e3077488fec4dd9,Metric,专利申请总量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_7e76ee357f604bb1,Company,紫光股份,HAS_METRIC,Metric,研发投入占营业收入比例,表格中2025年研发投入占营业收入比例为5.12%，2024年为6.46%。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_7ed62b77a1180ca0,Company,紫光股份,HAS_METRIC,Metric,国内营业收入,"国内 | 92,037,811,596.19 | 79,030,638,114.93 | 14.13% | 21.17% | 25.03% | -2.66%",annual_000938_2025,2025年年度报告,21,公司实物销售收入是否大于劳务收入,1,1.00,auto
+relation_7eeaebf357c500f5,Workload,大模型行业落地,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_7eec871ddbdfd269,Company,紫光股份,HAS_METRIC,Metric,提取法定盈余公积_2025,"提取法定盈余公积22,232,017.09",annual_000938_2025,2025年年度报告,187,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_7efe25ee4e37f1b1,Product,智能管理与运维服务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_7f368c52ef872d92,Metric,净利润,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,69,√适用 □不适用,1,1.00,auto
+relation_7f460159d686dff9,Company,福州紫光华信科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_7f81a3e9ebd9578f,IndustryConcept,国产化,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_7f97bcbe0cc30053,DemandDriver,人工智能+行动,DRIVES,IndustryConcept,人工智能,随着实体经济与数字经济的加速融合以及“人工智能+”行动的持续开展,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,0.80,auto
+relation_7fd526b205e1b26f,Company,紫光股份,HAS_METRIC,Metric,资产负债率,资产负债率（总负债/总资产）自首次提款日起至2026年12月31日止不得超过80%,annual_000938_2025,2025年年度报告,183,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_7fd58e02adcef06a,Company,紫光股份,HAS_METRIC,Metric,营业外支出_2024,"2024年营业外支出27,867,300.41元",annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_7fe48f3081adaa91,Metric,提取法定盈余公积_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,187,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_7ff37547304c873c,Company,紫光股份,HAS_METRIC,Metric,国外收入,"国外收入：2025年4,710,527,747.84元，占营业收入比重4.87%。",annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_7ff789c3cd923e96,Technology,傲飞算力平台,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_804217fc4d12931b,Product,广域网解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_8053dbc8c22f3b70,Company,紫光股份,HAS_PRODUCT,Product,安全大数据中台产品,完成安全大模型和安全智能体产品发布,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_806649dbca8e8e9d,Company,新华三技术有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,新华三技术有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_806754e57825bac3,Company,紫光股份,HAS_PRODUCT,Product,H3C商标,本集团子公司新华三集团有限公司拥有H3C等多个知名商标。,annual_000938_2025,2025年年度报告,170,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_80d6f667e76564b1,Company,北京紫光数智科技股份有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,北京紫光数智科技股份有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_812cbe8302f1bfe9,Metric,营业收入_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_8185c7cf7c26feee,Product,边界安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_822b41c5e72ee069,Metric,2025 年度AI 存储产品金奖,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_8259dd04f1bab15f,Product,芯模社区,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,1.00,auto
+relation_8288e332efdc9111,Company,紫光股份,HAS_METRIC,Metric,IT产品分销与供应链服务收入,"IT产品分销与供应链服务收入：2025年25,561,918,394.39元。",annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_82940907219ddf05,Product,X86服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_82fa08c7c832d8a0,Company,紫光股份,USES_TECHNOLOGY,Technology,Wi-Fi 7,全场景Wi-Fi 7组网方案增强,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_82fff54b5db1577d,Company,紫光股份,HAS_PRODUCT,Product,百业灵犀私域大模型,公司陆续推出百业灵犀私域大模型、灵犀使能平台、灵犀推理引擎、灵犀AI助手、灵犀Cube一体机及多个行业智能体,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,0.90,auto
+relation_8321f1226af89913,Company,紫光股份,HAS_METRIC,Metric,营业成本同比增减_信息技术业_2025,2025年信息技术业营业成本同比增减26.58%,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_833f797731dae3df,Metric,ICT基础设施与服务收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_841358e451ae78b2,Company,紫光股份,USES_TECHNOLOGY,Technology,Wi-Fi 7,释义中定义了Wi-Fi 7，表明公司涉及该技术。,annual_000938_2025,2025年年度报告,5,释义,1,0.70,auto
+relation_8445963514465bca,Technology,全景运维地图,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_844b0ec47afd027c,Company,紫光股份,HAS_METRIC,Metric,主营业务成本_2025,"2025年主营业务成本82,266,300,546.00元",annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_84683601c00578cf,Company,紫光股份,HAS_METRIC,Metric,营业成本,"营业成本 82,631,846,618.39",annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_849831f131d8cba3,ValueChainSegment,智算市场,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_84fea3cc3f609209,Company,紫光股份,HAS_PRODUCT,Product,IT产品分销与供应链服务,产品分类：IT产品分销与供应链服务,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_8509bbdf7411eeb7,Risk,技术护城河,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_852427a1e6b7f692,Metric,支付其他与经营活动有关的现金_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_857ab8866d442795,Metric,行政人员数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_85b80427c5921399,Metric,归属于本公司普通股股东的当期净利润,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,196,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_85e9befbd6227b05,Company,紫光股份,USES_TECHNOLOGY,Technology,IPv6,释义中定义了IPv6，表明公司涉及该技术。,annual_000938_2025,2025年年度报告,5,释义,1,0.70,auto
+relation_85ea4606ab89cbc6,Policy,乡村全面振兴规划（2024—2027年）,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,55,巩固拓展脱贫攻坚成果、乡村振兴的情况,1,1.00,auto
+relation_861e0981b7ea962c,Product,企业级WLAN,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_863083619ec5e8b2,Risk,非财务报告内部控制重大缺陷,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_86426e441104b8ba,Technology,BMC,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_8655190e028d0b11,Company,紫光股份,HAS_PRODUCT,Product,政务云,参与19个国家部委(局)级、26个省级和200多个地市县级地区的政务云开发工作,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.80,auto
+relation_86711ad292e1f399,Company,紫光股份,BELONGS_TO_CHAIN,IndustryChain,AI算力产业链,作为数字化及AI解决方案提供者，为客户提供网络、计算、存储、云计算、安全和智能终端等全栈智能化信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级的解决方案。,annual_000938_2025,2025年年度报告,113,基本情况,1,0.90,auto
+relation_867f4cf9bec8e0d7,Metric,营业利润,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,1.00,auto
+relation_86c3c4e5b13b915f,Company,紫光股份,HAS_METRIC,Metric,原材料账面余额,"存货分类：原材料2025年账面余额13,362,014,177.51",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_86e4bdf1649f1998,Metric,净利润_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_878946d1e3c068b6,Company,紫光股份,HAS_METRIC,Metric,归母净利润同比增长率,实现归属于上市公司股东的净利润16.86亿元，同比增长7.19%,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_8799eba8bd33abe2,Company,紫鸾智能科技（天津）有限责任公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_87e527c8839e007a,Company,紫光股份,HAS_EXPOSURE,ValueChainSegment,政企DICT市场,强化政企DICT市场合作。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.80,auto
+relation_880c55f390a93c65,Technology,UltraStor,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_880e3afad6978e7b,Company,紫光股份,HAS_PRODUCT,Product,液冷技术创新产品,2025年，公司又陆续推出多款液冷技术创新产品及配套解决方案,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_887b7db028c2e7cf,Company,紫光股份,HAS_METRIC,Metric,归母净利润,实现归属于上市公司股东的净利润16.86亿元，同比增长7.19%,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_88ba9dc68cabfef7,Company,紫光股份,HAS_PRODUCT,Product,云计算,为客户提供网络、计算、存储、云计算、安全和智能终端等全栈智能化信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级的解决方案。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_88de95a603dd0b00,Company,紫光股份,HAS_PRODUCT,Product,一站式数字化解决方案,提供云计算、大数据、人工智能、工业互联网、信息安全、智能联接、边缘计算、统一运维等在内的一站式数字化解决方案,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_88ff7f208d93df5b,Workload,训推任务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_8912811d4642a517,Company,紫光股份,HAS_METRIC,Metric,营业利润,"新华三集团营业利润3,178,392,688.52元",annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,0.95,auto
+relation_89aa2497e263e963,ValueChainSegment,网络产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_8a0c595f7a13069a,Company,紫光股份,HAS_PRODUCT,Product,园区交换机,中国企业网园区交换机市场份额36.2%，排名第二,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.90,auto
+relation_8a180fb8c28ad8ab,Product,云集群智算数据中心交换机增强项目,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_8a59cefc73b08064,Company,紫光股份,HAS_PRODUCT,Product,H3C UniServer G7系列模块化服务器,公司H3C UniServer G7 系列模块化服务器以丰富的软硬件生态兼容性，适用于集群训练、训推一体、边缘推理等场景,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_8b30a514de2bd379,Company,紫光股份,HAS_METRIC,Metric,扣非归母净利润,实现归属于上市公司股东的扣除非经常性损益的净利润16.35亿元，同比增长12.26%,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_8b46dc4e48b634e3,Company,紫光股份,HAS_METRIC,Metric,专利权使用寿命,专利权5年法定年限与预计可使用年限两者孰短,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.90,auto
+relation_8c2235c1cc9448ce,Company,新华三集团有限公司,HAS_METRIC,Metric,总资产,"被投资企业的总资产（万元）：5,850,383.87",annual_000938_2025,2025年年度报告,69,√适用 □不适用,1,1.00,auto
+relation_8c44941a91e9ff31,Company,紫光股份,HAS_METRIC,Metric,基本每股收益,基本每股收益 2025年 0.5893 元/股,annual_000938_2025,2025年年度报告,196,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_8cd9f84dd2b1497b,Metric,商誉原值,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_8ce799626bf87f4a,Product,绿洲平台5.0,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_8d2fc98e0ba71427,Product,园区交换机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_8d3bab3db3f0eb21,Product,紫光数字经济科技园（一期）智能工厂项目,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,169,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_8d7f5675510f9de2,Technology,非专利技术,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_8dc93700e4f21c53,Company,紫光股份,USES_TECHNOLOGY,Technology,傲飞算力平台,同上,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_8df1ee1f3657fe6a,Company,紫光股份,HAS_METRIC,Metric,归属于上市公司股东的净利润,"归属于上市公司股东的净利润（元）2025年1,685,521,754.82",annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_8e04c2e081763c3e,ValueChainSegment,算力基础设施,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_8e102305a3abcb8d,Company,紫光股份,USES_TECHNOLOGY,Technology,数智技术,公司积极响应国家乡村振兴战略号召，以数智技术赋能乡村振兴,annual_000938_2025,2025年年度报告,55,巩固拓展脱贫攻坚成果、乡村振兴的情况,1,0.90,auto
+relation_8e4d89ce00dd78ef,Metric,前五名供应商合计采购金额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,23,公司主要供应商情况,1,1.00,auto
+relation_8ea0d5ac752ea436,Company,紫光股份,HAS_METRIC,Metric,主营业务收入_2024,"2024年主营业务收入78,865,531,368.92元",annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_8ea6532f9baa676f,Metric,国外营业收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,公司实物销售收入是否大于劳务收入,1,1.00,auto
+relation_8ebfc15d3007d0b5,Workload,集群训练,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_8eeb1fad8738e7f2,Company,紫光股份,HAS_METRIC,Metric,商誉原值,"商誉原值年初余额本年增加本年减少年末余额...合计13,991,754,133.34",annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_8f1297dbf7c1e6a0,Metric,所得税费用_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_8f4115648bcf5cd3,Product,金融智算解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_8f41c4a53b176388,Metric,合同履约成本账面余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_8f43856bfe2f40c8,Metric,发行在外普通股的加权平均数,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,196,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_8f665660428ae7fc,Metric,在产品账面余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_8f977c27b4ee95ca,Company,紫光股份,HAS_METRIC,Metric,稳定期毛利率,毛利率14.8%,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_8f9ab3ce5c0ff8b6,Company,新华三集团有限公司,HAS_METRIC,Metric,净资产,"被投资企业的净资产（万元）：1,182,659.47",annual_000938_2025,2025年年度报告,69,√适用 □不适用,1,1.00,auto
+relation_8fc8b0a6d110398a,Metric,研发投入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,费用,1,1.00,auto
+relation_8fd52755c8664667,Company,新华三智能终端有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,新华三智能终端有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_8ff58d1507860c32,Company,紫光股份,HAS_PRODUCT,Product,广域网控制器7.4版本,完成广域网控制器 7.4 版本发布,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_8ffeb54991be4bd0,Workload,超大规模模型,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_9049c3eefcca121c,ValueChainSegment,全栈智算解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_907c1475a857b217,Metric,采购量同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_90c8d21f3e1f92c2,Technology,AI安全大模型,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_90f3440d177dbc2d,Metric,减值金额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_92172d69dbf7b9dc,Company,紫光股份,HAS_PRODUCT,Product,灵犀智算解决方案,主要研发项目名称：灵犀智算解决方案,annual_000938_2025,2025年年度报告,24,况如下：,1,0.90,auto
+relation_92bcdf34d45ee23f,Technology,统一运维,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_92c1992cebcf98e1,Company,新华三技术总部实验室（内蒙古）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_92e73b9614743dbf,Product,LinSeer MegaCube AI 一体机,ENABLES,Workload,桌面级 AI 算力,满足桌面级 AI 算力灵活和快速部署需求,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,0.90,auto
+relation_93085c69541d9281,Technology,智能体,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,6,载有公司法定代表人、主管会计工作负责人、会计机构负责人签名并盖章的会计报表。,1,1.00,auto
+relation_93e19daeaa91b9da,Technology,SD-WAN,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_93e6cac1b50c90db,Company,紫光股份,HAS_PRODUCT,Product,知识平台,针对大模型行业落地中如何有效进行私域数据使用的平台,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_940aca5a98d14d20,Company,紫光股份,HAS_PRODUCT,Product,新一代高密汇聚路由器开发项目,完成新一代SR6616路由器架构升级产品发布,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_940d1027084d7e2d,Company,紫光股份,USES_TECHNOLOGY,Technology,超融合,释义中定义了超融合，表明公司涉及该技术。,annual_000938_2025,2025年年度报告,5,释义,1,0.70,auto
+relation_943265e96e196c69,Company,紫光股份,HAS_METRIC,Metric,营业收入,2025年度实现营业收入967.48亿元，同比增长22.43%,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_943391212475f24a,ValueChainSegment,智算中心解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_947b670437f6f5a6,Metric,产品质量保证本年减少,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_94d30251ee035bde,Company,紫光股份,HAS_METRIC,Metric,收到其他与经营活动有关的现金_2024,"2024年收到其他与经营活动有关的现金1,160,050,413.36元",annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_9507fe5a45410d9e,Product,终端安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_95123e4cd71135be,Company,紫光股份,USES_TECHNOLOGY,Technology,SDN,释义中定义了SDN，表明公司涉及该技术。,annual_000938_2025,2025年年度报告,5,释义,1,0.70,auto
+relation_951bd59f60f28f36,Metric,经营活动现金流出小计,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_954bb87e6ca74a4b,Metric,中国以太网交换机市场份额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_95ff9e152efc9bcd,Company,紫光股份,USES_TECHNOLOGY,Technology,RISC-V 架构,充分利用开放、灵活和高效的RISC-V 架构,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_9603215145e956f2,Company,紫光股份,HAS_PRODUCT,Product,数据中心建造服务,本集团在提供维保、数据中心建造等服务时，相关履约义务在服务期内或客户验收完成后履行,annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_9603aa7a6287bc73,Policy,企业会计准则第22号——金融工具确认和计量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_961d65e80211e5db,Company,紫光股份,HAS_METRIC,Metric,员工总数,"表格中合计行对应数值16,253",annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_961d6e2f072c25ab,Metric,中国数据中心交换机市场份额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_968c774125c5fc30,Company,紫光股份,HAS_METRIC,Metric,IT产品分销与供应链服务成本占比,2025年IT产品分销与供应链服务成本占营业成本比重29.32%,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_96a1ddd3a7d6b93f,Company,紫光股份,HAS_PRODUCT,Product,交换机,主要产品及服务包括：1、网络设备：交换机、路由器、WLAN、SDN、PON、智能管理与运维服务等；,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_96a2a3fe21515d91,Company,紫光股份,HAS_METRIC,Metric,销售费用_2025,"表格：2025年销售费用4,052,321,421.66元",annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_96e9c274b226e6e8,Company,新华三半导体技术有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,新华三半导体技术有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_9758da8744baea4c,Technology,U-Center,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_976ee5749785e37c,Product,云与智能平台,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,8,注册变更情况,1,1.00,auto
+relation_9782d03d71ae28b7,Company,紫光股份,HAS_PRODUCT,Product,人工智能计算服务器,主要产品及服务包括：2、服务器：通用计算服务器、人工智能计算服务器、关键业务计算服务器、边缘计算服务器等；,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_9837d4ac09555aba,Metric,其他业务成本占比2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_984de15532879cc5,Metric,归属于上市公司股东的扣除非经常性损益的净利润,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_9919190642af58a1,Company,紫光股份,HAS_METRIC,Metric,投资活动现金流出小计_2024,"表格中投资活动现金流出小计2024年2,763,851,188.24元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_9922f0594e64096a,Company,紫光股份,HAS_METRIC,Metric,无形资产使用寿命,非专利技术及软件著作权2-10年结合产品生命周期预计使用年限,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.90,auto
+relation_9923f14ec3e44f2f,Product,交换机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_996406f213dd8630,Technology,国产化芯片,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_996a8a4a09f63f53,Product,网络智能体,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_9973dff7f328c564,Company,紫光股份,HAS_PRODUCT,Product,LinSeer MegaCube AI 一体机,完成 LinSeer MegaCube AI 一体机发布,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_99b370f9de8e786d,Company,紫光股份,HAS_PRODUCT,Product,智算中心,联合运营商累计建设48个中大型智算中心,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.80,auto
+relation_99d3f13274b1f83e,Company,苏州美珖数码科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_99d58677dff88912,Company,新华三集团有限公司,HAS_PRODUCT,Product,互联网信息技术产品,被投资企业的主营业务：网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,69,√适用 □不适用,1,1.00,auto
+relation_99e07f2e9ebe86dd,DemandDriver,大模型在行业落地的市场机会,DRIVES,Product,知识平台,抓住大模型在行业落地的市场机会，解决行业大模型落地的痛点,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,0.80,auto
+relation_9a5601c0aa527c49,Workload,云服务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_9a63ab9f6bc36662,Metric,净资产,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,1.00,auto
+relation_9a641e4025c48a94,Metric,财务费用_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_9a6d487ca9ad2f06,Company,紫光股份,HAS_METRIC,Metric,营业成本_2024,"减：营业成本49 65,282,115,477.87",annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_9a7d9fbad7a6f060,Company,紫光股份,HAS_PRODUCT,Product,算力快线解决方案,合作伙伴首推“算力快线解决方案”,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_9ab4e64065289464,Company,紫光股份,USES_TECHNOLOGY,Technology,FPGA加速,通过新一代处理器及FPGA 加速卡升级，新建连接性能同比提升 160%,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_9b19b6a2813f7600,Metric,新建连接性能提升,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_9b518a062e811277,Company,紫光股份,HAS_METRIC,Metric,非财务报告重大缺陷数量,非财务报告重大缺陷数量（个） 0,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_9b54705dba0d5148,Product,LinSeer Cube 大模型一体机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_9ce7b8bade0e08e9,Company,紫光股份,HAS_METRIC,Metric,ICT基础设施与服务成本同比增减,ICT基础设施与服务成本同比增减51.49%,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_9daf80fb8d8fe499,Company,紫光股份,HAS_METRIC,Metric,在某一时段内转让收入,"在某一时段内转让 2,757,592,887.41",annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_9dde376cab2f67de,Company,紫光股份,HAS_METRIC,Metric,库存商品及发出商品账面余额,"存货分类：库存商品及发出商品2025年账面余额26,292,841,279.59",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_9de339d8084d91f9,Workload,极速交易场景,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_9df953702e8db846,Product,企业级智能全闪存存储,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_9e7098cba0a43eae,IndustryConcept,算力产业,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_9ec0778cabf6f492,Company,紫光股份,HAS_PRODUCT,Product,安全,持续在网络、安全、计算、存储、云计算、人工智能等重点领域的研发投入，夯实“云—网—安—算—存—端”全栈业务布局,annual_000938_2025,2025年年度报告,24,费用,1,0.90,auto
+relation_9ee4aaa47d6760a6,ValueChainSegment,智能联接,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_9eec5e88f0489d7d,Metric,经营活动现金流入小计_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_9f2717a8824a68ce,Metric,筹资活动现金流入小计_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_a042f55149481da9,Metric,投资活动现金流入小计_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_a07972f70eade400,Company,紫光股份,HAS_METRIC,Metric,管理费用_2024,"2024年度管理费用合计1,026,596,617.18元",annual_000938_2025,2025年年度报告,191,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_a0976dd69e5a48b9,Metric,产品质量保证年初余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_a188062a954cd282,Company,紫光股份,SUPPORTED_BY_POLICY,Policy,企业会计准则第37号——金融工具列报,同上。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_a19965bad782f8a2,Metric,投资活动产生的现金流量净额_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_a1a842a2b7639e75,Architecture,云—网—安—算—存—端,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_a1bd5759f1f4c2da,Technology,SDN,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,5,释义,1,1.00,auto
+relation_a1f410e677c469d3,Metric,IT产品分销与供应链服务毛利率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_a24df5706673750b,Company,紫光股份,HAS_METRIC,Metric,支付其他与经营活动有关的现金_2025,"2025年支付其他与经营活动有关的现金3,052,872,554.29元",annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_a27b3ec09bc76d4f,Company,紫光股份,HAS_PRODUCT,Product,下一代存储升级开发项目,完成下一代分布式存储X20000升级版本发布,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_a27fc70a243c0a8c,Company,紫光股份,HAS_PRODUCT,Product,存储,持续在网络、安全、计算、存储、云计算、人工智能等重点领域的研发投入，夯实“云—网—安—算—存—端”全栈业务布局,annual_000938_2025,2025年年度报告,24,费用,1,0.90,auto
+relation_a2911c2f0a78d71c,Product,可信数据空间解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_a2fdce7f1b64b9af,Metric,投资活动产生的现金流量净额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_a3a8b9f6b0093b09,Company,紫光股份,HAS_PRODUCT,Product,新一代通算服务器,完成新一代R4700和4900系列服务器发布,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_a43385c48348825b,IndustryConcept,智算业务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,1.00,auto
+relation_a4c27a821d75cef7,Company,紫光股份,HAS_METRIC,Metric,投资活动现金流入小计_2024,"表格中投资活动现金流入小计2024年2,405,544,346.67元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_a4f735d9b3cae144,Company,新华三云计算技术有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,新华三云计算技术有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_a571e58a09e67bd0,Product,服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_a58404e2abd47fdd,Company,紫光股份,HAS_METRIC,Metric,研发费用_2025,"表格：2025年研发费用4,952,674,806.36元",annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_a61e1c4cd26c9609,Company,紫光股份,HAS_METRIC,Metric,大专以下学历员工数量,表格中大专以下行对应数值303,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_a6a87fb789017724,Metric,原材料账面余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_a6d39c7cefc01500,IndustryConcept,政务云,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_a6ec5b9da8a040ec,Metric,大专及以下人数,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_a703945c4434fb23,Company,紫光股份,HAS_PRODUCT,Product,特许权,软件、特许权及其他1-10年使用期限与预计可使用期限两者孰短等,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.90,auto
+relation_a703d8aaa99028ab,Metric,所得税费用_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_a7435d3430d6accd,Workload,游戏和VR/AR渲染,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_a7686e0db045240d,Risk,履约风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_a80f1df3f4fd4194,Company,紫光股份,HAS_METRIC,Metric,净资产,"新华三集团净资产11,826,594,740.80元",annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,0.95,auto
+relation_a835fa9d6075ee1b,Workload,工程仿真,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_a83eaf348a2a243f,Company,紫光股份,DISCLOSES_RISK,Risk,无形资产减值风险,当存在市价大幅度下跌等表明资产可能发生减值的迹象时，计提无形资产减值准备,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.80,auto
+relation_a85a9d35fba8e0d6,Risk,竞争加剧,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_a8c661643aafed48,Metric,新华三营业收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_a935c6ad6cdf5aa2,Company,新华三大数据技术有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_a95cff6af2052dd3,Company,紫光股份,HAS_METRIC,Metric,收到其他与经营活动有关的现金_2025,"2025年收到其他与经营活动有关的现金1,096,697,822.61元",annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_a9624cba01319380,Risk,财务报告内部控制重要缺陷,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_a9789b9a9f794457,Technology,边缘计算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,5,释义,1,1.00,auto
+relation_a9b1da673d8bff51,Technology,数智技术,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,55,巩固拓展脱贫攻坚成果、乡村振兴的情况,1,1.00,auto
+relation_a9cbac6f988e94ac,Company,紫光股份,HAS_METRIC,Metric,前五名客户合计销售金额占年度销售总额比例,前五名客户合计销售金额占年度销售总额比例44.92%,annual_000938_2025,2025年年度报告,23,公司主要销售客户情况,1,1.00,auto
+relation_a9e8ac67a4c42db5,Company,紫光股份,HAS_METRIC,Metric,存货账面价值,"存货分类：2025年账面价值43,568,469,509.65",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_aa56f39ed99878d4,Company,紫光股份,HAS_METRIC,Metric,采购量_2024,"2024年采购量83,786,436,276.40元",annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_aa5c5c9eec8bb009,Metric,归属于母公司股东的净利润,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,101,归属于母公司股东的净利润,1,1.00,auto
+relation_aa9e480804101dea,Company,紫光股份,HAS_METRIC,Metric,应付账款余额,截至2025年12月31日，应付账款余额主要是应付供应商的采购货款、项目款等，无账龄超过1年的重要应付账款。,annual_000938_2025,2025年年度报告,179,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_aab4bf08a941b61c,Company,紫光股份,DISCLOSES_RISK,Risk,非财务报告内部控制一般缺陷,定量标准：一般缺陷：潜在风险事件可能造成的直接财产损失金额在2000 万元（含2000 万元）以下,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_ab043ce63b829578,Company,紫光股份,HAS_METRIC,Metric,营业收入_2024,"2024年营业收入79,024,078,451.16元",annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_ab0e232f5f9d6911,Product,PON,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_ab6a332f236512e0,Company,紫光股份,HAS_METRIC,Metric,支付重要的投资活动有关的现金_2025,"2025年支付重要的投资活动有关的现金2,497,187,768.01元",annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_ab7137760bc6ee38,Technology,信息安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_abd190fad73eb5ad,Company,紫光股份,HAS_METRIC,Metric,营业收入_2025,"2025年营业收入96,748,339,344.03元",annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_ac02638f819dac48,Company,紫光股份,SUPPORTED_BY_POLICY,Policy,研发费用加计扣除政策,根据《财政部 税务总局关于进一步完善研发费用税前加计扣除政策的公告》（财税〔2023〕7 号）规定，企业开展研发活动中实际发生的研发费用，未形成无形资产计入当期损益的，在按规定据实扣除的基础上，自2023 年1 月1 日起，再按照实际发生额的100%在税前加计扣除；形成无形资产的，自2023 年1 月1 日起，按照无形资产成本的200%在税前摊销。,annual_000938_2025,2025年年度报告,147,税项（续）,1,1.00,auto
+relation_ac0b321a865b9f54,Policy,研发费用加计扣除政策,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,147,税项（续）,1,1.00,auto
+relation_ac5fac568ff7f08a,Technology,大数据,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,费用,1,1.00,auto
+relation_ac73847aaab59875,Company,紫光股份,HAS_PRODUCT,Product,存储产品,新华三集团主要业务包括网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,0.90,auto
+relation_ad2e100a24484e4b,Policy,国务院《关于深入实施“人工智能+”行动的意见》,DRIVES,IndustryConcept,智算中心,国务院《关于深入实施“人工智能+”行动的意见》...明确算力基础设施建设、行业深度融合等发展方向,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,0.90,auto
+relation_ad658d0184980590,Company,紫光股份,USES_TECHNOLOGY,Technology,UltraStor,同上,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,0.90,auto
+relation_ae12c60e5a52e5f5,Company,深圳市紫光物业服务有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_ae54a39b3b56aa87,Product,路由器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_aea2cc54c9a37777,Company,紫光天府云（成都）科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_aea9d83eddc48013,Metric,投资活动现金流入小计,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_aebf5aef0060fca5,Company,紫光股份,HAS_METRIC,Metric,归属于上市公司股东的扣除非经常性损益的净利润,表格显示紫光股份2025年各季度归属于上市公司股东的扣除非经常性损益的净利润数据。,annual_000938_2025,2025年年度报告,10,非经常性损益项目及金额,1,1.00,auto
+relation_aef7b301a2ab69c2,DemandDriver,市场需求,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_af0725dfbeb05bf2,Metric,销售商品收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_afad3c24c2bf7584,Company,紫光股份,HAS_PRODUCT,Product,云与智能平台,作为数字化及AI解决方案领导者，公司提供全栈智能化的信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级解决方案。,annual_000938_2025,2025年年度报告,8,注册变更情况,1,1.00,auto
+relation_affc2a3a05fc1f2f,Technology,CloudOS,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_b05bf8f46f5f3ad5,Metric,年复合增长率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_b0f87a059c57747f,Risk,非财务报告内部控制一般缺陷,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_b15dff1b6c92f413,Company,紫光股份,HAS_METRIC,Metric,直销营业收入,"直销 | 48,566,509,801.63 | 44,985,319,544.58 | 7.37% | 52.28% | 61.53% | -5.31%",annual_000938_2025,2025年年度报告,21,公司实物销售收入是否大于劳务收入,1,1.00,auto
+relation_b1c0b5a19b5aeea5,Metric,财务费用_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_b20354695b71f732,Company,紫光股份,HAS_METRIC,Metric,稀释每股收益,稀释每股收益 2025年 0.5893 元/股,annual_000938_2025,2025年年度报告,196,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_b2527f67fb26feaf,Company,紫光股份,HAS_METRIC,Metric,ICT基础设施与服务成本2024,"2024年ICT基础设施与服务成本金额42,352,357,506.07元",annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_b2625b3444067318,Company,紫光股份,HAS_METRIC,Metric,营业收入,公司实现营业收入967.48亿元,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_b26400d518985437,Metric,营业收入比上年同期增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_b29d435c9a320dee,Metric,ICT基础设施与服务成本占比,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_b2e9368c59095458,Risk,非财务报告内部控制重要缺陷,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_b3082a4ef328b436,Product,城轨行业智能体,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_b359d0cbf60a0859,Company,紫光股份,HAS_PRODUCT,Product,全光以太网5.0方案,完成多通道汇聚主机和系列全光入室影终端产品发布,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_b37d0440ab5287c9,Company,昆明紫光华信科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_b38c70434aa392a1,Metric,存货跌价准备本年转回或转销,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_b3b6ce3d294fcb4a,Company,紫光股份,BELONGS_TO_CHAIN,IndustryChain,AI算力产业链,紫光股份提供数据中心建造服务，属于AI算力产业链的基础设施环节,annual_000938_2025,2025年年度报告,136,重要会计政策及会计估计（续）,1,0.70,auto
+relation_b418fa7a042bff19,Company,紫光股份,HAS_METRIC,Metric,期末投资金额占公司报告期末净资产比例,"表格中合计行：期末金额-9,119.96，期末投资金额占公司报告期末净资产比例31.65%。",annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_b4727fc6ff6bdc89,IndustryConcept,全栈智算解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_b4baa60d6fe5c50d,Company,紫光股份,DISCLOSES_RISK,Risk,研发失败风险,研究阶段的支出，于发生时计入当期损益,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.70,auto
+relation_b51eb4c1d3e252df,Company,紫光股份,HAS_METRIC,Metric,ICT基础设施与服务成本,"2025年ICT基础设施与服务成本金额64,160,602,157.35元",annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_b5618a37b17697ac,Metric,研发费用同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_b56bc9839b02e2fb,Metric,营业成本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_b578e1156b6680c9,Metric,现金及现金等价物净增加额_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_b5925ef139301bc4,Company,紫光股份,HAS_METRIC,Metric,财务费用同比增减,表格：财务费用同比增减10.35%,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_b5968228dee57a24,Company,紫光股份,DISCLOSES_RISK,Risk,财务报告内部控制重大缺陷,定量标准：营业收入潜在错报：重大缺陷：营业收入总额的1%＜错报；利润总额潜在错报：重大缺陷：利润总额的10%＜错报；资产总额潜在错报：重大缺陷：资产总额的1%＜错报；所有者权益潜在错报：重大缺陷：所有者权益总额的3%＜错报,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_b61365c216fc67db,Company,紫光股份,HAS_METRIC,Metric,管理费用_2025,"2025年度管理费用合计1,165,580,958.30元",annual_000938_2025,2025年年度报告,191,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_b67074ca59635aa3,ValueChainSegment,安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_b698d99a7b158768,Product,全栈智能化的信息通信（ICT）基础设施,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,8,注册变更情况,1,1.00,auto
+relation_b69e4ad337bc4378,Metric,递延收益年初余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_b6b11597f6ad1c39,Metric,递延收益年末余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_b6c08438b6441555,ValueChainSegment,研发阶段,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_b6d57705f939b241,Workload,智能制造,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_b6f4d424f50aa591,Metric,IT产品分销与供应链服务营业收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_b6f9535719c86644,Company,紫光股份,HAS_PRODUCT,Product,人工智能服务器,公司打造了以高速无损网络、人工智能服务器、下一代存储、算力调度管理平台为核心的全栈智算解决方案,annual_000938_2025,2025年年度报告,16,主营业务分析,1,0.90,auto
+relation_b73517a719150f95,Company,紫光股份,HAS_METRIC,Metric,库存量,"2025年库存量45,675,692,136.15元，同比增减17.81%",annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_b73dca31e25a5558,Company,紫光股份,HAS_METRIC,Metric,营业收入,"新华三集团营业收入75,980,744,968.15元",annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,0.95,auto
+relation_b7609f61b8f58d1d,Metric,筹资活动产生的现金流量净额_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_b8293fddc93fbb2f,Company,紫光股份,HAS_METRIC,Metric,营业成本_2024,"2024年营业成本65,282,115,477.87元",annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_b83d21ea23f6e4f7,Metric,归属于母公司所有者净利润,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,1.00,auto
+relation_b8916b366d88df21,ValueChainSegment,终端产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_b8c51b53eb5ecfa0,Policy,财政部 税务总局公告2023年第12号,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_b8f238cca580f6c3,Company,紫光股份,HAS_METRIC,Metric,预测期后增长率,预测期以后的现金流量增长率设定为1%,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_b90a6b64bc4985ce,Product,百业灵犀ICT大模型,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_b92cd1be5d1b09ff,Company,紫光股份,HAS_METRIC,Metric,稳定期增长率,增长率1%,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_b93ee1c80e098cf8,Company,紫光股份,HAS_METRIC,Metric,年复合增长率,2024年至2029年期间年复合增长率将达17.7%,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,0.80,auto
+relation_b97036e1b95e90c5,Product,运维服务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,135,重要会计政策及会计估计（续）,1,1.00,auto
+relation_b9b11b75b4c44db3,Technology,冷板式液冷,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,5,释义,1,1.00,auto
+relation_ba80c129f52f6224,Company,紫光股份,HAS_METRIC,Metric,递延收益本年减少,"本年减少(240,940,488.14)",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_baa596cc4f407acc,Company,紫光股份,HAS_METRIC,Metric,管理费用_2024,"表格：2024年管理费用1,026,596,617.18元",annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_bae5606877ca78ff,Product,存储产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,1.00,auto
+relation_bafe7780290a4485,Technology,大模型落地,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_bb103da574215a46,Company,紫光股份,HAS_METRIC,Metric,本科人数,"2025年本科3,302人",annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_bb3d37261a964e34,Metric,国外收入占比,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_bb8cdba677fefe6f,Product,自主可控大容量交换机项目,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_bb99cedc909a51cd,Product,ICT基础设施,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_bcc6780153264cd2,Company,紫光股份,HAS_PRODUCT,Product,高端防火墙SecPath M9000,完成SecPath M9000 防火墙硬件架构升级产品发布,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_bd279ee84b8ea282,Product,AI工作站,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_bd2d523a01edca51,Company,紫光股份,HAS_METRIC,Metric,利润总额_2025,"2025年利润总额2,374,546,953.59元",annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_bd39cd3a740538c1,Risk,经营风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,1.00,auto
+relation_bd88955f791c65a9,Product,高端防火墙SecPath M9000,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_bdca1aa8d7b55702,Company,紫光股份,HAS_METRIC,Metric,前五名供应商合计采购金额占年度采购总额比例,前五名供应商合计采购金额占年度采购总额比例 40.09%,annual_000938_2025,2025年年度报告,23,公司主要供应商情况,1,1.00,auto
+relation_bddd4fe6bee8c528,Metric,库存量同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_be7e29a8db886b64,Company,紫光股份,HAS_PRODUCT,Product,全栈智能化的信息通信（ICT）基础设施,作为数字化及AI解决方案领导者，公司提供全栈智能化的信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级解决方案。,annual_000938_2025,2025年年度报告,8,注册变更情况,1,1.00,auto
+relation_beb1eb35b3a092e9,Product,网络产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,1.00,auto
+relation_bebdb712fd8e75d4,Company,紫光股份,HAS_METRIC,Metric,产品质量保证年末余额,"年末余额632,505,316.97",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_becb2bd409ff6322,Metric,剩余履约义务收入金额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_befaa588be9a73c8,Policy,工业和信息化部《工业互联网和人工智能融合赋能行动方案》,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_bf35d882bc5e6aa9,ValueChainSegment,存储,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_bf99886c9d42e11d,Product,百业灵犀私域大模型,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_bfaf398eaeb2d79b,Company,紫光股份,HAS_METRIC,Metric,销售量同比增减,销售量同比增减22.43%,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_bfd5e8b00848bd62,Product,全域冷板式液冷服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_bfefa22c0590b282,IndustryConcept,人工智能,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_c050da59b1514e56,Product,磐宁操作系统（NingOS）V3.0,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_c090853cdf71768b,Company,紫光股份,HAS_METRIC,Metric,经营活动产生的现金流量净额,表格显示紫光股份2025年各季度经营活动产生的现金流量净额数据。,annual_000938_2025,2025年年度报告,10,非经常性损益项目及金额,1,1.00,auto
+relation_c095bb2d6f4ea5da,Metric,待执行亏损合同预计负债,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_c0ef42bbacecd36c,Workload,政务云,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_c16dba1df92ef84e,Metric,归属于上市公司股东的净资产,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_c17cf60bbd486d22,Metric,营业收入同比增长率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_c1a78ae8b26ecece,Company,紫光股份,HAS_METRIC,Metric,待执行亏损合同预计负债,"待执行亏损合同8,792,388.42",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_c1f7c6cc743211af,Company,紫光股份,HAS_METRIC,Metric,所得税费用_2024,"2024年所得税费用244,676,363.64元",annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_c2787945c52ad5e6,Product,政务云,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_c2830ae80e6636be,Policy,人工智能+,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_c2a09807cb5be288,Metric,归属于上市公司股东的净利润,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_c2bc65ac8b8ff02e,Company,紫光股份,HAS_PRODUCT,Product,维保服务,本集团在提供维保、数据中心建造等服务时，相关履约义务在服务期内或客户验收完成后履行,annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_c2dc56c3e24cb543,Company,紫光股份,HAS_PRODUCT,Product,ICT基础设施,为客户提供网络、计算、存储、云计算、安全和智能终端等全栈智能化信息通信（ICT）基础设施、云与智能平台，以及数字化转型及智能化升级的解决方案。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_c33fe43cd3583554,Company,紫光股份,USES_TECHNOLOGY,Technology,信息安全,提供云计算、大数据、人工智能、工业互联网、信息安全、智能联接、边缘计算、统一运维等在内的一站式数字化解决方案,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_c3efa4577c0ca36b,Metric,收到重要的投资活动有关的现金_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_c41febb577f64495,Risk,财务报告内部控制一般缺陷,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_c43561c5f1d465a6,Product,数字乡村解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,55,巩固拓展脱贫攻坚成果、乡村振兴的情况,1,1.00,auto
+relation_c452d09415335254,Product,Cloudnet云管,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_c47653cbcef21a97,Company,紫光股份,HAS_METRIC,Metric,研发人员数量占比,2025年研发人员数量占比37.89%,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_c4d60b93cf3d0de5,Company,紫光未来科技（杭州）有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,紫光未来科技（杭州）有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_c53c85679b0967d6,Company,紫鸾智能科技（珠海）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_c546fa524e924bb3,Company,紫光股份,HAS_METRIC,Metric,财务人员数量,表格中财务人员行对应数值273,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_c55b7a6e3e0affe8,Company,紫光股份,DISCLOSES_RISK,Risk,技术和产品研发风险,（2）技术和产品研发风险,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.90,auto
+relation_c58cac77eb315e5d,Technology,灵犀使能平台,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_c5ba5791c40adcee,Company,紫光股份,HAS_METRIC,Metric,归属于本公司普通股股东的当期净利润,"归属于本公司普通股股东的当期净利润 2025年 1,685,521,754.82 元",annual_000938_2025,2025年年度报告,196,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_c61d5851bfdfa9a0,Product,虚拟化平台,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_c627c021b52f2d61,Company,紫光股份,SUPPORTED_BY_POLICY,Policy,企业会计准则第24号——套期会计,同上。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_c641d0df3f626f60,Technology,RoCE协议,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_c65d4fa59985a4f2,Company,紫光股份,DISCLOSES_RISK,Risk,履约风险,3、履约风险：外汇套期保值业务存在合约到期无法履约造成违约而带来的风险。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_c65d6601507afe01,Company,紫光股份,HAS_METRIC,Metric,营业收入,"营业收入合计：2025年96,748,339,344.03元，占营业收入比重100%。",annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_c6e4e34d7ea7f3cb,Company,紫光股份,HAS_PRODUCT,Product,ICT基础设施与服务,分产品：ICT 基础设施与服务,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_c6f792fe2ee217ba,Metric,营业成本同比增减_信息技术业_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_c73c90cf4becdec2,Company,紫光股份,HAS_PRODUCT,Product,全光网络5.0解决方案,发布全光网络5.0 解决方案,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_c75bf6e8426eb0f5,Company,紫光股份,HAS_METRIC,Metric,经营活动产生的现金流量净额,"经营活动产生的现金流量净额（元）2025年3,486,751,492.84",annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_c7711663c3453b30,Metric,前五名客户合计销售金额占年度销售总额比例,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,23,公司主要销售客户情况,1,1.00,auto
+relation_c7c52c9e3c2348da,Metric,中国X86服务器市场份额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_c7f69558997eefb6,Technology,三算合一,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_c8596c2184a22ede,Metric,无形资产使用寿命,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,1.00,auto
+relation_c904b185c22b1b4e,Product,灵犀Cube一体机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_c95cf60179eed01e,Metric,研发费用_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_c98e7706c344babe,Metric,营业成本_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_c9a516870af50145,Product,全场景Wi-Fi 7组网方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_c9d7a575927ab4f5,Product,灵犀使能平台,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_ca0a927763cea9f8,Company,紫光云技术有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,紫光云技术有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_ca7e668e73419043,Architecture,云—边—端三级协同架构,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_cabd28f9a3155039,Metric,参数利用率提升,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_cac75bfcdd16b209,Product,UTM防火墙,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_cb763094ffab18ba,Metric,31-40岁人数,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_cbfa6867c4f1dbfe,Company,紫光股份,HAS_METRIC,Metric,营业收入,"营业收入 96,748,339,344.03",annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_cc1fa26370b9c602,Metric,IT产品分销与供应链服务毛利率比上年同期增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_cc4942380bcaeff8,Company,紫光股份,HAS_METRIC,Metric,商品销售收入,"其中商品销售收入为人民币90,464百万元",annual_000938_2025,2025年年度报告,91,财务报告,1,1.00,auto
+relation_cd423ec6751a578d,Product,冷板式及浸没式交换机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_cdc2e2394c2018cd,Technology,自主技术,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_cdc685e42600c4ea,Company,紫光股份,USES_TECHNOLOGY,Technology,CPO技术,公司重点推进CPO 技术与Scale-up 整机柜两大前沿技术方向研究,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_ce24f118b16ea8cf,Company,紫光股份,HAS_PRODUCT,Product,计算产品,为人工智能、云计算、大数据、物联网等新兴技术在行业应用提供技术领先的计算、网络、存储和安全等软硬件产品,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,0.90,auto
+relation_ce498cb445584e05,IndustryConcept,超算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_cebef3c4e7364996,Company,紫光股份,DISCLOSES_RISK,Risk,内部控制风险,2、内部控制风险：外汇套期保值业务专业性较强，复杂程度较高，可能会由于内部控制机制不完善而造成操作风险。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_cec2da175a8d735a,Product,高端路由器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_cf1eb21e55ccf55a,Metric,中国企业级WLAN市场份额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_cf46214670ff5a6f,Metric,稳定期增长率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_cf4c928778a35117,Metric,营业成本_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_cfde28d278ee7c86,ValueChainSegment,数字化转型及智能化升级解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_cffe67c924b9a688,Metric,采购量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_d013897dfdd8afcc,Company,紫光股份,HAS_PRODUCT,Product,51.2T CPO硅光数据中心交换机,51.2T CPO 硅光数据中心交换机产品融合核心技术优势,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,0.90,auto
+relation_d05fa0e5622f0ba3,Company,紫光股份,HAS_METRIC,Metric,存货跌价准备本年计提,"存货跌价准备及合同履约成本减值准备：本年计提662,464,130.87",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_d07dbda6a2efae84,Metric,税前折现率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_d0825ebf0d1394b2,Product,超融合产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_d08f2c462ca988cb,Company,紫光股份,HAS_METRIC,Metric,营业收入_2024,"营业收入4 115,158,438.75 258,272,495.85",annual_000938_2025,2025年年度报告,108,89 -减：营业外支出,1,1.00,auto
+relation_d0b0e88acf780c9a,IndustryConcept,算力降本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_d0d7b5a757d64b79,Metric,递延收益本年减少,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_d1232286e2ea806f,IndustryConcept,智算需求,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_d12dbcb9505f84d7,ValueChainSegment,云与智能平台,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,113,基本情况,1,1.00,auto
+relation_d1ba90308fba00bb,Company,紫光股份,HAS_METRIC,Metric,IT产品分销与供应链服务成本,"2025年IT产品分销与供应链服务成本金额24,231,735,943.28元",annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_d1d8fe60c5a698f6,IndustryConcept,数字化转型,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_d1d9cbd03b0a287a,Product,IT产品分销与供应链服务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_d23341a13b741819,Product,商用笔记本电脑,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_d2cb3415d7146984,Technology,信元交换,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_d2e32a9ed785dadf,Product,一站式数字化解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_d302fbd558ce342d,Metric,预测期增长率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_d30a7c6ee53ef5ef,Technology,DDC架构,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_d3434e5b45f3bea0,Company,紫光股份,HAS_METRIC,Metric,IT产品分销与供应链服务成本同比增减,IT产品分销与供应链服务成本同比增减-12.61%,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_d3720823dd9f001e,Company,紫光股份,BELONGS_TO_CHAIN,IndustryChain,云—网—安—算—存—端,夯实“云—网—安—算—存—端”全栈业务布局,annual_000938_2025,2025年年度报告,24,费用,1,0.90,auto
+relation_d3fc3e9c1ec2dc02,Metric,未决诉讼预计负债,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_d4079c6248cb4c23,Metric,产品质量保证本年增加,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_d44510fa569dc5bc,Company,紫光股份,HAS_METRIC,Metric,主营业务收入_2025,"2025年主营业务收入96,267,600,254.58元",annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_d52b42b7fe114797,IndustryConcept,行业专属云,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_d594153030063462,Company,紫光股份,HAS_METRIC,Metric,归属于上市公司股东的扣除非经常性损益的净利润,"归属于上市公司股东的扣除非经常性损益的净利润（元）2025年1,634,660,607.17",annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_d5e0834a196b5d74,Company,紫光股份,HAS_PRODUCT,Product,灵犀使能平台,全面升级灵犀使能平台能力,annual_000938_2025,2025年年度报告,16,主营业务分析,1,0.90,auto
+relation_d60c684dc62246c1,Company,紫光股份,HAS_METRIC,Metric,基本每股收益,基本每股收益（元/股）2025年0.5893,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_d63b9450c68cb6dc,Company,紫光股份,HAS_METRIC,Metric,经营活动现金流出小计,"表格中经营活动现金流出小计2025年146,708,975,156.88元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_d6a060eb40187585,Company,紫光股份,HAS_METRIC,Metric,归属于上市公司股东的净利润,表格显示紫光股份2025年各季度归属于上市公司股东的净利润数据。,annual_000938_2025,2025年年度报告,10,非经常性损益项目及金额,1,1.00,auto
+relation_d6a7879b71239356,Company,紫光股份,HAS_METRIC,Metric,递延收益本年增加,"本年增加285,530,149.11",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_d6adae1f9ef5b7d9,Product,灵犀智算解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_d77b02ee287d77e7,Metric,前五名供应商合计采购金额占年度采购总额比例,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,23,公司主要供应商情况,1,1.00,auto
+relation_d782c44d65d2b1ea,Metric,其他非流动负债-预收长期房租,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_d7c26e3deb3f7877,Company,紫光股份,HAS_METRIC,Metric,总资产,"总资产（元）2025年末96,323,416,301.66",annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_d7c79b9226f05d7f,Metric,前五名客户合计销售金额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,23,公司主要销售客户情况,1,1.00,auto
+relation_d7d525b1eeaa7738,Metric,管理费用_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_d8033c8336640709,Technology,FPGA加速,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_d809b88f9759974c,Company,紫光股份,HAS_METRIC,Metric,经营活动现金流出小计_2024,"表格中经营活动现金流出小计2024年108,223,646,098.69元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_d83065ee6e2ecb3d,Product,云网安一体化解决方案,ENABLES,IndustryConcept,数字化转型,解决数字化转型'最后一公里'难题,annual_000938_2025,2025年年度报告,20,收入与成本,1,0.90,auto
+relation_d8578d629f9e63b1,Risk,商誉减值风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_d87b05646ed12ef2,Technology,DDC2,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_d9b7847a18627e47,ValueChainSegment,AI 算力产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_d9f82171b7764121,Company,紫光股份,HAS_METRIC,Metric,归属于母公司股东的净利润_2024,"归属于母公司股东的净利润1,572,434,477.25",annual_000938_2025,2025年年度报告,187,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_da1bdcd74f287af0,Company,北京紫光文化有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_da766a791e57071b,Product,国芯超低时延交换机,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_da92bc7e2724b87b,Company,紫光股份,HAS_METRIC,Metric,前五名供应商采购额中关联方采购额占年度采购总额比例,前五名供应商采购额中关联方采购额占年度采购总额比例 0.00%,annual_000938_2025,2025年年度报告,23,公司主要供应商情况,1,1.00,auto
+relation_da9578782e075e05,Metric,稀释每股收益,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_dad1297b48bd8d65,Technology,CAS虚拟化,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_daef83951e85516e,IndustryChain,AI算力基础设施,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_db677ca07fdcd88e,Company,紫光股份,HAS_PRODUCT,Product,ICT产品,新一代ICT产品智能工厂建设项目,annual_000938_2025,2025年年度报告,168,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_db88b324ea8d64eb,Company,紫光股份,DISCLOSES_RISK,Risk,宏观经济环境变化风险,（1）宏观经济环境变化风险,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.90,auto
+relation_dbb8dc6cbe6111a4,Company,紫光股份,HAS_METRIC,Metric,委托理财余额,"报告期内委托理财的余额为54,809.27万元。",annual_000938_2025,2025年年度报告,80,单位：万元,1,0.90,auto
+relation_dbc68805adaf9ffe,Metric,管理费用同比增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_dbff432f6740cbf5,Product,芯模社区,ENABLES,IndustryConcept,智算业务,以芯模社区为平台，重点聚焦“芯模联动”战略,annual_000938_2025,2025年年度报告,36,资金需求及使用计划,1,0.80,auto
+relation_dc41e334fb1b3db2,Workload,桌面级 AI 算力,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_dc5b49d8887eee3a,Product,安全产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_dcc696bcf92af2f6,Product,灵犀AI助手,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_dccc6ffa7429b426,Product,Wi-Fi 7 新产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_dd0830ae6cae3331,Company,新华三人工智能科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_dd5d771bf5805fc0,Company,紫光股份,USES_TECHNOLOGY,Technology,智能联接,提供云计算、大数据、人工智能、工业互联网、信息安全、智能联接、边缘计算、统一运维等在内的一站式数字化解决方案,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_dd9641d8ee1c247e,Workload,金融风控,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_ddef4b51d60c80ee,Company,紫光股份,HAS_PRODUCT,Product,网络产品,为人工智能、云计算、大数据、物联网等新兴技术在行业应用提供技术领先的计算、网络、存储和安全等软硬件产品,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,0.90,auto
+relation_de3b074b8c9cd9bb,Metric,中国企业网路由器市场份额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_de5caafdebac3ae0,Company,紫光股份,USES_TECHNOLOGY,Technology,AI智能体,积极探索并实践AI智能体在政务场景的落地应用。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.80,auto
+relation_de5dd9912a6d961d,Company,新华三工业互联网有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,新华三工业互联网有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_de726ae0eaa6671d,Product,维保服务,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,135,重要会计政策及会计估计（续）,1,1.00,auto
+relation_debe2fd491e4f7a7,Company,紫光股份,HAS_METRIC,Metric,净利润_2024,"净利润222,320,170.88 255,704,464.43",annual_000938_2025,2025年年度报告,108,89 -减：营业外支出,1,1.00,auto
+relation_df3df1639333cdc8,Metric,主营业务收入_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,188,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_dfa5ac754fc3b6ca,Product,企业级智能混合闪存存储,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_e085a046a801294e,Company,紫光股份,HAS_METRIC,Metric,管理费用同比增减,表格：管理费用同比增减13.54%,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_e0e1b7bc7e81d4a8,Company,紫光股份,DISCLOSES_RISK,Risk,财务报告内部控制重要缺陷,定量标准：营业收入潜在错报：重要缺陷：营业收入总额的0.5%＜错报≤营业收入总额的1%；利润总额潜在错报：重要缺陷：利润总额的5%＜错报≤利润总额的10%；资产总额潜在错报：重要缺陷：资产总额的0.5%＜错报≤资产总额的1%；所有者权益潜在错报：重要缺陷：所有者权益总额的1.5%＜错报≤所有者权益总额的3%,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_e0f629e3f17916ac,Company,紫光股份,HAS_METRIC,Metric,营业外支出_2025,"2025年营业外支出46,697,496.63元",annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_e152259954e406d8,Metric,博士人数,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_e1b94e50c38b1989,Metric,产品质量保证预计负债,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_e1c6cd1201030096,Metric,销售费用_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_e220f33b41f5491b,Metric,硕士人数,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_e27c36bd5193cfb7,Product,智慧云屏,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_e288d575ada2fa40,Company,紫光股份,HAS_METRIC,Metric,合同履约成本本年摊销金额,"合同履约成本本年确认的摊销金额为人民币3,693,006,260.49元",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_e297ac96402dd32c,Product,金融智算整体解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,1.00,auto
+relation_e2bdd7b6f9b6ee62,Risk,财务报告内部控制重大缺陷,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_e35254aaa5651c63,Company,紫光股份,HAS_PRODUCT,Product,UTM防火墙,中国UTM防火墙市场份额21.1%，位列第三,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.90,auto
+relation_e36413ed9ebd7700,Company,紫光股份,HAS_PRODUCT,Product,超融合虚拟化融合版本,完成新一代超融合版本发布,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_e37303f283df29ae,Company,紫光股份,HAS_PRODUCT,Product,灵犀推理引擎,公司陆续推出百业灵犀私域大模型、灵犀使能平台、灵犀推理引擎、灵犀AI助手、灵犀Cube一体机及多个行业智能体,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,0.90,auto
+relation_e38a4a98b5586e7a,Metric,销售量_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,√是 □否,1,1.00,auto
+relation_e3ddfa2bd0bf2ea0,Company,紫光股份,HAS_METRIC,Metric,前五名客户销售额中关联方销售额占年度销售总额比例,前五名客户销售额中关联方销售额占年度销售总额比例0.00%,annual_000938_2025,2025年年度报告,23,公司主要销售客户情况,1,1.00,auto
+relation_e4413af036b54a1f,Company,紫光股份,HAS_METRIC,Metric,营业收入同比增减,营业收入同比增减：22.43%。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_e46dde5c9f8308f3,IndustryConcept,数字基础设施,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,收入与成本,1,1.00,auto
+relation_e4b2fbbcf8b20477,Company,紫光股份,SUPPORTED_BY_POLICY,Policy,企业会计准则第22号——金融工具确认和计量,公司根据财政部《企业会计准则第22 号——金融工具确认和计量》《企业会计准则第24 号——套期会计》《企业会计准则第 37 号——金融工具列报》相关规定及其指南，对开展的外汇套期保值业务进行相应的核算处理。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_e4dcee25471278a7,Technology,静态故障检测+秒级自愈,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_e5069e012aae1662,Metric,其他业务成本2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_e50f3bd0c149195c,Company,紫光股份,HAS_PRODUCT,Product,大模型一体机产品,发布基于DeepSeek大模型一体机全系列产品,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_e57f9122fea70f22,Metric,在途物资账面余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_e58115747c03c120,Company,紫光股份,HAS_PRODUCT,Product,新一代ICT产品智能工厂建设项目,新一代ICT产品智能工厂建设项目 50.02 - - -,annual_000938_2025,2025年年度报告,169,合并财务报表主要项目注释（续）,1,0.90,auto
+relation_e5abfb0bbbf13e34,Metric,本科学历员工数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_e5ef8478e0b8aef3,Company,紫光股份,HAS_METRIC,Metric,归属于母公司所有者净利润,"新华三集团归属于母公司所有者净利润3,151,488,963.87元",annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,0.95,auto
+relation_e7621d1577d73704,Company,紫光股份,USES_TECHNOLOGY,Technology,人工智能,公司深化“AI in ALL”、“AI for ALL”技术战略，持续在网络、安全、计算、存储、云计算、人工智能等重点领域的研发投入,annual_000938_2025,2025年年度报告,24,费用,1,0.90,auto
+relation_e762731fc97e61d3,Metric,利润总额_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_e7ad0e8afefa6a90,Company,紫鸾智能科技（海南）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_e7d380e5aaef2475,Company,紫光股份,HAS_METRIC,Metric,博士人数,2025年博士23人,annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_e7da39ed03657089,Company,紫光股份,HAS_PRODUCT,Product,网络交换机,公司在中国企业网交换机市场份额36.1%，排名第一,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.90,auto
+relation_e7f25594c72900cc,Company,紫光股份,BELONGS_TO_CHAIN,IndustryChain,AI算力产业链,公司深度参与多地智算中心、政务云、政务网项目建设；与多家头部互联网客户持续推进大规模算力集群与超节点系统建设；持续落地大中型智算中心建设项目。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.90,auto
+relation_e7f3c057a2b56012,Company,紫光股份,HAS_METRIC,Metric,41岁及以上人数,"2025年41岁及以上1,057人",annual_000938_2025,2025年年度报告,27,公司研发人员情况,1,1.00,auto
+relation_e89ffa90ddd76172,Product,互联网信息技术产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,1.00,auto
+relation_e8cd0181f46eb27f,Metric,预测期后增长率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_e959735c7a80e830,Company,紫光股份,HAS_PRODUCT,Product,IT产品分销与供应链服务,分产品：IT 产品分销与供应链服务,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_e971536d58536739,Company,紫光股份,HAS_PRODUCT,Product,高端路由器,公司数据中心交换机和高端路由器成功通过欧洲高级网络测试中心（EANTC）2025 互通性测试,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_e99b51f8101f717f,Metric,商誉账面价值,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_e9a116bf4038bf83,Product,广域网控制器7.4版本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_e9ac3ae0c7cdfec4,Risk,未决诉讼风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_e9dd364f7c0aa930,Company,紫光股份,HAS_PRODUCT,Product,维保服务,本集团与客户之间的提供服务合同通常包含维保服务、运维服务、培训服务和安装服务等履约义务,annual_000938_2025,2025年年度报告,135,重要会计政策及会计估计（续）,1,0.90,auto
+relation_ea64e7940754aa89,Workload,万亿参数模型训练,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_ea6b9187b9c653bb,Technology,全光以太网,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_ead516f096ce4f77,Product,安全管理,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_eae575d58955b6dc,Company,紫光股份,HAS_PRODUCT,Product,LinSeer ICT 智能体,公司发布了 “LinSeer ICT 智能体”,annual_000938_2025,2025年年度报告,16,主营业务分析,1,0.90,auto
+relation_eb0a5c192fb9f4d3,Product,LinSeer ICT 智能体,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_eb0e59181fe74320,Company,紫光股份,HAS_PRODUCT,Product,培训服务,本集团与客户之间的提供服务合同通常包含维保服务、运维服务、培训服务和安装服务等履约义务,annual_000938_2025,2025年年度报告,135,重要会计政策及会计估计（续）,1,0.90,auto
+relation_eb47ad07ca5b5d9d,Metric,归属于母公司股东的净利润_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,187,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_eb68ad22fb0074df,IndustryConcept,AI解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_eb6fea2263cc7e72,Company,北京紫光数智科技股份有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_eb7335190fbb13fd,Metric,递延收益本年增加,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_eb87b882d40f7f43,Company,紫光股份,HAS_PRODUCT,Product,智能制造无线网络解决方案,发布智能制造无线网络解决方案,annual_000938_2025,2025年年度报告,18,核心竞争力,1,0.90,auto
+relation_ec02fa18e0451512,Company,紫光股份,HAS_METRIC,Metric,营业收入比上年同期增减,营业收入比上年同期增减 22.43%,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_ec0dde0c8c7bbc96,Product,箱式浸没液冷,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_ec7ca10f70861e7b,IndustryConcept,智算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_ec9381e3e0074061,Company,紫光股份,HAS_METRIC,Metric,ICT基础设施与服务收入同比增减,ICT基础设施与服务同比增减：41.11%。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_ecb9a866d05883b6,Technology,高速全光互联,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,13,核心竞争力分析,1,1.00,auto
+relation_eccf8ef84f3d820c,Company,紫光股份,HAS_METRIC,Metric,经销营业收入,"经销 | 48,181,829,542.40 | 37,646,527,073.81 | 21.87% | 2.23% | 0.57% | 1.29%",annual_000938_2025,2025年年度报告,21,公司实物销售收入是否大于劳务收入,1,1.00,auto
+relation_ed58e7885dcdef14,Product,云操作系统,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_ed86c9e9ba2df95a,Company,紫光股份,BENEFITS_FROM,Workload,超大规模模型,参与新一代AI Infra体系建设，从计算、存储、网络等多维度共同打造面向超大规模模型的基础架构。,annual_000938_2025,2025年年度报告,19,抢抓产业机遇，助力国内行业客户增强数智化水平,1,0.80,auto
+relation_edce9f3931beacc8,Metric,IT产品分销与供应链服务营业成本比上年同期增减,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_ee182958590db732,Company,紫光股份,HAS_METRIC,Metric,营业收入,表格显示紫光股份2025年各季度营业收入数据。,annual_000938_2025,2025年年度报告,10,非经常性损益项目及金额,1,1.00,auto
+relation_ee236b88648f0db9,Product,矿用本安Wi-Fi 7 产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_ee448cce7fabe4b1,Company,紫光云智能制造（天津）有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_ee44e9a49384a711,DemandDriver,桌面级 AI 算力灵活和快速部署需求,DRIVES,Product,LinSeer MegaCube AI 一体机,满足桌面级 AI 算力灵活和快速部署需求，丰富 AI 算力产品布局,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,0.80,auto
+relation_ee8c31ea6128d292,Company,紫光股份,HAS_METRIC,Metric,净利润_2025,"净利润 2,171,084,501.45",annual_000938_2025,2025年年度报告,100,营业收入,1,1.00,auto
+relation_eea3ac40201d9832,Product,CloudOS 7.0,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_eeb9a9816c329079,Technology,SoC,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,6,载有公司法定代表人、主管会计工作负责人、会计机构负责人签名并盖章的会计报表。,1,1.00,auto
+relation_eecb6535c04da9eb,Workload,安防监控,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_eee1429fc01eea77,Company,紫光股份,HAS_PRODUCT,Product,金融智算解决方案,公司金融智算解决方案服务多家头部银行及券商等客户,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.80,auto
+relation_eeeb4a4de51c7187,Metric,应付账款余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,179,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_eeeb5d2c36b42192,Company,紫光股份,HAS_METRIC,Metric,国外收入,"国外 3,509,372,775.39",annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_ef16665821b6c7dd,Metric,中国UTM防火墙市场份额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_f006c5bc9c77e894,Product,边缘计算服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_f0296cd81cc35b3c,Company,紫光股份,HAS_METRIC,Metric,存货跌价准备本年转回或转销,"存货跌价准备及合同履约成本减值准备：本年转回或转销478,795,127.17",annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_f0509821415786bd,Company,紫光股份,USES_TECHNOLOGY,Technology,边缘计算,释义中定义了边缘计算，表明公司涉及该技术。,annual_000938_2025,2025年年度报告,5,释义,1,0.70,auto
+relation_f0531eb6bb13b82a,IndustryConcept,智算中心,UPSTREAM_OF,IndustryConcept,人工智能,基础层聚焦智算中心等核心算力设施,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,0.80,auto
+relation_f0d410287a8261b5,Company,紫光股份,HAS_METRIC,Metric,IT产品分销与供应链服务成本占比2024,2024年IT产品分销与供应链服务成本占营业成本比重42.47%,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_f0d9d370594e4133,Risk,经营成本上升风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,37,报告期内接待调研、沟通、采访等活动,1,1.00,auto
+relation_f164ab65fb19c37b,Company,紫光股份,HAS_PRODUCT,Product,企业级WLAN,中国企业级WLAN市场份额27.9%，持续位列第一,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,0.90,auto
+relation_f169d2d42648e763,Metric,ICT基础设施与服务成本2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_f209c02cbe77ad50,ValueChainSegment,AI服务器,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_f23176c8ccc3a4d8,Metric,投资活动现金流出小计,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_f254df4934159585,Product,H3C商标,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,170,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_f28c350bca56557d,Metric,经营活动现金流入小计,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_f299c30906d50b91,Company,紫光股份,HAS_METRIC,Metric,管理及其他人员数量,"表格中管理及其他人员行对应数值1,522",annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_f2e7285137d49bea,Technology,智能联接,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_f32b1dec05bea7b0,Product,云计算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,24,费用,1,1.00,auto
+relation_f332cd5305069942,Company,紫光股份,HAS_PRODUCT,Product,安全产品,新华三集团主要业务包括网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,0.90,auto
+relation_f3a26eba67b586b9,Company,紫光股份,USES_TECHNOLOGY,Technology,云计算,公司深化“AI in ALL”、“AI for ALL”技术战略，持续在网络、安全、计算、存储、云计算、人工智能等重点领域的研发投入,annual_000938_2025,2025年年度报告,24,费用,1,0.90,auto
+relation_f3ec9938cdbfd8a9,Metric,前五名供应商采购额中关联方采购额占年度采购总额比例,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,23,公司主要供应商情况,1,1.00,auto
+relation_f419343f828443bb,Company,紫光股份,HAS_METRIC,Metric,在某一时点转让收入,"在某一时点转让 63,132,210,915.38",annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_f4f1941f9a30551d,Technology,Comware,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,15,覆盖全球的销售网络,1,1.00,auto
+relation_f505c265fef6b531,Company,紫光股份,HAS_METRIC,Metric,ICT基础设施与服务成本占比,2025年ICT基础设施与服务成本占营业成本比重77.65%,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_f561ffcef339c6fc,Company,紫光股份,HAS_METRIC,Metric,硕士及以上学历员工数量,"表格中硕士及以上行对应数值4,783",annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_f57114bcfb1cc385,Technology,工业互联网,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,172,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_f58ea2ca04d00d67,Risk,法律风险,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,32,√适用 □不适用,1,1.00,auto
+relation_f63601018e895adb,Workload,智算中心,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_f63c42a4407fb550,IndustryConcept,AIGC,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,16,主营业务分析,1,1.00,auto
+relation_f7b5345090203f53,Company,紫光股份,HAS_PRODUCT,Product,存储产品,为人工智能、云计算、大数据、物联网等新兴技术在行业应用提供技术领先的计算、网络、存储和安全等软硬件产品,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,0.90,auto
+relation_f7ee0b48b16b4618,Company,紫光股份,HAS_PRODUCT,Product,智算云,构建满足智算需求的专属云,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_f7faf569e286d7d1,Company,成都紫光华信科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_f836e17e2f5678a1,Metric,合同负债余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,179,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_f84f36864a5e5c86,Company,紫光股份,DISCLOSES_RISK,Risk,非财务报告内部控制重要缺陷,定量标准：重要缺陷：潜在风险事件可能造成的直接财产损失金额在2000 万元-8000万元（含8000 万元）之间,annual_000938_2025,2025年年度报告,53,内部控制审计报告,1,1.00,auto
+relation_f8523a3ae4af6324,DemandDriver,人工智能+行动,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,35,公司未来发展的展望,1,1.00,auto
+relation_f93e72df913a622c,Company,新华三集团有限公司,HAS_PRODUCT,Product,网络产品,被投资企业的主营业务：网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,69,√适用 □不适用,1,1.00,auto
+relation_f95d58542b871815,Company,紫光股份,HAS_PRODUCT,Product,高速无损网络,公司打造了以高速无损网络、人工智能服务器、下一代存储、算力调度管理平台为核心的全栈智算解决方案,annual_000938_2025,2025年年度报告,16,主营业务分析,1,0.90,auto
+relation_f96ff009b858ef84,Metric,库存商品及发出商品账面余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_f985eba1e84a5428,IndustryConcept,AI安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_f9db6990431790e4,Workload,医疗诊断,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_fa4aed284d512770,Company,紫光股份,USES_TECHNOLOGY,Technology,AI安全大模型,发布 AI 安全系列智能体,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_fa531c9539a5d79c,Metric,营业外支出_2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_fa757686e2bc17d7,Company,紫光股份,HAS_METRIC,Metric,营业收入,"2025年紫光股份有限公司合并财务报表中营业收入为人民币96,748百万元",annual_000938_2025,2025年年度报告,91,财务报告,1,1.00,auto
+relation_fa8d08092780e7d7,Workload,训推一体,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_fab442fcb01730bb,Metric,前五名客户销售额中关联方销售额占年度销售总额比例,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,23,公司主要销售客户情况,1,1.00,auto
+relation_fae6b7241f99061a,Workload,通用计算,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,25,费用,1,1.00,auto
+relation_faee2d0433b4984f,DemandDriver,技术研发需求,DRIVES,Workload,研发项目,研发项目的立项基础是根据市场的需求与技术研发的需求,annual_000938_2025,2025年年度报告,130,重要会计政策及会计估计（续）,1,0.80,auto
+relation_fb51f273306ec91a,Company,紫光股份,HAS_METRIC,Metric,预测期毛利率,毛利率14.8%-15.7%,annual_000938_2025,2025年年度报告,174,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_fb8b225842d90601,Company,紫光云技术有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,145,税项,1,1.00,auto
+relation_fb9d84ad487a66e0,Product,高密液冷整机柜,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,18,核心竞争力,1,1.00,auto
+relation_fbad615e1c418233,Company,紫光股份,HAS_PRODUCT,Product,计算,持续在网络、安全、计算、存储、云计算、人工智能等重点领域的研发投入，夯实“云—网—安—算—存—端”全栈业务布局,annual_000938_2025,2025年年度报告,24,费用,1,0.90,auto
+relation_fbe9c0575820ed99,Company,新华三集团有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,69,√适用 □不适用,1,1.00,auto
+relation_fc0bd11d203f0976,Metric,归母净利润同比增长率,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,39,市值管理制度和估值提升计划的制定落实情况,1,1.00,auto
+relation_fc5b0d124401b533,Product,CAS虚拟化产品,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_fc62740a7d652f43,Product,智算中心,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,14,优质的客户资源和丰富的数字化转型实践经验,1,1.00,auto
+relation_fc6ddbb9dddcdf68,Company,紫光股份,HAS_METRIC,Metric,所得税费用_2025,"2025年所得税费用203,462,452.14元",annual_000938_2025,2025年年度报告,195,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_fc84d3828506382c,Workload,AI模型与数据安全,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_fc8801a8a61a4c53,Company,新华三集团有限公司,HAS_PRODUCT,Product,存储产品,被投资企业的主营业务：网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,69,√适用 □不适用,1,1.00,auto
+relation_fca7e6da52231b83,Metric,研发人员数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_fcc63f184d9796c5,Metric,合并抵消成本2024,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_fcd8112caeb67786,Metric,筹资活动现金流出小计,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_fce61c0626b2322a,Company,紫光股份,USES_TECHNOLOGY,Technology,大数据,面对以人工智能、云计算、大数据等为代表的新一代数字技术融合趋势,annual_000938_2025,2025年年度报告,24,费用,1,0.90,auto
+relation_fcee28c0d6ebf3c4,Metric,国内营业收入,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,公司实物销售收入是否大于劳务收入,1,1.00,auto
+relation_fcf69372fc7a418b,Metric,支付重要的投资活动有关的现金_2025,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,197,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_fd236fc98d5ea4c2,IndustryConcept,AI 算力,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,27,公司研发投入情况,1,1.00,auto
+relation_fd349637bfacf267,Company,紫光股份,HAS_METRIC,Metric,产品质量保证预计负债,"一年以上的产品质量保证301,254,262.45",annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_fd42c10f930d20eb,Metric,存货账面余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_fd6affcaf083d1d3,Metric,基本每股收益,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_fda790b6438d7f37,Metric,ICT基础设施与服务收入占比,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,20,单位：元,1,1.00,auto
+relation_fdb33a208c831fa9,Company,紫光股份,HAS_METRIC,Metric,经营活动现金流入小计_2024,"表格中经营活动现金流入小计2024年110,664,401,923.54元",annual_000938_2025,2025年年度报告,28,单位：元,1,1.00,auto
+relation_fdc0824cdc649d5e,Company,紫光股份,HAS_METRIC,Metric,剩余履约义务收入金额,于2025年12月31日，已签订合同、但尚未履行或尚未履行完毕的履约义务所对应的收入金额为人民币314.10亿元,annual_000938_2025,2025年年度报告,189,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_fdc3977a29aae5dc,Metric,管理及其他人员数量,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,49,公司利润分配及资本公积金转增股本情况,1,1.00,auto
+relation_fde89b9df644f5ad,Metric,总资产,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,9,□是 √否,1,1.00,auto
+relation_fdf39d2de468da7d,Metric,存货跌价准备本年计提,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,160,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_fe15a4009737e2b7,Product,DDC架构新一代无损网络解决方案,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,17,力利用率，关键部件实现液冷散热，为万亿参数模型训练提供强大支持，兼具高效与绿色特性。,1,1.00,auto
+relation_fe39ec63a7faae33,Company,紫光股份,HAS_PRODUCT,Product,网络产品,新华三集团主要业务包括网络产品、服务器、存储产品、安全产品、云计算产品、互联网信息技术产品的研发、生产、销售等,annual_000938_2025,2025年年度报告,34,公司控制的结构化主体情况,1,0.90,auto
+relation_ff0fb9043be6bc17,Company,紫光股份,HAS_METRIC,Metric,财务费用_2024,"表格：2024年财务费用954,291,984.62元",annual_000938_2025,2025年年度报告,24,单位：元,1,1.00,auto
+relation_ff656b4c15d3bdc9,Company,紫光股份,HAS_METRIC,Metric,净利润,"2025年净利润2,171,084,501.45元",annual_000938_2025,2025年年度报告,199,合并财务报表主要项目注释（续）,1,1.00,auto
+relation_ff8a0c6bf423630e,Company,无锡颖创材料科技有限公司,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,34,√适用 □不适用,1,1.00,auto
+relation_ff956e5baa71a2f2,Company,新华三信息安全技术有限公司,SUPPORTED_BY_POLICY,Policy,财政部 税务总局公告2023年第12号,新华三信息安全技术有限公司15%高新技术企业,annual_000938_2025,2025年年度报告,145,税项,1,0.90,auto
+relation_ffa4b148673f997d,Metric,其他业务成本占比,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,21,单位：元,1,1.00,auto
+relation_ffc3a967c49fab9a,Product,数据中心控制器7.4版本,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,26,费用,1,1.00,auto
+relation_ffed7c1ce3fd60b4,Product,数据备份与保护,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,12,管理层讨论与分析,1,1.00,auto
+relation_fff5a76e2ea5944f,Metric,产品质量保证年末余额,MENTIONED_IN,Report,annual_000938_2025,实体在报告《2025年年度报告》中被抽取。,annual_000938_2025,2025年年度报告,185,合并财务报表主要项目注释（续）,1,1.00,auto

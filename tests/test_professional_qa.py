@@ -1,0 +1,523 @@
+import csv
+from pathlib import Path
+
+from aika.curated_graph import build_curated_graph
+from aika.frontend_data import LocalKnowledgeGraph
+from aika.llm_client import ChatStreamChunk, ChatTextResult
+from aika.qa_engine import QAEngine
+from aika.question_planner import heuristic_plan_question
+from aika.research_claims import ResearchMemory
+
+
+ENTITY_FIELDS = [
+    "entity_id",
+    "type",
+    "name",
+    "normalized_name",
+    "properties",
+    "source_report_ids",
+    "review_status",
+    "is_core_company",
+]
+
+RELATION_FIELDS = [
+    "relation_id",
+    "head_type",
+    "head_name",
+    "relation",
+    "tail_type",
+    "tail_name",
+    "evidence",
+    "source_report_id",
+    "source_title",
+    "page",
+    "section",
+    "source_tier",
+    "confidence",
+    "review_status",
+]
+
+
+def write_csv(path: Path, fields: list[str], rows: list[dict[str, str]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(file, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def research_claim(
+    claim_id: str,
+    *,
+    topic: str,
+    claim_type: str,
+    claim_text: str,
+    companies: list[str] | None = None,
+    exposure_level: str = "",
+) -> dict[str, object]:
+    return {
+        "claim_id": claim_id,
+        "claim_type": claim_type,
+        "topic": topic,
+        "claim_text": claim_text,
+        "companies": companies or [],
+        "mechanism": "",
+        "direction": "neutral",
+        "horizon": "",
+        "metric": "",
+        "value": "",
+        "unit": "",
+        "source_report_id": "report_1",
+        "source_title": "测试报告",
+        "page": "1",
+        "section": "正文",
+        "source_tier": "1",
+        "evidence_span": claim_text,
+        "confidence": "0.9",
+        "as_of_date": "2026",
+        "exposure_level": exposure_level,
+    }
+
+
+def test_curated_graph_filters_noncore_companies_definition_noise_and_low_value_metrics(tmp_path: Path) -> None:
+    entities = tmp_path / "entities.csv"
+    relations = tmp_path / "relations.csv"
+    output = tmp_path / "curated"
+    write_csv(
+        entities,
+        ENTITY_FIELDS,
+        [
+            {"entity_id": "c1", "type": "Company", "name": "浪潮信息", "normalized_name": "浪潮信息", "properties": "{}", "source_report_ids": "[]", "review_status": "auto", "is_core_company": "true"},
+            {"entity_id": "c2", "type": "Company", "name": "Amazon", "normalized_name": "amazon", "properties": "{}", "source_report_ids": "[]", "review_status": "auto", "is_core_company": "false"},
+            {"entity_id": "t1", "type": "Technology", "name": "AI服务器", "normalized_name": "ai服务器", "properties": "{}", "source_report_ids": "[]", "review_status": "auto", "is_core_company": ""},
+            {"entity_id": "m1", "type": "Metric", "name": "交易性金融资产期初余额", "normalized_name": "交易性金融资产期初余额", "properties": "{}", "source_report_ids": "[]", "review_status": "auto", "is_core_company": ""},
+            {"entity_id": "r1", "type": "Report", "name": "报告", "normalized_name": "report_1", "properties": "{}", "source_report_ids": "[]", "review_status": "auto", "is_core_company": ""},
+        ],
+    )
+    write_csv(
+        relations,
+        RELATION_FIELDS,
+        [
+            {"relation_id": "r1", "head_type": "Company", "head_name": "浪潮信息", "relation": "USES_TECHNOLOGY", "tail_type": "Technology", "tail_name": "AI服务器", "evidence": "公司布局AI服务器和算力基础设施。", "source_report_id": "report_1", "source_title": "报告", "page": "20", "section": "主营业务", "source_tier": "1", "confidence": "0.9", "review_status": "auto"},
+            {"relation_id": "r2", "head_type": "Company", "head_name": "Amazon", "relation": "USES_TECHNOLOGY", "tail_type": "Technology", "tail_name": "AI服务器", "evidence": "Amazon采购AI服务器。", "source_report_id": "report_1", "source_title": "报告", "page": "20", "section": "主营业务", "source_tier": "2", "confidence": "0.9", "review_status": "auto"},
+            {"relation_id": "r3", "head_type": "Company", "head_name": "浪潮信息", "relation": "USES_TECHNOLOGY", "tail_type": "Technology", "tail_name": "液冷", "evidence": "液冷 指 一种散热技术。", "source_report_id": "report_1", "source_title": "报告", "page": "5", "section": "释义", "source_tier": "1", "confidence": "0.9", "review_status": "auto"},
+            {"relation_id": "r4", "head_type": "Company", "head_name": "浪潮信息", "relation": "HAS_METRIC", "tail_type": "Metric", "tail_name": "交易性金融资产期初余额", "evidence": "交易性金融资产期初余额 1000万元。", "source_report_id": "report_1", "source_title": "报告", "page": "90", "section": "财务报告", "source_tier": "1", "confidence": "1.0", "review_status": "auto"},
+        ],
+    )
+
+    _, curated_relations = build_curated_graph(entities_csv=entities, relations_csv=relations, output_dir=output)
+
+    assert [row["relation_id"] for row in curated_relations] == ["r1"]
+
+
+def test_question_planner_identifies_professional_intents() -> None:
+    compare = heuristic_plan_question("中际旭创和新易盛在光模块业务上的差异是什么？")
+    bottleneck = heuristic_plan_question("AI算力产业链当前最大的瓶颈是什么？")
+    risks = heuristic_plan_question("英维克液冷业务进展和主要风险是什么？")
+
+    assert compare.answer_type == "company_compare"
+    assert compare.companies == ["中际旭创", "新易盛"]
+    assert "光模块" in compare.topics
+    assert bottleneck.answer_type == "industry_bottleneck"
+    assert risks.answer_type == "risk_analysis"
+    assert risks.companies == ["英维克"]
+
+
+def test_csv_backend_filters_noncore_company_answers() -> None:
+    graph = LocalKnowledgeGraph(
+        entities=[],
+        relations=[
+            {"head_type": "Company", "head_name": "浪潮信息", "relation": "HAS_PRODUCT", "tail_type": "Product", "tail_name": "AI服务器", "evidence": "浪潮信息布局AI服务器。", "source_title": "报告", "page": "1", "source_tier": "1", "section": "主营业务"},
+            {"head_type": "Company", "head_name": "Amazon", "relation": "HAS_PRODUCT", "tail_type": "Product", "tail_name": "AI服务器", "evidence": "Amazon涉及AI服务器。", "source_title": "报告", "page": "1", "source_tier": "2", "section": "主营业务"},
+        ],
+    )
+    engine = QAEngine(csv_graph=graph, rag_index=None, llm_client=None)
+
+    result = engine.answer_question("哪些上市公司涉及AI服务器？")
+
+    assert "浪潮信息" in result["answer"]
+    assert "Amazon" not in result["answer"]
+    assert result["answer_type"] == "topic_to_company"
+    assert result["evidence_cards"]
+
+
+def test_company_compare_fallback_covers_both_companies() -> None:
+    graph = LocalKnowledgeGraph(
+        entities=[],
+        relations=[
+            {"head_type": "Company", "head_name": "中际旭创", "relation": "HAS_PRODUCT", "tail_type": "Product", "tail_name": "800G光模块", "evidence": "中际旭创800G等高端产品取得订单和市场份额。", "source_title": "研报", "page": "39", "source_tier": "2", "section": "光模块"},
+            {"head_type": "Company", "head_name": "新易盛", "relation": "HAS_PRODUCT", "tail_type": "Product", "tail_name": "高速光模块", "evidence": "新易盛从高速率光模块研制等方面进行研究开发。", "source_title": "年报", "page": "48", "source_tier": "1", "section": "光模块"},
+        ],
+    )
+    engine = QAEngine(csv_graph=graph, rag_index=None, llm_client=None)
+
+    result = engine.answer_question("中际旭创和新易盛在光模块业务上的差异是什么？")
+
+    assert "中际旭创" in result["answer"]
+    assert "新易盛" in result["answer"]
+    assert result["answer_type"] == "company_compare"
+
+
+def test_research_only_evidence_builds_answer_subgraph() -> None:
+    memory = ResearchMemory(
+        [
+            research_claim(
+                "c1",
+                topic="算力网络",
+                claim_type="mechanism",
+                claim_text="Ultra Ethernet 通过拥塞控制和传输优化支撑 AI 集群横向扩展。",
+            )
+        ],
+        [],
+    )
+    engine = QAEngine(research_memory=memory, csv_graph=None, rag_index=None, llm_client=None)
+
+    result = engine.answer_question("Ultra Ethernet 对算力网络有什么意义？")
+
+    assert result["evidence_cards"][0]["citation_id"] == "E1"
+    assert result["subgraph"]
+    assert any(edge["source_kind"] == "claim" for edge in result["subgraph"])
+
+
+def test_company_compare_evidence_excludes_unasked_companies() -> None:
+    memory = ResearchMemory(
+        [
+            research_claim(
+                "c1",
+                topic="光模块",
+                claim_type="company_exposure",
+                claim_text="中际旭创 对 光模块 的公司敞口为 core：拥有 1.6T 光模块。",
+                companies=["中际旭创"],
+                exposure_level="core",
+            ),
+            research_claim(
+                "c2",
+                topic="光模块",
+                claim_type="company_exposure",
+                claim_text="新易盛 对 光模块 的公司敞口为 core：拥有 800G 光模块。",
+                companies=["新易盛"],
+                exposure_level="core",
+            ),
+            research_claim(
+                "c3",
+                topic="光模块",
+                claim_type="company_exposure",
+                claim_text="华工科技 对 光模块 的公司敞口为 core：拥有硅光方案。",
+                companies=["华工科技"],
+                exposure_level="core",
+            ),
+        ],
+        [],
+    )
+    engine = QAEngine(research_memory=memory, csv_graph=None, rag_index=None, llm_client=None)
+
+    result = engine.answer_question("中际旭创和新易盛在光模块业务上的差异是什么？")
+    companies = {card.get("company") for card in result["evidence_cards"] if card.get("company")}
+
+    assert companies <= {"中际旭创", "新易盛"}
+    assert "华工科技" not in result["answer"]
+
+
+def test_topic_company_keeps_mixed_research_evidence_types() -> None:
+    memory = ResearchMemory(
+        [
+            research_claim(
+                "c1",
+                topic="AI服务器",
+                claim_type="company_exposure",
+                claim_text="浪潮信息 对 AI服务器 的公司敞口为 core：拥有 AI 服务器产品。",
+                companies=["浪潮信息"],
+                exposure_level="core",
+            ),
+            research_claim(
+                "c2",
+                topic="AI服务器",
+                claim_type="mechanism",
+                claim_text="AI服务器 机理/传导：训练和推理需求提升服务器功率密度。",
+            ),
+            research_claim(
+                "c3",
+                topic="AI服务器",
+                claim_type="indicator",
+                claim_text="AI服务器 的可跟踪指标：机柜功率密度和交付能力。",
+            ),
+            research_claim(
+                "c4",
+                topic="AI服务器",
+                claim_type="risk",
+                claim_text="AI服务器 相关业务中的风险：供给约束和需求不及预期。",
+            ),
+        ],
+        [],
+    )
+    engine = QAEngine(research_memory=memory, csv_graph=None, rag_index=None, llm_client=None)
+
+    result = engine.answer_question("AI服务器产业链有哪些上市公司？")
+    claim_types = {card.get("claim_type") for card in result["evidence_cards"]}
+
+    assert {"company_exposure", "mechanism", "indicator", "risk"} <= claim_types
+
+
+def test_broad_bottleneck_question_limits_research_topics() -> None:
+    memory = ResearchMemory(
+        [
+            research_claim(f"c{index}", topic=topic, claim_type="bottleneck", claim_text=f"{topic} 的瓶颈是供给和交付约束。")
+            for index, topic in enumerate(["AI芯片", "算力网络", "液冷", "光模块", "数据中心"], start=1)
+        ],
+        [],
+    )
+    engine = QAEngine(research_memory=memory, csv_graph=None, rag_index=None, llm_client=None)
+
+    result = engine.answer_question("AI算力产业链当前最大的瓶颈是什么？")
+    topics = {card.get("topic") for card in result["evidence_cards"] if card.get("topic")}
+
+    assert len(topics) <= 3
+    assert len(result["answer"]) < 2500
+
+
+def test_followup_question_uses_conversation_history() -> None:
+    graph = LocalKnowledgeGraph(
+        entities=[],
+        relations=[
+            {"head_type": "Company", "head_name": "中际旭创", "relation": "DISCLOSES_RISK", "tail_type": "Risk", "tail_name": "客户需求波动", "evidence": "中际旭创披露客户需求和产品价格波动风险。", "source_title": "年报", "page": "88", "source_tier": "1", "section": "风险因素"},
+            {"head_type": "Company", "head_name": "新易盛", "relation": "DISCLOSES_RISK", "tail_type": "Risk", "tail_name": "海外市场波动", "evidence": "新易盛披露海外市场、汇率及客户需求变化风险。", "source_title": "年报", "page": "92", "source_tier": "1", "section": "风险因素"},
+        ],
+    )
+    engine = QAEngine(csv_graph=graph, rag_index=None, llm_client=None)
+
+    result = engine.answer_question(
+        "继续说它们的主要风险",
+        conversation_history=[
+            {"role": "user", "content": "中际旭创和新易盛在光模块业务上的差异是什么？"},
+            {"role": "assistant", "content": "两家公司都涉及光模块业务。"},
+        ],
+    )
+
+    assert result["diagnostics"]["contextualized"] is True
+    assert "中际旭创" in result["contextual_question"]
+    assert "新易盛" in result["contextual_question"]
+    assert result["answer_type"] == "risk_analysis"
+    assert "客户需求波动" in result["answer"]
+    assert "海外市场波动" in result["answer"]
+
+
+class RecordingLLMClient:
+    def chat_messages(self, *, messages: list[dict[str, str]], temperature: float = 0.2, **kwargs: object) -> ChatTextResult:
+        del temperature, kwargs
+        system_prompt = messages[0]["content"]
+        if "追问改写器" in system_prompt:
+            return ChatTextResult(content="中际旭创和新易盛 继续说它们的主要风险")
+        return ChatTextResult(content="基于证据回答。")
+
+    def chat_text(self, *, system_prompt: str, user_prompt: str, temperature: float = 0.2, **kwargs: object) -> str:
+        del system_prompt, user_prompt, temperature, kwargs
+        return "基于证据回答。"
+
+
+class StreamingLLMClient(RecordingLLMClient):
+    def stream_chat_messages(self, *, messages: list[dict[str, str]], temperature: float = 0.2, **kwargs: object):
+        del messages, temperature, kwargs
+        yield ChatStreamChunk(content="结论：")
+        yield ChatStreamChunk(content="浪潮信息涉及 AI 服务器。")
+
+
+class HistoryCompressionLLMClient:
+    def __init__(self, *, fail_compression: bool = False) -> None:
+        self.fail_compression = fail_compression
+        self.calls: list[list[dict[str, str]]] = []
+
+    def chat_messages(
+        self,
+        *,
+        messages: list[dict[str, str]],
+        temperature: float = 0.2,
+        **kwargs: object,
+    ) -> ChatTextResult:
+        del temperature, kwargs
+        self.calls.append(messages)
+        system_prompt = messages[0]["content"]
+        if "上下文压缩器" in system_prompt:
+            if self.fail_compression:
+                raise RuntimeError("compression unavailable")
+            return ChatTextResult(content="用户早期关注中际旭创与新易盛的光模块业务差异。")
+        return ChatTextResult(content="基于证据回答。")
+
+    def chat_text(
+        self,
+        *,
+        system_prompt: str,
+        user_prompt: str,
+        temperature: float = 0.2,
+        **kwargs: object,
+    ) -> str:
+        del system_prompt, user_prompt, temperature, kwargs
+        return "基于证据回答。"
+
+
+def test_llm_compresses_older_history_and_keeps_recent_turns() -> None:
+    graph = LocalKnowledgeGraph(
+        entities=[],
+        relations=[
+            {
+                "head_type": "Company",
+                "head_name": "浪潮信息",
+                "relation": "HAS_PRODUCT",
+                "tail_type": "Product",
+                "tail_name": "AI服务器",
+                "evidence": "浪潮信息布局AI服务器。",
+                "source_title": "报告",
+                "page": "1",
+                "source_tier": "1",
+                "section": "主营业务",
+            }
+        ],
+    )
+    client = HistoryCompressionLLMClient()
+    engine = QAEngine(
+        csv_graph=graph,
+        rag_index=None,
+        llm_client=client,
+        enable_agent=False,
+        history_max_turns=1,
+        history_max_chars=1000,
+        history_summary_max_chars=300,
+    )
+    history = [
+        {"role": "user", "content": "中际旭创和新易盛在光模块业务上的差异是什么？"},
+        {"role": "assistant", "content": "两家公司都涉及高速光模块。"},
+        {"role": "user", "content": "液冷产业链有哪些公司？"},
+        {"role": "assistant", "content": "英维克等公司有直接敞口。"},
+    ]
+
+    result = engine.answer_question("哪些上市公司涉及AI服务器？", conversation_history=history)
+
+    diagnostics = result["diagnostics"]
+    assert diagnostics["history_strategy"] == "llm_compression"
+    assert diagnostics["history_compressed"] is True
+    assert diagnostics["history_source_messages"] == 4
+    assert diagnostics["history_summarized_messages"] == 2
+    compression_call = next(call for call in client.calls if "上下文压缩器" in call[0]["content"])
+    assert "中际旭创" in compression_call[1]["content"]
+    answer_call = client.calls[-1]
+    assert "历史对话压缩摘要" in answer_call[1]["content"]
+    assert answer_call[2:4] == history[-2:]
+    assert answer_call[-1]["role"] == "user"
+    assert all("两家公司都涉及高速光模块" not in message["content"] for message in answer_call[1:])
+
+
+def test_history_compression_failure_falls_back_to_recent_window() -> None:
+    client = HistoryCompressionLLMClient(fail_compression=True)
+    engine = QAEngine(
+        csv_graph=None,
+        rag_index=None,
+        llm_client=client,
+        history_max_turns=1,
+        history_max_chars=1000,
+    )
+    source = [
+        {"role": "user", "content": "第一问"},
+        {"role": "assistant", "content": "第一答"},
+        {"role": "user", "content": "第二问"},
+        {"role": "assistant", "content": "第二答"},
+    ]
+    errors: list[str] = []
+
+    history, metadata = engine._prepare_conversation_history(
+        source,
+        errors=errors,
+        llm_options={},
+        llm_client=client,
+    )
+
+    assert history == source[-2:]
+    assert metadata["history_strategy"] == "recent_window"
+    assert metadata["history_compressed"] is False
+    assert errors == ["Conversation history compression failed: compression unavailable"]
+
+
+def test_centralized_agent_stays_within_llm_budget_on_first_turn() -> None:
+    graph = LocalKnowledgeGraph(
+        entities=[],
+        relations=[
+            {"head_type": "Company", "head_name": "浪潮信息", "relation": "HAS_PRODUCT", "tail_type": "Product", "tail_name": "AI服务器", "evidence": "浪潮信息布局AI服务器。", "source_title": "报告", "page": "1", "source_tier": "1", "section": "主营业务"},
+        ],
+    )
+    engine = QAEngine(csv_graph=graph, rag_index=None, llm_client=RecordingLLMClient())
+
+    result = engine.answer_question("哪些上市公司涉及AI服务器？")
+
+    assert result["diagnostics"]["llm_calls"]["total"] <= 12
+    assert result["diagnostics"]["multi_agent"]["llm"]["calls_by_role"]["supervisor"] == 1
+    assert result["diagnostics"]["planner_source"] == "heuristic"
+    assert result["cypher_source"] == "question_plan_csv"
+    assert "timings_ms" in result["diagnostics"]
+
+
+def test_independent_multiturn_question_skips_contextualizer_llm() -> None:
+    graph = LocalKnowledgeGraph(
+        entities=[],
+        relations=[
+            {"head_type": "Company", "head_name": "浪潮信息", "relation": "HAS_PRODUCT", "tail_type": "Product", "tail_name": "AI服务器", "evidence": "浪潮信息布局AI服务器。", "source_title": "报告", "page": "1", "source_tier": "1", "section": "主营业务"},
+        ],
+    )
+    engine = QAEngine(csv_graph=graph, rag_index=None, llm_client=RecordingLLMClient())
+
+    result = engine.answer_question(
+        "哪些上市公司涉及AI服务器？",
+        conversation_history=[
+            {"role": "user", "content": "中际旭创和新易盛在光模块业务上的差异是什么？"},
+            {"role": "assistant", "content": "两家公司都涉及光模块业务。"},
+        ],
+    )
+
+    assert result["diagnostics"]["contextualized"] is False
+    assert result["diagnostics"]["llm_calls"]["total"] <= 12
+    assert "contextualize_question" not in result["diagnostics"]["llm_calls"]
+
+
+def test_followup_question_uses_contextualizer_llm_when_needed() -> None:
+    graph = LocalKnowledgeGraph(
+        entities=[],
+        relations=[
+            {"head_type": "Company", "head_name": "中际旭创", "relation": "DISCLOSES_RISK", "tail_type": "Risk", "tail_name": "客户需求波动", "evidence": "中际旭创披露客户需求和产品价格波动风险。", "source_title": "年报", "page": "88", "source_tier": "1", "section": "风险因素"},
+            {"head_type": "Company", "head_name": "新易盛", "relation": "DISCLOSES_RISK", "tail_type": "Risk", "tail_name": "海外市场波动", "evidence": "新易盛披露海外市场、汇率及客户需求变化风险。", "source_title": "年报", "page": "92", "source_tier": "1", "section": "风险因素"},
+        ],
+    )
+    engine = QAEngine(csv_graph=graph, rag_index=None, llm_client=RecordingLLMClient())
+
+    result = engine.answer_question(
+        "继续说它们的主要风险",
+        conversation_history=[
+            {"role": "user", "content": "中际旭创和新易盛在光模块业务上的差异是什么？"},
+            {"role": "assistant", "content": "两家公司都涉及光模块业务。"},
+        ],
+    )
+
+    assert result["diagnostics"]["contextualized"] is True
+    assert result["diagnostics"]["llm_calls"]["total"] <= 12
+    assert result["diagnostics"]["llm_calls"]["chat_messages"] >= 1
+    assert result["answer_type"] == "risk_analysis"
+
+
+def test_answer_question_stream_emits_progress_deltas_and_final_result() -> None:
+    graph = LocalKnowledgeGraph(
+        entities=[],
+        relations=[
+            {"head_type": "Company", "head_name": "浪潮信息", "relation": "HAS_PRODUCT", "tail_type": "Product", "tail_name": "AI服务器", "evidence": "浪潮信息布局AI服务器。", "source_title": "报告", "page": "1", "source_tier": "1", "section": "主营业务"},
+        ],
+    )
+    engine = QAEngine(csv_graph=graph, rag_index=None, llm_client=StreamingLLMClient())
+
+    events = list(engine.answer_question_stream("哪些上市公司涉及AI服务器？", thinking_enabled=True, reasoning_effort="low"))
+
+    assert any(event.get("type") == "progress" for event in events)
+    assert [event.get("content") for event in events if event.get("type") == "answer_delta"] == [
+        "结论：",
+        "浪潮信息涉及 AI 服务器。",
+    ]
+    final = events[-1]
+    assert final["type"] == "final"
+    assert final["result"]["answer"] == "结论：浪潮信息涉及 AI 服务器。"
+    assert final["result"]["diagnostics"]["agent_runner"] == "langgraph"
+    assert final["result"]["diagnostics"]["langgraph_enabled"] is True
+    assert final["result"]["diagnostics"]["llm_calls"]["stream_chat_messages"] == 1

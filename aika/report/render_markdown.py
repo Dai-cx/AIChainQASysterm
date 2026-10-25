@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten as _short_text
+
 from typing import Any
 
 from aika.report.spec import ReportSpec
@@ -190,10 +192,3 @@ def _ensure_spec(spec: ReportSpec | dict[str, Any]) -> ReportSpec:
 def _cell(value: Any) -> str:
     text = str(value or "当前证据不足").replace("|", "\\|")
     return text
-
-
-def _short_text(value: Any, limit: int) -> str:
-    text = " ".join(str(value or "").split())
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 3, 0)] + "..."

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten as short_text
+
 import hashlib
 import re
 from collections import defaultdict
@@ -591,13 +593,6 @@ def normalize_for_support(value: str) -> str:
     text = str(value or "").casefold()
     text = text.replace("，", ",")
     return re.sub(r"\s+", "", text)
-
-
-def short_text(value: str, limit: int) -> str:
-    text = re.sub(r"\s+", " ", str(value or "")).strip()
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 3, 0)] + "..."
 
 
 def dedupe_cards(cards: list[Any]) -> list[Any]:

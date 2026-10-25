@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten
+
 import json
 import re
 import uuid
@@ -46,13 +48,10 @@ class ConversationSummary:
 
 def now_iso() -> str:
     return datetime.now().isoformat(timespec="seconds")
-
-
 def short_text(value: str, limit: int = 42) -> str:
-    text = " ".join(str(value or "").split())
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 1, 0)] + "..."
+    """Collapse whitespace and cut to ``limit`` characters (legacy reserve of 1)."""
+    return shorten(value, limit, reserve=1)
+
 
 
 def conversation_messages_from_turns(turns: list[dict[str, Any]]) -> list[dict[str, str]]:

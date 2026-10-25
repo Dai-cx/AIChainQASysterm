@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten as _short_text
+
 import re
 from typing import Any, Iterable
 
@@ -200,13 +202,6 @@ def _qualify(text: str, report_type: str) -> str:
     if report_type == "preliminary_research_brief":
         return f"当前证据初步显示：{text}"
     return text
-
-
-def _short_text(value: Any, limit: int) -> str:
-    text = re.sub(r"\s+", " ", str(value or "")).strip()
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 3, 0)] + "..."
 
 
 def _ratio(value: Any) -> float:

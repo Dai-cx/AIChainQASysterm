@@ -9,6 +9,8 @@ path can improve without requiring a new embedding service.
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten
+
 import csv
 import json
 import re
@@ -1544,13 +1546,6 @@ def claim_title(claim: dict[str, Any]) -> str:
     if company:
         return f"{company} {topic} {claim_type}".strip()
     return f"{topic} {claim_type}".strip()
-
-
-def shorten(text: str, limit: int) -> str:
-    value = re.sub(r"\s+", " ", str(text or "")).strip()
-    if len(value) <= limit:
-        return value
-    return value[: max(limit - 3, 0)] + "..."
 
 
 def safe_float(value: Any, default: float) -> float:

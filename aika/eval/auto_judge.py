@@ -6,6 +6,8 @@ dataset has not yet labelled, using batch LLM calls grouped by case.
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten as _short_text
+
 import json
 import time
 from dataclasses import asdict, dataclass, field
@@ -73,12 +75,6 @@ class AutoJudgment:
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
-
-def _short_text(value: str, limit: int) -> str:
-    text = " ".join(str(value or "").split())
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 1, 0)] + "..."
 
 
 def _safe_float(value: Any, default: float = 0.0) -> float:

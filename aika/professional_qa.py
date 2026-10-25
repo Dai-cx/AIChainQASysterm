@@ -19,6 +19,7 @@ from aika.domain_lexicon import (
     text_matches_terms,
 )
 from aika.aika_core.models import EvidenceCard
+from aika.aika_core.text import shorten
 from aika.frontend_data import LocalKnowledgeGraph, RELATION_LABELS
 from aika.question_planner import QuestionPlan
 from aika.rag_index import RagHit
@@ -588,11 +589,11 @@ def fallback_research_answer(plan: QuestionPlan, research_cards: list[EvidenceCa
     primary_cards = focused_claims or research_cards
     core_judgment = ""
     if focused_claims:
-        core_judgment = with_citation(shorten_inline(focused_claims[0].evidence, 220), focused_claims[0])
+        core_judgment = with_citation(shorten(focused_claims[0].evidence, 220), focused_claims[0])
     if not core_judgment:
         dossier_card = next((card for card in research_cards if card.kind == "dossier"), None)
         if dossier_card:
-            core_judgment = with_citation(shorten_inline(dossier_card.evidence.splitlines()[0], 220), dossier_card)
+            core_judgment = with_citation(shorten(dossier_card.evidence.splitlines()[0], 220), dossier_card)
     if not core_judgment:
         core_judgment = f"{topic} 的判断需要同时看技术瓶颈、产业传导、公司直接敞口和可验证指标。"
     technical = format_claims_by_type(primary_cards, {"mechanism", "supply_chain", "bottleneck", "trend"}, 4)
@@ -620,7 +621,7 @@ def format_claims_by_type(cards: list[EvidenceCard], claim_types: set[str], limi
         if card.kind == "dossier":
             continue
         if card.claim_type in claim_types or (card.kind == "dossier" and not card.claim_type):
-            text = with_citation(shorten_inline(card.evidence, 180), card)
+            text = with_citation(shorten(card.evidence, 180), card)
             if text and text not in values:
                 values.append(text)
         if len(values) >= limit:
@@ -648,7 +649,7 @@ def format_dossier_lines(cards: list[EvidenceCard], labels: tuple[str, ...]) -> 
         for line in card.evidence.splitlines():
             line = line.strip()
             if any(line.startswith(f"{label}：") for label in labels):
-                values.append(with_citation(shorten_inline(line.split("：", 1)[-1], 220), card))
+                values.append(with_citation(shorten(line.split("：", 1)[-1], 220), card))
     return "；".join(values[:4])
 
 
@@ -702,11 +703,6 @@ def format_evidence(cards: list[EvidenceCard], limit: int) -> str:
 def with_citation(text: str, card: EvidenceCard) -> str:
     text = text.strip()
     return f"{text} [{card.citation_id}]" if text and card.citation_id else text
-
-
-def shorten_inline(value: str, limit: int) -> str:
-    text = re.sub(r"\s+", " ", str(value or "")).strip()
-    return text[: limit - 3] + "..." if len(text) > limit else text
 
 
 def pseudo_cypher_for_plan(plan: QuestionPlan, limit: int = 50) -> str:

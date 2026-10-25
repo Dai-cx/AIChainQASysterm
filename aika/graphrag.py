@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten
+
 import re
 from collections import defaultdict
 from dataclasses import asdict, dataclass, field
@@ -569,10 +571,3 @@ def safe_score(value: Any) -> float:
         return float(value)
     except (TypeError, ValueError):
         return 0.0
-
-
-def shorten(value: Any, limit: int) -> str:
-    text = re.sub(r"\s+", " ", str(value or "")).strip()
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 3, 0)] + "..."

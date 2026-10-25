@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten
+
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
 from typing import Any, Literal
@@ -13,13 +15,10 @@ VALID_AGENT_TASK_STATUSES = {"pending", "running", "completed", "failed"}
 
 def now_iso() -> str:
     return datetime.now().isoformat(timespec="seconds")
-
-
 def short_text(value: str, limit: int = 48) -> str:
-    text = " ".join(str(value or "").split())
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 1, 0)] + "..."
+    """Collapse whitespace and cut to ``limit`` characters (legacy reserve of 1)."""
+    return shorten(value, limit, reserve=1)
+
 
 
 @dataclass(frozen=True)

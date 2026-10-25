@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten as short_text
+
 import hashlib
 import subprocess
 import uuid
@@ -463,10 +465,3 @@ def git_commit() -> str:
 
 def new_run_id() -> str:
     return f"rag_eval_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
-
-
-def short_text(value: str, limit: int) -> str:
-    text = " ".join(str(value or "").split())
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 1, 0)] + "..."

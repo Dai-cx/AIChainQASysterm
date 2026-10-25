@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten as _short_text
+
 import csv
 import json
 import os
@@ -1246,13 +1248,6 @@ def _floatish(value: Any) -> float:
         return float(value)
     except (TypeError, ValueError):
         return 0.0
-
-
-def _short_text(value: str, limit: int) -> str:
-    text = " ".join(_text(value).split())
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 3, 0)] + "..."
 
 
 def _limit(value: Any) -> int:

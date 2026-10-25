@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten
+
 import json
 import os
 from collections.abc import Callable, Mapping
@@ -1043,13 +1045,10 @@ def _subject(topic: str, companies: list[str]) -> str:
     if companies:
         return f"{topic} {' '.join(companies)}".strip()
     return topic
-
-
 def _short_text(value: str, limit: int = 160) -> str:
-    text = " ".join(str(value or "").split())
-    if len(text) <= limit:
-        return text
-    return text[: max(0, limit - 1)].rstrip() + "…"
+    """Collapse whitespace and cut for display, using an ellipsis character."""
+    return shorten(value, limit, marker="…", reserve=1, strip_tail=True)
+
 
 
 def _to_dict(value: Any) -> dict[str, Any]:

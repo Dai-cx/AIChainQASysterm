@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten as short_text
+
 import re
 from collections import defaultdict
 from typing import Any, Iterable
@@ -754,13 +756,6 @@ def card_text_attr(card: Any, name: str) -> str:
     if value is None:
         return ""
     return str(value)
-
-
-def short_text(value: str, limit: int) -> str:
-    text = re.sub(r"\s+", " ", str(value or "")).strip()
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 3, 0)] + "..."
 
 
 def normalize_key(value: str) -> str:

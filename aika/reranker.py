@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten
+
 import json
 import os
 import re
@@ -143,13 +145,6 @@ def card_attr(card: Any, name: str) -> str:
     else:
         value = getattr(card, name, "")
     return str(value or "")
-
-
-def shorten(value: str, limit: int) -> str:
-    text = re.sub(r"\s+", " ", str(value or "")).strip()
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 3, 0)] + "..."
 
 
 def extract_ranked_ids(response: Any) -> list[str]:

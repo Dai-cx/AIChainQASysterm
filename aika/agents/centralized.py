@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten
+
 import hashlib
 import json
 import re
@@ -1006,13 +1008,6 @@ def clean_strings(value: Any) -> list[str]:
         if text and text not in output:
             output.append(text)
     return output
-
-
-def shorten(value: str, limit: int) -> str:
-    text = re.sub(r"\s+", " ", str(value or "")).strip()
-    if len(text) <= limit:
-        return text
-    return text[: max(0, limit - 3)] + "..."
 
 
 def result_count(result: Any) -> int:

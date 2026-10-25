@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import shorten as short_text
+
 import hashlib
 import json
 import subprocess
@@ -277,10 +279,3 @@ def git_commit() -> str:
     except OSError:
         return ""
     return completed.stdout.strip() if completed.returncode == 0 else ""
-
-
-def short_text(value: str, limit: int) -> str:
-    text = " ".join(str(value or "").split())
-    if len(text) <= limit:
-        return text
-    return text[: max(limit - 1, 0)] + "..."

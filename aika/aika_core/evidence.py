@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import dedupe_strings as _dedupe
+
 import re
 from collections.abc import Callable, Iterable, Mapping
 from datetime import date, datetime
@@ -374,13 +376,3 @@ def _dict_from_any(value: Any) -> dict[str, Any]:
     if hasattr(value, "to_dict") and callable(value.to_dict):
         return dict(value.to_dict())
     return {}
-
-
-def _dedupe(values: Iterable[str]) -> list[str]:
-    output: list[str] = []
-    seen: set[str] = set()
-    for value in values:
-        if value and value not in seen:
-            seen.add(value)
-            output.append(value)
-    return output

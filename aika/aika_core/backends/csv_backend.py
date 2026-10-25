@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import dedupe_strings as _dedupe
+
+from aika.aika_core.text import shorten as _short_text
+
 import json
 from dataclasses import replace
 from pathlib import Path
@@ -357,17 +361,6 @@ def _values(value: Any) -> list[str]:
     return [str(value).strip()] if str(value).strip() else []
 
 
-def _dedupe(values: Iterable[str]) -> list[str]:
-    output = []
-    seen = set()
-    for value in values:
-        key = str(value).strip()
-        if key and key not in seen:
-            seen.add(key)
-            output.append(key)
-    return output
-
-
 def _dedupe_claims(records: Iterable[ClaimRecord]) -> list[ClaimRecord]:
     output = []
     seen = set()
@@ -392,10 +385,3 @@ def _split_summary(value: str) -> list[str]:
     if not value or value == "当前证据不足":
         return []
     return [item.strip() for item in value.split("；") if item.strip()]
-
-
-def _short_text(value: str, limit: int) -> str:
-    text = " ".join(str(value or "").split())
-    if len(text) <= limit:
-        return text
-    return text[: max(0, limit - 3)] + "..."

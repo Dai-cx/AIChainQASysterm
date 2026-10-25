@@ -1,0 +1,2223 @@
+{
+  "config": {
+    "arms": [
+      "single",
+      "multi_1",
+      "multi_3"
+    ],
+    "questions": 10
+  },
+  "summary": [
+    {
+      "arm": "multi_1",
+      "n": 10,
+      "coverage_rate": 0.5,
+      "verify_pass_rate": 0.0,
+      "verify_warn_rate": 1.0,
+      "mean_cards": 4.3,
+      "mean_citations": 4.3,
+      "mean_answer_chars": 1401.0,
+      "p50_latency_s": 23.49,
+      "mean_latency_s": 24.46,
+      "mean_llm_calls": 10.2,
+      "mean_agents": 4,
+      "mean_rounds": 1.4,
+      "mean_claim_types": 1.2,
+      "mean_sources": 0,
+      "mean_conflict_groups": 2.1,
+      "conflict_questions": 10,
+      "mean_raw_evidence": 31.2
+    },
+    {
+      "arm": "multi_3",
+      "n": 10,
+      "coverage_rate": 0.5,
+      "verify_pass_rate": 0.0,
+      "verify_warn_rate": 1.0,
+      "mean_cards": 4.7,
+      "mean_citations": 4.7,
+      "mean_answer_chars": 1681.0,
+      "p50_latency_s": 25.69,
+      "mean_latency_s": 24.96,
+      "mean_llm_calls": 10.2,
+      "mean_agents": 4,
+      "mean_rounds": 2,
+      "mean_claim_types": 1.3,
+      "mean_sources": 0,
+      "mean_conflict_groups": 2.1,
+      "conflict_questions": 10,
+      "mean_raw_evidence": 31.5
+    },
+    {
+      "arm": "single",
+      "n": 10,
+      "coverage_rate": 0.5,
+      "verify_pass_rate": 0.7,
+      "verify_warn_rate": 0.3,
+      "mean_cards": 6,
+      "mean_citations": 6,
+      "mean_answer_chars": 1372.0,
+      "p50_latency_s": 15.1,
+      "mean_latency_s": 15.57,
+      "mean_llm_calls": 2,
+      "mean_agents": 0,
+      "mean_rounds": 0,
+      "mean_claim_types": 2.8,
+      "mean_sources": 0,
+      "mean_conflict_groups": 0.3,
+      "conflict_questions": 3,
+      "mean_raw_evidence": 33.9
+    }
+  ],
+  "rows": [
+    {
+      "arm": "single",
+      "qid": "profile_liquid",
+      "question": "紫光股份的液冷业务有哪些优势？",
+      "answer_type": "company_profile",
+      "latency_s": 15.03,
+      "llm_calls_total": 2,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 2650,
+      "graph_records": 14,
+      "rag_hits": 0,
+      "research_hits": 12,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 1,
+      "raw_evidence_count": 26,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "indicator",
+          "mechanism"
+        ],
+        "claim_type_count": 3,
+        "source_count": 0,
+        "topic_count": 3,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "claim_9460529a6272c976",
+        "claim_85f1707c36e3e49e",
+        "claim_4b75c92cbc47de78",
+        "claim_f64de6cbd3434dcc",
+        "claim_f9f8740111fa32d6",
+        "claim_db1c3a3524c2cb21"
+      ],
+      "research_ids": [
+        "claim_9460529a6272c976",
+        "claim_85f1707c36e3e49e",
+        "claim_4b75c92cbc47de78",
+        "claim_f64de6cbd3434dcc",
+        "claim_f9f8740111fa32d6",
+        "claim_db1c3a3524c2cb21",
+        "claim_f44beeb8f081cfa9",
+        "claim_c452213166251cce",
+        "claim_67098d22c142c855",
+        "claim_e58cd7cd0c1bcf14",
+        "claim_26b3a0240328a1a7",
+        "claim_1e96b2b1d9e273be"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [],
+        "satisfied": [],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 0,
+      "assignments": [],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": ""
+      },
+      "errors": []
+    },
+    {
+      "arm": "single",
+      "qid": "profile_products",
+      "question": "紫光股份的服务器产品线主要覆盖哪些场景？",
+      "answer_type": "company_profile",
+      "latency_s": 14.38,
+      "llm_calls_total": 2,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 629,
+      "graph_records": 50,
+      "rag_hits": 0,
+      "research_hits": 8,
+      "verify_status": "pass",
+      "verify_failed": [],
+      "verify_gap_count": 0,
+      "conflict_group_count": 0,
+      "raw_evidence_count": 58,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "indicator",
+          "mechanism"
+        ],
+        "claim_type_count": 3,
+        "source_count": 0,
+        "topic_count": 3,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "claim_04bcbea111032a1c",
+        "claim_21aa25f4b47e0029",
+        "claim_55160b947ae8148d",
+        "claim_67098d22c142c855",
+        "claim_f44beeb8f081cfa9",
+        "claim_996a0d9343adf185"
+      ],
+      "research_ids": [
+        "claim_04bcbea111032a1c",
+        "claim_21aa25f4b47e0029",
+        "claim_55160b947ae8148d",
+        "claim_67098d22c142c855",
+        "claim_f44beeb8f081cfa9",
+        "claim_996a0d9343adf185",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [],
+        "satisfied": [],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 0,
+      "assignments": [],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": ""
+      },
+      "errors": []
+    },
+    {
+      "arm": "single",
+      "qid": "risk_main",
+      "question": "紫光股份当前面临的主要风险是什么？",
+      "answer_type": "risk_analysis",
+      "latency_s": 14.49,
+      "llm_calls_total": 2,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 838,
+      "graph_records": 26,
+      "rag_hits": 0,
+      "research_hits": 10,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 1,
+      "raw_evidence_count": 36,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "indicator",
+          "risk"
+        ],
+        "claim_type_count": 3,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_e58cd7cd0c1bcf14",
+        "claim_26b3a0240328a1a7",
+        "claim_bf755ba88fa647bc",
+        "claim_c699492f19b8938a",
+        "claim_879b6991d81d8e27"
+      ],
+      "research_ids": [
+        "claim_bf755ba88fa647bc",
+        "claim_c699492f19b8938a",
+        "claim_879b6991d81d8e27",
+        "claim_e58cd7cd0c1bcf14",
+        "claim_26b3a0240328a1a7",
+        "claim_c452213166251cce",
+        "claim_883aba9c423bdfd8",
+        "claim_1e96b2b1d9e273be",
+        "claim_4c411ca88ebc0343",
+        "claim_a33b1a9dd4409985"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "risk_evidence"
+        ],
+        "satisfied": [
+          "risk_evidence"
+        ],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 0,
+      "assignments": [],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": ""
+      },
+      "errors": []
+    },
+    {
+      "arm": "single",
+      "qid": "risk_liquid",
+      "question": "液冷业务的落地风险有哪些？",
+      "answer_type": "thematic_research",
+      "latency_s": 20.49,
+      "llm_calls_total": 2,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 835,
+      "graph_records": 14,
+      "rag_hits": 0,
+      "research_hits": 9,
+      "verify_status": "pass",
+      "verify_failed": [],
+      "verify_gap_count": 0,
+      "conflict_group_count": 0,
+      "raw_evidence_count": 23,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "indicator",
+          "mechanism"
+        ],
+        "claim_type_count": 3,
+        "source_count": 0,
+        "topic_count": 2,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "",
+        "claim_85f1707c36e3e49e"
+      ],
+      "research_ids": [
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_fec12c43404f8bf4",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 0,
+      "assignments": [],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": ""
+      },
+      "errors": []
+    },
+    {
+      "arm": "single",
+      "qid": "theme_invest",
+      "question": "液冷产业链的投资逻辑和主要风险是什么？",
+      "answer_type": "thematic_research",
+      "latency_s": 15.1,
+      "llm_calls_total": 2,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 2978,
+      "graph_records": 14,
+      "rag_hits": 0,
+      "research_hits": 9,
+      "verify_status": "pass",
+      "verify_failed": [],
+      "verify_gap_count": 0,
+      "conflict_group_count": 0,
+      "raw_evidence_count": 23,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "indicator",
+          "mechanism"
+        ],
+        "claim_type_count": 3,
+        "source_count": 0,
+        "topic_count": 2,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "",
+        "claim_85f1707c36e3e49e"
+      ],
+      "research_ids": [
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_fec12c43404f8bf4",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 0,
+      "assignments": [],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": ""
+      },
+      "errors": []
+    },
+    {
+      "arm": "single",
+      "qid": "theme_evolve",
+      "question": "液冷散热技术从风冷到液冷的演进路径是什么？",
+      "answer_type": "industry_bottleneck",
+      "latency_s": 15.37,
+      "llm_calls_total": 2,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 2667,
+      "graph_records": 13,
+      "rag_hits": 0,
+      "research_hits": 11,
+      "verify_status": "pass",
+      "verify_failed": [],
+      "verify_gap_count": 0,
+      "conflict_group_count": 0,
+      "raw_evidence_count": 24,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "indicator",
+          "mechanism"
+        ],
+        "claim_type_count": 2,
+        "source_count": 0,
+        "topic_count": 3,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "",
+        ""
+      ],
+      "research_ids": [
+        "",
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_fec12c43404f8bf4",
+        "claim_f44beeb8f081cfa9",
+        "claim_21aa25f4b47e0029",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 0,
+      "assignments": [],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": ""
+      },
+      "errors": []
+    },
+    {
+      "arm": "single",
+      "qid": "bottleneck_liquid",
+      "question": "液冷技术规模商用的瓶颈在哪里？",
+      "answer_type": "industry_bottleneck",
+      "latency_s": 17.8,
+      "llm_calls_total": 2,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 775,
+      "graph_records": 13,
+      "rag_hits": 0,
+      "research_hits": 9,
+      "verify_status": "pass",
+      "verify_failed": [],
+      "verify_gap_count": 0,
+      "conflict_group_count": 0,
+      "raw_evidence_count": 22,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "indicator",
+          "mechanism"
+        ],
+        "claim_type_count": 3,
+        "source_count": 0,
+        "topic_count": 2,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "",
+        "claim_85f1707c36e3e49e"
+      ],
+      "research_ids": [
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_fec12c43404f8bf4",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 0,
+      "assignments": [],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": ""
+      },
+      "errors": []
+    },
+    {
+      "arm": "single",
+      "qid": "bottleneck_compute",
+      "question": "算力基础设施目前的供给约束是什么？",
+      "answer_type": "thematic_research",
+      "latency_s": 16.15,
+      "llm_calls_total": 2,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 717,
+      "graph_records": 50,
+      "rag_hits": 0,
+      "research_hits": 6,
+      "verify_status": "pass",
+      "verify_failed": [],
+      "verify_gap_count": 0,
+      "conflict_group_count": 0,
+      "raw_evidence_count": 56,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 3,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "",
+        "",
+        "claim_6ea6c4b4d83035ed",
+        "claim_4b75c92cbc47de78",
+        "claim_21aa25f4b47e0029"
+      ],
+      "research_ids": [
+        "",
+        "",
+        "",
+        "claim_6ea6c4b4d83035ed",
+        "claim_4b75c92cbc47de78",
+        "claim_21aa25f4b47e0029"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 0,
+      "assignments": [],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": ""
+      },
+      "errors": []
+    },
+    {
+      "arm": "single",
+      "qid": "topic_chain",
+      "question": "液冷产业链有哪些关键环节，哪些公司参与？",
+      "answer_type": "topic_to_company",
+      "latency_s": 13.76,
+      "llm_calls_total": 2,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 785,
+      "graph_records": 2,
+      "rag_hits": 0,
+      "research_hits": 9,
+      "verify_status": "pass",
+      "verify_failed": [],
+      "verify_gap_count": 0,
+      "conflict_group_count": 0,
+      "raw_evidence_count": 11,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "indicator",
+          "mechanism"
+        ],
+        "claim_type_count": 3,
+        "source_count": 0,
+        "topic_count": 2,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_fec12c43404f8bf4",
+        "claim_67098d22c142c855",
+        "claim_f44beeb8f081cfa9",
+        ""
+      ],
+      "research_ids": [
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_fec12c43404f8bf4",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "company_exposure"
+        ],
+        "satisfied": [
+          "company_exposure"
+        ],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 0,
+      "assignments": [],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": ""
+      },
+      "errors": []
+    },
+    {
+      "arm": "single",
+      "qid": "metric_ict",
+      "question": "紫光股份 ICT 基础设施业务的收入结构和毛利率如何？",
+      "answer_type": "company_profile",
+      "latency_s": 13.14,
+      "llm_calls_total": 2,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 841,
+      "graph_records": 50,
+      "rag_hits": 0,
+      "research_hits": 10,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 1,
+      "raw_evidence_count": 60,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "indicator",
+          "mechanism",
+          "risk"
+        ],
+        "claim_type_count": 4,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "claim_bf755ba88fa647bc",
+        "claim_c699492f19b8938a",
+        "claim_879b6991d81d8e27",
+        "claim_883aba9c423bdfd8",
+        "claim_c452213166251cce",
+        "claim_e58cd7cd0c1bcf14"
+      ],
+      "research_ids": [
+        "claim_bf755ba88fa647bc",
+        "claim_c699492f19b8938a",
+        "claim_879b6991d81d8e27",
+        "claim_c452213166251cce",
+        "claim_883aba9c423bdfd8",
+        "claim_e58cd7cd0c1bcf14",
+        "claim_26b3a0240328a1a7",
+        "claim_1e96b2b1d9e273be",
+        "claim_4c411ca88ebc0343",
+        "claim_a33b1a9dd4409985"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "metric_evidence"
+        ],
+        "satisfied": [
+          "metric_evidence"
+        ],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 0,
+      "assignments": [],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": ""
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_1",
+      "qid": "profile_liquid",
+      "question": "紫光股份的液冷业务有哪些优势？",
+      "answer_type": "company_profile",
+      "latency_s": 20.99,
+      "llm_calls_total": 9,
+      "cards": 4,
+      "citations": 4,
+      "answer_chars": 2081,
+      "graph_records": 14,
+      "rag_hits": 0,
+      "research_hits": 7,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 1,
+      "raw_evidence_count": 22,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "claim_fec12c43404f8bf4",
+        "",
+        "",
+        ""
+      ],
+      "research_ids": [
+        "claim_85f1707c36e3e49e",
+        "claim_fec12c43404f8bf4",
+        "claim_67098d22c142c855",
+        "claim_f44beeb8f081cfa9",
+        "claim_996a0d9343adf185",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [],
+        "satisfied": [],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_1",
+      "qid": "profile_products",
+      "question": "紫光股份的服务器产品线主要覆盖哪些场景？",
+      "answer_type": "company_profile",
+      "latency_s": 21.37,
+      "llm_calls_total": 9,
+      "cards": 4,
+      "citations": 4,
+      "answer_chars": 2340,
+      "graph_records": 50,
+      "rag_hits": 0,
+      "research_hits": 8,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 1,
+      "raw_evidence_count": 37,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "",
+        "claim_55160b947ae8148d",
+        ""
+      ],
+      "research_ids": [
+        "claim_04bcbea111032a1c",
+        "claim_21aa25f4b47e0029",
+        "claim_55160b947ae8148d",
+        "claim_67098d22c142c855",
+        "claim_f44beeb8f081cfa9",
+        "claim_996a0d9343adf185",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [],
+        "satisfied": [],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_1",
+      "qid": "risk_main",
+      "question": "紫光股份当前面临的主要风险是什么？",
+      "answer_type": "risk_analysis",
+      "latency_s": 21.89,
+      "llm_calls_total": 9,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 708,
+      "graph_records": 26,
+      "rag_hits": 0,
+      "research_hits": 12,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 1,
+      "raw_evidence_count": 39,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "supply_chain"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "research_ids": [
+        "claim_bf755ba88fa647bc",
+        "claim_c699492f19b8938a",
+        "claim_879b6991d81d8e27",
+        "claim_6ea6c4b4d83035ed",
+        "claim_17a82cae48cd84f0",
+        "claim_e58cd7cd0c1bcf14",
+        "claim_26b3a0240328a1a7",
+        "claim_db1c3a3524c2cb21",
+        "claim_f44beeb8f081cfa9",
+        "claim_c452213166251cce",
+        "claim_67098d22c142c855",
+        "claim_1e96b2b1d9e273be"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "risk_evidence"
+        ],
+        "satisfied": [
+          "risk_evidence"
+        ],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_1",
+      "qid": "risk_liquid",
+      "question": "液冷业务的落地风险有哪些？",
+      "answer_type": "thematic_research",
+      "latency_s": 30.45,
+      "llm_calls_total": 12,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 1155,
+      "graph_records": 14,
+      "rag_hits": 0,
+      "research_hits": 11,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 3,
+      "raw_evidence_count": 26,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "supply_chain"
+        ],
+        "claim_type_count": 2,
+        "source_count": 0,
+        "topic_count": 2,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_d43ac4f93bc1463a",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "research_ids": [
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_fec12c43404f8bf4",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4",
+        "claim_04bcbea111032a1c",
+        "claim_d43ac4f93bc1463a"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 2,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag",
+        "rag",
+        "graphrag",
+        "graph",
+        "research"
+      ],
+      "agent_round_coverage": {
+        "missing": [
+          "risk_evidence"
+        ],
+        "stop_reason": "max_retrieval_rounds_reached"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_1",
+      "qid": "theme_invest",
+      "question": "液冷产业链的投资逻辑和主要风险是什么？",
+      "answer_type": "thematic_research",
+      "latency_s": 31.14,
+      "llm_calls_total": 12,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 3287,
+      "graph_records": 14,
+      "rag_hits": 0,
+      "research_hits": 11,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 3,
+      "raw_evidence_count": 26,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "supply_chain"
+        ],
+        "claim_type_count": 2,
+        "source_count": 0,
+        "topic_count": 2,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_d43ac4f93bc1463a",
+        "",
+        "claim_fec12c43404f8bf4",
+        "",
+        ""
+      ],
+      "research_ids": [
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_fec12c43404f8bf4",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4",
+        "claim_04bcbea111032a1c",
+        "claim_d43ac4f93bc1463a"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 2,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag",
+        "graphrag",
+        "rag",
+        "research"
+      ],
+      "agent_round_coverage": {
+        "missing": [
+          "risk_evidence"
+        ],
+        "stop_reason": "max_retrieval_rounds_reached"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_1",
+      "qid": "theme_evolve",
+      "question": "液冷散热技术从风冷到液冷的演进路径是什么？",
+      "answer_type": "industry_bottleneck",
+      "latency_s": 26.43,
+      "llm_calls_total": 12,
+      "cards": 2,
+      "citations": 2,
+      "answer_chars": 479,
+      "graph_records": 13,
+      "rag_hits": 0,
+      "research_hits": 11,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 3,
+      "raw_evidence_count": 25,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_fec12c43404f8bf4"
+      ],
+      "research_ids": [
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_fec12c43404f8bf4",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4",
+        "claim_04bcbea111032a1c",
+        "claim_d43ac4f93bc1463a"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 2,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag",
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_1",
+      "qid": "bottleneck_liquid",
+      "question": "液冷技术规模商用的瓶颈在哪里？",
+      "answer_type": "industry_bottleneck",
+      "latency_s": 23.49,
+      "llm_calls_total": 9,
+      "cards": 4,
+      "citations": 4,
+      "answer_chars": 746,
+      "graph_records": 13,
+      "rag_hits": 0,
+      "research_hits": 11,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 3,
+      "raw_evidence_count": 25,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_d43ac4f93bc1463a",
+        "",
+        "claim_fec12c43404f8bf4"
+      ],
+      "research_ids": [
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_fec12c43404f8bf4",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4",
+        "claim_04bcbea111032a1c",
+        "claim_d43ac4f93bc1463a"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_1",
+      "qid": "bottleneck_compute",
+      "question": "算力基础设施目前的供给约束是什么？",
+      "answer_type": "thematic_research",
+      "latency_s": 24.05,
+      "llm_calls_total": 12,
+      "cards": 4,
+      "citations": 4,
+      "answer_chars": 1927,
+      "graph_records": 50,
+      "rag_hits": 0,
+      "research_hits": 7,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 2,
+      "raw_evidence_count": 36,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [],
+        "claim_type_count": 0,
+        "source_count": 0,
+        "topic_count": 3,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "research_ids": [
+        "",
+        "",
+        "",
+        "claim_6ea6c4b4d83035ed",
+        "claim_4b75c92cbc47de78",
+        "claim_21aa25f4b47e0029",
+        "claim_d43ac4f93bc1463a"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 2,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag",
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [
+          "mechanism_evidence"
+        ],
+        "stop_reason": "max_retrieval_rounds_reached"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_1",
+      "qid": "topic_chain",
+      "question": "液冷产业链有哪些关键环节，哪些公司参与？",
+      "answer_type": "topic_to_company",
+      "latency_s": 21.4,
+      "llm_calls_total": 9,
+      "cards": 3,
+      "citations": 3,
+      "answer_chars": 692,
+      "graph_records": 2,
+      "rag_hits": 0,
+      "research_hits": 11,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 3,
+      "raw_evidence_count": 15,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_d43ac4f93bc1463a",
+        "claim_fec12c43404f8bf4"
+      ],
+      "research_ids": [
+        "claim_04bcbea111032a1c",
+        "claim_d43ac4f93bc1463a",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4",
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_fec12c43404f8bf4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "company_exposure"
+        ],
+        "satisfied": [
+          "company_exposure"
+        ],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "graphrag",
+        "rag",
+        "research"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_1",
+      "qid": "metric_ict",
+      "question": "紫光股份 ICT 基础设施业务的收入结构和毛利率如何？",
+      "answer_type": "company_profile",
+      "latency_s": 23.37,
+      "llm_calls_total": 9,
+      "cards": 4,
+      "citations": 4,
+      "answer_chars": 597,
+      "graph_records": 50,
+      "rag_hits": 0,
+      "research_hits": 10,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 1,
+      "raw_evidence_count": 61,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "indicator"
+        ],
+        "claim_type_count": 2,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "claim_c699492f19b8938a",
+        "claim_bf755ba88fa647bc",
+        "",
+        ""
+      ],
+      "research_ids": [
+        "claim_c699492f19b8938a",
+        "claim_879b6991d81d8e27",
+        "claim_bf755ba88fa647bc",
+        "claim_c452213166251cce",
+        "claim_883aba9c423bdfd8",
+        "claim_e58cd7cd0c1bcf14",
+        "claim_26b3a0240328a1a7",
+        "claim_1e96b2b1d9e273be",
+        "claim_4c411ca88ebc0343",
+        "claim_a33b1a9dd4409985"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "metric_evidence"
+        ],
+        "satisfied": [
+          "metric_evidence"
+        ],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "rag",
+        "graphrag",
+        "research"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_3",
+      "qid": "profile_liquid",
+      "question": "紫光股份的液冷业务有哪些优势？",
+      "answer_type": "company_profile",
+      "latency_s": 21.81,
+      "llm_calls_total": 9,
+      "cards": 3,
+      "citations": 3,
+      "answer_chars": 490,
+      "graph_records": 14,
+      "rag_hits": 0,
+      "research_hits": 7,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 1,
+      "raw_evidence_count": 22,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "",
+        "claim_fec12c43404f8bf4"
+      ],
+      "research_ids": [
+        "claim_85f1707c36e3e49e",
+        "claim_fec12c43404f8bf4",
+        "claim_67098d22c142c855",
+        "claim_f44beeb8f081cfa9",
+        "claim_996a0d9343adf185",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [],
+        "satisfied": [],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_3",
+      "qid": "profile_products",
+      "question": "紫光股份的服务器产品线主要覆盖哪些场景？",
+      "answer_type": "company_profile",
+      "latency_s": 21.29,
+      "llm_calls_total": 9,
+      "cards": 4,
+      "citations": 4,
+      "answer_chars": 555,
+      "graph_records": 50,
+      "rag_hits": 0,
+      "research_hits": 8,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 1,
+      "raw_evidence_count": 37,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "",
+        "claim_55160b947ae8148d",
+        ""
+      ],
+      "research_ids": [
+        "claim_04bcbea111032a1c",
+        "claim_21aa25f4b47e0029",
+        "claim_55160b947ae8148d",
+        "claim_67098d22c142c855",
+        "claim_f44beeb8f081cfa9",
+        "claim_996a0d9343adf185",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [],
+        "satisfied": [],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_3",
+      "qid": "risk_main",
+      "question": "紫光股份当前面临的主要风险是什么？",
+      "answer_type": "risk_analysis",
+      "latency_s": 25.69,
+      "llm_calls_total": 9,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 2157,
+      "graph_records": 26,
+      "rag_hits": 0,
+      "research_hits": 10,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 1,
+      "raw_evidence_count": 37,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [],
+        "claim_type_count": 0,
+        "source_count": 0,
+        "topic_count": 0,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "research_ids": [
+        "claim_bf755ba88fa647bc",
+        "claim_c699492f19b8938a",
+        "claim_879b6991d81d8e27",
+        "claim_e58cd7cd0c1bcf14",
+        "claim_26b3a0240328a1a7",
+        "claim_c452213166251cce",
+        "claim_883aba9c423bdfd8",
+        "claim_1e96b2b1d9e273be",
+        "claim_4c411ca88ebc0343",
+        "claim_a33b1a9dd4409985"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "risk_evidence"
+        ],
+        "satisfied": [
+          "risk_evidence"
+        ],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_3",
+      "qid": "risk_liquid",
+      "question": "液冷业务的落地风险有哪些？",
+      "answer_type": "thematic_research",
+      "latency_s": 30.2,
+      "llm_calls_total": 12,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 2723,
+      "graph_records": 14,
+      "rag_hits": 0,
+      "research_hits": 11,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 3,
+      "raw_evidence_count": 26,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 2,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_d43ac4f93bc1463a",
+        "",
+        "claim_fec12c43404f8bf4",
+        "",
+        ""
+      ],
+      "research_ids": [
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_fec12c43404f8bf4",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4",
+        "claim_04bcbea111032a1c",
+        "claim_d43ac4f93bc1463a"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 4,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag",
+        "rag",
+        "graphrag",
+        "research",
+        "graph",
+        "graph",
+        "rag",
+        "research",
+        "graphrag",
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [
+          "risk_evidence"
+        ],
+        "stop_reason": "max_retrieval_rounds_reached"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_3",
+      "qid": "theme_invest",
+      "question": "液冷产业链的投资逻辑和主要风险是什么？",
+      "answer_type": "thematic_research",
+      "latency_s": 30.54,
+      "llm_calls_total": 12,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 2634,
+      "graph_records": 14,
+      "rag_hits": 0,
+      "research_hits": 13,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 3,
+      "raw_evidence_count": 28,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "mechanism",
+          "supply_chain"
+        ],
+        "claim_type_count": 3,
+        "source_count": 0,
+        "topic_count": 2,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "",
+        "claim_d43ac4f93bc1463a",
+        "",
+        "",
+        "claim_996a0d9343adf185"
+      ],
+      "research_ids": [
+        "",
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_358e971d2878e5a9",
+        "claim_fec12c43404f8bf4",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4",
+        "claim_04bcbea111032a1c",
+        "claim_d43ac4f93bc1463a"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "risk_evidence",
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 4,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag",
+        "graphrag",
+        "rag",
+        "research",
+        "graph",
+        "rag",
+        "research",
+        "graphrag",
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [
+          "risk_evidence"
+        ],
+        "stop_reason": "max_retrieval_rounds_reached"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_3",
+      "qid": "theme_evolve",
+      "question": "液冷散热技术从风冷到液冷的演进路径是什么？",
+      "answer_type": "industry_bottleneck",
+      "latency_s": 24.17,
+      "llm_calls_total": 9,
+      "cards": 4,
+      "citations": 4,
+      "answer_chars": 2881,
+      "graph_records": 13,
+      "rag_hits": 0,
+      "research_hits": 11,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 3,
+      "raw_evidence_count": 25,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_d43ac4f93bc1463a",
+        "",
+        "claim_fec12c43404f8bf4"
+      ],
+      "research_ids": [
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_fec12c43404f8bf4",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4",
+        "claim_04bcbea111032a1c",
+        "claim_d43ac4f93bc1463a"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_3",
+      "qid": "bottleneck_liquid",
+      "question": "液冷技术规模商用的瓶颈在哪里？",
+      "answer_type": "industry_bottleneck",
+      "latency_s": 21.75,
+      "llm_calls_total": 9,
+      "cards": 5,
+      "citations": 5,
+      "answer_chars": 1789,
+      "graph_records": 13,
+      "rag_hits": 0,
+      "research_hits": 13,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 3,
+      "raw_evidence_count": 27,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "claim_d43ac4f93bc1463a",
+        "",
+        "claim_fec12c43404f8bf4",
+        ""
+      ],
+      "research_ids": [
+        "",
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_fec12c43404f8bf4",
+        "claim_f44beeb8f081cfa9",
+        "claim_21aa25f4b47e0029",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4",
+        "claim_04bcbea111032a1c",
+        "claim_d43ac4f93bc1463a"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_3",
+      "qid": "bottleneck_compute",
+      "question": "算力基础设施目前的供给约束是什么？",
+      "answer_type": "thematic_research",
+      "latency_s": 26.49,
+      "llm_calls_total": 12,
+      "cards": 6,
+      "citations": 6,
+      "answer_chars": 2289,
+      "graph_records": 50,
+      "rag_hits": 0,
+      "research_hits": 7,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 2,
+      "raw_evidence_count": 36,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "supply_chain"
+        ],
+        "claim_type_count": 2,
+        "source_count": 0,
+        "topic_count": 3,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "",
+        "",
+        "",
+        "",
+        "claim_6ea6c4b4d83035ed",
+        ""
+      ],
+      "research_ids": [
+        "",
+        "",
+        "",
+        "claim_6ea6c4b4d83035ed",
+        "claim_4b75c92cbc47de78",
+        "claim_21aa25f4b47e0029",
+        "claim_d43ac4f93bc1463a"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "mechanism_evidence"
+        ],
+        "satisfied": [],
+        "missing": [
+          "mechanism_evidence"
+        ],
+        "rate": 0.0
+      },
+      "rounds": 4,
+      "assignments": [
+        "graph",
+        "rag",
+        "research",
+        "graphrag",
+        "graph",
+        "rag",
+        "research",
+        "graphrag",
+        "graph",
+        "rag",
+        "research",
+        "graphrag",
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [
+          "mechanism_evidence"
+        ],
+        "stop_reason": "max_retrieval_rounds_reached"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_3",
+      "qid": "topic_chain",
+      "question": "液冷产业链有哪些关键环节，哪些公司参与？",
+      "answer_type": "topic_to_company",
+      "latency_s": 27.24,
+      "llm_calls_total": 12,
+      "cards": 3,
+      "citations": 3,
+      "answer_chars": 692,
+      "graph_records": 2,
+      "rag_hits": 0,
+      "research_hits": 11,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 3,
+      "raw_evidence_count": 15,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure"
+        ],
+        "claim_type_count": 1,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "claim_d43ac4f93bc1463a",
+        "",
+        "claim_fec12c43404f8bf4"
+      ],
+      "research_ids": [
+        "",
+        "",
+        "claim_85f1707c36e3e49e",
+        "claim_04bcbea111032a1c",
+        "claim_fec12c43404f8bf4",
+        "claim_d43ac4f93bc1463a",
+        "claim_67098d22c142c855",
+        "claim_996a0d9343adf185",
+        "claim_f44beeb8f081cfa9",
+        "claim_425075d72afcfd73",
+        "claim_f4b91fb8b8c459f4"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "company_exposure"
+        ],
+        "satisfied": [
+          "company_exposure"
+        ],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 2,
+      "assignments": [
+        "graph",
+        "graphrag",
+        "rag",
+        "research",
+        "graph",
+        "rag",
+        "research",
+        "graphrag"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    },
+    {
+      "arm": "multi_3",
+      "qid": "metric_ict",
+      "question": "紫光股份 ICT 基础设施业务的收入结构和毛利率如何？",
+      "answer_type": "company_profile",
+      "latency_s": 20.43,
+      "llm_calls_total": 9,
+      "cards": 4,
+      "citations": 4,
+      "answer_chars": 597,
+      "graph_records": 50,
+      "rag_hits": 0,
+      "research_hits": 11,
+      "verify_status": "warn",
+      "verify_failed": [],
+      "verify_gap_count": 1,
+      "conflict_group_count": 1,
+      "raw_evidence_count": 62,
+      "unsupported_terms": [],
+      "evidence": {
+        "claim_types": [
+          "company_exposure",
+          "indicator"
+        ],
+        "claim_type_count": 2,
+        "source_count": 0,
+        "topic_count": 1,
+        "company_count": 0
+      },
+      "claim_ids": [
+        "claim_c699492f19b8938a",
+        "",
+        "",
+        "claim_bf755ba88fa647bc"
+      ],
+      "research_ids": [
+        "claim_c699492f19b8938a",
+        "claim_879b6991d81d8e27",
+        "",
+        "claim_bf755ba88fa647bc",
+        "claim_c452213166251cce",
+        "claim_883aba9c423bdfd8",
+        "claim_e58cd7cd0c1bcf14",
+        "claim_26b3a0240328a1a7",
+        "claim_1e96b2b1d9e273be",
+        "claim_4c411ca88ebc0343",
+        "claim_a33b1a9dd4409985"
+      ],
+      "coverage": {
+        "available": true,
+        "required": [
+          "metric_evidence"
+        ],
+        "satisfied": [
+          "metric_evidence"
+        ],
+        "missing": [],
+        "rate": 1.0
+      },
+      "rounds": 1,
+      "assignments": [
+        "graph",
+        "rag",
+        "graphrag",
+        "research"
+      ],
+      "agent_round_coverage": {
+        "missing": [],
+        "stop_reason": "evidence_sufficient"
+      },
+      "errors": []
+    }
+  ]
+}

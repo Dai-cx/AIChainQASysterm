@@ -7,13 +7,18 @@ from typing import Any
 
 from .models import LLM_METHODS, LLMBudgetExhausted
 
+# Roles that produce the user-visible answer. They may dip into the reserve so that
+# retrieval planning can never starve answer generation.
+GENERATION_ROLES = frozenset({"answer", "summarizer", "summarize"})
+
 
 class CentralLLMBudget:
     """Thread-safe call budget shared by all centralized agents."""
 
-    def __init__(self, client: Any | None, *, max_calls: int) -> None:
+    def __init__(self, client: Any | None, *, max_calls: int, generation_reserve: int = 2) -> None:
         self._client = client
         self.max_calls = max(0, int(max_calls or 0))
+        self.generation_reserve = max(0, min(int(generation_reserve or 0), self.max_calls))
         self._lock = threading.Lock()
         self._used = 0
         self._method_calls: dict[str, int] = {}
@@ -30,8 +35,14 @@ class CentralLLMBudget:
         with self._lock:
             if self._client is None:
                 raise LLMBudgetExhausted("LLM is not configured")
-            if self._used >= self.max_calls:
-                raise LLMBudgetExhausted(f"LLM call budget exhausted ({self.max_calls})")
+            limit = self.max_calls
+            if role not in GENERATION_ROLES:
+                limit = max(0, self.max_calls - self.generation_reserve)
+            if self._used >= limit:
+                reason = "LLM call budget exhausted" if limit == self.max_calls else (
+                    "LLM call budget exhausted (reserved for answer generation)"
+                )
+                raise LLMBudgetExhausted(f"{reason} ({self.max_calls})")
             self._used += 1
             self._method_calls[method] = self._method_calls.get(method, 0) + 1
             self._role_calls[role] = self._role_calls.get(role, 0) + 1

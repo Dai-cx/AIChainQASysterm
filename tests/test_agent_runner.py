@@ -163,34 +163,6 @@ def test_agent_runner_is_enabled_by_default_and_records_four_phase_trace() -> No
     assert result["evidence_cards"]
 
 
-def test_agent_can_use_legacy_runner_when_configured() -> None:
-    graph = LocalKnowledgeGraph(
-        entities=[],
-        relations=[
-            {
-                "head_type": "Company",
-                "head_name": "浪潮信息",
-                "relation": "HAS_PRODUCT",
-                "tail_type": "Product",
-                "tail_name": "AI服务器",
-                "evidence": "浪潮信息布局AI服务器。",
-                "source_title": "报告",
-                "page": "1",
-                "source_tier": "1",
-                "section": "主营业务",
-            }
-        ],
-    )
-    engine = QAEngine(csv_graph=graph, rag_index=None, llm_client=None, agent_runner="legacy")
-
-    result = engine.answer_question("哪些上市公司涉及AI服务器？")
-
-    assert result["diagnostics"]["agent_enabled"] is True
-    assert result["diagnostics"]["agent_runner"] == "legacy"
-    assert result["diagnostics"]["langgraph_enabled"] is False
-    assert result["evidence_cards"]
-
-
 def test_agent_can_be_disabled_to_use_legacy_workflow() -> None:
     graph = LocalKnowledgeGraph(
         entities=[],
@@ -218,21 +190,6 @@ def test_agent_can_be_disabled_to_use_legacy_workflow() -> None:
     assert result["diagnostics"]["langgraph_enabled"] is False
     assert result["diagnostics"]["agent_trace"] == []
     assert result["evidence_cards"]
-
-
-def test_legacy_agent_uses_hyde_for_text_retrieval_only() -> None:
-    rag = RecordingAgentRagIndex()
-    graph = RecordingGraphClient()
-    llm = AgentHydeLLMClient()
-    engine = QAEngine(graph_client=graph, rag_index=rag, llm_client=llm, agent_runner="legacy")
-
-    result = engine.answer_question("浪潮信息有哪些AI服务器产品？")
-
-    assert llm.hyde_calls == 1
-    assert rag.queries and all("HYDE_MARKER" in query for query in rag.queries)
-    assert graph.queries
-    assert result["diagnostics"]["hyde"]["generated"] is True
-    assert result["diagnostics"]["agent_runner"] == "legacy"
 
 
 def test_langgraph_agent_reuses_single_hyde_query_for_text_agents() -> None:

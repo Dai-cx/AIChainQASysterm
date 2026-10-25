@@ -128,21 +128,6 @@ def normalize_agent_max_steps(value: Any) -> int:
     return max(1, min(steps, 4))
 
 
-def normalize_agent_runner(value: Any) -> str:
-    """归一化 Agent 运行器配置。
-
-    Args:
-        value: 原始运行器值
-
-    Returns:
-        合法运行器值（"langgraph" / "legacy"），非法值返回 "langgraph"
-    """
-    runner = str(value or "langgraph").strip().casefold()
-    if runner not in {"langgraph", "legacy"}:
-        return "langgraph"
-    return runner
-
-
 def record_timing(timings_ms: dict[str, float], name: str, started_at: float) -> None:
     """记录阶段耗时到 timings 字典。
 

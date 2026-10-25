@@ -105,7 +105,6 @@ from aika.qa.text import (
     build_hyde_retrieval_query,
     hyde_diagnostics,
     normalize_agent_max_steps,
-    normalize_agent_runner,
     record_timing,
     template_cypher_for_plan,
     build_llm_options,
@@ -217,7 +216,6 @@ class QAEngine:
         hyde_max_chars: int = 700,
         enable_agent: bool = True,
         agent_max_steps: int = 4,
-        agent_runner: str = "langgraph",
         rerank_mode: str = "auto",
         drift_max_subquestions: int = 6,
         global_dossier_top_k: int = 3,
@@ -256,7 +254,6 @@ class QAEngine:
             hyde_max_chars: HYDE 假想答案最大字符数
             enable_agent: 是否启用 Agent 模式
             agent_max_steps: Agent 最大步数（1-4）
-            agent_runner: Agent 运行器（"langgraph" / "legacy"）
             rerank_mode: 重排序模式（"auto" / "llm" / "none"）
             drift_max_subquestions: GraphRAG DRIFT 最大子问题数
             global_dossier_top_k: 全局档案检索 top-k
@@ -293,7 +290,6 @@ class QAEngine:
         self.hyde_max_chars = max(80, int(hyde_max_chars or 700))
         self.enable_agent = enable_agent
         self.agent_max_steps = normalize_agent_max_steps(agent_max_steps)
-        self.agent_runner = normalize_agent_runner(agent_runner)
         self.rerank_mode = normalize_rerank_mode(rerank_mode)
         self.drift_max_subquestions = max(1, int(drift_max_subquestions or 6))
         self.global_dossier_top_k = max(0, int(global_dossier_top_k or 3))
@@ -339,7 +335,6 @@ class QAEngine:
         hyde_max_chars = int(os.getenv("QA_HYDE_MAX_CHARS", "700"))
         enable_agent = os.getenv("QA_ENABLE_AGENT", "true").casefold() != "false"
         agent_max_steps = normalize_agent_max_steps(os.getenv("QA_AGENT_MAX_STEPS", "4"))
-        agent_runner = normalize_agent_runner(os.getenv("QA_AGENT_RUNNER", "langgraph"))
         rerank_mode = normalize_rerank_mode(os.getenv("QA_RERANK_MODE", "auto"))
         drift_max_subquestions = int(os.getenv("QA_DRIFT_MAX_SUBQUESTIONS", "6"))
         global_dossier_top_k = int(os.getenv("QA_GLOBAL_DOSSIER_TOP_K", "3"))
@@ -462,7 +457,6 @@ class QAEngine:
             hyde_max_chars=hyde_max_chars,
             enable_agent=enable_agent,
             agent_max_steps=agent_max_steps,
-            agent_runner=agent_runner,
             rerank_mode=rerank_mode,
             drift_max_subquestions=drift_max_subquestions,
             global_dossier_top_k=global_dossier_top_k,

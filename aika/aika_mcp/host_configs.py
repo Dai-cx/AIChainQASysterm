@@ -116,7 +116,16 @@ def _build_stdio_launch(
         }
 
     root = _resolve_project_root(project_root)
-    uv = _resolve_uv_path(uv_path)
+    try:
+        uv = _resolve_uv_path(uv_path)
+    except AikaMcpConfigError:
+        # No uv on this machine. The interpreter that is running AIKA can always launch
+        # the server itself, which is the common case on Windows where uv is optional.
+        return {
+            "command": _portable_absolute(sys.executable),
+            "args": ["-m", "aika.aika_mcp.server"],
+            "env": {},
+        }
     cache_dir = str(uv_cache_dir or os.getenv("UV_CACHE_DIR") or DEFAULT_UV_CACHE_DIR)
     return {
         "command": str(uv),

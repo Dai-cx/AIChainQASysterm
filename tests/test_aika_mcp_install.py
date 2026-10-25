@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import subprocess
+import sys
 import tomllib
 from pathlib import Path
 from typing import Any
@@ -104,11 +105,14 @@ def test_build_mcp_config_for_claude_code_is_stable(tmp_path: Path, monkeypatch:
     }
 
 
-def test_build_mcp_config_reports_missing_uv(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_build_mcp_config_falls_back_to_the_running_interpreter(monkeypatch: pytest.MonkeyPatch) -> None:
+    """uv is optional: without it the server is launched by the interpreter running AIKA."""
     monkeypatch.setattr(host_configs.shutil, "which", lambda name: None)
 
-    with pytest.raises(AikaMcpConfigError, match="uv"):
-        build_mcp_config(host="claude-code")
+    config = build_mcp_config(host="claude-code")
+
+    assert config["command"].endswith(host_configs.Path(sys.executable).name)
+    assert config["args"] == ["-m", "aika.aika_mcp.server"]
 
 
 def test_build_mcp_config_reports_reserved_hosts() -> None:

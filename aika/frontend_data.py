@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import csv
 import html
 import math
 import re
@@ -10,6 +9,8 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
+
+from aika.aika_core.io import read_csv_rows as io_read_csv_rows
 
 from aika.extraction_schema import normalize_name
 
@@ -97,10 +98,7 @@ ENTITY_COLORS = {
 
 
 def read_csv_rows(path: Path) -> list[dict[str, str]]:
-    if not path.exists():
-        return []
-    with path.open(newline="", encoding="utf-8") as file:
-        return list(csv.DictReader(file))
+    return io_read_csv_rows(path, missing_ok=True)
 
 
 def contains_name(value: str, query: str) -> bool:

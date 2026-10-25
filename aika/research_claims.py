@@ -29,6 +29,7 @@ from aika.domain_lexicon import (
     normalize_topic,
     text_matches_terms,
 )
+from aika.aika_core.io import read_jsonl_rows
 from aika.extraction_schema import load_jsonl, read_csv, stable_id
 from aika.frontend_data import RELATION_LABELS
 
@@ -1039,11 +1040,7 @@ class ResearchMemory:
         if not claims_path.exists() or not dossiers_path.exists():
             raise FileNotFoundError(f"Research artifacts not found in {data_dir}")
         claims = apply_claim_reviews(read_csv(claims_path), load_claim_reviews(data_dir))
-        dossiers: list[dict[str, Any]] = []
-        with dossiers_path.open(encoding="utf-8") as file:
-            for line in file:
-                if line.strip():
-                    dossiers.append(json.loads(line))
+        dossiers = read_jsonl_rows(dossiers_path)
         return cls(claims, dossiers)
 
     def review_claim(self, claim_id: str, updates: dict[str, Any], *, reviewer: str = "frontend") -> dict[str, Any]:

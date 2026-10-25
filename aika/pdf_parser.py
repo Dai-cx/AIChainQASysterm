@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-import csv
 import math
 import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Any, Iterable
+
+from aika.aika_core.io import read_csv_rows
 
 import fitz
 
@@ -21,8 +22,7 @@ HEADER_FOOTER_ZONE_RATIO = 0.12
 
 
 def read_downloaded_manifest(path: Path) -> list[dict[str, str]]:
-    with path.open(newline="", encoding="utf-8") as file:
-        rows = list(csv.DictReader(file))
+    rows = read_csv_rows(path)
     return [row for row in rows if row.get("status") == "downloaded" and row.get("local_path")]
 
 

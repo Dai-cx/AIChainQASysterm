@@ -9,6 +9,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from aika.aika_core.io import read_csv_rows, read_jsonl_rows
+
 
 ENTITY_TYPES = (
     "Company",
@@ -139,15 +141,7 @@ def json_dumps(value: Any) -> str:
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
-    rows = []
-    if not path.exists():
-        return rows
-    with path.open(encoding="utf-8") as file:
-        for line in file:
-            line = line.strip()
-            if line:
-                rows.append(json.loads(line))
-    return rows
+    return read_jsonl_rows(path, missing_ok=True)
 
 
 def append_jsonl(path: Path, record: dict[str, Any]) -> None:
@@ -173,8 +167,7 @@ def write_csv(path: Path, fields: list[str], rows: list[dict[str, Any]]) -> None
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
-    with path.open(newline="", encoding="utf-8") as file:
-        return list(csv.DictReader(file))
+    return read_csv_rows(path)
 
 
 def parse_json_object(text: str) -> dict[str, Any]:

@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
 from typing import Any
 
@@ -13,6 +12,7 @@ from aika.extraction_schema import (
     coerce_relation,
     infer_metric_properties,
     json_dumps,
+    load_jsonl,
     normalize_name,
     read_csv,
     sanitize_extraction_payload,
@@ -153,13 +153,7 @@ def add_relation(relations: dict[str, dict[str, Any]], relation: dict[str, Any])
 def load_extraction_records(paths: list[Path]) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     for path in paths:
-        if not path.exists():
-            continue
-        with path.open(encoding="utf-8") as file:
-            for line in file:
-                line = line.strip()
-                if line:
-                    records.append(json.loads(line))
+        records.extend(load_jsonl(path))
     return records
 
 

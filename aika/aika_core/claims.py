@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from aika.aika_core.data_paths import DEFAULT_CLAIMS_CSV
+from aika.aika_core.io import read_csv_rows
 from aika.aika_core.models import ClaimRecord
 
 
@@ -15,10 +16,7 @@ def load_claims(path: str | Path = DEFAULT_CLAIMS_CSV) -> list[ClaimRecord]:
     claims_path = Path(path)
     if claims_path.is_dir():
         claims_path = claims_path / "claims.csv"
-    if not claims_path.exists():
-        return []
-    with claims_path.open(newline="", encoding="utf-8") as file:
-        return [ClaimRecord.from_row(row) for row in csv.DictReader(file)]
+    return [ClaimRecord.from_row(row) for row in read_csv_rows(claims_path, missing_ok=True)]
 
 
 def search_claim_records(

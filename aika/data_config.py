@@ -7,6 +7,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from aika.aika_core.io import read_csv_rows
 from aika.extraction_schema import normalize_name
 
 
@@ -237,20 +238,18 @@ def load_companies(path: Path = COMPANIES_EXTENDED_CSV) -> list[Company]:
     """
     if not path.exists():
         return [_company_from_defaults(row) for row in DEFAULT_COMPANIES]
-    with path.open(newline="", encoding="utf-8") as file:
-        reader = csv.DictReader(file)
-        return [
-            Company(
+    return [
+        Company(
                 company=row["company"].strip(),
                 stock_code=row["stock_code"].strip(),
                 market=row["market"].strip().upper(),
                 chain_segment=row["chain_segment"].strip(),
                 aliases=_split_aliases(row.get("aliases", "")),
                 is_core_company=_boolish(row.get("is_core_company", "true")),
-                notes=row.get("notes", "").strip(),
-            )
-            for row in reader
-        ]
+            notes=row.get("notes", "").strip(),
+        )
+        for row in read_csv_rows(path)
+    ]
 
 
 def _company_from_defaults(row: tuple[str, str, str, str, str, str]) -> Company:
@@ -319,8 +318,7 @@ def write_default_research_keywords(path: Path = RESEARCH_KEYWORDS_CSV) -> None:
 def load_research_keywords(path: Path = RESEARCH_KEYWORDS_CSV) -> list[str]:
     if not path.exists():
         return [keyword for keyword, _weight, _notes in DEFAULT_RESEARCH_KEYWORDS]
-    with path.open(newline="", encoding="utf-8") as file:
-        return [row["keyword"].strip() for row in csv.DictReader(file) if row.get("keyword", "").strip()]
+    return [row["keyword"].strip() for row in read_csv_rows(path) if row.get("keyword", "").strip()]
 
 
 def write_default_industry_sources(path: Path = INDUSTRY_SOURCES_CSV) -> None:
@@ -336,9 +334,8 @@ def write_default_industry_sources(path: Path = INDUSTRY_SOURCES_CSV) -> None:
 def load_industry_sources(path: Path = INDUSTRY_SOURCES_CSV) -> list[IndustrySource]:
     if not path.exists():
         return [_industry_source_from_defaults(row) for row in DEFAULT_INDUSTRY_SOURCES]
-    with path.open(newline="", encoding="utf-8") as file:
-        return [
-            IndustrySource(
+    return [
+        IndustrySource(
                 report_id=row["report_id"].strip(),
                 title=row["title"].strip(),
                 source_site=row["source_site"].strip(),
@@ -348,10 +345,10 @@ def load_industry_sources(path: Path = INDUSTRY_SOURCES_CSV) -> list[IndustrySou
                 published_at=row.get("published_at", "").strip(),
                 source_tier=row.get("source_tier", "").strip(),
                 source_type=row.get("source_type", "").strip(),
-                topics=row.get("topics", "").strip(),
-            )
-            for row in csv.DictReader(file)
-        ]
+            topics=row.get("topics", "").strip(),
+        )
+        for row in read_csv_rows(path)
+    ]
 
 
 def _industry_source_from_defaults(row: dict[str, str]) -> IndustrySource:

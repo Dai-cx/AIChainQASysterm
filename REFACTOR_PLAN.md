@@ -302,6 +302,12 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 
 故意**没有**合并的读取器（策略真的不同）：`aika_core/knowledge_pack.py`（要把坏行变成 `KnowledgePackIssue`）、`aika/agents/store.py` 与 `aika/eval/store.py`（append-only 日志，跳过坏行而不是整体失败）、`aika_mcp/server.py` 等处的 stdio/JSON-RPC 循环（协议帧，不是数据行）。
 
+| 新增 | 说明 | 提交 |
+|---|---|---|
+| `aika_core/domain.py` | 6 种 `answer_type` 的声明式画像（`coverage` / `claim_types` / `relations` / `needs_comparison` / `needs_risk` / `research_oriented`）+ 唯一 `ANSWER_TYPES` 元组 + `required_coverage()`。`planner.required_coverage_for_plan` 改为委托，`professional_qa` 的选卡 if 链改成 dispatch dict，`question_planner` 的 `allowed_types` 字面量删除 | `ee41f97` |
+
+`answer_type` 分支数 44 → 35。**没有继续压到计划里的 ≤3**，原因是查过剩下的 35 处：它们不是「重复的规则」，而是**每种类型各自的文案与检索动作**（`fallback_professional_answer` 的 6 段模板、`research_claims.claim_relevance` 的 claim_type 过滤、`graphrag.QueryRouter` 的路由）。把这些也塞进表里，只会把可读的分支变成难以阅读的数据结构。真正能再降的是 `research_claims` 的 4 处 claim_type 判定（可并入 `profile.claim_types`），但会改变 claim 排序，需要先有评测基线。
+
 
 ### P5　拆 god module（3 天）— 阅读体验的最大跃升
 1. `qa_engine.py` 2,624 → `qa/` 下 12 个文件：

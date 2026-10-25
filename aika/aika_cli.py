@@ -54,6 +54,32 @@ def build_parser() -> argparse.ArgumentParser:
     build_parser_.add_argument("--profile", default=DEFAULT_PROFILE, help="Knowledge profile name.")
     build_parser_.set_defaults(func=run_build_index)
 
+    artifacts_parser = subparsers.add_parser(
+        "build-artifacts",
+        help="Rebuild the curated claims, evidence spans and segment dossiers from a relations CSV.",
+    )
+    artifacts_parser.add_argument(
+        "--relations",
+        default="",
+        help="Relations CSV to derive claims from; defaults to the curated relations file.",
+    )
+    artifacts_parser.add_argument(
+        "--output",
+        default="",
+        help="Directory to write claims.csv / evidence_spans.csv / segment_dossiers.jsonl into.",
+    )
+    artifacts_parser.add_argument(
+        "--chunks-dir",
+        default="",
+        help="Optional chunks directory to also derive claims from technical source text.",
+    )
+    artifacts_parser.add_argument(
+        "--no-direct-claims",
+        action="store_true",
+        help="Only derive claims from the relations, ignoring technical chunks.",
+    )
+    artifacts_parser.set_defaults(func=run_build_artifacts)
+
     doctor_parser = subparsers.add_parser("doctor", help="Check local AIKA data and index status.")
     doctor_parser.add_argument("--home", default="", help="AIKA home directory; defaults to AIKA_HOME or ~/.aika.")
     doctor_parser.add_argument("--profile", default=DEFAULT_PROFILE, help="Knowledge profile name.")
@@ -184,6 +210,35 @@ def run_build_index(args: argparse.Namespace) -> int:
     counts = ", ".join(f"{key}={value}" for key, value in result["counts"].items())
     print(f"Built SQLite index: {index_path}")
     print(f"Counts: {counts}")
+    return 0
+
+
+def run_build_artifacts(args: argparse.Namespace) -> int:
+    from aika.curated_graph import CURATED_RELATIONS_CSV
+    from aika.research.artifacts import build_research_artifacts
+    from aika.research.constants import DEFAULT_RESEARCH_DIR
+
+    relations = Path(args.relations) if args.relations else CURATED_RELATIONS_CSV
+    output_dir = Path(args.output) if args.output else DEFAULT_RESEARCH_DIR
+    if not relations.exists():
+        print(f"Relations CSV not found: {relations}", file=sys.stderr)
+        return 2
+    chunks_dir = Path(args.chunks_dir) if args.chunks_dir and not args.no_direct_claims else None
+    claims, evidence_spans, dossiers = build_research_artifacts(
+        relations_csv=relations,
+        output_dir=output_dir,
+        chunks_dir=chunks_dir,
+        include_direct_claims=not args.no_direct_claims and chunks_dir is not None,
+        write_outputs=True,
+    )
+    print(f"Wrote curated artifacts to {output_dir}")
+    print(f"Counts: claims={len(claims)}, evidence_spans={len(evidence_spans)}, dossiers={len(dossiers)}")
+    if chunks_dir is None:
+        print(
+            "Note: only relation-derived claims were built. Technical claims need parsed "
+            "chunks; pass --chunks-dir <dir> to include them.",
+            file=sys.stderr,
+        )
     return 0
 
 

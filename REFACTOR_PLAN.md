@@ -485,6 +485,21 @@ $env:QA_DISABLE_POSTGRES="true"
 cd web; npm run dev     # 代理到 127.0.0.1:8000
 ```
 
+#### P7 断路补齐（2026-10-25）
+
+审计里被标记为「断路 / 不可重建」的三处，现在都有了可执行的本地路径。
+
+| 断点 | 之前 | 现在 | 验收 |
+|---|---|---|---|
+| \data/curated\ 不可再生成 | 两个脚本硬传 \write_outputs=False\ + 无条件连 PG | 默认写盘，\--sync-postgres\ 才连库；新增 \ika build-artifacts\ | \entities=285 relations=278 claims=305 evidence_spans=305 dossiers=8\，全程无 PG |
+| \ika eval --suite agent\ 依赖 \scripts/\ | wheel 安装后必 \ImportError\ | 评估集与评分规则移入 \ika/eval/agent_tasks.py\ | /4 accuracy=100.0%\ |
+| \ika eval --suite rag\ 硬连 PG | 没有 PG 直接崩 | \--offline\ 或 PG 不可用时走 \LocalRagIndex\；\scripts/build_rag_index.py\ 真的构建本地索引了 | 无语料时给出可执行的下一步提示，退出码 2 |
+
+语料缺口（不是代码缺陷）：
+
+- \data/eval/qa_benchmark_v1.jsonl\ 50 例全是 \company_compare\，目标公司不在样例包里，\human_score\ 也未标注 → 样例包上 0 召回属于数据范围问题。
+- \data/curated\ 重建出的 305 条 claim 是已提交 568 条的子集，缺的 263 条来自 \claims_from_technical_chunks\，需要 \data/chunks\（仓库内只有 \.gitkeep\）。
+
 ---
 
 ## 附录：三份完整审计报告的落点

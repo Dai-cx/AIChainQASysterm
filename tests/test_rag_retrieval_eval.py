@@ -338,3 +338,28 @@ def test_rag_cli_argument_parsers() -> None:
         parse_positive_ints("0")
     with pytest.raises(ValueError):
         parse_rag_retrievers("unknown", use_embedding=False)
+
+def test_rag_suite_runs_without_postgres(monkeypatch, tmp_path, capsys):
+    """The suite must not require PostgreSQL: with no corpus it explains what to build."""
+    from argparse import Namespace
+
+    from aika import cli_heavy
+
+    monkeypatch.setenv("QA_DISABLE_POSTGRES", "true")
+    monkeypatch.setenv("AIKA_RAG_DIR", str(tmp_path / "missing-rag"))
+    args = Namespace(
+        retrievers="auto",
+        use_embedding=False,
+        ks="1,3",
+        candidate_k=30,
+        limit=1,
+        benchmark=None,
+        report_dir=str(tmp_path),
+        no_save=True,
+        offline=True,
+        use_llm=False,
+    )
+    assert cli_heavy.run_rag_eval(args) == 2
+    stderr = capsys.readouterr().err
+    assert "No retrieval corpus is available" in stderr
+    assert "scripts/build_rag_index.py" in stderr

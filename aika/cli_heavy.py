@@ -158,16 +158,21 @@ def run_qa_eval(args: argparse.Namespace) -> int:
     return print_qa_eval_report(report, args.json)
 
 
+def _load_local_rag_index() -> Any | None:
+    """Load the on-disk RAG index, or None when the corpus was never built."""
+    from aika.rag_index import DEFAULT_RAG_DIR, LocalRagIndex
+
+    index_dir = Path(os.getenv("AIKA_RAG_DIR", str(DEFAULT_RAG_DIR)))
+    try:
+        return LocalRagIndex.load(index_dir)
+    except (OSError, ValueError):
+        return None
+
+
 def run_rag_eval(args: argparse.Namespace) -> int:
     from aika.embedding_client import OpenAICompatibleEmbeddingClient
     from aika.eval.rag_runner import RagRetrievalEvalError, run_rag_retrieval_benchmark
     from aika.eval.store import EvalRunStore
-    from aika.postgres_retrieval import (
-        EMBEDDING_DIMENSIONS,
-        PostgresRagIndex,
-        PostgresRetrievalStore,
-        PostgresSemanticIndex,
-    )
 
     store = None
     try:
@@ -177,11 +182,45 @@ def run_rag_eval(args: argparse.Namespace) -> int:
         if semantic_requested and not args.use_embedding:
             print("semantic/rrf retrieval requires --use-embedding", file=sys.stderr)
             return 2
-        store = PostgresRetrievalStore.from_env()
-        store.ensure_ready()
-        rag_index = PostgresRagIndex(store)
+        rag_index = None
+        backend = "postgres"
+        if not effective_offline(args):
+            from aika.postgres_retrieval import (
+                EMBEDDING_DIMENSIONS,
+                PostgresRagIndex,
+                PostgresRetrievalStore,
+                PostgresSemanticIndex,
+            )
+
+            try:
+                store = PostgresRetrievalStore.from_env()
+                store.ensure_ready()
+                rag_index = PostgresRagIndex(store)
+            except (OSError, RuntimeError, ValueError) as exc:
+                store = None
+                print(
+                    f"PostgreSQL is unavailable ({exc}); falling back to the local RAG index.",
+                    file=sys.stderr,
+                )
         semantic_index = None
-        if semantic_requested:
+        if rag_index is None:
+            backend = "local"
+            rag_index = _load_local_rag_index()
+            if rag_index is None:
+                print(
+                    "No retrieval corpus is available: PostgreSQL is disabled or unreachable and the "
+                    "local RAG index is missing. Build it with "
+                    "`python scripts/build_rag_index.py` or unset QA_DISABLE_POSTGRES.",
+                    file=sys.stderr,
+                )
+                return 2
+            if semantic_requested:
+                print(
+                    "semantic/rrf retrieval requires PostgreSQL; the local index only serves bm25.",
+                    file=sys.stderr,
+                )
+                return 2
+        elif semantic_requested:
             embedding_client = OpenAICompatibleEmbeddingClient(dimensions=EMBEDDING_DIMENSIONS)
             semantic_index = PostgresSemanticIndex(
                 store,
@@ -201,7 +240,13 @@ def run_rag_eval(args: argparse.Namespace) -> int:
             review_dir=report_dir if not args.no_save else None,
         )
     except (OSError, RuntimeError, ValueError, RagRetrievalEvalError) as exc:
-        print(f"RAG retrieval evaluation failed: {exc}", file=sys.stderr)
+        print(f"RAG retrieval evaluation failed ({backend} corpus): {exc}", file=sys.stderr)
+        if backend == "local":
+            print(
+                "The local corpus does not cover the benchmark's chunk ids; rebuild it from the full "
+                "PDF ingestion (scripts/parse_pdfs.py -> scripts/build_rag_index.py).",
+                file=sys.stderr,
+            )
         return 2
     finally:
         if store is not None:
@@ -210,7 +255,7 @@ def run_rag_eval(args: argparse.Namespace) -> int:
 
 
 def run_agent_eval(args: argparse.Namespace) -> int:
-    from scripts.evaluate_agent_tasks import AGENT_EVAL_CASES, score_task
+    from aika.eval.agent_tasks import AGENT_EVAL_CASES, score_task
 
     engine = build_engine(args)
     store = AgentTaskStore(Path(args.task_dir))

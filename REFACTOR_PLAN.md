@@ -294,6 +294,16 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 
 **仍未做**（P4 后半）：`core/io.py`（5 份 CSV + 4 份 JSONL 读取器）、`core/text.py`（16 份截断/去重）、`core/scoring.py`（4 份打分器，权重 `12/5/1` vs `3/0.8/0.6`）、`answer_type` 14 处分支收敛。
 
+**打分器（P4 第 3 项）的处理方式**：查了 4 份打分器之后，决定**不合并公式**——它们排的是不同对象（claim / chunk / evidence row / PG row），信号也不同（claim_type 权重、BM25、source_type 加成）。强行合并会改变结果排序，而仓库里没有任何排序质量的测试覆盖。
+
+实际做的是把**重复的零件**收敛：
+
+| 零件 | 之前 | 现在 |
+|---|---|---|
+| 归一化 | `claims._normalize`、`sqlite_backend._normalize`、`rag_index.normalize_text` 三份逐字相同；`postgres_retrieval` 从 `rag_index` 借 | `aika_core/text.py::normalize_text` 一份，三处变别名，`postgres_retrieval` 直接 import 共享实现（`d6319eb`） |
+
+同一份代码里仍有 **两套权重**（`12.0/5.0/1.0` 与 `3.0/0.8/0.6`），但它们属于不同的打分器、不同的字段，不是同一个常量的两个值。若以后要统一，先要有 `data/eval/rag_retrieval_v1.jsonl` 上的排序基线。
+
 | 新增 | 说明 | 提交 |
 |---|---|---|
 | `aika_core/io.py` | `read_csv_rows` / `read_jsonl_rows` / `append_jsonl_row`。5 份 CSV 读取器、4 份 JSONL 循环收敛到 1 份；`extraction_schema.read_csv` / `load_jsonl` 变成委托（它们是事实上的公共读取器，被 5 个模块 import） | `adf5280` |

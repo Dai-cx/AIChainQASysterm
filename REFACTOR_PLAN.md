@@ -298,6 +298,19 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 4. 让 `data/curated/{claims,evidence_spans,segment_dossiers}` **可重建**：`build_research_artifacts` 的 `write_outputs=False` 硬编码（两个脚本都这么传）改成 `--write-csv`，PG 同步变可选 —— 否则这 592 KB 是"不可再生的历史产物"，你永远无法重新生成自己的数据
 - **验收**：无 PG 环境下 `aika build-index && aika demo` 全通；断网 + 无 PG 下 9 个 MCP 工具全可用
 
+#### P6 部分执行（2026-10-25）
+
+| 动作 | 结果 | 提交 |
+|---|---|---|
+| `aika_core/__init__.py` 改惰性导出（`__getattr__` 表 22 项） | `import aika.aika_core.models` 不再拉 CSV/报告层 | `9825120` |
+| `aika_core/backends/__init__.py` 改惰性导出（3 个后端） | 三后端各自依赖互不牵连 | `9825120` |
+| `sqlite_backend.build_research_brief` 内部才 import `aika.report` | 存储层不再在 import 期依赖 jinja2 | `9825120` |
+| 修 `data_config` 的「读前先写」 | `load_companies` / `load_research_keywords` / `load_industry_sources` 读不存在文件时回落到内存默认表，**不再往 site-packages 写 CSV**（安装态首问 PermissionError 的根因） | `d2c2379` |
+| `host_configs` 增加解释器回退 | 没有 `uv` 的机器上 `aika mcp doctor` 也能 PASS（改用 `python -m aika.aika_mcp.server`） | `2dd682b` |
+
+实测：`import aika.aika_core.backends.sqlite_backend` 之后 `sys.modules` 里**没有** `aika.professional_qa` / `aika.report` / `jinja2` / `psycopg`（此前四个全在）。
+
+
 ### P7　Web 层拆分（2 天）
 1. `api.py` 772 → `api/app.py`(60) + `routers/`(5) + `services/chat_turn.py` + `services/export.py` + `deps.py` + `errors.py`
 2. 合并 JSON/SSE 两条路径的 4 段重复（校验 / 取历史 / normalize / turn 组装）

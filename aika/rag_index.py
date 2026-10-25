@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import normalize_text
+
 import json
 import hashlib
 import math
@@ -141,12 +143,6 @@ class RagHit:
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
-
-
-def normalize_text(value: str) -> str:
-    value = str(value or "").casefold()
-    value = re.sub(r"\s+", "", value)
-    return value
 
 
 def tokenize(text: str) -> list[str]:

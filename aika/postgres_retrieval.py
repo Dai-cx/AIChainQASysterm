@@ -16,6 +16,7 @@ from psycopg.rows import dict_row
 from psycopg.types.json import Jsonb
 from psycopg_pool import ConnectionPool
 
+from aika.aika_core.text import normalize_text
 from aika.rag_index import (
     RagDocument,
     RagHit,
@@ -24,7 +25,6 @@ from aika.rag_index import (
     is_low_value_hit,
     is_technical_question,
     make_snippet,
-    normalize_text,
     source_priority,
     tokenize,
 )

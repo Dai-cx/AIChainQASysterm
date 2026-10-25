@@ -49,6 +49,16 @@ def shorten(
     return head + marker
 
 
+def normalize_text(value: Any) -> str:
+    """Fold text for matching: drop every whitespace run, then casefold.
+
+    Three retrievers had their own copy of this (claims, the SQLite backend and the RAG
+    index, with the Postgres retrieval importing the RAG one), so the same query could in
+    principle normalise differently depending on which path scored it.
+    """
+    return _WHITESPACE.sub("", str(value or "")).casefold()
+
+
 def dedupe_strings(values: Iterable[Any]) -> list[str]:
     """Drop empty values and duplicates while preserving the original order."""
     output: list[str] = []

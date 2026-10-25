@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import normalize_text as _normalize
+
 import csv
 import re
 from pathlib import Path
@@ -132,10 +134,6 @@ def _filter_values(value: Any) -> list[str]:
 def _contains_any(text: str, values: Iterable[str]) -> bool:
     normalized = _normalize(text)
     return any(_normalize(value) in normalized or normalized in _normalize(value) for value in values if _normalize(value))
-
-
-def _normalize(value: str) -> str:
-    return re.sub(r"\s+", "", str(value or "")).casefold()
 
 
 def _dedupe(values: Iterable[str]) -> list[str]:

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.text import normalize_text as _normalize
+
 from aika.aika_core.text import shorten as _short_text
 
 import csv
@@ -1237,10 +1239,6 @@ def _serialize_cell(value: Any) -> str:
 
 def _text(value: Any) -> str:
     return str(value or "").strip()
-
-
-def _normalize(value: str) -> str:
-    return re.sub(r"\s+", "", _text(value)).casefold()
 
 
 def _floatish(value: Any) -> float:

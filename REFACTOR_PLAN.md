@@ -339,6 +339,8 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 | `aika/research_claims.py` | 1,555 行单文件 | 包 `aika/research/`：`constants`(291) `hits`(99) `claims`(408) `technical`(252) `dossiers`(105) `review`(97) `scoring`(142) `artifacts`(76) `memory`(185) `__init__`(132)；`research_claims.py` 变 19 行 shim | `9afd4f3` |
 | `aika/aika_mcp/tools.py` | 1,077 行单文件 | `aika_mcp/`：`common`(221) `verify`(44) `markdown`(282) `cards`(111) `queries`(182) `pdf`(61) `research_task`(88) `tools`(180)；`tools.py` 重新导出全部 handler | `9203ef5` |
 | `aika/langchain_tools.py` | 114 行 | 删除（从未被真正调用） | `29e087f` |
+| `aika/agents/centralized.py` | 1,024 行 | 包 `aika/agents/coordination/`：`models`(148) `budget`(83) `support`(152) `planning`(257) `synthesis`(314) `coordinator`(112)；`centralized.py` 变 53 行 shim | `024f39b` |
+| `aika/postgres_retrieval.py` | 1,385 行 | 包 `aika/retrieval/postgres/`：`common`(111) `store`(103) `rag_sync`(177) `claim_sync`(267) `embeddings`(166) `rag`(120) `memory`(319) `semantic`(202)；`postgres_retrieval.py` 变 40 行 shim，5 个引用方与测试的 import 不动 | `d04cd51` |
 
 拆 `sqlite_backend` 时的三个坑（都记在这里，避免下次重犯）：
 
@@ -357,10 +359,31 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 |---|---|---|---|
 | 1 | `aika/research_claims.py` | 1,555 | ✅ 已拆（`9afd4f3`） |
 | 2 | `aika/aika_mcp/tools.py` | 1,077 | ✅ 已拆（`9203ef5`） |
-| 3 | `aika/agents/centralized.py` | 1,024 | ⬜ 待拆：`CentralizedCoordinator`(233-841，609 行) 再分 wave / join / review / summarize 四组 |
-| 4 | `aika/postgres_retrieval.py` | 1,385 | ⬜ 待拆，且**本机无 PostgreSQL，只能验证可导入**——建议放到最后或跳过 |
+| 3 | `aika/agents/centralized.py` | 1,024 | ✅ 已拆（`024f39b`） |
+| 4 | `aika/postgres_retrieval.py` | 1,385 | ✅ 已拆（`d04cd51`），且本机已装 ParadeDB 完成行为验证（见下） |
 
-拆完之后 `aika/` 的最大文件从 2,624 降到 1,385，前五名变成：`postgres_retrieval.py` 1,385、`qa_engine.py` 1,336、`agents/centralized.py` 1,024、`agent_runner.py` 805、`research_agent.py` 777。
+拆分 `centralized` 与 `postgres_retrieval` 时新增的三个坑：
+
+6. **「先写 shim 再跑脚本」会把自己的源文件覆盖掉**。第二次运行时脚本读到的已经是 shim（44 行），于是 `KeyError`。恢复靠 `git checkout -- <源文件>`。正确顺序永远是：生成新包 → 最后一步才写 shim；如果要重跑，先 checkout 回原文件。
+7. **符号登记只看顶层 `body`**。用 `ast.walk(piece)` 会把方法名与局部变量都收进 `symbol_home`，`__all__` 里冒出上百个假名字。只遍历 `ast.parse(dedent(piece)).body`；mixin 模块直接跳过、只登记类名。
+8. **包内相对路径常量会随目录深度变化**。`ROOT_DIR = Path(__file__).resolve().parents[1]` 在 `aika/postgres_retrieval.py` 里指向仓库根，搬到 `aika/retrieval/postgres/common.py` 后 `parents[1]` 变成了 `aika/retrieval`，`MIGRATIONS_DIR` 会指向不存在的目录、`migrate_database()` 静默不建表。拆分脚本里对 `__file__` 派生的常量必须重新计算层级。
+
+拆完之后 `aika/` 的最大文件从 2,624 降到 1,336（`qa_engine.py`），其次是 `research_agent.py` 777、`agent_runner.py` 805、`professional_qa.py` 768、`aika_cli.py` 711。
+
+#### P5e 的 PostgreSQL 行为验证（本机新装 ParadeDB）
+
+`aika/postgres_retrieval.py` 是唯一"拆完无法验证行为"的模块，为了不把风险留到后面，本机这次真的把 PostgreSQL 跑起来了：
+
+```
+docker run -d --name aika-pg -e POSTGRES_USER=aiqasys -e POSTGRES_PASSWORD=aiqasys \
+  -e POSTGRES_DB=aiqasys -p 5432:5432 -v aika_pg_data:/var/lib/postgresql/data \
+  paradedb/paradedb:0.24.0-pg17
+python scripts/migrate_postgres.py        # Applied migrations: 001_postgres_retrieval
+python scripts/build_curated_graph.py --no-write --sync-postgres
+                                          # Synced claims=305 dossiers=8 -> PostgreSQL
+```
+
+拆分前后各跑一次 `.tmp/analyze/pg_probe.py`（同一批调用：`ensure_ready` / `chunk_ids` / `corpus_metadata` / `semantic_rag_chunk_ids` / `pending_embeddings` / `claim_stats` / `search_local_claims` / `search_global_dossiers` / `search` / `rag.corpus_hash` / `rag.search`），输出**逐字节相同**；`pytest` 248 passed / 1 skipped；PD 版 `QAEngine.answer_question` 走 PG 记忆层返回 `research_hits=11`（纯 CSV 时是 3）。
 
 ### P6　后端收敛（1.5 天）
 1. 定 **SQLite FTS5 为默认、PostgreSQL 为可选增强**；CSV 后端降级为"无索引时的兜底"

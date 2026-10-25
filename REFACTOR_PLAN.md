@@ -336,6 +336,8 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 |---|---|---|---|
 | `aika_core/backends/sqlite_backend.py` | 1,255 行单文件 | 包 `aika_core/backends/sqlite/`：`util`(54) `schema`(172) `query`(159) `rows`(185) `index`(339) `backend`(393) `__init__`(43)；`sqlite_backend.py` 变 33 行 re-export shim，5 个引用方与测试的 import 不动 | `1e15a82` |
 | `aika/qa_engine.py` | 2,624 行 | `aika/qa/`：`types`(17) `constants`(41) `text`(290) `history`(323) `subgraph`(280)；引擎本体 1,336 行 | `a24d3af` |
+| `aika/research_claims.py` | 1,555 行单文件 | 包 `aika/research/`：`constants`(291) `hits`(99) `claims`(408) `technical`(252) `dossiers`(105) `review`(97) `scoring`(142) `artifacts`(76) `memory`(185) `__init__`(132)；`research_claims.py` 变 19 行 shim | `9afd4f3` |
+| `aika/aika_mcp/tools.py` | 1,077 行单文件 | `aika_mcp/`：`common`(221) `verify`(44) `markdown`(282) `cards`(111) `queries`(182) `pdf`(61) `research_task`(88) `tools`(180)；`tools.py` 重新导出全部 handler | `9203ef5` |
 | `aika/langchain_tools.py` | 114 行 | 删除（从未被真正调用） | `29e087f` |
 
 拆 `sqlite_backend` 时的三个坑（都记在这里，避免下次重犯）：
@@ -344,14 +346,21 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 2. 同模块内的常量必须在函数**之前**输出：`def profile_knowledge_dir(..., profile: str = DEFAULT_PROFILE)` 的默认值在 def 执行时求值，`DEFAULT_PROFILE` 若排在后面就 `NameError`。
 3. 计算「跨模块依赖」时，模块名要统一带或不带 `.py`。混用会让自引用（`util.py` 里 `from ...sqlite.util import _text`）被当成跨模块依赖输出 → 循环导入。
 
-**剩余三个 god module 的拆分顺序**（按可验证性排，PG 本机不可用所以它的验证最弱）：
+拆分 `research_claims` 与 `aika_mcp/tools` 时又踩到两个坑：
 
-| 顺序 | 文件 | 行数 | 为什么这个顺序 | 拆分方案 |
-|---|---|---|---|---|
-| 1 | `aika/research_claims.py` | 1,555 | 有 `tests/test_research_claims.py` 覆盖，且不依赖 PG | `research/`：`constants`(路径/字段表/术语表) `hits`(ResearchHit + 去重/多样化) `technical`(技术 chunk → claim) `claims`(claim 构造与推断) `review`(审核落库) `dossiers` `artifacts`(build_research_artifacts) `scoring` `memory`(ResearchMemory 167 行) |
-| 2 | `aika/aika_mcp/tools.py` | 1,077 | MCP 工具由 `aika doctor` 与 `tests/test_aika_mcp*.py` 覆盖 | 拆出 `report_assembly.py`，并让 `_compose_research_markdown`(733-848，118 行) 改为调用 `aika/report/render_markdown.py` |
-| 3 | `aika/agents/centralized.py` | 1,024 | 依赖 LLM，测试覆盖弱 | `CentralizedCoordinator`(233-841，609 行) 再拆成 wave / join / review / summarize 四个方法组 |
-| 4 | `aika/postgres_retrieval.py` | 1,385 | **本机无 PostgreSQL，拆分后无法验证行为** | `retrieval/postgres/{store,rag,semantic,memory}.py`；只做搬移 + import 可导入性检查，行为验证留给有 PG 的环境 |
+4. **装饰器不在 `def`/`class` 的 `node.lineno` 范围内**。按 `node.lineno` 切分会静默丢掉 `@dataclass`，症状是 `ResearchHit() takes no arguments`。切分起点必须取 `min(node.lineno, 最小 decorator.lineno)`，并加一条护栏：比对原文件与拆分后包内装饰器总数（`1 == 1`）。
+5. **按依赖分组时会撞上双向依赖**。`markdown` 需要 `cards._normalize_gaps`、`cards` 又需要 `markdown._compose_research_markdown`；同理 `tools` 与 `research_task` 互相需要 `_collect_graph_edges` / `_run_research_task`。解法是把被双向引用的那个函数下移到更底层（`common` 或 `queries`），而不是用函数内 import 掩盖。
+
+**剩余 god module 的执行情况**：
+
+| 顺序 | 文件 | 行数 | 状态 |
+|---|---|---|---|
+| 1 | `aika/research_claims.py` | 1,555 | ✅ 已拆（`9afd4f3`） |
+| 2 | `aika/aika_mcp/tools.py` | 1,077 | ✅ 已拆（`9203ef5`） |
+| 3 | `aika/agents/centralized.py` | 1,024 | ⬜ 待拆：`CentralizedCoordinator`(233-841，609 行) 再分 wave / join / review / summarize 四组 |
+| 4 | `aika/postgres_retrieval.py` | 1,385 | ⬜ 待拆，且**本机无 PostgreSQL，只能验证可导入**——建议放到最后或跳过 |
+
+拆完之后 `aika/` 的最大文件从 2,624 降到 1,385，前五名变成：`postgres_retrieval.py` 1,385、`qa_engine.py` 1,336、`agents/centralized.py` 1,024、`agent_runner.py` 805、`research_agent.py` 777。
 
 ### P6　后端收敛（1.5 天）
 1. 定 **SQLite FTS5 为默认、PostgreSQL 为可选增强**；CSV 后端降级为"无索引时的兜底"

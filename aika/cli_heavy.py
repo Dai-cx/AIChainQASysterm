@@ -18,7 +18,6 @@ from typing import Any
 
 from aika.agents.research_agent import ResearchAgent, SUPPORTED_TASK_TYPES
 from aika.agents.store import AgentTaskStore
-from aika.qa_engine import QAEngine
 
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
@@ -279,6 +278,11 @@ def build_engine(args: argparse.Namespace) -> QAEngine:
         os.environ["QA_DISABLE_POSTGRES"] = "true"
     if offline or not getattr(args, "use_embedding", False):
         os.environ["EMBEDDING_MODEL"] = ""
+
+    # Imported here: aika.qa_engine pulls the retrieval stack (and psycopg) at import
+    # time, which the lightweight commands (init / build-index / doctor / demo) must not
+    # pay for. See the postgres_not_required check in aika doctor.
+    from aika.qa_engine import QAEngine
 
     engine = QAEngine.from_env()
     if offline or not getattr(args, "use_llm", False):

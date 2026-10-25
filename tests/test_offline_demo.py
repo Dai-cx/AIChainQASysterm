@@ -84,7 +84,7 @@ def test_build_engine_sets_postgres_disable_for_offline(monkeypatch) -> None:
         captured["EMBEDDING_MODEL"] = cli.os.environ.get("EMBEDDING_MODEL")
         return FakeEngine()
 
-    monkeypatch.setattr(cli.QAEngine, "from_env", staticmethod(fake_from_env))
+    monkeypatch.setattr(qa_engine.QAEngine, "from_env", staticmethod(fake_from_env))
 
     engine = cli.build_engine(
         SimpleNamespace(

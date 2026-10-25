@@ -428,13 +428,16 @@ python scripts/build_curated_graph.py --no-write --sync-postgres
 5. `ENTITY_ORDER` 单一来源（当前 Python 18 类 vs 前端 11 类，7 类掉进 fallback 样式）
 - **验收**：`npm run build` 通过；`/api/status`、`/api/graph/subgraph`、会话 CRUD、流式问答 手工回归通过
 
-### P8　品牌化（1 天）— 变成"你的项目"
-1. 改名（包名 / 发行名 / CLI 名 / 前端 title / MCP server info）
-2. 重写 `README.md`（628 → ≤200 行，只留一条主线）
-3. `log/direction.md`（561 行）、`log/v0.0.0-v0.0.1plan.md`、根 `plan.md`（516 行）、三份 `*_AUDIT.md` 收进 `docs/`，明确标注"历史设计文档"
-4. 删除 `Dockerfile` / `docker-compose.yml`（若 P6 决定不走 PG）或保留并修好
-5. 加 `LICENSE`（若沿用需保留原许可声明）、`.editorconfig`、`ruff` + `mypy` 配置
-- **验收**：从零 clone → 按 README 5 条命令跑通；`aika --help` 不再出现 `aiqasys`
+### P8　文档与工程收尾（1 天）— ~~品牌化~~ 调整为"不做品牌"
+> **决策变更（m02631）**：项目并入同学的研究小组，不发行、不做品牌化。原计划的改名（包名 / 发行名 / CLI 名 / 前端 title / MCP server info）与 `LICENSE` 决定**取消**；P8 只做文档与工程收尾。
+
+1. ~~改名~~（取消，理由见上）
+2. 重写 `README.md`：628 → 187 行，只留一条主线（本地 SQLite/MCP 为主，Web 与 PostgreSQL 为可选）
+3. 历史文档归档到 `docs/legacy/`：`direction.md`、`plan-v0.0.0-v0.0.1.md`、`plan-p0-p6-report-ia.md`、`log.md`、三份 `audit-*.md`、4 个一次性脚本；新增 `docs/legacy/README.md` 索引
+4. 保留 `Dockerfile` / `docker-compose.yml`（P6 决定 PG 仍是可选快车道，且已实测可用）
+5. `.editorconfig`、`ruff`（E4/E7/E9/F/I，line-length 120）、`mypy` 配置；`ruff check` 全绿
+6. 从版本库移除构建产物 `jieba.cache`（9.2 MB，首次运行自动重建）并加入 `.gitignore`
+- **验收**：从零 clone → 按 README 5 条命令跑通；`aika --help` 只有 `aika` 一个身份
 
 ---
 
@@ -542,8 +545,12 @@ cd web; npm run dev     # 代理到 127.0.0.1:8000
 
 ## 附录：三份完整审计报告的落点
 
+三份报告在 P8 归档时移入 `docs/legacy/`（它们描述的是**重构前**的代码，作为问题证据保留，不再是当前代码的说明）。
+
 | 文件 | 内容 |
 |---|---|
-| `AGENT_LAYER_AUDIT.md` | 编排层：三套 runner、`centralized.py` 逐类拆解、三份工具清单、5 处 `task_type` 注册表、9 项简化机会 |
-| `DATA_LAYER_AUDIT.md` | 数据/存储层：8 条后端矩阵、检索链调用图、`data/` 资产地图、11 处分层污染、`data/curated` 不可再生、Windows bug 复现步骤 |
-| `QA_REPORT_LAYER_AUDIT.md` | 合成/报告层：`qa_engine` 方法级拆分映射、答案合成链路与 LLM 调用次数、`plan.md` P0–P6 落地对照、claims 三条写入路径不一致、评测断路、测试行为契约 12 条 |
+| `docs/legacy/audit-agent-layer.md` | 编排层：三套 runner、`centralized.py` 逐类拆解、三份工具清单、5 处 `task_type` 注册表、9 项简化机会 |
+| `docs/legacy/audit-data-layer.md` | 数据/存储层：8 条后端矩阵、检索链调用图、`data/` 资产地图、11 处分层污染、`data/curated` 不可再生、Windows bug 复现步骤 |
+| `docs/legacy/audit-qa-report-layer.md` | 合成/报告层：`qa_engine` 方法级拆分映射、答案合成链路与 LLM 调用次数、报告信息架构 P0–P6 落地对照、claims 三条写入路径不一致、评测断路、测试行为契约 12 条 |
+
+同一批归档还包括 `docs/legacy/direction.md`（早期战略笔记）、`docs/legacy/plan-v0.0.0-v0.0.1.md`、`docs/legacy/plan-p0-p6-report-ia.md`（报告信息架构计划）与 `docs/legacy/scripts/`（4 个一次性脚本）。索引见 `docs/legacy/README.md`。

@@ -110,3 +110,5 @@ skillsDesign/
 # Local scratch space used by the dev setup scripts
 .tmp/
 
+# jieba dictionary cache, regenerated on first use
+jieba.cache

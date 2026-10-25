@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.domain import required_coverage
+
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
@@ -89,18 +91,13 @@ class TaskPlanner:
 
 
 def required_coverage_for_plan(plan: QuestionPlan) -> list[str]:
-    required: list[str] = []
-    if plan.answer_type == "company_compare" or plan.needs_comparison:
-        required.append("company_coverage")
-    if plan.answer_type == "risk_analysis" or plan.needs_risk:
-        required.append("risk_evidence")
-    if plan.needs_metrics or "HAS_METRIC" in plan.relations or "HAS_INDICATOR" in plan.relations:
-        required.append("metric_evidence")
-    if plan.answer_type == "topic_to_company":
-        required.append("company_exposure")
-    if plan.answer_type in {"industry_bottleneck", "thematic_research"}:
-        required.append("mechanism_evidence")
-    return unique(required)
+    return required_coverage(
+        plan.answer_type,
+        needs_comparison=plan.needs_comparison,
+        needs_risk=plan.needs_risk,
+        needs_metrics=plan.needs_metrics,
+        relations=plan.relations,
+    )
 
 
 def query_suffix_for_coverage(coverage: str) -> str:

@@ -8,6 +8,8 @@
 
 from __future__ import annotations
 
+from aika.aika_core.domain import ANSWER_TYPES
+
 import json
 import re
 from dataclasses import asdict, dataclass, field
@@ -172,15 +174,7 @@ def merge_llm_plan(
     """
     # answer_type 合法性校验
     answer_type = str(payload.get("answer_type") or fallback.answer_type)
-    allowed_types = {
-        "topic_to_company",
-        "company_compare",
-        "risk_analysis",
-        "industry_bottleneck",
-        "company_profile",
-        "thematic_research",
-    }
-    if answer_type not in allowed_types:
+    if answer_type not in ANSWER_TYPES:
         answer_type = fallback.answer_type
 
     # companies 合法性校验

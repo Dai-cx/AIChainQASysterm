@@ -18,6 +18,7 @@ from aika.domain_lexicon import (
     normalize_topic,
     text_matches_terms,
 )
+from aika.aika_core.domain import profile_for
 from aika.aika_core.models import EvidenceCard
 from aika.aika_core.text import shorten
 from aika.frontend_data import LocalKnowledgeGraph, RELATION_LABELS
@@ -341,17 +342,23 @@ def filter_cards_for_plan(cards: list[EvidenceCard], plan: QuestionPlan) -> list
 
 
 def select_cards_by_answer_type(cards: list[EvidenceCard], plan: QuestionPlan, *, limit: int) -> list[EvidenceCard]:
+    """Pick the cards this answer type needs.
+
+    The mapping is built on call rather than at import time because the selectors are
+    defined further down this module; adding a question shape means adding a profile in
+    aika_core.domain and at most one entry here.
+    """
     if limit <= 0:
         return []
-    if plan.answer_type == "company_compare":
-        return select_company_compare_cards(cards, plan, limit)
-    if plan.answer_type == "risk_analysis":
-        return select_risk_cards(cards, plan, limit)
-    if plan.answer_type == "topic_to_company":
-        return select_topic_company_cards(cards, plan, limit)
-    if plan.answer_type in {"industry_bottleneck", "thematic_research"}:
-        return select_research_mix_cards(cards, plan, limit)
-    return cards[:limit]
+    selectors = {
+        "company_compare": select_company_compare_cards,
+        "risk_analysis": select_risk_cards,
+        "topic_to_company": select_topic_company_cards,
+        "industry_bottleneck": select_research_mix_cards,
+        "thematic_research": select_research_mix_cards,
+    }
+    selector = selectors.get(plan.answer_type)
+    return selector(cards, plan, limit) if selector else cards[:limit]
 
 
 def select_company_compare_cards(cards: list[EvidenceCard], plan: QuestionPlan, limit: int) -> list[EvidenceCard]:

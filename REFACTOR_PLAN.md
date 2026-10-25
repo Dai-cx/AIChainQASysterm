@@ -328,6 +328,31 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 - **验收**：`qa_engine.py` 不再存在；`pytest` 全绿；`llm_calls` 计数与旧实现一致（用同一问题对比 diagnostics）
 - **风险**：高（11 个 import 方）。护栏 = P1 修好的测试 + P4 的统一形状
 
+#### P5 执行记录（2026-10-25）
+
+已完成的拆分（纯结构，函数体一行未改，全部由 `pytest` + CLI 冒烟验证）：
+
+| 目标 | 之前 | 之后 | 提交 |
+|---|---|---|---|
+| `aika_core/backends/sqlite_backend.py` | 1,255 行单文件 | 包 `aika_core/backends/sqlite/`：`util`(54) `schema`(172) `query`(159) `rows`(185) `index`(339) `backend`(393) `__init__`(43)；`sqlite_backend.py` 变 33 行 re-export shim，5 个引用方与测试的 import 不动 | `1e15a82` |
+| `aika/qa_engine.py` | 2,624 行 | `aika/qa/`：`types`(17) `constants`(41) `text`(290) `history`(323) `subgraph`(280)；引擎本体 1,336 行 | `a24d3af` |
+| `aika/langchain_tools.py` | 114 行 | 删除（从未被真正调用） | `29e087f` |
+
+拆 `sqlite_backend` 时的三个坑（都记在这里，避免下次重犯）：
+
+1. 生成脚本按 `MODULE_ORDER` 写入时用了不带 `.py` 的文件名 → 生成了一堆没有扩展名的文件，Python 导入时报告的是**旧文件**的行号，极难定位。落盘路径要用 `module + ".py"`。
+2. 同模块内的常量必须在函数**之前**输出：`def profile_knowledge_dir(..., profile: str = DEFAULT_PROFILE)` 的默认值在 def 执行时求值，`DEFAULT_PROFILE` 若排在后面就 `NameError`。
+3. 计算「跨模块依赖」时，模块名要统一带或不带 `.py`。混用会让自引用（`util.py` 里 `from ...sqlite.util import _text`）被当成跨模块依赖输出 → 循环导入。
+
+**剩余三个 god module 的拆分顺序**（按可验证性排，PG 本机不可用所以它的验证最弱）：
+
+| 顺序 | 文件 | 行数 | 为什么这个顺序 | 拆分方案 |
+|---|---|---|---|---|
+| 1 | `aika/research_claims.py` | 1,555 | 有 `tests/test_research_claims.py` 覆盖，且不依赖 PG | `research/`：`constants`(路径/字段表/术语表) `hits`(ResearchHit + 去重/多样化) `technical`(技术 chunk → claim) `claims`(claim 构造与推断) `review`(审核落库) `dossiers` `artifacts`(build_research_artifacts) `scoring` `memory`(ResearchMemory 167 行) |
+| 2 | `aika/aika_mcp/tools.py` | 1,077 | MCP 工具由 `aika doctor` 与 `tests/test_aika_mcp*.py` 覆盖 | 拆出 `report_assembly.py`，并让 `_compose_research_markdown`(733-848，118 行) 改为调用 `aika/report/render_markdown.py` |
+| 3 | `aika/agents/centralized.py` | 1,024 | 依赖 LLM，测试覆盖弱 | `CentralizedCoordinator`(233-841，609 行) 再拆成 wave / join / review / summarize 四个方法组 |
+| 4 | `aika/postgres_retrieval.py` | 1,385 | **本机无 PostgreSQL，拆分后无法验证行为** | `retrieval/postgres/{store,rag,semantic,memory}.py`；只做搬移 + import 可导入性检查，行为验证留给有 PG 的环境 |
+
 ### P6　后端收敛（1.5 天）
 1. 定 **SQLite FTS5 为默认、PostgreSQL 为可选增强**；CSV 后端降级为"无索引时的兜底"
 2. 6 条死/半死后端删除或在 `__init__` 里改惰性导入（当前 `backends/__init__.py` 聚合 import 三个后端 → `import aika.aika_core.backends.sqlite_backend` 会连带拉进 jinja2/psycopg，干净环境直接 `ModuleNotFoundError`）

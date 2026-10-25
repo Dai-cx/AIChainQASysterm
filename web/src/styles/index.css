@@ -1,0 +1,11 @@
+/* Styles entry: imports every theme file in cascade order. */
+
+@import "./base.css";
+@import "./sidebar.css";
+@import "./chat.css";
+@import "./research.css";
+@import "./tables.css";
+@import "./graph.css";
+@import "./agent.css";
+@import "./evidence.css";
+@import "./layout.css";

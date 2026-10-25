@@ -1,0 +1,60 @@
+/* Tables: data tables, warnings, code stacks and JSON blocks. */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+th,
+td {
+  border-bottom: 1px solid rgba(30, 35, 40, 0.08);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: #68717a;
+  background: rgba(24, 30, 36, 0.04);
+  white-space: nowrap;
+}
+
+td {
+  max-width: 260px;
+  color: #242a30;
+  line-height: 1.55;
+}
+
+.empty-table,
+.warning {
+  border: 1px solid rgba(29, 34, 39, 0.12);
+  border-radius: 8px;
+  padding: 14px;
+  color: #68717a;
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.warning {
+  color: #7c2d12;
+  background: rgba(255, 237, 213, 0.74);
+}
+
+.code-stack {
+  display: grid;
+  gap: 14px;
+}
+
+pre {
+  overflow: auto;
+  border: 1px solid rgba(29, 34, 39, 0.12);
+  border-radius: 8px;
+  padding: 14px;
+  color: #edf5ef;
+  background: #151b22;
+  line-height: 1.6;
+}
+
+.json-block h4 {
+  margin: 0 0 8px;
+}

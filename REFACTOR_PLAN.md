@@ -282,6 +282,19 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 - **验收**：`pytest` 全绿；`grep -c "if answer_type"` 从 14 降到 ≤3；静态检查确认无同名重复类
 - **风险**：中高（打分器换权重会改变答案排序 → 必须用评测集对比）
 
+#### P4 执行记录（2026-10-25，前两步完成）
+
+| 动作 | 结果 | 提交 |
+|---|---|---|
+| 合并两份 `EvidenceCard` | `aika_core/models.py` 的类扩成 35 字段并集（保留原字段顺序，尾部追加 `semantic_score` / `semantic_ref_id` / `candidate_ids` / `retrieval_agent`）；`professional_qa` 改成 re-export；`to_dict()` 统一（`relation_label` 只留在提示词 payload 里） | `5cb838c` |
+| 明确后端契约 | `ResearchBackend` 从 4 个抽象方法扩到 7 个命名方法（新增 3 个带 `NotImplementedError` 默认实现的「可选能力」） | `831d220` |
+| 删 4 个转发壳 | `aika_core/{brief,compare,gaps,profiles}.py`（75 行）删除；它们唯一的引用方是 `aika_core/__init__` 的再导出，真正的调用方（MCP tools / CLI）本来就直连 backend 方法 | `831d220` |
+
+实测：`professional_qa.EvidenceCard is aika_core.models.EvidenceCard` 为 True；CSV backend 现在返回 `aika.aika_core.models.EvidenceCard`（此前返回另一个同名类）；API 返回的每张证据卡 35 个键；端到端 19.6s / `verify=pass`。
+
+**仍未做**（P4 后半）：`core/io.py`（5 份 CSV + 4 份 JSONL 读取器）、`core/text.py`（16 份截断/去重）、`core/scoring.py`（4 份打分器，权重 `12/5/1` vs `3/0.8/0.6`）、`answer_type` 14 处分支收敛。
+
+
 ### P5　拆 god module（3 天）— 阅读体验的最大跃升
 1. `qa_engine.py` 2,624 → `qa/` 下 12 个文件：
    `engine.py`(≤150) `factory.py`(260) `settings.py`(60) `pipeline.py`(250) `history.py`(250) `contextualizer.py`(160) `hyde.py`(155) `planning.py`(40) `progress.py`(115) `composer.py`(130) `evidence.py`(32) `graph/subgraph.py`(235)

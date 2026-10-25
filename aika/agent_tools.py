@@ -30,6 +30,23 @@ from aika.research_claims import ResearchHit
 from aika.semantic_index import SemanticHit
 
 
+AGENT_TOOL_NAMES: tuple[str, ...] = (
+    "contextualize_question",
+    "plan_question",
+    "prepare_cypher",
+    "build_hyde_query",
+    "query_graph",
+    "search_rag",
+    "search_research",
+    "search_semantic",
+    "run_graphrag",
+    "rank_evidence",
+    "generate_answer",
+    "verify_answer_support",
+    "supplemental_plan",
+)
+
+
 @dataclass(frozen=True)
 class AgentToolCall:
     """一次工具调用的遥测记录。

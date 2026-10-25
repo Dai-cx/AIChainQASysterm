@@ -5,7 +5,6 @@ from aika.agents.models import AgentTask, AgentTaskSummary, AgentToolSpec
 from aika.agents.qa_agent import QAAgent
 from aika.agents.research_agent import ResearchAgent
 from aika.agents.store import AgentTaskStore
-from aika.agents.tools import ToolRegistry, default_tool_registry
 
 __all__ = [
     "AgentTask",
@@ -15,6 +14,4 @@ __all__ = [
     "BaseAgent",
     "QAAgent",
     "ResearchAgent",
-    "ToolRegistry",
-    "default_tool_registry",
 ]

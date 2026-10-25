@@ -9,7 +9,6 @@ from typing import Any
 from aika.agents.models import AgentStep, AgentTask
 from aika.agents.qa_agent import QAAgent
 from aika.agents.store import AgentTaskStore, InvalidAgentTaskError
-from aika.agents.tools import ToolRegistry, default_tool_registry
 
 
 @dataclass(frozen=True)
@@ -37,13 +36,10 @@ class ResearchAgent:
         self,
         engine: Any,
         store: AgentTaskStore,
-        *,
-        tool_registry: ToolRegistry | None = None,
     ) -> None:
         self.engine = engine
         self.store = store
         self.qa_agent = QAAgent(engine)
-        self.tool_registry = tool_registry or default_tool_registry()
 
     def run(
         self,
@@ -63,6 +59,10 @@ class ResearchAgent:
         spec = TASK_SPECS[task_type]
         task = self.store.create_pending(task_type=task_type, goal=goal)
         question = spec.normalizer(goal)
+        # Imported lazily: aika.agent_tools imports aika.agents.executor, so a
+        # module-level import here would close an import cycle through aika.agents.
+        from aika.agent_tools import AGENT_TOOL_NAMES
+
         plan = {
             "agent": "ResearchAgent",
             "task_type": task_type,
@@ -74,7 +74,7 @@ class ResearchAgent:
                 "schema_type": spec.schema_type,
                 "fields": spec.output_schema,
             },
-            "tool_registry": self.tool_registry.names(),
+            "tool_registry": list(AGENT_TOOL_NAMES),
             "execution_model": "sync",
         }
         steps = [

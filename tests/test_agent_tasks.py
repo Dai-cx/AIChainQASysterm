@@ -4,7 +4,6 @@ import pytest
 
 from aika.agents.research_agent import ResearchAgent
 from aika.agents.store import AgentTaskNotFoundError, AgentTaskStore, InvalidAgentTaskError
-from aika.agents.tools import default_tool_registry
 
 
 class FakeResearchEngine:
@@ -141,35 +140,18 @@ def test_agent_task_store_appends_snapshots_lists_latest_and_rejects_bad_ids(tmp
         store.get("missing")
 
 
-def test_default_tool_registry_has_required_metadata() -> None:
-    registry = default_tool_registry()
-    names = registry.names()
+def test_research_agent_task_payload_lists_agent_tool_names(tmp_path: Path) -> None:
+    store = AgentTaskStore(tmp_path)
 
-    assert "contextualize_question" in names
-    assert "search_research_claims" in names
-    assert "detect_evidence_gaps" in names
-    assert "build_research_outputs" in names
-    for spec in registry.list():
-        assert spec["name"]
-        assert spec["description"]
-        assert "input_schema" in spec
-        assert "output_schema" in spec
+    task = ResearchAgent(FakeResearchEngine(), store).run(task_type="research_brief", goal="液冷产业链")
+    tool_names = task["plan"]["tool_registry"]
 
-
-def test_tool_registry_executes_registered_tools_and_reports_missing_executor() -> None:
-    registry = default_tool_registry()
-    registry.register_executor("search_rag", lambda payload: [{"query": payload["query"]}])
-
-    executed = registry.execute("search_rag", {"query": "液冷"})
-    missing = registry.execute("query_graph", {"cypher": "MATCH (n) RETURN n"})
-
-    assert executed["tool"] == "search_rag"
-    assert executed["result_count"] == 1
-    assert executed["result"][0]["query"] == "液冷"
-    assert executed["error"] == ""
-    assert missing["tool"] == "query_graph"
-    assert missing["result_count"] == 0
-    assert "No executor registered" in missing["error"]
+    assert len(tool_names) == 13
+    assert "contextualize_question" in tool_names
+    assert "search_research" in tool_names
+    assert "run_graphrag" in tool_names
+    assert "verify_answer_support" in tool_names
+    assert "supplemental_plan" in tool_names
 
 
 def test_research_agent_generates_completed_task_with_outputs(tmp_path: Path) -> None:

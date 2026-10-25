@@ -294,6 +294,14 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 
 **仍未做**（P4 后半）：`core/io.py`（5 份 CSV + 4 份 JSONL 读取器）、`core/text.py`（16 份截断/去重）、`core/scoring.py`（4 份打分器，权重 `12/5/1` vs `3/0.8/0.6`）、`answer_type` 14 处分支收敛。
 
+| 新增 | 说明 | 提交 |
+|---|---|---|
+| `aika_core/io.py` | `read_csv_rows` / `read_jsonl_rows` / `append_jsonl_row`。5 份 CSV 读取器、4 份 JSONL 循环收敛到 1 份；`extraction_schema.read_csv` / `load_jsonl` 变成委托（它们是事实上的公共读取器，被 5 个模块 import） | `adf5280` |
+| `aika_core/text.py` | `collapse` / `shorten`（`marker` / `reserve` / `strip_tail` 三个关键字覆盖历史上三种截断策略）/ `dedupe_strings`。17 处截断实现收敛；三处「按归一化 key 去重」的实现保留（规则不同，不是拷贝） | `06af554` |
+| 顺带修的回归 | `aika/cli_heavy.py` 原来在模块级 `from aika.qa_engine import QAEngine`，合并 CLI 后导致 `aika init/doctor/demo` 全部拉进 psycopg，被 `aika doctor` 的 `postgres_not_required` 检查抓到（WARN）。改成 `build_engine()` 内部导入 | `8c39c19` |
+
+故意**没有**合并的读取器（策略真的不同）：`aika_core/knowledge_pack.py`（要把坏行变成 `KnowledgePackIssue`）、`aika/agents/store.py` 与 `aika/eval/store.py`（append-only 日志，跳过坏行而不是整体失败）、`aika_mcp/server.py` 等处的 stdio/JSON-RPC 循环（协议帧，不是数据行）。
+
 
 ### P5　拆 god module（3 天）— 阅读体验的最大跃升
 1. `qa_engine.py` 2,624 → `qa/` 下 12 个文件：

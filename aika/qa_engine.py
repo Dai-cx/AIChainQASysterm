@@ -1579,31 +1579,6 @@ class QAEngine:
 # ============================================================
 # 模块级辅助函数
 # ============================================================
-
-
-def build_answer_prompt(question: str, graph_records: list[dict[str, Any]], rag_hits: list[RagHit]) -> str:
-    """构建答案生成的 prompt（旧版格式，用于兼容）。
-
-    Args:
-        question: 用户问题
-        graph_records: 图谱查询结果
-        rag_hits: RAG 检索结果
-
-    Returns:
-        JSON 格式的 prompt 字符串
-    """
-    payload = {
-        "question": question,
-        "neo4j_records": graph_records[:30],
-        "rag_hits": [hit.to_dict() for hit in rag_hits[:8]],
-    }
-    return "请基于以下证据回答用户问题，不要使用证据外信息：\n" + json.dumps(
-        payload,
-        ensure_ascii=False,
-        indent=2,
-    )
-
-
 def normalize_contextualizer_mode(value: str) -> str:
     """归一化上下文补全模式配置。
 
@@ -2179,78 +2154,6 @@ def format_history_for_prompt(history: list[dict[str, str]]) -> str:
         role = "用户" if message["role"] == "user" else "助手"
         lines.append(f"{role}：{message['content']}")
     return "\n".join(lines)
-
-
-def build_evidence(graph_records: list[dict[str, Any]], rag_hits: list[RagHit]) -> list[dict[str, Any]]:
-    """合并图谱和 RAG 证据为统一格式（旧版兼容）。
-
-    Args:
-        graph_records: 图谱查询结果
-        rag_hits: RAG 检索结果
-
-    Returns:
-        合并后的证据列表
-    """
-    evidence = []
-    for record in graph_records:
-        text = str(record.get("evidence") or "")
-        if text:
-            evidence.append(
-                {
-                    "kind": "graph",
-                    "source": record.get("source", ""),
-                    "source_tier": record.get("source_tier", ""),
-                    "page": record.get("page", ""),
-                    "section": record.get("section", ""),
-                    "evidence": text,
-                    "score": "",
-                }
-            )
-    for hit in rag_hits:
-        evidence.append(
-            {
-                "kind": "rag",
-                "source": hit.source_title,
-                "source_tier": hit.source_tier,
-                "page": hit.page,
-                "section": hit.section,
-                "evidence": hit.snippet,
-                "score": hit.score,
-            }
-        )
-    return evidence
-
-
-def graph_records_to_subgraph(records: list[dict[str, Any]]) -> list[dict[str, str]]:
-    """将图谱查询结果转换为前端子图边列表。
-
-    Args:
-        records: 图谱查询记录
-
-    Returns:
-        子图边列表（head_type, head_name, relation, tail_type, tail_name）
-    """
-    relation_rows = []
-    for record in records:
-        company = str(record.get("company") or "")
-        target = str(record.get("target") or "")
-        relation = str(record.get("relation") or "")
-        if not company or not target or not relation:
-            continue
-        target_labels = record.get("target_labels") or []
-        target_type = target_labels[0] if isinstance(target_labels, list) and target_labels else ""
-        relation_rows.append(
-            {
-                "head_type": "Company",
-                "head_name": company,
-                "relation": relation,
-                "tail_type": target_type,
-                "tail_name": target,
-            }
-        )
-    return subgraph_edges(relation_rows)
-
-
 def answer_subgraph(records: list[dict[str, Any]], evidence_cards: list[Any]) -> list[dict[str, str]]:
     """从图谱记录和证据卡片构建答案的可视化子图。
 
@@ -2490,77 +2393,6 @@ def target_type_for_claim(claim_type: str, relation: str = "") -> str:
     if claim_type == "company_exposure":
         return "ValueChainSegment"
     return "IndustryConcept"
-
-
-def detect_unsupported_terms(answer: str, evidence_cards: list[Any]) -> list[str]:
-    """检测答案中无证据支撑的术语。
-
-    检查：
-    - 答案中提到的公司名是否在证据中出现
-    - 数字、百分比、金额等是否在证据中出现
-    - 投研关键词（订单、毛利率、产能等）是否在证据中出现
-
-    Args:
-        answer: 待检查的答案文本
-        evidence_cards: 证据卡片列表
-
-    Returns:
-        无证据支撑的术语列表（最多 20 个）
-    """
-    evidence_text = normalize_for_support(
-        " ".join(
-            " ".join(
-                str(getattr(card, key, "") or "")
-                for key in ("title", "evidence", "source", "section", "company", "target", "topic")
-            )
-            for card in evidence_cards
-        )
-    )
-    unsupported: list[str] = []
-    for company in extract_companies(answer):
-        if normalize_for_support(company) not in evidence_text:
-            unsupported.append(company)
-    for term in re.findall(r"20\d{2}|[-+]?\d+(?:,\d{3})*(?:\.\d+)?\s*(?:%|亿元|万元|元|万只|台|GB/s|Tb/s|GT/s|kW|MW|PUE)", answer, flags=re.I):
-        normalized = normalize_for_support(term)
-        if normalized and normalized not in evidence_text:
-            unsupported.append(term.strip())
-    for term in ("订单", "合同负债", "产能", "毛利率", "ASP", "客户结构", "资本开支", "PUE", "功率密度", "端口速率", "渗透率"):
-        if term in answer and normalize_for_support(term) not in evidence_text:
-            unsupported.append(term)
-    return unique_texts(unsupported)[:20]
-
-
-def normalize_for_support(value: str) -> str:
-    """用于证据支撑检查的文本归一化：去除所有空白字符并转小写。
-
-    Args:
-        value: 原始文本
-
-    Returns:
-        归一化后的文本
-    """
-    return re.sub(r"\s+", "", str(value or "").casefold())
-
-
-def unique_texts(values: list[str]) -> list[str]:
-    """字符串列表去重（保留首次出现顺序）。
-
-    Args:
-        values: 原始字符串列表
-
-    Returns:
-        去重后的列表
-    """
-    output = []
-    seen = set()
-    for value in values:
-        value = value.strip()
-        if value and value not in seen:
-            seen.add(value)
-            output.append(value)
-    return output
-
-
 def ensure_relation_cards(cards: list[Any], raw_cards: list[Any], relation: str, *, limit: int) -> list[Any]:
     """确保排序后的证据卡片中包含指定关系类型的卡片。
 
@@ -2591,33 +2423,3 @@ def ensure_relation_cards(cards: list[Any], raw_cards: list[Any], relation: str,
         seen.add(key)
         deduped.append(card)
     return deduped[:limit]
-
-
-def fallback_answer(graph_records: list[dict[str, Any]], rag_hits: list[RagHit]) -> str:
-    """构造无 LLM 时的兜底答案。
-
-    优先使用图谱记录生成结构化事实摘要，其次使用 RAG 命中来源信息。
-
-    Args:
-        graph_records: 图谱查询结果
-        rag_hits: RAG 检索结果
-
-    Returns:
-        兜底答案文本
-    """
-    if graph_records:
-        facts = []
-        for record in graph_records[:8]:
-            company = record.get("company", "")
-            relation = RELATION_LABELS.get(str(record.get("relation", "")), str(record.get("relation", "")))
-            target = record.get("target", "")
-            source = record.get("source", "")
-            page = record.get("page", "")
-            if company and target:
-                facts.append(f"{company} {relation} {target}（{source} p.{page}）")
-        if facts:
-            return "根据当前知识库证据，" + "；".join(facts) + "。"
-    if rag_hits:
-        source_bits = [f"{hit.source_title} p.{hit.page}" for hit in rag_hits[:3] if hit.source_title]
-        return "根据本地文档检索，找到相关原文证据：" + "；".join(source_bits) + "。"
-    return NO_EVIDENCE_ANSWER

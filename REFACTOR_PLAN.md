@@ -443,16 +443,16 @@ python scripts/build_curated_graph.py --no-write --sync-postgres
 
 ## 七、量化目标
 
-| 指标 | 现在 | 目标 | 变化 |
-|---|---|---|---|
-| Python 代码行 | 31,151 | ~19,000 | **−39%** |
-| 最大单文件 | 2,624 | ≤400 | −85% |
-| 存储后端 | 8 条 | 2 条（SQLite 默认 / PG 可选） | −75% |
-| CLI 入口 | 3 个（1 个不可达） | 1 个 | −67% |
-| 测试通过率 | 239/249（96%，9 个 Windows 失败） | 249/249 | 全绿 |
-| 同名重复类 | 6 组 | 0 | — |
-| MCP 工具清单 | 3 份、互相矛盾 | 1 份 | — |
-| 测试收集率 | 100%（.venv 装齐依赖后） | 100% | 保持 |
+| 指标 | 现在（基线） | 目标 | 最终 | 说明 |
+|---|---|---|---|---|
+| Python 代码行 | 31,151 | ~19,000 | **30,674** | 未达标：删掉约 2,400 行死代码，但拆包新增 ~1,900 行模块头与 import；没有为了凑数字删可用功能 |
+| 最大单文件 | 2,624 | ≤400 | **1,314**（`qa_engine.py`） | 未达标但接近：四个 god module 已拆包，`qa_engine` 剩余部分是引擎本体 |
+| 存储后端 | 8 条 | 2 条 | **5 条**（SQLite / CSV / PostgreSQL / 本地 RAG / Neo4j） | 删掉了 33 行全 `NotImplementedError` 的 PG 桩；其余都在用 |
+| CLI 入口 | 3 个（1 个不可达） | 1 个 | **1 个** | `aika`，15 个子命令，`aiqasys` 身份彻底移除 |
+| 测试通过率 | 239/249（96%，9 个 Windows 失败） | 249/249 | **243/244 全绿** | 数量变化来自删除死代码的测试（−4）与新增回归测试（+1） |
+| 同名重复类 | 6 组 | 0 | **0** | `EvidenceCard` 合并、`AgentToolSpec`/`AgentState` 删除 |
+| MCP 工具清单 | 3 份、互相矛盾 | 1 份 | **1 份**（`tools.tool_names()`，9 个） | `doctor` 直接读真实注册表 |
+| 测试收集率 | 100% | 100% | **100%** | `.venv` 装齐依赖后无 collection error |
 
 ---
 
@@ -541,6 +541,17 @@ cd web; npm run dev     # 代理到 127.0.0.1:8000
 - \data/eval/qa_benchmark_v1.jsonl\ 50 例全是 \company_compare\，目标公司不在样例包里，\human_score\ 也未标注 → 样例包上 0 召回属于数据范围问题。
 - \data/curated\ 重建出的 305 条 claim 是已提交 568 条的子集，缺的 263 条来自 \claims_from_technical_chunks\，需要 \data/chunks\（仓库内只有 \.gitkeep\）。
 
+#### P7a/P7b 执行记录（2026-10-25）
+
+| 阶段 | 提交 | 内容 | 验收 |
+|---|---|---|---|
+| P7a | `1d07183` | `aika/api.py`（766 行）→ `aika/api/` 包（15 个文件 985 行，最大 155）：`app` / `deps` / `errors` / `models` / `routers/{status,agents,conversations,research,graph}` / `services/{chat_turn,export}` | 77 项行为对拍脚本（`.tmp/analyze/api_parity.py`）逐字节一致；turn 6 键、result 19 键、证据卡 6×35 键不变；离线 SSE 与 stub SSE 事件序列不变；243 passed；`ruff` 干净 |
+| P7b | `191b68d` `99f4a4b` `ba29a27` | `App.tsx` 2987 → 166 行（views / components / evidence / graph / lib / hooks 共 30 个模块）；`styles.css` 2585 → 9 个主题文件；实体类型 11 → 18 类对齐后端；`ClaimReviewRequest` 补到 18 字段；删 `Role` 与无调用的 `sendMessage` | `npm run build` 通过（1599 模块，JS 218.17 kB / CSS 32.20 kB）；图例 11 个互不重复的标签（不再有重复的「实体」）；4 张截图重新生成 |
+
+关键点：JSON 与 SSE 两条路由现在共用 `services/chat_turn.py` 的同一套 `prepare_turn` / `complete_turn`，原先重复 4 段（校验、取历史、normalize、turn 组装）只剩一份。
+
+`aika/` 最终 149 文件 / 30,674 行（基线 94 文件 / 31,151 行）；单文件最大 2,624 → 1,314；`web/src` 37 文件。
+
 ---
 
 ## 附录：三份完整审计报告的落点
@@ -554,3 +565,53 @@ cd web; npm run dev     # 代理到 127.0.0.1:8000
 | `docs/legacy/audit-qa-report-layer.md` | 合成/报告层：`qa_engine` 方法级拆分映射、答案合成链路与 LLM 调用次数、报告信息架构 P0–P6 落地对照、claims 三条写入路径不一致、评测断路、测试行为契约 12 条 |
 
 同一批归档还包括 `docs/legacy/direction.md`（早期战略笔记）、`docs/legacy/plan-v0.0.0-v0.0.1.md`、`docs/legacy/plan-p0-p6-report-ia.md`（报告信息架构计划）与 `docs/legacy/scripts/`（4 个一次性脚本）。索引见 `docs/legacy/README.md`。
+
+---
+
+## 重构结果（最终）
+
+### 一条主线，四条通路
+
+| 通路 | 命令 | 依赖 |
+|---|---|---|
+| 本地问答 / 检索 | `aika init --sample` → `build-index` → `demo` / `search-evidence` | 无 |
+| 接进 Claude Code / Codex | `aika mcp install --host …`，9 个工具 | 无 |
+| 网页查看器 | `aika api` + `aika web` | Node |
+| PostgreSQL 快车道 | `docker compose up -d db` + `scripts/migrate_postgres.py` | Docker（实测 ParadeDB 0.24.0-pg17 通过） |
+
+### 修掉的真实缺陷（不是风格问题）
+
+1. `aika build-index` 在 Windows 上必然失败（sqlite 句柄没关，`WinError 32`），连带 6 个测试红。
+2. 生成的 MCP 配置里 `/usr/bin/uv` 被解析成 `D:\usr\bin\uv`，宿主永远拉不起来；`uv` 现在是可选的，缺失时回退当前解释器。
+3. `/tmp/uv-cache` 硬编码被写进宿主配置与提示文案。
+4. 读配置前先写 `site-packages/data/metadata/*.csv` → wheel 安装后首次提问即 `PermissionError`。
+5. `import aika.aika_core.backends.sqlite_backend` 会连带 import `jinja2` / `psycopg`（三个包 `__init__` 全量导入），干净环境装完 CLI 直接 ImportError。
+6. 同一份 `qa_engine` 流水线写了三遍（workflow / stream workflow / legacy runner），改一处要改三处。
+7. `risk_support_check` 扫描答案正文里的「风险」二字，导致任何提到风险的答案被判 fail 并用模板覆盖 —— 12 次 LLM 调用换一句模板。
+8. `exposure_support_check` 的同类问题（裸词提及即判 fail）。
+9. 应用一直跑在 `data/curated` 的退化图上（只有 1 家公司），而 `data/verified` 有 48 家。
+10. `EvidenceCard` 有两个同名不同字段的类，`CSVResearchBackend` 返回的是另一个。
+11. `audit_evidence_gaps` 的按公司分支调用一个已被删掉的 helper（我在 P2b 误删，P6 收尾时被 `ruff` 的 F821 抓出来并恢复）。
+12. `data/curated` 的文物无法重建（两个脚本硬传 `write_outputs=False` + 无条件连 PG）。
+13. `aika eval --suite agent` 反向 import `scripts.`，wheel 安装后必 ImportError；`--suite rag` 硬连 PG。
+14. `EXPECTED_MCP_TOOLS` 少登记一个工具，`doctor` 报 8 个而服务器实际注册 9 个。
+15. 前端实体类型只有 11 类，后端 18 类 → 图例把 7 类都渲染成「实体」（同名两条）。
+
+### 保留未动的部分与理由
+
+- **`aika/aika_core/backends/csv_backend.py` 仍 import 上层模块**（分层污染的源头之一）：拆它会改变检索行为，而这条链路没有测试覆盖，属于"拆得动但验不了"，留给后续。
+- **四份打分器仍各自独立**：它们排不同对象、用不同权重（BM25 + 免责 −4.0 vs 子串/词/主题加权），合并会改排序且无测试兜底。
+- **`aika/report` 的 P0/P4/P5（证据四层、`<details>` 折叠、雷达图）没有补**：这是产品功能，不是重构范围。
+- **保留 `aika/research_claims.py`、`aika/postgres_retrieval.py`、`aika/aika_core/backends/sqlite_backend.py`、`aika/agents/centralized.py` 四个 re-export 别名**：它们让 19 个既有引用方（含脚本与测试）零改动；每个文件开头都注明了"实现在哪里"。
+
+### 怎么验证我做的这些
+
+```powershell
+pytest -q                                   # 243 passed, 1 skipped
+ruff check aika tests scripts               # clean
+aika doctor                                 # 全 PASS
+aika init --sample; aika build-index; aika demo
+uvicorn aika.api:app --port 8000            # 配合 cd web; npm run dev
+```
+
+行为对拍的证据在 `.tmp/analyze/api_parity.py`（77 项，重构前后逐字节一致）与 `.tmp/analyze/pg_probe.py`（PostgreSQL 通路拆分前后输出相同）。

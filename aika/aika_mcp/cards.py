@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Any
+
 from aika.aika_core.evidence import build_evidence_ux_bundle, freshness_status
 from aika.aika_core.models import ClaimRecord, EvidenceCard
 

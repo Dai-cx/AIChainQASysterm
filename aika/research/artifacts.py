@@ -6,6 +6,7 @@ import csv
 import json
 from pathlib import Path
 from typing import Any
+
 from aika.extraction_schema import read_csv
 
 from aika.research.constants import CLAIMS_FILE, CLAIM_CSV_FIELDS, DEFAULT_RESEARCH_DIR, EVIDENCE_SPANS_FILE, EVIDENCE_SPAN_FIELDS, SEGMENT_DOSSIERS_FILE

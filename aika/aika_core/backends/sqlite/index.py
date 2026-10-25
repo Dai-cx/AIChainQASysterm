@@ -9,6 +9,7 @@ import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
 from aika.aika_core.data_paths import CLAIMS_FILE, EVIDENCE_SPANS_FILE, RELATIONS_FILE, SEGMENT_DOSSIERS_FILE
 from aika.aika_core.models import ClaimRecord
 

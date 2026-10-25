@@ -6,6 +6,7 @@ import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
+
 from aika.domain_lexicon import TECHNICAL_SOURCE_TYPES, THEME_SYNONYMS, infer_themes, normalize_topic
 from aika.extraction_schema import load_jsonl, stable_id
 

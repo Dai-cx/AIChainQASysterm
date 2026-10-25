@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Any
+
 from aika.aika_mcp.schemas import RunResearchTaskRequest
 from aika.report_type import report_title
 

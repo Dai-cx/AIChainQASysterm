@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
+
 from aika.domain_lexicon import text_matches_terms
 from aika.aika_core.io import read_jsonl_rows
 from aika.extraction_schema import read_csv

@@ -7,6 +7,7 @@ import sqlite3
 from pathlib import Path
 from types import SimpleNamespace
 from typing import Any, Iterable
+
 from aika.aika_core.models import ClaimRecord, CompanyComparison, CompanyProfile, EvidenceCard, EvidenceGap, GraphEdge, ResearchBackend, ResearchBrief
 
 from aika.aika_core.backends.sqlite.util import _dedupe, _limit, _text

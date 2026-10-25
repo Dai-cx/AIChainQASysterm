@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Any
+
 from aika.report_type import CoverageMetrics, aggregate_freshness_status, classify_report_type, report_type_label, report_usability
 
 from aika.aika_mcp.common import _normalize_gaps, _short_text

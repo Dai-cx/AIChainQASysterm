@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import defaultdict
 from dataclasses import dataclass
 from typing import Any
+
 from aika.domain_lexicon import normalize_topic
 
 from aika.research.constants import EXPOSURE_ORDER

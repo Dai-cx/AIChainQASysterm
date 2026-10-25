@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
+
 from aika.aika_core.backends.sqlite_backend import resolve_aika_home
 from aika.aika_mcp.schemas import RenderReportPdfRequest
 from aika.report import PdfRenderError, ReportSpec, render_html, render_report_pdf as export_report_pdf

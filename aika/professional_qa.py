@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import re
 from collections import defaultdict
-from dataclasses import asdict, dataclass, replace
+from dataclasses import replace
 from typing import Any, Iterable
 
 from aika.domain_lexicon import (
@@ -18,46 +18,11 @@ from aika.domain_lexicon import (
     normalize_topic,
     text_matches_terms,
 )
+from aika.aika_core.models import EvidenceCard
 from aika.frontend_data import LocalKnowledgeGraph, RELATION_LABELS
 from aika.question_planner import QuestionPlan
 from aika.rag_index import RagHit
 from aika.research_claims import ResearchHit, query_focus_terms
-
-
-@dataclass(frozen=True)
-class EvidenceCard:
-    citation_id: str
-    kind: str
-    title: str
-    evidence: str
-    claim_id: str = ""
-    source: str = ""
-    page: str = ""
-    section: str = ""
-    company: str = ""
-    relation: str = ""
-    target: str = ""
-    source_tier: str = ""
-    score: float = 0.0
-    reason: str = ""
-    topic: str = ""
-    claim_type: str = ""
-    exposure_level: str = ""
-    confidence: str = ""
-    as_of_date: str = ""
-    evidence_span: str = ""
-    review_status: str = ""
-    reviewer_note: str = ""
-    semantic_score: float = 0.0
-    semantic_ref_id: str = ""
-    candidate_ids: list[str] | None = None
-    retrieval_agent: str = ""
-
-    def to_dict(self) -> dict[str, Any]:
-        row = asdict(self)
-        row["candidate_ids"] = list(self.candidate_ids or [])
-        row["relation_label"] = RELATION_LABELS.get(self.relation, self.relation)
-        return row
 
 
 def search_csv_graph(
@@ -513,7 +478,10 @@ def build_professional_answer_prompt(
         "question": question,
         "question_plan": plan.to_dict(),
         "neo4j_or_csv_graph_records": graph_records[:30],
-        "evidence_cards": [card.to_dict() for card in cards[:12]],
+        "evidence_cards": [
+            {**card.to_dict(), "relation_label": RELATION_LABELS.get(card.relation, card.relation)}
+            for card in cards[:12]
+        ],
     }
     return (
         "请基于以下证据包回答，不要使用证据外信息。优先使用 claim/dossier 形成投研逻辑，"

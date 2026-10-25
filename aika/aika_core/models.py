@@ -86,6 +86,10 @@ class EvidenceCard:
     evidence_span: str = ""
     review_status: str = ""
     reviewer_note: str = ""
+    semantic_score: float = 0.0
+    semantic_ref_id: str = ""
+    candidate_ids: list[str] = field(default_factory=list)
+    retrieval_agent: str = ""
     raw: dict[str, Any] = field(default_factory=dict)
 
     @classmethod
@@ -130,11 +134,17 @@ class EvidenceCard:
             evidence_span=_clean_text(row.get("evidence_span")),
             review_status=_clean_text(row.get("review_status")),
             reviewer_note=_clean_text(row.get("reviewer_note")),
+            semantic_score=_floatish(row.get("semantic_score")),
+            semantic_ref_id=_clean_text(row.get("semantic_ref_id")),
+            candidate_ids=_as_list(row.get("candidate_ids")),
+            retrieval_agent=_clean_text(row.get("retrieval_agent")),
             raw=row,
         )
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        row = asdict(self)
+        row["candidate_ids"] = list(self.candidate_ids or [])
+        return row
 
 
 @dataclass(frozen=True)

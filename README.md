@@ -175,17 +175,28 @@ aika build-index
 aika demo
 ```
 
-### 开发 CLI
+### 完整 CLI（唯一入口：`aika`）
+
+只有一个命令、一个身份：`aika`。`python main.py <cmd>` 是它的等价写法（同一个 parser）。
+
+| 分组 | 命令 |
+|---|---|
+| 本地知识库（主线） | `aika init --sample` / `aika build-index` / `aika demo` / `aika doctor` / `aika search-evidence` / `aika search-claims` / `aika validate-data` |
+| MCP / Skill | `aika mcp` / `aika mcp install` / `aika mcp config` / `aika mcp doctor` / `aika skill list` / `aika skill install` / `aika skill doctor` |
+| 可选 Web 查看器 | `aika api --host 127.0.0.1 --port 8000 --reload` / `aika web --port 5173` |
+| Agent 与评测 | `aika agent --type research_brief --offline --json` / `aika eval --suite qa\|rag\|agent` / `aika showcase --offline` |
 
 ```bash
-python main.py api --host 127.0.0.1 --port 8000 --reload
-python main.py web --host 127.0.0.1 --port 5173 --api http://127.0.0.1:8000
-python main.py agent --type research_brief "液冷产业链" --offline --json
-python main.py eval --suite qa --offline --benchmark data/eval/qa_benchmark_v1.jsonl --report-dir data/eval_runs --k 6 --json
-python main.py eval --suite rag --retrievers bm25 --benchmark data/eval/rag_retrieval_v1.jsonl --report-dir data/eval_runs
-python main.py eval --suite agent --offline --limit 1 --task-dir /tmp/aiqasys-agent-tasks --json
-python main.py demo --offline --task-dir /tmp/aiqasys-demo-tasks
+aika api --host 127.0.0.1 --port 8000 --reload
+aika web --host 127.0.0.1 --port 5173 --api http://127.0.0.1:8000
+aika agent --type research_brief "液冷产业链" --offline --json
+aika eval --suite qa --offline --benchmark data/eval/qa_benchmark_v1.jsonl --report-dir data/eval_runs --k 6 --json
+aika eval --suite rag --retrievers bm25 --benchmark data/eval/rag_retrieval_v1.jsonl --report-dir data/eval_runs
+aika eval --suite agent --offline --limit 1 --task-dir /tmp/aika-agent-tasks --json
+aika showcase --offline --task-dir /tmp/aika-showcase-tasks
 ```
+
+> `aika demo` 是**本地 SQLite 样例演示**（主线）；原来的「问答 + Agent 全链路演示」已改名为 `aika showcase`，两者不再同名。
 
 默认离线评测会使用本地 CSV/Claim/Dossier 证据并禁用 LLM、embedding、Neo4j。需要真实模型时，先配置 `.env`，再加 `--use-llm`；需要语义索引时加 `--use-embedding`。
 
@@ -530,14 +541,14 @@ npm run build
 ```bash
 # BM25 检索（仅需 PostgreSQL）
 DATABASE_URL=postgresql://aiqasys:aiqasys@localhost:5432/aiqasys \
-  uv run python main.py eval --suite rag --limit 50
+  uv run aika eval --suite rag --limit 50
 
 # BM25 + 语义 + RRF 融合（需先构建 embedding）
 DATABASE_URL=postgresql://aiqasys:aiqasys@localhost:5432/aiqasys \
-  uv run python main.py eval --suite rag --use-embedding --limit 50
+  uv run aika eval --suite rag --use-embedding --limit 50
 
 # 自定义参数
-DATABASE_URL=... uv run python main.py eval --suite rag \
+DATABASE_URL=... uv run aika eval --suite rag \
   --limit 10 --ks 1,3,6,12 --retrievers bm25,rrf \
   --candidate-k 60 --json --no-save
 ```
@@ -606,7 +617,7 @@ python scripts/apply_judgments.py \
 **Step 4 — 用增强数据集重新评测：**
 
 ```bash
-DATABASE_URL=postgresql://aiqasys:aiqasys@localhost:5432/aiqasys uv run python main.py eval \
+DATABASE_URL=postgresql://aiqasys:aiqasys@localhost:5432/aiqasys uv run aika eval \
   --suite rag \
   --benchmark data/eval/rag_retrieval_v2.jsonl \
   --retrievers bm25,semantic,rrf \

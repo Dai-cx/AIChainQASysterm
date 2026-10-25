@@ -34,16 +34,6 @@ from aika.aika_core.sample_data import (
 ROOT_DIR = Path(__file__).resolve().parents[1]
 SAMPLE_SOURCE_DIR = ROOT_DIR / "data" / "knowledge_packs" / "sample"
 DEFAULT_DEMO_QUERY = "液冷产业链"
-EXPECTED_MCP_TOOLS = [
-    "search_evidence",
-    "search_claims",
-    "get_company_profile",
-    "compare_companies",
-    "query_industry_graph",
-    "build_research_brief",
-    "audit_evidence_gaps",
-    "run_research_task",
-]
 STATUS_PASS = "pass"
 STATUS_WARN = "warn"
 STATUS_FAIL = "fail"
@@ -135,6 +125,12 @@ def build_parser() -> argparse.ArgumentParser:
     mcp_doctor_parser.add_argument("--home", default="", help="AIKA home directory; defaults to AIKA_HOME or ~/.aika.")
     mcp_doctor_parser.add_argument("--profile", default=DEFAULT_PROFILE, help="Knowledge profile name.")
     mcp_doctor_parser.set_defaults(func=run_mcp_doctor)
+
+    # api / web / agent / eval / showcase live in aika/cli_heavy.py; they are part of
+    # the same distribution, so they hang off this same parser.
+    from aika.cli_heavy import register_commands
+
+    register_commands(subparsers)
 
     return parser
 
@@ -594,7 +590,9 @@ def _check_mcp_server_and_tools(*, timeout_seconds: float) -> list[CliDoctorChec
 
     tools = response.get("result", {}).get("tools", [])
     names = {str(item.get("name") or "") for item in tools if isinstance(item, dict)}
-    missing = set(EXPECTED_MCP_TOOLS) - names
+    from aika.aika_mcp.tools import tool_names
+
+    missing = set(tool_names()) - names
     server_check = CliDoctorCheck("mcp_server", STATUS_PASS, "Started and returned tools/list.")
     if missing:
         tools_check = CliDoctorCheck(

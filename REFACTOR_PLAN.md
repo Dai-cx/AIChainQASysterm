@@ -254,6 +254,24 @@ L0 core  ←  L1 corpus  ←  L2 retrieval/report  ←  L3 qa/agents  ←  L4 ap
 - **验收**：`aika eval --suite qa` 能跑；`aika mcp serve` 能跑；CI 加 `windows-latest` job 且全绿
 - **风险**：中（入口被 Docker/CI/README 引用，需同步改 12 处）
 
+#### P3 执行记录（2026-10-25，已完成）
+
+| 动作 | 结果 |
+|---|---|
+| `aika/cli.py` 416 行 → `aika/cli_heavy.py` 405 行 | 只保留 handler，新增 `register_commands(subparsers)`；`build_parser`/`main` 删除 |
+| `aika/aika_cli.py` 成为唯一 parser | `api` / `web` / `agent` / `eval` / `showcase` 由 `register_commands` 挂载，共 **14 个子命令、1 个身份 `aika`** |
+| 删 `aiqasys` 身份 | `prog="aiqasys"` 随 `cli.py` 一起消失；`_package_version` 的 `("aika-research-mcp", "aiqasys")` → 只剩前者 |
+| **修 MCP 工具清单漂移** | `EXPECTED_MCP_TOOLS`（8 项，漏 `render_report_pdf`）→ `aika.aika_mcp.tools.tool_names()`（9 项）；`aika doctor` 现在报 `[PASS] mcp_tools: Registered 9 tools.` |
+| `demo` 重名消解 | `aika demo` = 本地 SQLite 样例演示（主线）；原来的「QA + Agent 全链路」改名 `aika showcase` |
+| `main.py` | 5 行薄壳：`from aika.aika_cli import main` |
+| `Dockerfile` / `docker-compose.yml` | `CMD ["uv","run","python","main.py","api",…]` → `["uv","run","aika","api",…]`（**原来 docker 起的入口压根没被安装过**） |
+| CI | 全部改用 `aika`；新增「init → build-index → demo → doctor」轻量 smoke（正是能抓住 sqlite 句柄 bug 的那条）；新增 `windows-latest` job |
+| README | CLI 章节重写为「一个身份 + 四组命令」表；4 处 `uv run python main.py` → `uv run aika` |
+
+- **验收**：`aika --help` 14 个子命令；`aika doctor` 全 PASS；`aika demo`、`python main.py demo`、`python main.py showcase --offline` 均 exit 0；`pytest` 247 passed / 1 skipped。
+- **仍未做**（留在 P6/P8）：容器名与 Postgres 用户名仍是 `aiqasys`（品牌化）、`aika mcp doctor` 在无 `uv` 的机器上仍报 FAIL（需改为回退到 `sys.executable`）。
+
+
 ### P4　统一数据形状与 I/O（2.5 天）— 消除"同名不同类型"
 1. `core/models.py` 定为唯一定义：合并 3 份 `EvidenceCard` → 1 份；2 份 `EvidenceGap` → 1 份；2 份 `verify_answer_support` → 1 份
 2. `core/io.py` 吃掉 5 份 CSV 读取 + 4 份 JSONL 读取

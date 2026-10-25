@@ -1,4 +1,10 @@
-"""Command line interface for local demos, services, agent tasks, and evals."""
+"""Heavy commands: the optional web viewer, the agent task runner, and evaluations.
+
+These commands live behind the same ``aika`` entrypoint as the lightweight local
+commands (see ``aika/aika_cli.py``), but they only make sense with the full stack
+installed: FastAPI/uvicorn for ``api``, Node/npm for ``web``, and the LangGraph agent
+plus PostgreSQL for ``eval``.
+"""
 
 from __future__ import annotations
 
@@ -20,24 +26,19 @@ DEFAULT_AGENT_TASK_DIR = ROOT_DIR / "data" / "agent_tasks"
 DEFAULT_EVAL_RUN_DIR = ROOT_DIR / "data" / "eval_runs"
 DEFAULT_QA_BENCHMARK = ROOT_DIR / "data" / "eval" / "qa_benchmark_v1.jsonl"
 DEFAULT_RAG_BENCHMARK = ROOT_DIR / "data" / "eval" / "rag_retrieval_v1.jsonl"
-DEFAULT_DEMO_QUESTION = "液冷产业链有哪些上市公司，各自处于什么环节？"
-DEFAULT_DEMO_GOAL = "液冷产业链"
+DEFAULT_SHOWCASE_QUESTION = "液冷产业链有哪些上市公司，各自处于什么环节？"
+DEFAULT_SHOWCASE_GOAL = "液冷产业链"
 
 
-def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
-        prog="aiqasys",
-        description="AIQASYS engineering delivery CLI.",
-    )
-    subparsers = parser.add_subparsers(dest="command", required=True)
-
-    api_parser = subparsers.add_parser("api", help="Start the FastAPI backend.")
+def register_commands(subparsers: Any) -> None:
+    """Attach the api / web / agent / eval / showcase commands to the shared parser."""
+    api_parser = subparsers.add_parser("api", help="Start the FastAPI backend (web viewer).")
     api_parser.add_argument("--host", default="127.0.0.1")
     api_parser.add_argument("--port", type=int, default=8000)
     api_parser.add_argument("--reload", action="store_true")
     api_parser.set_defaults(func=run_api)
 
-    web_parser = subparsers.add_parser("web", help="Start the Vite frontend.")
+    web_parser = subparsers.add_parser("web", help="Start the Vite frontend (web viewer).")
     web_parser.add_argument("--host", default="127.0.0.1")
     web_parser.add_argument("--port", type=int, default=5173)
     web_parser.add_argument("--api", default="http://127.0.0.1:8000")
@@ -47,7 +48,7 @@ def build_parser() -> argparse.ArgumentParser:
     agent_parser.add_argument("goal", help="Research goal, for example: 液冷产业链")
     agent_parser.add_argument("--type", default="research_brief", choices=sorted(SUPPORTED_TASK_TYPES))
     agent_parser.add_argument("--task-dir", default=str(DEFAULT_AGENT_TASK_DIR))
-    agent_parser.add_argument("--offline", action="store_true", help="Use CSV graph and disable LLM/semantic retrieval.")
+    agent_parser.add_argument("--offline", action="store_true", help="Use the CSV graph and disable LLM/semantic retrieval.")
     agent_parser.add_argument("--use-llm", action="store_true", help="Use the configured LLM client.")
     agent_parser.add_argument("--use-embedding", action="store_true", help="Use the configured embedding index.")
     agent_parser.add_argument("--json", action="store_true", help="Print the full task JSON.")
@@ -68,30 +69,18 @@ def build_parser() -> argparse.ArgumentParser:
         help="RAG retrievers: auto, bm25, semantic, rrf, or a comma-separated combination.",
     )
     eval_parser.add_argument("--no-save", action="store_true", help="Do not append the eval report to the local report store.")
-    eval_parser.add_argument("--offline", action="store_true", help="Use CSV graph and disable LLM/semantic retrieval.")
+    eval_parser.add_argument("--offline", action="store_true", help="Use the CSV graph and disable LLM/semantic retrieval.")
     eval_parser.add_argument("--use-llm", action="store_true", help="Use the configured LLM client.")
     eval_parser.add_argument("--use-embedding", action="store_true", help="Use the configured embedding index.")
     eval_parser.add_argument("--json", action="store_true", help="Print JSON results.")
     eval_parser.set_defaults(func=run_eval)
 
-    demo_parser = subparsers.add_parser("demo", help="Run a minimal local QA + Agent demo.")
-    demo_parser.add_argument("--offline", action="store_true", help="Use CSV graph and disable LLM/semantic retrieval.")
-    demo_parser.add_argument("--task-dir", default=str(DEFAULT_AGENT_TASK_DIR))
-    demo_parser.add_argument("--use-llm", action="store_true", help="Use the configured LLM client.")
-    demo_parser.add_argument("--use-embedding", action="store_true", help="Use the configured embedding index.")
-    demo_parser.set_defaults(func=run_demo)
-
-    return parser
-
-
-def main(argv: list[str] | None = None) -> int:
-    parser = build_parser()
-    args = parser.parse_args(argv)
-    try:
-        return int(args.func(args) or 0)
-    except KeyboardInterrupt:
-        print("\nInterrupted.", file=sys.stderr)
-        return 130
+    showcase_parser = subparsers.add_parser("showcase", help="Run the full local QA + Agent walkthrough.")
+    showcase_parser.add_argument("--offline", action="store_true", help="Use the CSV graph and disable LLM/semantic retrieval.")
+    showcase_parser.add_argument("--task-dir", default=str(DEFAULT_AGENT_TASK_DIR))
+    showcase_parser.add_argument("--use-llm", action="store_true", help="Use the configured LLM client.")
+    showcase_parser.add_argument("--use-embedding", action="store_true", help="Use the configured embedding index.")
+    showcase_parser.set_defaults(func=run_showcase)
 
 
 def run_api(args: argparse.Namespace) -> int:
@@ -251,28 +240,28 @@ def run_agent_eval(args: argparse.Namespace) -> int:
     return print_eval_results("Agent task evaluation", results, args.json)
 
 
-def run_demo(args: argparse.Namespace) -> int:
+def run_showcase(args: argparse.Namespace) -> int:
     engine = build_engine(args)
     task: dict[str, Any]
     try:
         status = engine.status
-        qa_result = engine.answer_question(DEFAULT_DEMO_QUESTION, thinking_enabled=False if effective_offline(args) else None)
+        qa_result = engine.answer_question(DEFAULT_SHOWCASE_QUESTION, thinking_enabled=False if effective_offline(args) else None)
         store = AgentTaskStore(Path(args.task_dir))
         task = ResearchAgent(engine, store).run(
             task_type="research_brief",
-            goal=DEFAULT_DEMO_GOAL,
+            goal=DEFAULT_SHOWCASE_GOAL,
             thinking_enabled=False if effective_offline(args) else None,
         )
     finally:
         engine.close()
 
-    print("AIQASYS minimal demo")
+    print("AIKA showcase (QA + Agent)")
     print(f"Graph backend: {status.graph_backend}")
     print(f"Research enabled: {status.research_enabled}")
     print(f"RAG enabled: {status.rag_enabled}")
     print(f"LLM enabled: {status.llm_enabled}")
     print("")
-    print(f"Question: {DEFAULT_DEMO_QUESTION}")
+    print(f"Question: {DEFAULT_SHOWCASE_QUESTION}")
     print(f"Answer type: {qa_result.get('answer_type', '')}")
     print(f"Evidence cards: {len(qa_result.get('evidence_cards', []))}")
     print(first_lines(str(qa_result.get("answer", "")), limit=8))

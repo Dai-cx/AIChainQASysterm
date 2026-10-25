@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from aika.cli import parse_positive_ints, parse_rag_retrievers
+from aika.cli_heavy import parse_positive_ints, parse_rag_retrievers
 from aika.eval.rag_dataset import (
     RagRetrievalCase,
     RagRetrievalDatasetError,

@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from types import SimpleNamespace
 
-from aika import cli
+from aika import cli_heavy as cli
 from aika import qa_engine
 from aika.qa_engine import QAEngine
 

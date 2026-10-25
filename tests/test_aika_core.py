@@ -1,8 +1,24 @@
+import csv
 import json
+from pathlib import Path
 
 from aika.aika_core import CSVResearchBackend, ClaimRecord, ConclusionCard, EvidenceCard, EvidenceLink, GraphEdge
 from aika.aika_core.claims import load_claims
-from aika.aika_core.data_paths import DEFAULT_CLAIMS_CSV
+from aika.aika_core.data_paths import DEFAULT_CLAIMS_CSV, DEFAULT_ENTITIES_CSV
+
+
+def _first_company_in_graph() -> str:
+    """Return a company that actually exists in the committed curated graph.
+
+    The graph is a fixed artefact (it cannot be regenerated without PostgreSQL), so the
+    tests must ask the data which companies it contains instead of hard-coding a name
+    that may not be part of the current snapshot.
+    """
+    with Path(DEFAULT_ENTITIES_CSV).open(encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            if row.get("type") == "Company":
+                return str(row["name"])
+    raise AssertionError("curated graph contains no Company entity")
 
 
 def test_load_claims_from_curated_csv() -> None:
@@ -40,22 +56,24 @@ def test_csv_backend_search_evidence_returns_cards() -> None:
 
 def test_csv_backend_query_graph_by_company_returns_relation_edges() -> None:
     backend = CSVResearchBackend()
+    company = _first_company_in_graph()
 
-    edges = backend.query_graph(company="中际旭创", limit=20)
+    edges = backend.query_graph(company=company, limit=20)
 
     assert edges
     assert all(isinstance(edge, GraphEdge) for edge in edges)
-    assert any(edge.source == "中际旭创" for edge in edges)
+    assert any(edge.source == company for edge in edges)
     assert any(edge.relation for edge in edges)
 
 
 def test_csv_backend_company_profile_contains_evidence_and_gap_fields() -> None:
     backend = CSVResearchBackend()
+    company = _first_company_in_graph()
 
-    profile = backend.get_company_profile("中际旭创")
+    profile = backend.get_company_profile(company)
     payload = profile.to_dict()
 
-    assert profile.company == "中际旭创"
+    assert profile.company == company
     assert "evidence_cards" in payload
     assert "risks" in payload
     assert "evidence_gaps" in payload

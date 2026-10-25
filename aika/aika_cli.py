@@ -7,6 +7,7 @@ import importlib.metadata
 import json
 import subprocess
 import sys
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -586,7 +587,7 @@ def _check_mcp_server_and_tools(*, timeout_seconds: float) -> list[CliDoctorChec
                 "mcp_server",
                 STATUS_FAIL,
                 f"AIKA MCP server did not return tools/list successfully: {detail}",
-                "Run AIKA_MCP_TRACE=/tmp/aika-mcp.trace aika mcp for protocol details.",
+                f"Run AIKA_MCP_TRACE={Path(tempfile.gettempdir(), 'aika-mcp.trace')} aika mcp for protocol details.",
             ),
             CliDoctorCheck("mcp_tools", STATUS_FAIL, "Skipped because tools/list failed."),
         ]

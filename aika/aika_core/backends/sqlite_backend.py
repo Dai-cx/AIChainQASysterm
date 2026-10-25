@@ -149,7 +149,11 @@ def build_sqlite_index(knowledge_dir: str | Path, index_path: str | Path) -> dic
 
     counts = {"claims": 0, "evidence_spans": 0, "dossiers": 0, "relations": 0}
     try:
-        with sqlite3.connect(tmp_path) as connection:
+        # `with sqlite3.connect(...)` only wraps the *transaction*; it does not close the
+        # file handle. On Windows an open handle makes both `os.replace` and `unlink` fail
+        # with WinError 32, so the connection must be closed explicitly before the swap.
+        connection = sqlite3.connect(tmp_path)
+        try:
             connection.row_factory = sqlite3.Row
             tokenizer = _select_tokenizer(connection)
             _create_schema(connection, tokenizer=tokenizer)
@@ -173,10 +177,11 @@ def build_sqlite_index(knowledge_dir: str | Path, index_path: str | Path) -> dic
                 },
             )
             connection.commit()
+        finally:
+            connection.close()
         tmp_path.replace(target_path)
     except Exception:
-        if tmp_path.exists():
-            tmp_path.unlink()
+        tmp_path.unlink(missing_ok=True)
         raise
     return {"index_path": str(target_path), "knowledge_dir": str(source_dir), "counts": counts}
 

@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -15,7 +17,10 @@ DEFAULT_SERVER_NAME = "aika"
 DEFAULT_TIMEOUT_MS = 600_000
 DEFAULT_CODEX_STARTUP_TIMEOUT_SEC = 30
 DEFAULT_CODEX_TOOL_TIMEOUT_SEC = 600
-DEFAULT_UV_CACHE_DIR = "/tmp/uv-cache"
+# `/tmp/uv-cache` on POSIX, `%TEMP%\uv-cache` on Windows. Hard-coding the POSIX form
+# produced a cache directory that does not exist on Windows.
+DEFAULT_UV_CACHE_DIR = str(Path(tempfile.gettempdir()) / "uv-cache")
+_WINDOWS_ABSOLUTE = re.compile(r"^[A-Za-z]:[\\/]")
 SUPPORTED_HOSTS = {"claude-code", "codex"}
 RESERVED_HOSTS = {"claude-desktop"}
 
@@ -132,27 +137,43 @@ def _resolve_project_root(project_root: str | Path | None) -> Path:
     return Path(__file__).resolve().parents[2]
 
 
-def _resolve_aika_path(aika_path: str | Path | None) -> Path | None:
+def _resolve_aika_path(aika_path: str | Path | None) -> str | None:
     if aika_path:
-        return Path(aika_path).expanduser().resolve()
+        return _portable_absolute(aika_path)
     current = Path(sys.argv[0])
     if current.name == DEFAULT_SERVER_NAME and current.exists():
-        return current.expanduser().resolve()
+        return str(current.expanduser().resolve())
     discovered = shutil.which(DEFAULT_SERVER_NAME)
     if discovered:
-        return Path(discovered).expanduser().resolve()
+        return str(Path(discovered).expanduser().resolve())
     return None
 
 
-def _resolve_uv_path(uv_path: str | Path | None) -> Path:
+def _resolve_uv_path(uv_path: str | Path | None) -> str:
     if uv_path:
-        return Path(uv_path).expanduser().resolve()
+        return _portable_absolute(uv_path)
     discovered = shutil.which("uv")
     if not discovered:
         raise AikaMcpConfigError(
             "Could not find 'uv' on PATH. Install uv or run AIKA from an environment where uv is available."
         )
-    return Path(discovered).expanduser().resolve()
+    return str(Path(discovered).expanduser().resolve())
+
+
+def _portable_absolute(value: str | Path) -> str:
+    """Absolute-path a value, but keep a foreign-style path verbatim.
+
+    Host MCP configs are frequently written for a *different* platform than the one
+    generating them (a POSIX `uv` path inside a Codex TOML is the normal case). Passing
+    `/usr/bin/uv` through `Path(...).resolve()` on Windows silently rewrites it to
+    `D:\\usr\\bin\\uv`, producing a config that can never launch.
+    """
+    raw = str(value)
+    if os.name == "nt" and raw.startswith("/"):
+        return raw
+    if os.name != "nt" and _WINDOWS_ABSOLUTE.match(raw):
+        return raw
+    return str(Path(raw).expanduser().resolve())
 
 
 def _raise_unsupported_host(host: str) -> None:

@@ -6,6 +6,7 @@ import json
 import os
 import shutil
 import subprocess
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -19,6 +20,7 @@ from aika.aika_core.backends.sqlite_backend import (
 from aika.aika_mcp.host_configs import (
     DEFAULT_HOST,
     DEFAULT_SERVER_NAME,
+    DEFAULT_UV_CACHE_DIR,
     AikaMcpConfigError,
     build_mcp_config,
 )
@@ -152,7 +154,7 @@ def _check_mcp_server(config: dict[str, Any], *, timeout_seconds: float) -> Doct
             "mcp_server",
             STATUS_FAIL,
             f"Could not start AIKA MCP server: {detail}",
-            "Run UV_CACHE_DIR=/tmp/uv-cache uv run aika mcp config --host claude-code or --host codex, then retry aika mcp doctor.",
+            f"Run UV_CACHE_DIR={DEFAULT_UV_CACHE_DIR} uv run aika mcp config --host claude-code or --host codex, then retry aika mcp doctor.",
         )
 
     response = _jsonrpc_response(result.stdout, request_id=2)
@@ -161,7 +163,7 @@ def _check_mcp_server(config: dict[str, Any], *, timeout_seconds: float) -> Doct
             "mcp_server",
             STATUS_FAIL,
             "AIKA MCP server started but did not return a tools/list response.",
-            "Retry with AIKA_MCP_TRACE=/tmp/aika-mcp.trace aika mcp doctor for protocol details.",
+            f"Retry with AIKA_MCP_TRACE={Path(tempfile.gettempdir(), 'aika-mcp.trace')} aika mcp doctor for protocol details.",
         )
     if "error" in response:
         return DoctorCheck(

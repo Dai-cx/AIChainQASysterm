@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from datetime import date
 from typing import Any, Iterable
 
 from aika.domain_lexicon import company_segment
@@ -18,6 +19,7 @@ def build_company_coverage_heatmap(
     *,
     target_companies: Iterable[str] | None = None,
     graph_records: Iterable[Any] | None = None,
+    today: date | None = None,
 ) -> CompanyCoverageHeatmapSpec:
     cards = list(evidence_cards or [])
     records = list(graph_records or [])
@@ -38,7 +40,7 @@ def build_company_coverage_heatmap(
     cells: list[HeatmapCellSpec] = []
     for company in companies:
         for segment in segments:
-            score, reason = _score_cards(grouped.get((company, segment), []))
+            score, reason = _score_cards(grouped.get((company, segment), []), today=today)
             ids = dedupe(evidence_id(card) for card in grouped.get((company, segment), []))
             cells.append(HeatmapCellSpec(company=company, segment=segment, score=score, evidence_ids=ids, reason=reason))
     return CompanyCoverageHeatmapSpec(columns=segments, rows=companies, cells=cells)
@@ -60,13 +62,17 @@ def _segment_for_record(record: Any) -> str:
     return text_attr(record, "chain_segment") or text_attr(record, "target") or text_attr(record, "topic")
 
 
-def _score_cards(cards: list[Any]) -> tuple[int, str]:
+def _score_cards(cards: list[Any], *, today: date | None = None) -> tuple[int, str]:
     if not cards:
         return 0, "无证据"
     best = max(_base_score(card) for card in cards)
     source_count = len(dedupe(source_key(card) for card in cards))
     has_direct = any(_base_score(card) >= 3 for card in cards)
-    has_fresh = any((text_attr(card, "freshness_status") or freshness_status(text_attr(card, "published_at") or text_attr(card, "as_of_date"))) == "fresh" for card in cards)
+    has_fresh = any(
+        (text_attr(card, "freshness_status") or freshness_status(text_attr(card, "published_at") or text_attr(card, "as_of_date"), today=today))
+        == "fresh"
+        for card in cards
+    )
     has_metric = any(text_attr(card, "claim_type") == "indicator" or text_attr(card, "metric") or text_attr(card, "value") for card in cards)
     if has_direct and source_count >= 2 and has_fresh and has_metric:
         return 5, "direct + 多来源 + 新鲜 + 有指标"

@@ -141,7 +141,8 @@ def test_format_mcp_config_for_codex_is_valid_toml(tmp_path: Path) -> None:
     assert server["args"] == ["--directory", str(tmp_path.resolve()), "run", "aika", "mcp"]
     assert server["startup_timeout_sec"] == 30
     assert server["tool_timeout_sec"] == 600
-    assert server["env"]["UV_CACHE_DIR"] == "/tmp/uv-cache"
+    # The default must be platform-correct rather than a hard-coded POSIX path.
+    assert server["env"]["UV_CACHE_DIR"] == host_configs.DEFAULT_UV_CACHE_DIR
 
 
 def test_install_refuses_existing_config_without_force(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:

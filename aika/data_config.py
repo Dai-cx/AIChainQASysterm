@@ -227,7 +227,16 @@ def write_default_companies(path: Path = COMPANIES_EXTENDED_CSV) -> None:
 
 
 def load_companies(path: Path = COMPANIES_EXTENDED_CSV) -> list[Company]:
-    write_default_companies(path)
+    """Read the company table, falling back to the built-in defaults.
+
+    Reading used to materialise the CSV first (``write_default_companies``), which made
+    every first question write into the installed package directory - a PermissionError
+    on any machine where site-packages is read-only, and before that an ImportError-free
+    but fatal surprise. The defaults now stay in memory; writing a file is an explicit
+    action (``aika init``).
+    """
+    if not path.exists():
+        return [_company_from_defaults(row) for row in DEFAULT_COMPANIES]
     with path.open(newline="", encoding="utf-8") as file:
         reader = csv.DictReader(file)
         return [
@@ -242,6 +251,19 @@ def load_companies(path: Path = COMPANIES_EXTENDED_CSV) -> list[Company]:
             )
             for row in reader
         ]
+
+
+def _company_from_defaults(row: tuple[str, str, str, str, str, str]) -> Company:
+    company, stock_code, market, segment, aliases, notes = row
+    return Company(
+        company=company,
+        stock_code=stock_code,
+        market=market.strip().upper(),
+        chain_segment=segment,
+        aliases=_split_aliases(aliases),
+        is_core_company=True,
+        notes=notes,
+    )
 
 
 def validate_companies(
@@ -295,7 +317,8 @@ def write_default_research_keywords(path: Path = RESEARCH_KEYWORDS_CSV) -> None:
 
 
 def load_research_keywords(path: Path = RESEARCH_KEYWORDS_CSV) -> list[str]:
-    write_default_research_keywords(path)
+    if not path.exists():
+        return [keyword for keyword, _weight, _notes in DEFAULT_RESEARCH_KEYWORDS]
     with path.open(newline="", encoding="utf-8") as file:
         return [row["keyword"].strip() for row in csv.DictReader(file) if row.get("keyword", "").strip()]
 
@@ -311,7 +334,8 @@ def write_default_industry_sources(path: Path = INDUSTRY_SOURCES_CSV) -> None:
 
 
 def load_industry_sources(path: Path = INDUSTRY_SOURCES_CSV) -> list[IndustrySource]:
-    write_default_industry_sources(path)
+    if not path.exists():
+        return [_industry_source_from_defaults(row) for row in DEFAULT_INDUSTRY_SOURCES]
     with path.open(newline="", encoding="utf-8") as file:
         return [
             IndustrySource(
@@ -328,6 +352,21 @@ def load_industry_sources(path: Path = INDUSTRY_SOURCES_CSV) -> list[IndustrySou
             )
             for row in csv.DictReader(file)
         ]
+
+
+def _industry_source_from_defaults(row: dict[str, str]) -> IndustrySource:
+    return IndustrySource(
+        report_id=str(row.get("report_id", "")).strip(),
+        title=str(row.get("title", "")).strip(),
+        source_site=str(row.get("source_site", "")).strip(),
+        source_url=str(row.get("source_url", "")).strip(),
+        pdf_url=str(row.get("pdf_url", "")).strip(),
+        year=str(row.get("year", "")).strip(),
+        published_at=str(row.get("published_at", "")).strip(),
+        source_tier=str(row.get("source_tier", "")).strip(),
+        source_type=str(row.get("source_type", "")).strip(),
+        topics=str(row.get("topics", "")).strip(),
+    )
 
 
 def validate_industry_sources(sources: list[IndustrySource]) -> None:

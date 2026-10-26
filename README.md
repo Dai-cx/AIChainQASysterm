@@ -1,6 +1,10 @@
-# AIKA · AI 算力产业链投研问答
+# AIKA · AI 算力产业链投研多 Agent 助手
 
 面向 AI 算力产业链（AI 服务器、芯片、光模块、液冷、数据中心）的证据驱动问答系统。每条结论都带证据卡与 claim 引用，证据缺口会被显式列出，而不是编一个答案出来。
+
+![问答界面](docs/screenshots/02-answer.png)
+
+<sub>截图：一次真实问答。左侧是会话历史，右侧答案的 `[E1]`–`[E6]` 都能在证据卡里点开原文位置。</sub>
 
 同一个内核有四种用法，全部只需要 `aika` 一个命令：
 
@@ -12,7 +16,7 @@
 | 更强的检索（BM25 + pgvector 语义） | `docker compose up -d db` | Docker |
 
 - Python `>=3.11`
-- 测试：`pytest` 全绿（248 passed / 1 skipped）
+- 测试：`pytest` 全绿（246 passed / 1 skipped）
 - 一次真实问答：`aika showcase`（LLM 可选，没有 API Key 时退化为"证据堆砌"）
 
 ---

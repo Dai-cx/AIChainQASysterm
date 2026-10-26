@@ -112,3 +112,6 @@ skillsDesign/
 
 # jieba dictionary cache, regenerated on first use
 jieba.cache
+
+# Personal resume drafts
+简历/
